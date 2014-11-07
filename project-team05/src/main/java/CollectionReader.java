@@ -146,6 +146,9 @@ public class CollectionReader extends CollectionReader_ImplBase {
       } else if (input instanceof TrainingListQuestion) {
         List<List<String>> answerVariantsList = ((TrainingListQuestion)
 input)
+=======
+        List<List<String>> answerVariantsList = ((TrainingListQuestion) input)
+>>>>>>> master
             .getExactAnswer();
         if (answerVariantsList != null) {
           answerVariantsList
@@ -191,7 +194,10 @@ input)
 
   @Override
   public boolean hasNext() throws IOException, CollectionException {
+<<<<<<< HEAD
     // TODO Auto-generated method stub
+=======
+>>>>>>> master
     return false;
   }
 
@@ -210,4 +216,7 @@ input)
   }
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
