@@ -21,7 +21,7 @@
    -->
 <casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>edu.cmu.deiis.types.geneCASconsumer</implementationName>
+  <implementationName>casConsumer</implementationName>
   <processingResourceMetaData>
     <name>CAS Consumer</name>
     <description>Writes the CAS to XMI format</description>
@@ -43,7 +43,11 @@
         </value>
       </nameValuePair>
     </configurationParameterSettings>
-    <typeSystemDescription/>
+    <typeSystemDescription>
+      <imports>
+        <import name="type.OAQATypes"/>
+      </imports>
+    </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>

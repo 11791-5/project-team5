@@ -23,7 +23,7 @@
      filesystem.  The Java class for this collection reader is in uima_core.jar. -->
 <collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
     <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-    <implementationName>edu.cmu.deiis.types.geneCollectionReader</implementationName>
+    <implementationName>CollectionReader</implementationName>
     <processingResourceMetaData>
         <name>geneCollectionReader</name>
         <description>Reads files from the filesystem.  This CollectionReader may be used
@@ -53,7 +53,11 @@
 
         <!-- Type System of CASes returned by this Collection Reader -->
 
-        <typeSystemDescription/>
+        <typeSystemDescription>
+      <imports>
+        <import name="type.OAQATypes"/>
+      </imports>
+    </typeSystemDescription>
 
         <typePriorities/>
     <fsIndexCollection/>
@@ -70,28 +74,5 @@
 			<outputsNewCASes>true</outputsNewCASes>
 		</operationalProperties>		
     </processingResourceMetaData>
-<externalResourceDependencies>
-    <externalResourceDependency>
-      <key>hw2.in</key>
-      <description/>
-      <optional>false</optional>
-    </externalResourceDependency>
-  </externalResourceDependencies>
-  <resourceManagerConfiguration>
-    <externalResources>
-      <externalResource>
-        <name>hw2.in</name>
-        <description/>
-        <fileResourceSpecifier>
-          <fileUrl>data/hw2.in</fileUrl>
-        </fileResourceSpecifier>
-      </externalResource>
-    </externalResources>
-    <externalResourceBindings>
-      <externalResourceBinding>
-        <key>hw2.in</key>
-        <resourceName>hw2.in</resourceName>
-      </externalResourceBinding>
-    </externalResourceBindings>
-  </resourceManagerConfiguration>
+<resourceManagerConfiguration/>
 </collectionReaderDescription>

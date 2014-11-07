@@ -1,12 +1,12 @@
-
-
-
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
@@ -15,6 +15,7 @@ import org.apache.uima.collection.CollectionReader_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceConfigurationException;
 import org.apache.uima.resource.ResourceInitializationException;
+import org.apache.uima.util.FileUtils;
 import org.apache.uima.util.Progress;
 
 import com.google.common.collect.Lists;
@@ -38,7 +39,16 @@ import util.TypeFactory;
 
 public class CollectionReader extends CollectionReader_ImplBase {
 
+  private ArrayList<File> mFiles;
+
+  private int mCurrentIndex = 0;
+  
+//  String filePath = "/BioASQ-SampleData1B.json";
+  String filePath = "src/main/resources/question.json";
+
   public void initialize() throws ResourceInitializationException {
+    System.out.println("Initializing CR");
+    System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
   }
 
@@ -49,21 +59,26 @@ public class CollectionReader extends CollectionReader_ImplBase {
   }
   */
  
-  public void parseQuestion(CAS aCAS) throws CASException{
-    JCas jcas;
-    jcas = aCAS.getJCas();
-    String filePath = "/BioASQ-SampleData1B.json";
+  public void parseQuestion(JCas jcas) throws CASException{
+    System.out.println("Parsing question");
+    //   JCas jcas;
+   // jcas = aCAS.getJCas();
+//    String filePath = "/BioASQ-SampleData1B.json";
     
-    List<Question> inputs;
+    List<TestQuestion> inputs;
     inputs = Lists.newArrayList();
-  /*  InputStream stream = getClass().getResourceAsStream(filePath);
+    
+    InputStream stream = getClass().getResourceAsStream("questions.json");
+  //  BufferedReader readfile = new BufferedReader(new FileReader("/home/larbi/git/project-team5/project-team05/src/main/resources/questions.json"));
+/*    
     try {
       System.out.println("stream " + stream.read());
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
-    }*/
-    Object value = filePath;
+    }
+  */  
+    
+    Object value = "questions.json";
     if (String.class.isAssignableFrom(value.getClass())) {
       inputs = TestSet
           .load(getClass().getResourceAsStream(
@@ -78,9 +93,9 @@ public class CollectionReader extends CollectionReader_ImplBase {
                   .stream()).collect(toList());
     }
     
-    for (Question q: inputs){
+    for (TestQuestion q: inputs){
+//      System.out.println("question q " + q.getId());
       addQuestionToIndex(q, "temp", jcas);
-      
     }
     /*
     // trim question texts
@@ -185,17 +200,33 @@ input)
   }
 
 
-  @Override
   public void getNext(CAS aCAS) throws IOException, CollectionException {
-    // TODO Auto-generated method stub
+    System.out.println("calling getNext");
+    JCas jcas;
+    try {
+      jcas = aCAS.getJCas();
+    } catch (CASException e) {
+      throw new CollectionException(e);
+    }
     
+    String content = new Scanner(new File("src/main/resources/questions.json")).useDelimiter("\\Z").next();
+    System.out.println("fetched content");
+    // put document in CAS
+    jcas.setDocumentText(content);
+
+    try {
+      parseQuestion(jcas);
+    } catch (CASException e) {
+      e.printStackTrace();
+    }
   }
 
 
   @Override
   public boolean hasNext() throws IOException, CollectionException {
-    // TODO Auto-generated method stub
-    return false;
+    mCurrentIndex++;
+    return mCurrentIndex < 2;
+    
   }
 
 
@@ -211,6 +242,7 @@ input)
     // TODO Auto-generated method stub
     
   }
+
 
 }
 
