@@ -1,15 +1,19 @@
 package edu.cmu.lti.oaqa.consumers;
 
-import edu.cmu.lti.oaqa.type.input.GoldStandardAnswer;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import json.gson.Question;
 
 public class GoldStandardSingleton 
 {
   private static GoldStandardSingleton goldStandardSingleton;
-  private GoldStandardAnswer goldStandardAnswer;
+  private Map<String,Question> goldStandardAnswer;
 
   private GoldStandardSingleton()
   {
-    goldStandardAnswer = new GoldStandardAnswer();
+    goldStandardAnswer = new HashMap<String,Question>();
   }
   public static synchronized GoldStandardSingleton getInstance()
   {
@@ -18,11 +22,15 @@ public class GoldStandardSingleton
     return goldStandardSingleton;
   }
   
-  public GoldStandardAnswer getGoldStandardAnswer() {
+  public Map<String,Question> getGoldStandardAnswer() {
     return goldStandardAnswer;
   }
 
-  public void setGoldStandardAnswer(GoldStandardAnswer goldStandardAnswer) {
-    this.goldStandardAnswer = goldStandardAnswer;
+  public void setGoldStandardAnswer(List<Question> stdAnswers) 
+  {
+    for(Question answer:stdAnswers)
+    {
+      this.goldStandardAnswer.put(answer.getId(), answer);
+    }
   }
 }

@@ -15,6 +15,8 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.Progress;
 
+import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
+
 public class CollectionReader extends CollectionReader_ImplBase {
 
   private ArrayList<File> mFiles;
@@ -24,11 +26,14 @@ public class CollectionReader extends CollectionReader_ImplBase {
    * Name of configuration parameter that must be set to the path of the input file.
    */
   public static final String PARAM_INPUT_FILE = "InputFile";
+  public static final String PARAM_GOLD_STANDARD_FILE = "GoldStdFile";
 
 //  String filePath = "/BioASQ-SampleData1B.json";
   //String filePath = "src/main/resources/question.json";
   private File inputFile;
+  private File goldStandard;
   List<Question> inputs;
+  List<Question> stdAnswers;
   JsonCollectionReaderHelper jsonReader;
   int currentIndex = 0;
   int numberOfQuestions = 0;
@@ -45,7 +50,10 @@ public class CollectionReader extends CollectionReader_ImplBase {
     }
     jsonReader = new JsonCollectionReaderHelper();
     inputs = jsonReader.getQuestionsList("/"+inputFile.getName());
-   
+    
+    goldStandard = new File(((String) getConfigParameterValue(PARAM_GOLD_STANDARD_FILE)).trim());
+    stdAnswers = jsonReader.getQuestionsList("/"+goldStandard.getName());
+    GoldStandardSingleton.getInstance().setGoldStandardAnswer(stdAnswers); 
     numberOfQuestions = inputs.size();
 
   }  
