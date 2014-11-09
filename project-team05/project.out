@@ -25232,3 +25232,1692 @@ corneal argyrosis | NonEmptyStringList
    head: "http://www.disease-ontology.org/api/metadata/DOID:13447"
    tail: EmptyStringList
 
+Hodgkin's lymphoma, nodular sclerosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8838"
+   tail: EmptyStringList
+
+DiGeorge syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11198"
+   tail: EmptyStringList
+
+regulation of mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:1900363"
+   tail: EmptyStringList
+
+articular cartilage disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6227"
+   tail: EmptyStringList
+
+nasopharynx carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9261"
+   tail: EmptyStringList
+
+Behcet's syndrome arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1670"
+   tail: EmptyStringList
+
+Potter's syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12594"
+   tail: EmptyStringList
+
+mycosis fungoides | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8691"
+   tail: EmptyStringList
+
+Hodgkin's lymphoma, mixed cellularity | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8654"
+   tail: EmptyStringList
+
+oral cavity cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8618"
+   tail: EmptyStringList
+
+positive regulation of mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:1900365"
+   tail: EmptyStringList
+
+snoRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0071050"
+   tail: EmptyStringList
+
+ncRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0043629"
+   tail: EmptyStringList
+
+Hodgkin's granuloma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8651"
+   tail: EmptyStringList
+
+hypopharynx cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8533"
+   tail: EmptyStringList
+
+necrotizing ulcerative gingivitis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13924"
+   tail: EmptyStringList
+
+mononeuritis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1802"
+   tail: EmptyStringList
+
+arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:381"
+   tail: EmptyStringList
+
+gum cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8602"
+   tail: EmptyStringList
+
+ruptured aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7682"
+   tail: EmptyStringList
+
+polynucleotide adenylyltransferase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004652"
+   tail: EmptyStringList
+
+Poland syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12961"
+   tail: EmptyStringList
+
+lip cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8564"
+   tail: EmptyStringList
+
+male reproductive organ cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3856"
+   tail: EmptyStringList
+
+skin benign  neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3165"
+   tail: EmptyStringList
+
+negative regulation of mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:1900364"
+   tail: EmptyStringList
+
+transcription termination site sequence-specific DNA binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0001147"
+   tail: EmptyStringList
+
+Kaposi's sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8632"
+   tail: EmptyStringList
+
+mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0006378"
+   tail: EmptyStringList
+
+Sezary's disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8541"
+   tail: EmptyStringList
+
+transient arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12084"
+   tail: EmptyStringList
+
+Burkitt's lymphoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8584"
+   tail: EmptyStringList
+
+sarcoidosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11335"
+   tail: EmptyStringList
+
+mucinous adenocarcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3030"
+   tail: EmptyStringList
+
+placental site trophoblastic tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3596"
+   tail: EmptyStringList
+
+osteochondrosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8125"
+   tail: EmptyStringList
+
+Hodgkin's lymphoma, lymphocytic depletion | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8628"
+   tail: EmptyStringList
+
+lymphangioma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1475"
+   tail: EmptyStringList
+
+situs inversus | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:758"
+   tail: EmptyStringList
+
+Letterer-Siwe disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2554"
+   tail: EmptyStringList
+
+poly(A) RNA binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0008143"
+   tail: EmptyStringList
+
+holoprosencephaly | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4621"
+   tail: EmptyStringList
+
+tongue cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8649"
+   tail: EmptyStringList
+
+decubitus ulcer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8717"
+   tail: EmptyStringList
+
+oropharynx cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8557"
+   tail: EmptyStringList
+
+RNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0043631"
+   tail: EmptyStringList
+
+triple-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060081"
+   tail: EmptyStringList
+
+connective tissue cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:201"
+   tail: EmptyStringList
+
+sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1115"
+   tail: EmptyStringList
+
+nontoxic goiter | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13195"
+   tail: EmptyStringList
+
+systemic mastocytosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:349"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3963"
+   tail: EmptyStringList
+
+hyperthyroidism | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7998"
+   tail: EmptyStringList
+
+follicular thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3962"
+   tail: EmptyStringList
+
+thyroid hormone receptor activator activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0010861"
+   tail: EmptyStringList
+
+lipoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3315"
+   tail: EmptyStringList
+
+thyroid hurthle cell adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8162"
+   tail: EmptyStringList
+
+endocrine exophthalmos | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12359"
+   tail: EmptyStringList
+
+thyroid angiosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4514"
+   tail: EmptyStringList
+
+clear cell sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4233"
+   tail: EmptyStringList
+
+papillary follicular thyroid adenocarcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3968"
+   tail: EmptyStringList
+
+estrogen-receptor positive breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060075"
+   tail: EmptyStringList
+
+thyroid medullary carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3973"
+   tail: EmptyStringList
+
+subacute thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7165"
+   tail: EmptyStringList
+
+muscle benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:461"
+   tail: EmptyStringList
+
+thyroid gland disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:50"
+   tail: EmptyStringList
+
+thyroid hormone resistance syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11633"
+   tail: EmptyStringList
+
+autoimmune disease of skin and connective tissue | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060039"
+   tail: EmptyStringList
+
+hemangioma of subcutaneous tissue | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13081"
+   tail: EmptyStringList
+
+thyroid hurthle cell carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8161"
+   tail: EmptyStringList
+
+Riedel's fibrosing thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14351"
+   tail: EmptyStringList
+
+thyroid cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1781"
+   tail: EmptyStringList
+
+teeth hard tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:214"
+   tail: EmptyStringList
+
+substernal goiter | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13200"
+   tail: EmptyStringList
+
+thyroid malformation | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8433"
+   tail: EmptyStringList
+
+autoimmune thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7188"
+   tail: EmptyStringList
+
+fibrosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3355"
+   tail: EmptyStringList
+
+thyrotropin-releasing hormone receptor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004997"
+   tail: EmptyStringList
+
+familial medullary thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050547"
+   tail: EmptyStringList
+
+skin disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:37"
+   tail: EmptyStringList
+
+pelvic inflammatory disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1003"
+   tail: EmptyStringList
+
+acute thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14353"
+   tail: EmptyStringList
+
+subacute lymphocytic thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7187"
+   tail: EmptyStringList
+
+Kaposi's sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8632"
+   tail: EmptyStringList
+
+mucoepidermoid thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4687"
+   tail: EmptyStringList
+
+osteosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3347"
+   tail: EmptyStringList
+
+connective tissue benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060123"
+   tail: EmptyStringList
+
+thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7166"
+   tail: EmptyStringList
+
+progesterone-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060078"
+   tail: EmptyStringList
+
+soft tissue peripheral neuroepithelioma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4389"
+   tail: EmptyStringList
+
+thyroid-stimulating hormone receptor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004996"
+   tail: EmptyStringList
+
+suppurative thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14350"
+   tail: EmptyStringList
+
+thyroid adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2891"
+   tail: EmptyStringList
+
+cystic echinococcosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1495"
+   tail: EmptyStringList
+
+Her2-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060080"
+   tail: EmptyStringList
+
+thyrotropin-releasing hormone receptor binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0031531"
+   tail: EmptyStringList
+
+perineurioma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4697"
+   tail: EmptyStringList
+
+thyrotropin-releasing hormone activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0008437"
+   tail: EmptyStringList
+
+vascular cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:175"
+   tail: EmptyStringList
+
+Her2-receptor positive breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060079"
+   tail: EmptyStringList
+
+thyroid lymphoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10011"
+   tail: EmptyStringList
+
+follicular adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6204"
+   tail: EmptyStringList
+
+hypothyroidism | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1459"
+   tail: EmptyStringList
+
+thyroid sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4515"
+   tail: EmptyStringList
+
+lipomatous cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3939"
+   tail: EmptyStringList
+
+papillary thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3969"
+   tail: EmptyStringList
+
+progesterone-receptor positive breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060077"
+   tail: EmptyStringList
+
+thyroid crisis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12837"
+   tail: EmptyStringList
+
+small intestine leiomyosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5271"
+   tail: EmptyStringList
+
+thyroid hyalinizing trabecular adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6203"
+   tail: EmptyStringList
+
+malignant thyroid stimulating hormone producing neoplasm of pituitary gland | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6274"
+   tail: EmptyStringList
+
+mixed connective tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3492"
+   tail: EmptyStringList
+
+vascular tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0000405"
+   tail: EmptyStringList
+
+thyroid hormone receptor coactivator activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0030375"
+   tail: EmptyStringList
+
+cerebral folate receptor alpha deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050719"
+   tail: EmptyStringList
+
+muscle tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:66"
+   tail: EmptyStringList
+
+NAD(P)H oxidase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0016174"
+   tail: EmptyStringList
+
+interleukin-7 receptor alpha deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060015"
+   tail: EmptyStringList
+
+multicentric papillary thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7086"
+   tail: EmptyStringList
+
+RNA polymerase II transcription cofactor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0001104"
+   tail: EmptyStringList
+
+connective tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:65"
+   tail: EmptyStringList
+
+mediastinal mesenchymal tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5560"
+   tail: EmptyStringList
+
+thyroid hormone receptor binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0046966"
+   tail: EmptyStringList
+
+skin lipoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10188"
+   tail: EmptyStringList
+
+estrogen-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060076"
+   tail: EmptyStringList
+
+thyroid hormone receptor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004887"
+   tail: EmptyStringList
+
+22125104
+19553036
+14669949
+12045258
+9167947
+8320423
+3360902
+7794253
+11399468
+12515285
+18400223
+20464711
+Hodgkin's lymphoma, nodular sclerosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8838"
+   tail: EmptyStringList
+
+mucopolysaccharidosis I | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12802"
+   tail: EmptyStringList
+
+cell type cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050687"
+   tail: EmptyStringList
+
+Wermer syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10017"
+   tail: EmptyStringList
+
+neurofibromatosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8712"
+   tail: EmptyStringList
+
+mucosulfatidosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050441"
+   tail: EmptyStringList
+
+negative regulation of complement activation, classical pathway in other organism | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0044629"
+   tail: EmptyStringList
+
+type 1 papillary adenoma of the kidney | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6258"
+   tail: EmptyStringList
+
+classic congenital mesoblastic nephroma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8083"
+   tail: EmptyStringList
+
+Charcot-Marie-Tooth disease type 1 | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050538"
+   tail: EmptyStringList
+
+Wagenmann-Froboese syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10016"
+   tail: EmptyStringList
+
+autoimmune disease of endocrine system | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060005"
+   tail: EmptyStringList
+
+endocrine system development | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0035270"
+   tail: EmptyStringList
+
+reproductive organ cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:193"
+   tail: EmptyStringList
+
+vestibular nystagmus | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14070"
+   tail: EmptyStringList
+
+trichorhinophalangeal syndrome type I | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14743"
+   tail: EmptyStringList
+
+syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:225"
+   tail: EmptyStringList
+
+hematopoietic system disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:74"
+   tail: EmptyStringList
+
+multiple personality disorder | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10934"
+   tail: EmptyStringList
+
+pancreatic endocrine carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1798"
+   tail: EmptyStringList
+
+multiple sclerosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2377"
+   tail: EmptyStringList
+
+pre-eclampsia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10591"
+   tail: EmptyStringList
+
+endocrine organ benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060089"
+   tail: EmptyStringList
+
+traumatic glaucoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13060"
+   tail: EmptyStringList
+
+acrocallosal syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9250"
+   tail: EmptyStringList
+
+hereditary multiple exostoses | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:206"
+   tail: EmptyStringList
+
+psychologic dyspareunia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11120"
+   tail: EmptyStringList
+
+tropical spastic paraparesis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:321"
+   tail: EmptyStringList
+
+schizophrenia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5419"
+   tail: EmptyStringList
+
+MHC class I deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060009"
+   tail: EmptyStringList
+
+reproductive organ benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050622"
+   tail: EmptyStringList
+
+cryptogenic organizing pneumonia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050157"
+   tail: EmptyStringList
+
+NADH dehydrogenase (ubiquinone) activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0008137"
+   tail: EmptyStringList
+
+associative agnosia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060136"
+   tail: EmptyStringList
+
+multiple myeloma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9538"
+   tail: EmptyStringList
+
+classic variant of chromophobe renal cell carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6605"
+   tail: EmptyStringList
+
+malignant giant cell tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2705"
+   tail: EmptyStringList
+
+female reproductive organ cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:120"
+   tail: EmptyStringList
+
+organic acidemia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060159"
+   tail: EmptyStringList
+
+Friedreich ataxia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12705"
+   tail: EmptyStringList
+
+male reproductive organ cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3856"
+   tail: EmptyStringList
+
+TRAF-mediated signal transduction | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0038008"
+   tail: EmptyStringList
+
+Sipple syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050430"
+   tail: EmptyStringList
+
+non-functioning pancreatic endocrine tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7698"
+   tail: EmptyStringList
+
+Sugio-Kaji syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050552"
+   tail: EmptyStringList
+
+classic pulmonary blastoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4767"
+   tail: EmptyStringList
+
+pachyonychia congenita | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050449"
+   tail: EmptyStringList
+
+type 1 diabetes mellitus | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9744"
+   tail: EmptyStringList
+
+olivopontocerebellar atrophy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14784"
+   tail: EmptyStringList
+
+adult type testicular granulosa cell tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8394"
+   tail: EmptyStringList
+
+endocrine system disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:28"
+   tail: EmptyStringList
+
+arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:381"
+   tail: EmptyStringList
+
+islet cell tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1799"
+   tail: EmptyStringList
+
+positive regulation of complement activation, classical pathway in other organism | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0044628"
+   tail: EmptyStringList
+
+calcaneonavicular coalition | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14762"
+   tail: EmptyStringList
+
+multiple epiphyseal dysplasia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12721"
+   tail: EmptyStringList
+
+endocrine pancreas cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10165"
+   tail: EmptyStringList
+
+CD40 ligand deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060022"
+   tail: EmptyStringList
+
+geniculate herpes zoster | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9210"
+   tail: EmptyStringList
+
+Cowden disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6457"
+   tail: EmptyStringList
+
+VACTERL association | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14679"
+   tail: EmptyStringList
+
+endocrine signaling | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0038002"
+   tail: EmptyStringList
+
+endocrine pancreas disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1428"
+   tail: EmptyStringList
+
+Lynch syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3883"
+   tail: EmptyStringList
+
+juvenile type testicular granulosa cell tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6032"
+   tail: EmptyStringList
+
+methotrexate-associated lymphoproliferation | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5821"
+   tail: EmptyStringList
+
+multiple carboxylase deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:857"
+   tail: EmptyStringList
+
+Carney complex | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050471"
+   tail: EmptyStringList
+
+regulation of endocrine process | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0044060"
+   tail: EmptyStringList
+
+Niemann-Pick disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14504"
+   tail: EmptyStringList
+
+mixed ductal-endocrine carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7716"
+   tail: EmptyStringList
+
+ideomotor apraxia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4627"
+   tail: EmptyStringList
+
+modulation of complement activation, classical pathway in other organism | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0044627"
+   tail: EmptyStringList
+
+organ system cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050686"
+   tail: EmptyStringList
+
+multiple system atrophy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4752"
+   tail: EmptyStringList
+
+cognitive disorder | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1561"
+   tail: EmptyStringList
+
+endocrine exophthalmos | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12359"
+   tail: EmptyStringList
+
+type I Ehlers-Danlos syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14720"
+   tail: EmptyStringList
+
+lipoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3315"
+   tail: EmptyStringList
+
+multiple intestinal atresia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14671"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+endocrine process | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0050886"
+   tail: EmptyStringList
+
+Smith-Lemli-Opitz syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14692"
+   tail: EmptyStringList
+
+Aagenaes syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6691"
+   tail: EmptyStringList
+
+retinitis pigmentosa | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10584"
+   tail: EmptyStringList
+
+lung oat cell carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5411"
+   tail: EmptyStringList
+
+sleep disorder | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:535"
+   tail: EmptyStringList
+
+Ollier disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4624"
+   tail: EmptyStringList
+
+autoimmune polyendocrine syndrome type 2 | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050168"
+   tail: EmptyStringList
+
+autoimmune polyendocrine syndrome type 1 | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050167"
+   tail: EmptyStringList
+
+dengue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12205"
+   tail: EmptyStringList
+
+organ system benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060085"
+   tail: EmptyStringList
+
+migraine with aura | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10024"
+   tail: EmptyStringList
+
+gangliosidosis GM1 | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3322"
+   tail: EmptyStringList
+
+typhus | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11256"
+   tail: EmptyStringList
+
+familial combined hyperlipidemia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13809"
+   tail: EmptyStringList
+
+NADH dehydrogenase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0003954"
+   tail: EmptyStringList
+
+MHC class II deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5812"
+   tail: EmptyStringList
+
+granulosa cell tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2999"
+   tail: EmptyStringList
+
+LEOPARD syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14291"
+   tail: EmptyStringList
+
+endocrine gland cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:170"
+   tail: EmptyStringList
+
+type VI Ehlers-Danlos syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14775"
+   tail: EmptyStringList
+
+neurogenic arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14286"
+   tail: EmptyStringList
+
+sensory organ benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060096"
+   tail: EmptyStringList
+
+psychologic vaginismus | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10131"
+   tail: EmptyStringList
+
+mixed cell type kidney Wilms' tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5179"
+   tail: EmptyStringList
+
+type III Ehlers-Danlos syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14757"
+   tail: EmptyStringList
+
+cardiovascular organ benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060091"
+   tail: EmptyStringList
+
+Behcet's syndrome arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1670"
+   tail: EmptyStringList
+
+classic type lipoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10193"
+   tail: EmptyStringList
+
+negative regulation of ligase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0051352"
+   tail: EmptyStringList
+
+negative regulation of hydrolase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0051346"
+   tail: EmptyStringList
+
+negative regulation of transferase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0051348"
+   tail: EmptyStringList
+
+negative regulation of kinase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0033673"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+ligase inhibitor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0055104"
+   tail: EmptyStringList
+
+neonatal myasthenia gravis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14043"
+   tail: EmptyStringList
+
+C1 inhibitor deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060002"
+   tail: EmptyStringList
+
+kinase inhibitor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0019210"
+   tail: EmptyStringList
+
+negative regulation of oxidoreductase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0051354"
+   tail: EmptyStringList
+
+acetylcholinesterase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0003990"
+   tail: EmptyStringList
+
+negative regulation of lyase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0051350"
+   tail: EmptyStringList
+
+myasthenia gravis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:437"
+   tail: EmptyStringList
+
+receptor inhibitor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0030547"
+   tail: EmptyStringList
+
+lateral element | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0000800"
+   tail: EmptyStringList
+
+membrane raft | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0045121"
+   tail: EmptyStringList
+
+linear element | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0030998"
+   tail: EmptyStringList
+
+iron-responsive element binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0030350"
+   tail: EmptyStringList
+
+P-element binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0003693"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+tetraspanin-enriched microdomain | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0097197"
+   tail: EmptyStringList
+
+sculpture element | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0043675"
+   tail: EmptyStringList
+
+central element | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0000801"
+   tail: EmptyStringList
+
+linear element assembly | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0030999"
+   tail: EmptyStringList
+
+infiltrating bladder urothelial carcinoma sarcomatoid variant | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7553"
+   tail: EmptyStringList
+
+lateral element assembly | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0051878"
+   tail: EmptyStringList
+
+skin cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4159"
+   tail: EmptyStringList
+
+synovium cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2706"
+   tail: EmptyStringList
+
+spleen cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:672"
+   tail: EmptyStringList
+
+cell type cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050687"
+   tail: EmptyStringList
+
+testicular cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2998"
+   tail: EmptyStringList
+
+pituitary carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4916"
+   tail: EmptyStringList
+
+positive regulation of MDA-5 signaling pathway | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:1900245"
+   tail: EmptyStringList
+
+scrotum neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:518"
+   tail: EmptyStringList
+
+ovarian cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2394"
+   tail: EmptyStringList
+
+brain cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1319"
+   tail: EmptyStringList
+
+neurogenic arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14286"
+   tail: EmptyStringList
+
+kidney cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:263"
+   tail: EmptyStringList
+
+bronchus cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1325"
+   tail: EmptyStringList
+
+endometrial cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1380"
+   tail: EmptyStringList
+
+ocular cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2174"
+   tail: EmptyStringList
+
+cartilage cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060102"
+   tail: EmptyStringList
+
+gallbladder cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3121"
+   tail: EmptyStringList
+
+ulceration of vulva | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12566"
+   tail: EmptyStringList
+
+conjunctival cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5467"
+   tail: EmptyStringList
+
+laryngeal carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2600"
+   tail: EmptyStringList
+
+anus cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14110"
+   tail: EmptyStringList
+
+hematopoietic system disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:74"
+   tail: EmptyStringList
+
+choroid cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12759"
+   tail: EmptyStringList
+
+heart cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:117"
+   tail: EmptyStringList
+
+negative regulation of MDA-5 signaling pathway | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0039534"
+   tail: EmptyStringList
+
+pre-eclampsia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10591"
+   tail: EmptyStringList
+
+traumatic glaucoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13060"
+   tail: EmptyStringList
+
+associative learning | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0008306"
+   tail: EmptyStringList
+
+pituitary cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1785"
+   tail: EmptyStringList
+
+lip cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8564"
+   tail: EmptyStringList
+
+lung carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3905"
+   tail: EmptyStringList
+
+tongue cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8649"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+cell surface | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0009986"
+   tail: EmptyStringList
+
+associative agnosia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060136"
+   tail: EmptyStringList
+
+gene silencing | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0016458"
+   tail: EmptyStringList
+
+bronchogenic carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3904"
+   tail: EmptyStringList
+
+bone cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:184"
+   tail: EmptyStringList
+
+gallbladder carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4948"
+   tail: EmptyStringList
+
+MDA-5 signaling pathway | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0039530"
+   tail: EmptyStringList
+
+larynx cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2596"
+   tail: EmptyStringList
+
+esophageal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5041"
+   tail: EmptyStringList
+
+adrenal gland cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3953"
+   tail: EmptyStringList
+
+intermediate spinal muscular atrophy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050530"
+   tail: EmptyStringList
+
+pancreatic cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1793"
+   tail: EmptyStringList
+
+appendix cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11239"
+   tail: EmptyStringList
+
+duodenum cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10021"
+   tail: EmptyStringList
+
+colon cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:219"
+   tail: EmptyStringList
+
+breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1612"
+   tail: EmptyStringList
+
+Hallervorden-Spatz syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3981"
+   tail: EmptyStringList
+
+cerebrum cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:368"
+   tail: EmptyStringList
+
+stomach cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10534"
+   tail: EmptyStringList
+
+Kaposi's sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8632"
+   tail: EmptyStringList
+
+cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:162"
+   tail: EmptyStringList
+
+peritoneum cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1725"
+   tail: EmptyStringList
+
+urinary bladder cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11054"
+   tail: EmptyStringList
+
+liver cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3571"
+   tail: EmptyStringList
+
+receptor binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0005102"
+   tail: EmptyStringList
+
+respiratory bronchiolitis-associated interstitial lung disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050158"
+   tail: EmptyStringList
+
+prostate cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10283"
+   tail: EmptyStringList
+
+VACTERL association | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14679"
+   tail: EmptyStringList
+
+hematologic cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2531"
+   tail: EmptyStringList
+
+lymphoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060058"
+   tail: EmptyStringList
+
+embryonal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:688"
+   tail: EmptyStringList
+
+cerebellum cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4205"
+   tail: EmptyStringList
+
+methotrexate-associated lymphoproliferation | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5821"
+   tail: EmptyStringList
+
+intestinal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10155"
+   tail: EmptyStringList
+
+vascular cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:175"
+   tail: EmptyStringList
+
+orbital cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4143"
+   tail: EmptyStringList
+
+ureter cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11819"
+   tail: EmptyStringList
+
+Niemann-Pick disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14504"
+   tail: EmptyStringList
+
+prostate carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10286"
+   tail: EmptyStringList
+
+esophageal carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1107"
+   tail: EmptyStringList
+
+acute interstitial pneumonia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2800"
+   tail: EmptyStringList
+
+cervical cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4362"
+   tail: EmptyStringList
+
+auditory system cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:833"
+   tail: EmptyStringList
+
+recombinase activating gene 1 deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060011"
+   tail: EmptyStringList
+
+form agnosia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060142"
+   tail: EmptyStringList
+
+gene conversion | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0035822"
+   tail: EmptyStringList
+
+tropical spastic paraparesis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:321"
+   tail: EmptyStringList
+
+adult spinal muscular atrophy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050529"
+   tail: EmptyStringList
+
+cornea cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6199"
+   tail: EmptyStringList
+
+cardiovascular cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:176"
+   tail: EmptyStringList
+
+uveal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3479"
+   tail: EmptyStringList
+
+placenta cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2021"
+   tail: EmptyStringList
+
+Thomsen disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2106"
+   tail: EmptyStringList
+
+regulation of MDA-5 signaling pathway | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0039533"
+   tail: EmptyStringList
+
+urethra cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:734"
+   tail: EmptyStringList
+
+cervix carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2893"
+   tail: EmptyStringList
+
+penile cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11615"
+   tail: EmptyStringList
+
+vestibular nystagmus | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14070"
+   tail: EmptyStringList
+
+thoracic cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5093"
+   tail: EmptyStringList
+
+thyroid cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1781"
+   tail: EmptyStringList
+
+pleural cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9917"
+   tail: EmptyStringList
+
+recombinase activating gene 2 deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060012"
+   tail: EmptyStringList
+
+gene expression | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0010467"
+   tail: EmptyStringList
+
+chorioretinitis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8886"
+   tail: EmptyStringList
+
+stomach carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5517"
+   tail: EmptyStringList
+
+retinal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4645"
+   tail: EmptyStringList
+
+thymus cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3277"
+   tail: EmptyStringList
+
+rectum cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1993"
+   tail: EmptyStringList
+
+vulva cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1245"
+   tail: EmptyStringList
+
+mediastinal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5559"
+   tail: EmptyStringList
+
+cancerophobia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:602"
+   tail: EmptyStringList
+
+muscle cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4045"
+   tail: EmptyStringList
+
+vaginal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:119"
+   tail: EmptyStringList
+
+lung cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1324"
+   tail: EmptyStringList
+
+spinal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5612"
+   tail: EmptyStringList
+
+uterine cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:363"
+   tail: EmptyStringList
+
+tracheal cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11920"
+   tail: EmptyStringList
+
+Wolman disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14497"
+   tail: EmptyStringList
+
+erythropoietin polycythemia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2839"
+   tail: EmptyStringList
+
+induction by organism of defense-related reactive oxygen species production in other organism involved in symbiotic interaction | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052264"
+   tail: EmptyStringList
+
+modulation by symbiont of defense-related host reactive oxygen species production | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052164"
+   tail: EmptyStringList
+
+positive regulation by organism of defense-related reactive oxygen species production in other organism involved in symbiotic interaction | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052348"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+lipid metabolism disorder | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3146"
+   tail: EmptyStringList
+
+response to defense-related host reactive oxygen species production | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052567"
+   tail: EmptyStringList
+
+glycogen storage disease II | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2752"
+   tail: EmptyStringList
+
+gamma-amino butyric acid metabolism disorder | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060176"
+   tail: EmptyStringList
+
+modulation by organism of defense-related reactive oxygen species production in other organism involved in symbiotic interaction | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052303"
+   tail: EmptyStringList
+
+acute urate nephropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:580"
+   tail: EmptyStringList
+
+scirrhous adenocarcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4024"
+   tail: EmptyStringList
+
+congenital bile acid synthesis defect | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050674"
+   tail: EmptyStringList
+
+succinate-citramalate CoA-transferase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0047370"
+   tail: EmptyStringList
+
+trichostrongylosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1254"
+   tail: EmptyStringList
+
+gastroesophageal reflux disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8534"
+   tail: EmptyStringList
+
+organic acidemia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060159"
+   tail: EmptyStringList
+
+isovaleric acidemia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14753"
+   tail: EmptyStringList
+
+negative regulation by symbiont of defense-related host reactive oxygen species production | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0033661"
+   tail: EmptyStringList
+
+Farber lipogranulomatosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050464"
+   tail: EmptyStringList
+
+urea cycle disorder | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9267"
+   tail: EmptyStringList
+
+folic acid deficiency anemia | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14026"
+   tail: EmptyStringList
+
+induction by symbiont of defense-related host reactive oxygen species production | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052064"
+   tail: EmptyStringList
+
+GABA aminotransferase deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060174"
+   tail: EmptyStringList
+
+respiratory burst involved in inflammatory response | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0002536"
+   tail: EmptyStringList
+
+excessive tearing | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13757"
+   tail: EmptyStringList
+
+Hartnup disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1060"
+   tail: EmptyStringList
+
+amino acid metabolic disorder | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9252"
+   tail: EmptyStringList
+
+infantile refsum disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050444"
+   tail: EmptyStringList
+
+positive regulation by symbiont of defense-related host reactive oxygen species production | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052369"
+   tail: EmptyStringList
+
+23420787
+defense response by callose deposition | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052542"
+   tail: EmptyStringList
+
+histone modification | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0016570"
+   tail: EmptyStringList
+
+neuromast deposition | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0048885"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+histone methylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0016571"
+   tail: EmptyStringList
+
+histone binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0042393"
+   tail: EmptyStringList
+
+histone phosphorylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0016572"
+   tail: EmptyStringList
+
+conjunctival deposit | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11653"
+   tail: EmptyStringList
+
+mating plug formation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0042628"
+   tail: EmptyStringList
+
+histone acetylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0016573"
+   tail: EmptyStringList
+
+histone catabolic process | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0036205"
+   tail: EmptyStringList
+
+callose deposition in cell wall | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0052543"
+   tail: EmptyStringList
+
+corneal deposit | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11547"
+   tail: EmptyStringList
+
+pseudogout | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1156"
+   tail: EmptyStringList
+
+corneal argyrosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13447"
+   tail: EmptyStringList
+

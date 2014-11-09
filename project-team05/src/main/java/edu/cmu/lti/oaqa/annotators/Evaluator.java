@@ -21,6 +21,10 @@ import edu.stanford.nlp.util.CollectionUtils;
 
 public class Evaluator extends JCasAnnotator_ImplBase {
 
+  private ArrayList<Double> averageConceptPrecision = new ArrayList<Double>();
+
+  private ArrayList<Double> averageDocumentPrecision = new ArrayList<Double>();
+
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     FSIterator<Annotation> questions = aJCas.getAnnotationIndex(Question.type).iterator();
@@ -37,16 +41,33 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       double conceptPrecision = getPrecision(conceptItems, goldConcepts);
       double conceptRecall = getRecall(conceptItems, goldConcepts);
       double conceptF = calcF(conceptPrecision, conceptRecall);
-      
+      double conceptAP = calcAP(goldConcepts, conceptItems);
+      averageConceptPrecision.add(conceptAP);
+
       List<String> documentItems = getDocumentURIsAsList(aJCas);
-      double documentPrecision = getPrecision(documentItems, goldConcepts);
-      double documentRecall = getRecall(documentItems, goldConcepts);
+      double documentPrecision = getPrecision(documentItems, goldDocuments);
+      double documentRecall = getRecall(documentItems, goldDocuments);
       double documentF = calcF(documentPrecision, documentRecall);
+      double documentAP = calcAP(goldDocuments, documentItems);
+      averageDocumentPrecision.add(documentAP);
     }
   }
-  
+
+  private double calcAP(List<String> goldConcepts, List<String> conceptItems) {
+    int totalRelItemsInList = getNumTruePositives(conceptItems, goldConcepts);
+    double averageConceptPrecision = 0;
+    for (int i = 0; i < conceptItems.size(); i++) {
+      if (goldConcepts.contains(conceptItems.get(i))) {
+        double precisionAtR = getPrecision(conceptItems.subList(0, i), goldConcepts);
+        averageConceptPrecision += precisionAtR;
+      }
+    }
+    averageConceptPrecision = averageConceptPrecision / totalRelItemsInList;
+    return averageConceptPrecision;
+  }
+
   private double calcF(double precision, double recall) {
-    return 2 * (precision*recall)/(precision + recall);
+    return 2 * (precision * recall) / (precision + recall);
   }
 
   private List<String> getDocumentURIsAsList(JCas aJcas) {
@@ -82,6 +103,30 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   public int getNumTruePositives(List<String> hypothesis, List<String> gold) {
     return CollectionUtils.intersection(new HashSet<String>(hypothesis), new HashSet<String>(gold))
             .size();
+  }
+
+  public double calcAvg(ArrayList<Double> vals) {
+    double result = 0;
+    for (Double val : vals) {
+      result += val;
+    }
+    return result / vals.size();
+  }
+
+  public double calculateGeomAvg(ArrayList<Double> vals) {
+    double result = 1;
+    double epsilon = 0.01;
+    for (Double val : vals) {
+      result *= (val + epsilon);
+    }
+    return Math.sqrt(result);
+  }
+
+  public void collectionProcessComplete() {
+    double conceptMap = calcAvg(averageConceptPrecision);
+    double documentMap = calcAvg(averageDocumentPrecision);
+    double conceptGmap = calculateGeomAvg(averageConceptPrecision);
+    double documentGmap = calculateGeomAvg(averageDocumentPrecision);
   }
 
 }
