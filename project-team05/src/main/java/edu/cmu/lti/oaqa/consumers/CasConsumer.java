@@ -41,6 +41,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+
 import edu.cmu.lti.oaqa.type.kb.ConceptMention;
 import edu.cmu.lti.oaqa.type.kb.DocumentP;
 import edu.cmu.lti.oaqa.type.kb.RDFTriples;
