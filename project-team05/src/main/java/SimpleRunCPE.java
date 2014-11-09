@@ -60,7 +60,8 @@ public class SimpleRunCPE extends Thread {
    */
   public SimpleRunCPE(String args[]) throws Exception {
     mStartTime = System.currentTimeMillis();
-
+    args = new String[1];
+    args[0] = "CpeDescriptor.xml";
     // check command line args
     if (args.length < 1) {
       printUsageMessage();
