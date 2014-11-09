@@ -6,6 +6,9 @@
     <delegateAnalysisEngine key="BioQuestionAnnotatorDescriptor">
       <import name="annotators.BioQuestionAnnotatorDescriptor"/>
     </delegateAnalysisEngine>
+     <delegateAnalysisEngine key="Evaluator">
+      <import name="annotators.Evaluator"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>FeatureExtractorDescriptor</name>
@@ -17,6 +20,7 @@
     <flowConstraints>
       <fixedFlow>
         <node>BioQuestionAnnotatorDescriptor</node>
+        <node>Evaluator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

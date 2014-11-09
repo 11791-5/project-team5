@@ -82,8 +82,6 @@ public class CollectionReader extends CollectionReader_ImplBase {
 
   @Override
   public boolean hasNext() throws IOException, CollectionException {
-    if(currentIndex >27)
-      System.out.println(currentIndex);
     return (currentIndex < numberOfQuestions);
   }
 
