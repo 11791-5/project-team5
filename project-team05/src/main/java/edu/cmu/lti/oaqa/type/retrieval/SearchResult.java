@@ -13,8 +13,8 @@ import edu.cmu.lti.oaqa.type.answer.CandidateAnswerVariant;
 
 
 /** A search result.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Sun Nov 09 14:55:40 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class SearchResult extends TOP {
   /** @generated
@@ -69,7 +69,10 @@ public class SearchResult extends TOP {
   //*--------------*
   //* Feature: uri
 
-  /** getter for uri - gets An identifier for the source of this search result, e.g., the name of the file that this result is drawn from, which, when combined with offset and length, uniquely identifies the span of text for this result.
+  /** getter for uri - gets An identifier for the source of this search result,
+            e.g., the name of the file that this result is drawn from, which,
+            when combined with offset and length, uniquely identifies the span
+            of text for this result.
    * @generated
    * @return value of the feature 
    */
@@ -78,7 +81,10 @@ public class SearchResult extends TOP {
       jcasType.jcas.throwFeatMissing("uri", "edu.cmu.lti.oaqa.type.retrieval.SearchResult");
     return jcasType.ll_cas.ll_getStringValue(addr, ((SearchResult_Type)jcasType).casFeatCode_uri);}
     
-  /** setter for uri - sets An identifier for the source of this search result, e.g., the name of the file that this result is drawn from, which, when combined with offset and length, uniquely identifies the span of text for this result. 
+  /** setter for uri - sets An identifier for the source of this search result,
+            e.g., the name of the file that this result is drawn from, which,
+            when combined with offset and length, uniquely identifies the span
+            of text for this result. 
    * @generated
    * @param v value to set into the feature 
    */
@@ -179,7 +185,8 @@ public class SearchResult extends TOP {
   //*--------------*
   //* Feature: searchId
 
-  /** getter for searchId - gets ID of the search object to which this search result belongs (matches the searchId field in the Search object).
+  /** getter for searchId - gets ID of the search object to which this search result
+            belongs (matches the searchId field in the Search object).
    * @generated
    * @return value of the feature 
    */
@@ -188,7 +195,8 @@ public class SearchResult extends TOP {
       jcasType.jcas.throwFeatMissing("searchId", "edu.cmu.lti.oaqa.type.retrieval.SearchResult");
     return jcasType.ll_cas.ll_getStringValue(addr, ((SearchResult_Type)jcasType).casFeatCode_searchId);}
     
-  /** setter for searchId - sets ID of the search object to which this search result belongs (matches the searchId field in the Search object). 
+  /** setter for searchId - sets ID of the search object to which this search result
+            belongs (matches the searchId field in the Search object). 
    * @generated
    * @param v value to set into the feature 
    */
@@ -201,7 +209,8 @@ public class SearchResult extends TOP {
   //*--------------*
   //* Feature: candidateAnswers
 
-  /** getter for candidateAnswers - gets CandidateAnswerVariants generated from this SearchResult.
+  /** getter for candidateAnswers - gets CandidateAnswerVariants generated from this
+            SearchResult.
    * @generated
    * @return value of the feature 
    */
@@ -210,7 +219,8 @@ public class SearchResult extends TOP {
       jcasType.jcas.throwFeatMissing("candidateAnswers", "edu.cmu.lti.oaqa.type.retrieval.SearchResult");
     return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((SearchResult_Type)jcasType).casFeatCode_candidateAnswers)));}
     
-  /** setter for candidateAnswers - sets CandidateAnswerVariants generated from this SearchResult. 
+  /** setter for candidateAnswers - sets CandidateAnswerVariants generated from this
+            SearchResult. 
    * @generated
    * @param v value to set into the feature 
    */

@@ -12,8 +12,8 @@ import org.apache.uima.jcas.cas.TOP;
 
 
 /** A ranked list of candidate answers.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class AnswerList extends TOP {
   /** @generated
@@ -68,7 +68,8 @@ public class AnswerList extends TOP {
   //*--------------*
   //* Feature: answerList
 
-  /** getter for answerList - gets Hit list of candidate answers, rank ordered, with highest scoring answer first.
+  /** getter for answerList - gets Hit list of candidate answers, rank ordered, with
+            highest scoring answer first.
    * @generated
    * @return value of the feature 
    */
@@ -77,7 +78,8 @@ public class AnswerList extends TOP {
       jcasType.jcas.throwFeatMissing("answerList", "edu.cmu.lti.oaqa.type.answer.AnswerList");
     return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((AnswerList_Type)jcasType).casFeatCode_answerList)));}
     
-  /** setter for answerList - sets Hit list of candidate answers, rank ordered, with highest scoring answer first. 
+  /** setter for answerList - sets Hit list of candidate answers, rank ordered, with
+            highest scoring answer first. 
    * @generated
    * @param v value to set into the feature 
    */

@@ -11,9 +11,10 @@ import org.apache.uima.jcas.cas.FSList;
 import org.apache.uima.jcas.cas.TOP;
 
 
-/** A container that integrates Concepts and ConceptMentions.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+/** A container that integrates Concepts and
+        ConceptMentions.
+ * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class Interpretation extends TOP {
   /** @generated
@@ -68,7 +69,8 @@ public class Interpretation extends TOP {
   //*--------------*
   //* Feature: concepts
 
-  /** getter for concepts - gets A list of all concepts mentioned in the corresponding text.
+  /** getter for concepts - gets A list of all concepts mentioned in the corresponding
+            text.
    * @generated
    * @return value of the feature 
    */
@@ -77,7 +79,8 @@ public class Interpretation extends TOP {
       jcasType.jcas.throwFeatMissing("concepts", "edu.cmu.lti.oaqa.type.kb.Interpretation");
     return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((Interpretation_Type)jcasType).casFeatCode_concepts)));}
     
-  /** setter for concepts - sets A list of all concepts mentioned in the corresponding text. 
+  /** setter for concepts - sets A list of all concepts mentioned in the corresponding
+            text. 
    * @generated
    * @param v value to set into the feature 
    */

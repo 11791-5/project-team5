@@ -13,8 +13,10 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.TOP_Type;
 
-/** A variant of a candidate answer.  A variant may have multiple occurrences, all of which are collected in a variant object.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
+/** A variant of a candidate answer. A variant may have
+        multiple occurrences, all of which are collected in a variant
+        object.
+ * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
  * @generated */
 public class CandidateAnswerVariant_Type extends TOP_Type {
   /** @generated 

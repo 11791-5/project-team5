@@ -11,8 +11,8 @@ import org.apache.uima.jcas.cas.TOP;
 
 
 /** A triple, e.g., and RDF triple.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class Triple extends TOP {
   /** @generated
@@ -111,7 +111,9 @@ public class Triple extends TOP {
   //*--------------*
   //* Feature: object
 
-  /** getter for object - gets The object of the triple - may be a URI or an xml datatype (string, int, etc.).  See isObjeUri to determine if object is a URI.
+  /** getter for object - gets The object of the triple - may be a URI or an xml
+            datatype (string, int, etc.). See isObjeUri to determine if object
+            is a URI.
    * @generated
    * @return value of the feature 
    */
@@ -120,7 +122,9 @@ public class Triple extends TOP {
       jcasType.jcas.throwFeatMissing("object", "edu.cmu.lti.oaqa.type.kb.Triple");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Triple_Type)jcasType).casFeatCode_object);}
     
-  /** setter for object - sets The object of the triple - may be a URI or an xml datatype (string, int, etc.).  See isObjeUri to determine if object is a URI. 
+  /** setter for object - sets The object of the triple - may be a URI or an xml
+            datatype (string, int, etc.). See isObjeUri to determine if object
+            is a URI. 
    * @generated
    * @param v value to set into the feature 
    */
@@ -133,7 +137,8 @@ public class Triple extends TOP {
   //*--------------*
   //* Feature: isObjUri
 
-  /** getter for isObjUri - gets Boolean flag - true of object field is a URI, false otherwise.
+  /** getter for isObjUri - gets Boolean flag - true of object field is a URI, false
+            otherwise.
    * @generated
    * @return value of the feature 
    */
@@ -142,7 +147,8 @@ public class Triple extends TOP {
       jcasType.jcas.throwFeatMissing("isObjUri", "edu.cmu.lti.oaqa.type.kb.Triple");
     return jcasType.ll_cas.ll_getBooleanValue(addr, ((Triple_Type)jcasType).casFeatCode_isObjUri);}
     
-  /** setter for isObjUri - sets Boolean flag - true of object field is a URI, false otherwise. 
+  /** setter for isObjUri - sets Boolean flag - true of object field is a URI, false
+            otherwise. 
    * @generated
    * @param v value to set into the feature 
    */

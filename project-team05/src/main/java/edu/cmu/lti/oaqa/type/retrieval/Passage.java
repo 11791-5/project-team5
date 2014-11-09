@@ -10,8 +10,8 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** A passage search result.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class Passage extends SearchResult {
   /** @generated
@@ -88,7 +88,8 @@ public class Passage extends SearchResult {
   //*--------------*
   //* Feature: docId
 
-  /** getter for docId - gets A unique identifier for the document that conatins this passage.
+  /** getter for docId - gets A unique identifier for the document that conatins
+            this passage.
    * @generated
    * @return value of the feature 
    */
@@ -97,7 +98,8 @@ public class Passage extends SearchResult {
       jcasType.jcas.throwFeatMissing("docId", "edu.cmu.lti.oaqa.type.retrieval.Passage");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Passage_Type)jcasType).casFeatCode_docId);}
     
-  /** setter for docId - sets A unique identifier for the document that conatins this passage. 
+  /** setter for docId - sets A unique identifier for the document that conatins
+            this passage. 
    * @generated
    * @param v value to set into the feature 
    */
@@ -110,7 +112,8 @@ public class Passage extends SearchResult {
   //*--------------*
   //* Feature: offsetInBeginSection
 
-  /** getter for offsetInBeginSection - gets Character offset of the start of this passage within the section that contains this passage.
+  /** getter for offsetInBeginSection - gets Character offset of the start of this passage within
+            the section that contains this passage.
    * @generated
    * @return value of the feature 
    */
@@ -119,7 +122,8 @@ public class Passage extends SearchResult {
       jcasType.jcas.throwFeatMissing("offsetInBeginSection", "edu.cmu.lti.oaqa.type.retrieval.Passage");
     return jcasType.ll_cas.ll_getIntValue(addr, ((Passage_Type)jcasType).casFeatCode_offsetInBeginSection);}
     
-  /** setter for offsetInBeginSection - sets Character offset of the start of this passage within the section that contains this passage. 
+  /** setter for offsetInBeginSection - sets Character offset of the start of this passage within
+            the section that contains this passage. 
    * @generated
    * @param v value to set into the feature 
    */
@@ -132,7 +136,8 @@ public class Passage extends SearchResult {
   //*--------------*
   //* Feature: offsetInEndSection
 
-  /** getter for offsetInEndSection - gets Character offset of the end of this passage within the section that contains this passage.
+  /** getter for offsetInEndSection - gets Character offset of the end of this passage within the
+            section that contains this passage.
    * @generated
    * @return value of the feature 
    */
@@ -141,7 +146,8 @@ public class Passage extends SearchResult {
       jcasType.jcas.throwFeatMissing("offsetInEndSection", "edu.cmu.lti.oaqa.type.retrieval.Passage");
     return jcasType.ll_cas.ll_getIntValue(addr, ((Passage_Type)jcasType).casFeatCode_offsetInEndSection);}
     
-  /** setter for offsetInEndSection - sets Character offset of the end of this passage within the section that contains this passage. 
+  /** setter for offsetInEndSection - sets Character offset of the end of this passage within the
+            section that contains this passage. 
    * @generated
    * @param v value to set into the feature 
    */
@@ -154,7 +160,8 @@ public class Passage extends SearchResult {
   //*--------------*
   //* Feature: beginSection
 
-  /** getter for beginSection - gets The start section of this passage within the document that contains this passage.
+  /** getter for beginSection - gets The start section of this passage within the document
+            that contains this passage.
    * @generated
    * @return value of the feature 
    */
@@ -163,7 +170,8 @@ public class Passage extends SearchResult {
       jcasType.jcas.throwFeatMissing("beginSection", "edu.cmu.lti.oaqa.type.retrieval.Passage");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Passage_Type)jcasType).casFeatCode_beginSection);}
     
-  /** setter for beginSection - sets The start section of this passage within the document that contains this passage. 
+  /** setter for beginSection - sets The start section of this passage within the document
+            that contains this passage. 
    * @generated
    * @param v value to set into the feature 
    */
@@ -176,7 +184,8 @@ public class Passage extends SearchResult {
   //*--------------*
   //* Feature: endSection
 
-  /** getter for endSection - gets The end section of this passage within the document that contains this passage.
+  /** getter for endSection - gets The end section of this passage within the document
+            that contains this passage.
    * @generated
    * @return value of the feature 
    */
@@ -185,7 +194,8 @@ public class Passage extends SearchResult {
       jcasType.jcas.throwFeatMissing("endSection", "edu.cmu.lti.oaqa.type.retrieval.Passage");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Passage_Type)jcasType).casFeatCode_endSection);}
     
-  /** setter for endSection - sets The end section of this passage within the document that contains this passage. 
+  /** setter for endSection - sets The end section of this passage within the document
+            that contains this passage. 
    * @generated
    * @param v value to set into the feature 
    */

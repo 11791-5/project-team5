@@ -8,6 +8,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.http.client.ClientProtocolException;
 
 import edu.cmu.lti.oaqa.bio.bioasq.services.GoPubMedService;
+import edu.cmu.lti.oaqa.bio.bioasq.services.LinkedLifeDataServiceResponse;
 import edu.cmu.lti.oaqa.bio.bioasq.services.OntologyServiceResponse;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse;
 
@@ -39,25 +40,58 @@ public class GoPubMedServiceSingleton
   } 
   
   public List<OntologyServiceResponse.Result> getConcepts(String text) 
-  {
-    List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>(); 
-    try {
-      OntologyServiceResponse.Result diseaseOntologyResult = goPubMedService.findDiseaseOntologyEntitiesPaged(text, 0);
-      OntologyServiceResponse.Result geneOntologyResult = goPubMedService.findGeneOntologyEntitiesPaged(text,0, 10);    
-      OntologyServiceResponse.Result jochemResult = goPubMedService.findJochemEntitiesPaged(text, 0);
-      OntologyServiceResponse.Result meshResult = goPubMedService.findMeshEntitiesPaged(text, 0);
-      OntologyServiceResponse.Result uniprotResult = goPubMedService.findUniprotEntitiesPaged(text, 0);
+ {
+    List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
+   try {
+      OntologyServiceResponse.Result diseaseOntologyResult = goPubMedService
+              .findDiseaseOntologyEntitiesPaged(text, 0);
       resutList.add(diseaseOntologyResult);
-      resutList.add(geneOntologyResult);
-      resutList.add(jochemResult);
-      resutList.add(meshResult);
-      resutList.add(uniprotResult);
-
     } catch (ClientProtocolException e) {
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
     }
+
+    OntologyServiceResponse.Result geneOntologyResult;
+    try {
+      geneOntologyResult = goPubMedService.findGeneOntologyEntitiesPaged(text, 0, 10);
+      resutList.add(geneOntologyResult);
+    } catch (ClientProtocolException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+   /* OntologyServiceResponse.Result jochemResult;
+    try {
+      jochemResult = goPubMedService.findJochemEntitiesPaged(text, 0);
+      resutList.add(jochemResult);
+    } catch (ClientProtocolException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }*/
+
+   /* OntologyServiceResponse.Result meshResult;
+    try {
+      meshResult = goPubMedService.findMeshEntitiesPaged(text, 0);
+      resutList.add(meshResult);
+    } catch (ClientProtocolException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    OntologyServiceResponse.Result uniprotResult;
+    try {
+      uniprotResult = goPubMedService.findUniprotEntitiesPaged(text, 0);
+      resutList.add(uniprotResult);
+    } catch (ClientProtocolException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }*/
+
     return resutList;
 
   }
@@ -70,6 +104,19 @@ public class GoPubMedServiceSingleton
       e.printStackTrace();
     }
     return pubmedResult;
+  }
+
+  public LinkedLifeDataServiceResponse.Result getTriples(String questionText) {
+    LinkedLifeDataServiceResponse.Result linkedLifeDataResult = null;
+    try {
+      linkedLifeDataResult = goPubMedService
+              .findLinkedLifeDataEntitiesPaged(questionText, 0);
+    } catch (ClientProtocolException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return linkedLifeDataResult;
   }
 
 }

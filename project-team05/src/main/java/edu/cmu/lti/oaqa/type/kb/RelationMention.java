@@ -9,9 +9,10 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 
-/** A named relation mention that identify or define the named relation concept.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+/** A named relation mention that identify or define the
+        named relation concept.
+ * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class RelationMention extends ConceptMention {
   /** @generated

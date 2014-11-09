@@ -10,9 +10,10 @@ import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.uima.jcas.tcas.Annotation;
 
 
-/** Annotates a span of text identified as a candidate answer.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+/** Annotates a span of text identified as a candidate
+        answer.
+ * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class CandidateAnswerOccurrence extends Annotation {
   /** @generated
@@ -101,7 +102,8 @@ public class CandidateAnswerOccurrence extends Annotation {
   //*--------------*
   //* Feature: mentionType
 
-  /** getter for mentionType - gets The manner in which covered text refers to some entity, e.g.  NAME, NOMINAL, PRONOUN
+  /** getter for mentionType - gets The manner in which covered text refers to some
+            entity, e.g. NAME, NOMINAL, PRONOUN
    * @generated
    * @return value of the feature 
    */
@@ -110,7 +112,8 @@ public class CandidateAnswerOccurrence extends Annotation {
       jcasType.jcas.throwFeatMissing("mentionType", "edu.cmu.lti.oaqa.type.nlp.CandidateAnswerOccurrence");
     return jcasType.ll_cas.ll_getStringValue(addr, ((CandidateAnswerOccurrence_Type)jcasType).casFeatCode_mentionType);}
     
-  /** setter for mentionType - sets The manner in which covered text refers to some entity, e.g.  NAME, NOMINAL, PRONOUN 
+  /** setter for mentionType - sets The manner in which covered text refers to some
+            entity, e.g. NAME, NOMINAL, PRONOUN 
    * @generated
    * @param v value to set into the feature 
    */

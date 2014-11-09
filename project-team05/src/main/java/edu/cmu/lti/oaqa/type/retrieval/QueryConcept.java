@@ -12,8 +12,8 @@ import org.apache.uima.jcas.cas.TOP;
 
 
 /** A query concept in the abstract search query model.
- * Updated by JCasGen Sat Oct 18 19:40:19 EDT 2014
- * XML source: /home/mog/dev/11791/project/project-team05-archetype/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Sun Nov 09 14:55:40 EST 2014
+ * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class QueryConcept extends TOP {
   /** @generated
@@ -68,7 +68,8 @@ public class QueryConcept extends TOP {
   //*--------------*
   //* Feature: namedEntityTypes
 
-  /** getter for namedEntityTypes - gets List of Named Entity types associated with this concept.
+  /** getter for namedEntityTypes - gets List of Named Entity types associated with this
+            concept.
    * @generated
    * @return value of the feature 
    */
@@ -77,7 +78,8 @@ public class QueryConcept extends TOP {
       jcasType.jcas.throwFeatMissing("namedEntityTypes", "edu.cmu.lti.oaqa.type.retrieval.QueryConcept");
     return (StringList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((QueryConcept_Type)jcasType).casFeatCode_namedEntityTypes)));}
     
-  /** setter for namedEntityTypes - sets List of Named Entity types associated with this concept. 
+  /** setter for namedEntityTypes - sets List of Named Entity types associated with this
+            concept. 
    * @generated
    * @param v value to set into the feature 
    */

@@ -34,6 +34,8 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 
 import edu.cmu.lti.oaqa.type.kb.ConceptMention;
+import edu.cmu.lti.oaqa.type.kb.DocumentP;
+import edu.cmu.lti.oaqa.type.kb.RDFTriples;
 
 /**
  * A simple CAS consumer that writes the CAS to XMI format.
@@ -86,6 +88,17 @@ public class CasConsumer extends CasConsumer_ImplBase {
     while (concepts.hasNext()) {
       ConceptMention concetpMention = (ConceptMention) concepts.next();
       writer.println(concetpMention.getConcept().getName() +" | "+ concetpMention.getConcept().getUris());
+    }
+    FSIterator<Annotation> documents = jcas.getAnnotationIndex(DocumentP.type).iterator();
+    while (documents.hasNext()) {
+      DocumentP document = (DocumentP) documents.next();
+      writer.println(document.getPmid());
+    }
+    
+    FSIterator<Annotation> triples = jcas.getAnnotationIndex(RDFTriples.type).iterator();
+    while (triples.hasNext()) {
+      RDFTriples triple = (RDFTriples) triples.next();
+      writer.println(triple.getObject() + " "+triple.getSubject() +" "+ triple.getPredicate());
     }
     writer.close();
   }
