@@ -188,6 +188,4 @@ public class CasConsumer extends CasConsumer_ImplBase {
     triples.add(triple2);
     printTripleAnswerToJSON(question, type, id,  triples);
   }
-
-
 }
