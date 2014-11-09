@@ -165,10 +165,9 @@
 			<version>18.0</version>
 		</dependency>
 	</dependencies>
-
 	<scm>
-		<connection>scm:git:git@github.com:oaqa/DEIIS-project-archetype.git</connection>
-		<developerConnection>scm:git:git@github.com:oaqa/DEIIS-project-archetype.git</developerConnection>
+		<connection>scm:git:git@github.com:11791-5/project-team5.git</connection>
+		<developerConnection>scm:git:git@github.com:11791-5/project-team5.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	<repositories>
@@ -179,7 +178,7 @@
 
 		<repository>
 			<id>oaqa</id>
-			<url>http://mu.lti.cs.cmu.edu:8081/nexus/content/groups/course-dependencies</url>
+			<url>http://mu.lti.cs.cmu.edu:8081/nexus/content/repositories/course-dependencies</url>
 		</repository>
 	</repositories>
 	<distributionManagement>

@@ -1,0 +1,2306 @@
+oropharynx cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8557"
+   tail: EmptyStringList
+
+"Poly A-U" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4249824"
+   tail: EmptyStringList
+
+"histidyl-aspartyl-glutamyl-leucine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4264836"
+   tail: EmptyStringList
+
+Protein MOST-1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/MOST1_HUMAN"
+   tail: EmptyStringList
+
+2-oxoglutarate and iron-dependent oxygenase domain-containing protein 1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/OGFD1_HUMAN"
+   tail: EmptyStringList
+
+Mephobarbital | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D008618"
+   tail: EmptyStringList
+
+Site-Specific DNA-Methyltransferase (Adenine-Specific) | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015265"
+   tail: EmptyStringList
+
+"Promethazine hydrochloride" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4006009"
+   tail: EmptyStringList
+
+Terminator Regions, Genetic | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013728"
+   tail: EmptyStringList
+
+Nuclear and cytoplasmic polyadenylated RNA-binding protein PUB1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PUB1_YEAST"
+   tail: EmptyStringList
+
+hypopharynx cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8533"
+   tail: EmptyStringList
+
+Long Interspersed Nucleotide Elements | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020084"
+   tail: EmptyStringList
+
+Transcription Initiation Site | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D024363"
+   tail: EmptyStringList
+
+RNA, Messenger | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D012333"
+   tail: EmptyStringList
+
+Neoplasms by Site | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009371"
+   tail: EmptyStringList
+
+Waste Disposal Facilities | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D064091"
+   tail: EmptyStringList
+
+nasopharynx carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:9261"
+   tail: EmptyStringList
+
+"SEKDEL sequence" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4261814"
+   tail: EmptyStringList
+
+Inteins | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D047668"
+   tail: EmptyStringList
+
+Conserved Sequence | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017124"
+   tail: EmptyStringList
+
+Mutagenesis, Site-Directed | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016297"
+   tail: EmptyStringList
+
+"Glycine, L-histidyl-L-alanylglycyl-L-prolyl-L-isoleucyl-L-alanyl-L-prolylglycyl-L-glutaminyl-L-methionyl-L-arginyl-L-alpha-glutamyl-L-prolyl-L-arginyl-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4220856"
+   tail: EmptyStringList
+
+DNA Transposable Elements | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D004251"
+   tail: EmptyStringList
+
+gum cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8602"
+   tail: EmptyStringList
+
+ruptured aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7682"
+   tail: EmptyStringList
+
+lip cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8564"
+   tail: EmptyStringList
+
+holoprosencephaly | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4621"
+   tail: EmptyStringList
+
+mycosis fungoides | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8691"
+   tail: EmptyStringList
+
+Base Sequence | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D001483"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein-interacting protein 2 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PAIP2_RAT"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PAIP2_HUMAN"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PAIP2_BOVIN"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/PAIP2_CHICK"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/CID2_ARATH"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/PAIP2_PONAB"
+                  tail: EmptyStringList
+
+Polyadenylate-binding protein-interacting protein 1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PAIP1_HUMAN"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PAIP1_XENLA"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PAIP1_MOUSE"
+         tail: EmptyStringList
+
+"mephobarbital" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4274011"
+   tail: EmptyStringList
+
+Position-Specific Scoring Matrices | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D056510"
+   tail: EmptyStringList
+
+Chromosome Fragile Sites | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D043283"
+   tail: EmptyStringList
+
+Sequence Analysis, DNA | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017422"
+   tail: EmptyStringList
+
+mononeuritis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1802"
+   tail: EmptyStringList
+
+Repetitive Sequences, Nucleic Acid | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D012091"
+   tail: EmptyStringList
+
+"Ovosiston" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4251015"
+   tail: EmptyStringList
+
+Sotos Syndrome | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D058495"
+   tail: EmptyStringList
+
+Consensus Development Conference, NIH | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016447"
+   tail: EmptyStringList
+
+DiGeorge syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11198"
+   tail: EmptyStringList
+
+Molecular Sequence Data | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D008969"
+   tail: EmptyStringList
+
+PKHD-type hydroxylase TPA1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TPA1_YEAST"
+   tail: EmptyStringList
+
+Goldenhar Syndrome | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D006053"
+   tail: EmptyStringList
+
+snoRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0071050"
+   tail: EmptyStringList
+
+"5'-CmpC mpAAT TCT GAA AAT GGA TAmpA mpA -3'" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4218174"
+   tail: EmptyStringList
+
+necrotizing ulcerative gingivitis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13924"
+   tail: EmptyStringList
+
+DNA Sequence, Unstable | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D043243"
+   tail: EmptyStringList
+
+Kaposi's sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8632"
+   tail: EmptyStringList
+
+Immunoglobulin Switch Region | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D007134"
+   tail: EmptyStringList
+
+Binding Sites, Antibody | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D001666"
+   tail: EmptyStringList
+
+mRNA Cleavage and Polyadenylation Factors | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D039221"
+   tail: EmptyStringList
+
+articular cartilage disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6227"
+   tail: EmptyStringList
+
+HIV Long Terminal Repeat | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016325"
+   tail: EmptyStringList
+
+Multilocus Sequence Typing | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D058885"
+   tail: EmptyStringList
+
+"L-Glutamic acid, N-(N2-(N-(N-(N-(N-(N-(N-(N2-(N-glycyl-L-histidyl)-L-glutaminyl)-L-alanyl)-L-alanyl)-L-methionyl)-L-alpha-glutamyl)-L-methionyl)-L-leucyl)-L-lysyl)-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4220868"
+   tail: EmptyStringList
+
+oral cavity cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8618"
+   tail: EmptyStringList
+
+Consensus Development Conferences, NIH as Topic | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015975"
+   tail: EmptyStringList
+
+"5'-GCGTACTCACCAGTCGCCGC-3'" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4220032"
+   tail: EmptyStringList
+
+Microsatellite Repeats | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018895"
+   tail: EmptyStringList
+
+sarcoidosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11335"
+   tail: EmptyStringList
+
+Consensus | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D032921"
+   tail: EmptyStringList
+
+Poland Syndrome | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011045"
+   tail: EmptyStringList
+
+"ESAG 7 protein, Trypanosoma brucei" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4264953"
+   tail: EmptyStringList
+
+Poland syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12961"
+   tail: EmptyStringList
+
+Receptors, Cholinergic | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011950"
+   tail: EmptyStringList
+
+Minisatellite Repeats | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018598"
+   tail: EmptyStringList
+
+Clustered Regularly Interspaced Short Palindromic Repeats | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D064112"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABP_DROME"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 4 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABP4_HUMAN"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 2 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PAB2_SCHPO"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PABP2_DICDI"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PABP2_HUMAN"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/PABP2_ARATH"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/PABP2_DROME"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/PABP2_XENTR"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/PABP2_DROPS"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/PABP2_MOUSE"
+                        tail: NonEmptyStringList
+                           head: "http://www.uniprot.org/uniprot/PABP2_BOVIN"
+                           tail: EmptyStringList
+
+Polyadenylate-binding protein 1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABP1_RAT"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PABP1_BOVIN"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PABP1_PONAB"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/PABP1_HUMAN"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/PABP1_MOUSE"
+               tail: EmptyStringList
+
+E-Box Elements | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D024721"
+   tail: EmptyStringList
+
+Polyadenylation | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D026723"
+   tail: EmptyStringList
+
+Immunodominant Epitopes | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016056"
+   tail: EmptyStringList
+
+RNA | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D012313"
+   tail: EmptyStringList
+
+Chromosome Breakpoints | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D056905"
+   tail: EmptyStringList
+
+Transplant Donor Site | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D060053"
+   tail: EmptyStringList
+
+"interferon alfacon-1" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4259935"
+   tail: EmptyStringList
+
+3' Flanking Region | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D024509"
+   tail: EmptyStringList
+
+"Glucosulfone" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4013679"
+   tail: EmptyStringList
+
+"L-Alanine, glycyl-L-asparaginyl-L-phenylalanyl-L-leucyl-L-glutaminyl-L-seryl-L-arginyl-L-prolyl-L-alpha-glutamyl-L-prolyl-L-threonyl-L-alanyl-L-prolyl-L-prolyl-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4220855"
+   tail: EmptyStringList
+
+Sezary's disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8541"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 1-A | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABPA_XENLA"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PAP1A_DICDI"
+      tail: EmptyStringList
+
+5' Flanking Region | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D024506"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 1-B | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABPB_XENLA"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PAP1B_DICDI"
+      tail: EmptyStringList
+
+Environmental Remediation | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D052918"
+   tail: EmptyStringList
+
+Sequence Deletion | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017384"
+   tail: EmptyStringList
+
+RNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0043631"
+   tail: EmptyStringList
+
+Regulatory Sequences, Ribonucleic Acid | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D038621"
+   tail: EmptyStringList
+
+RNA 5' Terminal Oligopyrimidine Sequence | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D038641"
+   tail: EmptyStringList
+
+"L-Phenylalanine, L-lysyl-L-alpha-glutamylglycyl-L-histidyl-L-glutaminyl-L-methionyl-L-lysyl-L-alpha-aspartyl-L-cysteinyl-L-threonyl-L-alpha-glutamyl-L-arginyl-L-glutaminyl-L-alanyl-L-asparaginyl-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4220857"
+   tail: EmptyStringList
+
+Carbohydrate Sequence | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D002240"
+   tail: EmptyStringList
+
+Catalytic Domain | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020134"
+   tail: EmptyStringList
+
+Sequence Homology, Nucleic Acid | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D012689"
+   tail: EmptyStringList
+
+AT Rich Sequence | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020856"
+   tail: EmptyStringList
+
+Sequence Homology, Amino Acid | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017386"
+   tail: EmptyStringList
+
+High-Throughput Nucleotide Sequencing | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D059014"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 2-A | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PAB2A_XENLA"
+   tail: EmptyStringList
+
+negative regulation of mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:1900364"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 2-B | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PAB2B_XENLA"
+   tail: EmptyStringList
+
+Sequence Alignment | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016415"
+   tail: EmptyStringList
+
+"ARS protein, Candida maltosa" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4264599"
+   tail: EmptyStringList
+
+Protein Sorting Signals | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D021382"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 1-like | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PAP1L_HUMAN"
+   tail: EmptyStringList
+
+"pvs protein, Phaseolus vulgaris" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4264527"
+   tail: EmptyStringList
+
+Poly A | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011061"
+   tail: EmptyStringList
+
+"ribonucleic acids" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4270206"
+   tail: EmptyStringList
+
+RNA, Spliced Leader | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020038"
+   tail: EmptyStringList
+
+Genes, Suppressor | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016153"
+   tail: EmptyStringList
+
+Attachment Sites, Microbiological | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D001287"
+   tail: EmptyStringList
+
+DNA, Intergenic | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D021901"
+   tail: EmptyStringList
+
+Databases, Nucleic Acid | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D030561"
+   tail: EmptyStringList
+
+transcription termination site sequence-specific DNA binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0001147"
+   tail: EmptyStringList
+
+Megakaryocyte-associated tyrosine-protein kinase | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/MATK_HUMAN"
+   tail: EmptyStringList
+
+mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0006378"
+   tail: EmptyStringList
+
+DNA-Cytosine Methylases | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015257"
+   tail: EmptyStringList
+
+Amino Acid Sequence | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D000595"
+   tail: EmptyStringList
+
+placental site trophoblastic tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3596"
+   tail: EmptyStringList
+
+osteochondrosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8125"
+   tail: EmptyStringList
+
+Restriction Mapping | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015183"
+   tail: EmptyStringList
+
+Tandem Repeat Sequences | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020080"
+   tail: EmptyStringList
+
+decubitus ulcer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8717"
+   tail: EmptyStringList
+
+Consensus Sequence | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016384"
+   tail: EmptyStringList
+
+skin benign  neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3165"
+   tail: EmptyStringList
+
+Interferon regulatory factor 8 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/IRF8_HUMAN"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/IRF8_MOUSE"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/IRF8_CHICK"
+         tail: EmptyStringList
+
+transient arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12084"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 3 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABP3_HUMAN"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PABP3_ARATH"
+      tail: EmptyStringList
+
+Polyadenylate-binding protein 5 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABP5_HYLLA"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PABP5_PANTR"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PABP5_MACMU"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/PABP5_GORGO"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/PABP5_PONPY"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/PABP5_HUMAN"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/PABP5_ARATH"
+                     tail: EmptyStringList
+
+RNA Splice Sites | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D022821"
+   tail: EmptyStringList
+
+Poly(A)-specific ribonuclease PARN | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PARN_XENLA"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PARN_DANRE"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PARN_MOUSE"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/PARN_PONAB"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/PARN_ARATH"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/PARN_HUMAN"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/PARN_BOVIN"
+                     tail: EmptyStringList
+
+Sequence Analysis, Protein | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020539"
+   tail: EmptyStringList
+
+poly(A) RNA binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0008143"
+   tail: EmptyStringList
+
+"Poly A" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4249823"
+   tail: EmptyStringList
+
+Protein Disulfide-Isomerases | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D019704"
+   tail: EmptyStringList
+
+"RNA (poly(A))" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4002540"
+   tail: EmptyStringList
+
+Sequence Analysis, RNA | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017423"
+   tail: EmptyStringList
+
+Workplace | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017132"
+   tail: EmptyStringList
+
+Hodgkin's granuloma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8651"
+   tail: EmptyStringList
+
+Inverted Repeat Sequences | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D055029"
+   tail: EmptyStringList
+
+Binding Sites | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D001665"
+   tail: EmptyStringList
+
+Mobius Syndrome | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020331"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein, cytoplasmic and nuclear | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PABP_KLULA"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PABP_NEUCR"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PABP_SCHPO"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/PABP_CHAGB"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/PABP_COCIM"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/PABP_ASPTN"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/PABP_ASPFU"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/PABP_PHANO"
+                        tail: NonEmptyStringList
+                           head: "http://www.uniprot.org/uniprot/PABP_NEOFI"
+                           tail: NonEmptyStringList
+                              head: "http://www.uniprot.org/uniprot/PABP_ASPOR"
+                              tail: NonEmptyStringList
+                                 head: "http://www.uniprot.org/uniprot/PABP_ASPCL"
+                                 tail: NonEmptyStringList
+                                    head: "http://www.uniprot.org/uniprot/PABP_PICST"
+                                    tail: NonEmptyStringList
+                                       head: "http://www.uniprot.org/uniprot/PABP_PICGU"
+                                       tail: NonEmptyStringList
+                                          head: "http://www.uniprot.org/uniprot/PABP_CANAL"
+                                          tail: NonEmptyStringList
+                                             head: "http://www.uniprot.org/uniprot/PABP_EMENI"
+                                             tail: NonEmptyStringList
+                                                head: "http://www.uniprot.org/uniprot/PABP_USTMA"
+                                                tail: NonEmptyStringList
+                                                   head: "http://www.uniprot.org/uniprot/PABP_YARLI"
+                                                   tail: NonEmptyStringList
+                                                      head: "http://www.uniprot.org/uniprot/PABP_CRYNJ"
+                                                      tail: NonEmptyStringList
+                                                         head: "http://www.uniprot.org/uniprot/PABP_CANGA"
+                                                         tail: NonEmptyStringList
+                                                            head: "http://www.uniprot.org/uniprot/PABP_YEAST"
+                                                            tail: NonEmptyStringList
+                                                               head: "http://www.uniprot.org/uniprot/PABP_LODEL"
+                                                               tail: NonEmptyStringList
+                                                                  head: "http://www.uniprot.org/uniprot/PABP_ASPNC"
+                                                                  tail: NonEmptyStringList
+                                                                     head: "http://www.uniprot.org/uniprot/PABP_DEBHA"
+                                                                     tail: NonEmptyStringList
+                                                                        head: "http://www.uniprot.org/uniprot/PABP_CRYNB"
+                                                                        tail: NonEmptyStringList
+                                                                           head: "http://www.uniprot.org/uniprot/PABP_ASHGO"
+                                                                           tail: NonEmptyStringList
+                                                                              head: "http://www.uniprot.org/uniprot/PABP_ENCCU"
+                                                                              tail: NonEmptyStringList
+                                                                                 head: "http://www.uniprot.org/uniprot/PABP_MAGO7"
+                                                                                 tail: EmptyStringList
+
+Polynucleotide Adenylyltransferase | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011062"
+   tail: EmptyStringList
+
+Letterer-Siwe disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2554"
+   tail: EmptyStringList
+
+DiGeorge Syndrome | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D004062"
+   tail: EmptyStringList
+
+Hodgkin's lymphoma, nodular sclerosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8838"
+   tail: EmptyStringList
+
+Polyadenylate-binding protein 4-like | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PAB4L_HUMAN"
+   tail: EmptyStringList
+
+Sequence Analysis | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017421"
+   tail: EmptyStringList
+
+"ESAG 8 protein, Trypanosoma brucei" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4262541"
+   tail: EmptyStringList
+
+Consensus Development Conference | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016446"
+   tail: EmptyStringList
+
+arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:381"
+   tail: EmptyStringList
+
+Introns | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D007438"
+   tail: EmptyStringList
+
+Genes, Homeobox | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D005801"
+   tail: EmptyStringList
+
+Terminal Repeat Sequences | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020079"
+   tail: EmptyStringList
+
+Sequence Tagged Sites | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016324"
+   tail: EmptyStringList
+
+Sequence Homology | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D017385"
+   tail: EmptyStringList
+
+RNA 3' Polyadenylation Signals | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D039104"
+   tail: EmptyStringList
+
+"procainamide hydrochloride" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4278087"
+   tail: EmptyStringList
+
+male reproductive organ cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3856"
+   tail: EmptyStringList
+
+"Humanin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4243722"
+   tail: EmptyStringList
+
+Receptors, Concanavalin A | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011952"
+   tail: EmptyStringList
+
+Putative uncharacterized protein GSN-AS1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/GSAS1_HUMAN"
+   tail: EmptyStringList
+
+Burkitt's lymphoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8584"
+   tail: EmptyStringList
+
+Cleavage And Polyadenylation Specificity Factor | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D039223"
+   tail: EmptyStringList
+
+ncRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0043629"
+   tail: EmptyStringList
+
+"glucosulfone" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4257764"
+   tail: EmptyStringList
+
+Poly A-U | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011063"
+   tail: EmptyStringList
+
+Expressed Sequence Tags | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020224"
+   tail: EmptyStringList
+
+Databases, Protein | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D030562"
+   tail: EmptyStringList
+
+situs inversus | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:758"
+   tail: EmptyStringList
+
+Potter's syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12594"
+   tail: EmptyStringList
+
+tongue cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8649"
+   tail: EmptyStringList
+
+Mutagenesis, Insertional | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016254"
+   tail: EmptyStringList
+
+Allosteric Site | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D000495"
+   tail: EmptyStringList
+
+Matrix Attachment Regions | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D045170"
+   tail: EmptyStringList
+
+Sequence Inversion | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D057345"
+   tail: EmptyStringList
+
+mucinous adenocarcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3030"
+   tail: EmptyStringList
+
+positive regulation of mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:1900365"
+   tail: EmptyStringList
+
+Hodgkin's lymphoma, lymphocytic depletion | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8628"
+   tail: EmptyStringList
+
+Adiponectin | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D052242"
+   tail: EmptyStringList
+
+Receptors, Histamine | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011968"
+   tail: EmptyStringList
+
+Databases, Genetic | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D030541"
+   tail: EmptyStringList
+
+regulation of mRNA polyadenylation | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:1900363"
+   tail: EmptyStringList
+
+"Joining segment peptide, synthetic" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4210288"
+   tail: EmptyStringList
+
+polynucleotide adenylyltransferase activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004652"
+   tail: EmptyStringList
+
+Polyadenylation factor subunit 2 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/PFS2_CANGA"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/PFS2_KLULA"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/PFS2_NEUCR"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/PFS2_ASPOR"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/PFS2_GIBZE"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/PFS2_EMENI"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/PFS2_CRYNJ"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/PFS2_ASHGO"
+                        tail: NonEmptyStringList
+                           head: "http://www.uniprot.org/uniprot/PFS2_YEAST"
+                           tail: NonEmptyStringList
+                              head: "http://www.uniprot.org/uniprot/PFS2_DEBHA"
+                              tail: NonEmptyStringList
+                                 head: "http://www.uniprot.org/uniprot/PFS2_CRYNB"
+                                 tail: NonEmptyStringList
+                                    head: "http://www.uniprot.org/uniprot/PFS2_SCHPO"
+                                    tail: NonEmptyStringList
+                                       head: "http://www.uniprot.org/uniprot/PFS2_CANAL"
+                                       tail: NonEmptyStringList
+                                          head: "http://www.uniprot.org/uniprot/PFS2_YARLI"
+                                          tail: NonEmptyStringList
+                                             head: "http://www.uniprot.org/uniprot/PFS2_ASPFU"
+                                             tail: EmptyStringList
+
+Enhancer Elements, Genetic | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D004742"
+   tail: EmptyStringList
+
+Consensus Development Conferences as Topic | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D003245"
+   tail: EmptyStringList
+
+Receptors, Neurokinin-2 | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018041"
+   tail: EmptyStringList
+
+"Arginyl-glycyl-aspartic acid" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4206299"
+   tail: EmptyStringList
+
+"pretrypsinogen signal sequence peptide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4259951"
+   tail: EmptyStringList
+
+Marriage | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D008393"
+   tail: EmptyStringList
+
+lymphangioma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1475"
+   tail: EmptyStringList
+
+Hodgkin's lymphoma, mixed cellularity | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8654"
+   tail: EmptyStringList
+
+Behcet's syndrome arthropathy | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1670"
+   tail: EmptyStringList
+
+"lysyl-aspartyl-glutamyl-leucine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4263998"
+   tail: EmptyStringList
+
+Hazardous Waste Sites | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D064371"
+   tail: EmptyStringList
+
+triple-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060081"
+   tail: EmptyStringList
+
+Paraganglioma, Extra-Adrenal | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D010236"
+   tail: EmptyStringList
+
+"aluminum chlorhydrate" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4254043"
+   tail: EmptyStringList
+
+"Propotox M" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4116614"
+   tail: EmptyStringList
+
+"DDT" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4272608"
+   tail: EmptyStringList
+
+Immunoglobulins, Thyroid-Stimulating | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018828"
+   tail: EmptyStringList
+
+follicular thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3962"
+   tail: EmptyStringList
+
+"2-naphthol orange" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4253582"
+   tail: EmptyStringList
+
+Nuclear receptor coactivator 6 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/NCOA6_RAT"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/NCOA6_MOUSE"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/NCOA6_HUMAN"
+         tail: EmptyStringList
+
+muscle tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:66"
+   tail: EmptyStringList
+
+thyroid hurthle cell adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8162"
+   tail: EmptyStringList
+
+Thyroid Hormone Resistance Syndrome | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018382"
+   tail: EmptyStringList
+
+vascular tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0000405"
+   tail: EmptyStringList
+
+Thyroid Crisis | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013958"
+   tail: EmptyStringList
+
+"thyrotropin-releasing hormone, deamido-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4254525"
+   tail: EmptyStringList
+
+papillary follicular thyroid adenocarcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3968"
+   tail: EmptyStringList
+
+estrogen-receptor positive breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060075"
+   tail: EmptyStringList
+
+"Talc" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250003"
+   tail: EmptyStringList
+
+Diffusion Chambers, Culture | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015194"
+   tail: EmptyStringList
+
+"Xanthylium, 9-(2-carboxyethyl)-3,6-bis(dimethylamino)-, chloride" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4029548"
+   tail: EmptyStringList
+
+Tissue Survival | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014022"
+   tail: EmptyStringList
+
+"Acid yellow 9" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4030602"
+   tail: EmptyStringList
+
+"Hexestrol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4006601"
+   tail: EmptyStringList
+
+TSH producing pituitary tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6275"
+   tail: EmptyStringList
+
+Lingual Thyroid | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D046151"
+   tail: EmptyStringList
+
+"Thyroxine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250045"
+   tail: EmptyStringList
+
+Periapical Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D010486"
+   tail: EmptyStringList
+
+Connective Tissue Diseases | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D003240"
+   tail: EmptyStringList
+
+Thyrotropin-releasing hormone receptor | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TRFR_CHICK"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/TRFR_BOVIN"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/TRFR_HUMAN"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/TRFR_RAT"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/TRFR_MOUSE"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/TRFR_SHEEP"
+                  tail: EmptyStringList
+
+Extraembryonic Membranes | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D005321"
+   tail: EmptyStringList
+
+"Thyrotropin-releasing hormone, gly" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4191191"
+   tail: EmptyStringList
+
+"Thyrotropin-releasing hormone, nval(2)-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4178739"
+   tail: EmptyStringList
+
+"secretory component receptor, human" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4266496"
+   tail: EmptyStringList
+
+"Thyrotropin-releasing hormone, 3-Me-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4099668"
+   tail: EmptyStringList
+
+"Amaranth Dye" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4248849"
+   tail: EmptyStringList
+
+skin disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:37"
+   tail: EmptyStringList
+
+suppurative thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14350"
+   tail: EmptyStringList
+
+Organ Specificity | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009928"
+   tail: EmptyStringList
+
+Thromboplastin | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013925"
+   tail: EmptyStringList
+
+"C.I. Acid Blue 9" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4030357"
+   tail: EmptyStringList
+
+"MPL protein, human" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4265491"
+   tail: EmptyStringList
+
+Thyroid Nodule | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016606"
+   tail: EmptyStringList
+
+mucoepidermoid thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4687"
+   tail: EmptyStringList
+
+thyroid hormone receptor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004887"
+   tail: EmptyStringList
+
+Bone and Bones | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D001842"
+   tail: EmptyStringList
+
+"ethanol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4276990"
+   tail: EmptyStringList
+
+nontoxic goiter | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13195"
+   tail: EmptyStringList
+
+ruptured thoracic aortic aneurysm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7703"
+   tail: EmptyStringList
+
+Tissue Scaffolds | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D054457"
+   tail: EmptyStringList
+
+lipoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3315"
+   tail: EmptyStringList
+
+"Fluorescein sodium" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4012887"
+   tail: EmptyStringList
+
+thyroid-stimulating hormone secretion | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0070460"
+   tail: EmptyStringList
+
+"Sodium orthophenylphenoxide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4008942"
+   tail: EmptyStringList
+
+"Thyrotropin alfa (genetical recombination)" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4002394"
+   tail: EmptyStringList
+
+"Thyroid tablets" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4054494"
+   tail: EmptyStringList
+
+Tissue Embedding | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016610"
+   tail: EmptyStringList
+
+muscle benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:461"
+   tail: EmptyStringList
+
+"Erythrosine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4249259"
+   tail: EmptyStringList
+
+Paget Disease, Extramammary | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D010145"
+   tail: EmptyStringList
+
+thyroid gland disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:50"
+   tail: EmptyStringList
+
+Thyroid Hormone Receptors beta | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D037042"
+   tail: EmptyStringList
+
+"Mecoprop-potassium" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4025968"
+   tail: EmptyStringList
+
+"heparin-binding EGF-like growth factor" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4264030"
+   tail: EmptyStringList
+
+thyroid hurthle cell carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8161"
+   tail: EmptyStringList
+
+"D-thyroxine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4275394"
+   tail: EmptyStringList
+
+vascular cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:175"
+   tail: EmptyStringList
+
+thyroid malformation | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8433"
+   tail: EmptyStringList
+
+"Carboxin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4249011"
+   tail: EmptyStringList
+
+Thyroid hormone receptor alpha | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/THA_CAIMO"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/THA_APTPA"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/THA_PIG"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/THA_SHEEP"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/THA_HIPHI"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/THA_ELECQ"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/THA_RAT"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/THA_NECMA"
+                        tail: NonEmptyStringList
+                           head: "http://www.uniprot.org/uniprot/THA_PYGAD"
+                           tail: NonEmptyStringList
+                              head: "http://www.uniprot.org/uniprot/THA_SPAAU"
+                              tail: NonEmptyStringList
+                                 head: "http://www.uniprot.org/uniprot/THA_HUMAN"
+                                 tail: NonEmptyStringList
+                                    head: "http://www.uniprot.org/uniprot/THA_CHICK"
+                                    tail: NonEmptyStringList
+                                       head: "http://www.uniprot.org/uniprot/THA_MOUSE"
+                                       tail: NonEmptyStringList
+                                          head: "http://www.uniprot.org/uniprot/THA_LITCT"
+                                          tail: NonEmptyStringList
+                                             head: "http://www.uniprot.org/uniprot/THA_SALSA"
+                                             tail: NonEmptyStringList
+                                                head: "http://www.uniprot.org/uniprot/THA_ONCMY"
+                                                tail: EmptyStringList
+
+Fetus | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D005333"
+   tail: EmptyStringList
+
+Tissue Fixation | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016707"
+   tail: EmptyStringList
+
+Postpartum Thyroiditis | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D050032"
+   tail: EmptyStringList
+
+thyrotropin-releasing hormone receptor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004997"
+   tail: EmptyStringList
+
+Zinc finger HIT domain-containing protein 3 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/ZNHI3_MACMU"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/ZNHI3_MOUSE"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/ZNHI3_PANTR"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/ZNHI3_HUMAN"
+            tail: EmptyStringList
+
+"paracetamol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4277843"
+   tail: EmptyStringList
+
+"Benzophenoneidum" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4248929"
+   tail: EmptyStringList
+
+"Tartrazine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250004"
+   tail: EmptyStringList
+
+Kaposi's sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:8632"
+   tail: EmptyStringList
+
+Thyroiditis, Autoimmune | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013967"
+   tail: EmptyStringList
+
+"zinc ethylphenyldithiocarbamate" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4253618"
+   tail: EmptyStringList
+
+Graves Ophthalmopathy | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D049970"
+   tail: EmptyStringList
+
+estrogen-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060076"
+   tail: EmptyStringList
+
+"elemental carbon" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4276767"
+   tail: EmptyStringList
+
+mediastinal mesenchymal tumor | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5560"
+   tail: EmptyStringList
+
+"Thyrotropin-releasing hormone, pro-hydrazide-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4132647"
+   tail: EmptyStringList
+
+interleukin-7 receptor alpha deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060015"
+   tail: EmptyStringList
+
+Neoplasms, Muscle Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009379"
+   tail: EmptyStringList
+
+Thyroiditis | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013966"
+   tail: EmptyStringList
+
+thyroid hormone receptor coactivator activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0030375"
+   tail: EmptyStringList
+
+Thyrotropin, beta Subunit | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D037322"
+   tail: EmptyStringList
+
+Thyroid Dysgenesis | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D050033"
+   tail: EmptyStringList
+
+Cell- and Tissue-Based Therapy | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D064987"
+   tail: EmptyStringList
+
+Receptors, Thyroid Hormone | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011988"
+   tail: EmptyStringList
+
+Thyroid Diseases | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013959"
+   tail: EmptyStringList
+
+Tissue Expansion | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015626"
+   tail: EmptyStringList
+
+Tissue and Organ Harvesting | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020858"
+   tail: EmptyStringList
+
+autoimmune disease of skin and connective tissue | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060039"
+   tail: EmptyStringList
+
+hemangioma of subcutaneous tissue | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13081"
+   tail: EmptyStringList
+
+follicular adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6204"
+   tail: EmptyStringList
+
+Nuclear Receptor Co-Repressor 2 | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D056985"
+   tail: EmptyStringList
+
+Choristoma | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D002828"
+   tail: EmptyStringList
+
+Her2-receptor positive breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060079"
+   tail: EmptyStringList
+
+Nociceptive Pain | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D059226"
+   tail: EmptyStringList
+
+"Petrolatum" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4249769"
+   tail: EmptyStringList
+
+Tissue Engineering | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D023822"
+   tail: EmptyStringList
+
+"Disperse Blue 1" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4259645"
+   tail: EmptyStringList
+
+Activating signal cointegrator 1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TRIP4_MOUSE"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/TRIP4_HUMAN"
+      tail: EmptyStringList
+
+Thyroid Gland | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013961"
+   tail: EmptyStringList
+
+acute thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14353"
+   tail: EmptyStringList
+
+Connective Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D003238"
+   tail: EmptyStringList
+
+Thyroid hormone receptor alpha-A | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/THAA_PAROL"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/THAA_DANRE"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/THAA_XENLA"
+         tail: EmptyStringList
+
+connective tissue cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:201"
+   tail: EmptyStringList
+
+skin lipoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10188"
+   tail: EmptyStringList
+
+thyroid hormone receptor binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0046966"
+   tail: EmptyStringList
+
+Peptide Biosynthesis, Nucleic Acid-Independent | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D046908"
+   tail: EmptyStringList
+
+systemic mastocytosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:349"
+   tail: EmptyStringList
+
+"Salicylanilide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4006760"
+   tail: EmptyStringList
+
+"globotriaosylceramide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4254317"
+   tail: EmptyStringList
+
+Thyrotropin | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013972"
+   tail: EmptyStringList
+
+endocrine exophthalmos | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12359"
+   tail: EmptyStringList
+
+Tissue Preservation | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014021"
+   tail: EmptyStringList
+
+"Ponceau S" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4047137"
+   tail: EmptyStringList
+
+"acetylcholine receptor alpha-subunit (125-148)" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4262484"
+   tail: EmptyStringList
+
+Receptors, Thyrotropin-Releasing Hormone | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018025"
+   tail: EmptyStringList
+
+"Cytokine Receptor gp130" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250463"
+   tail: EmptyStringList
+
+thyroid hyalinizing trabecular adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6203"
+   tail: EmptyStringList
+
+subacute thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7165"
+   tail: EmptyStringList
+
+Hyperpituitarism | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D006964"
+   tail: EmptyStringList
+
+"(4-chloro-2-methylphenoxy)acetic acid" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4276689"
+   tail: EmptyStringList
+
+Protein teashirt | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TSH_DROME"
+   tail: EmptyStringList
+
+thyroid sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4515"
+   tail: EmptyStringList
+
+Membranes | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D008566"
+   tail: EmptyStringList
+
+Thyrotropin subunit beta | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TSHB_CANFA"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/TSHB_SALSA"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/TSHB_CHICK"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/TSHB_ANGAN"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/TSHB_FELCA"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/TSHB_BOVIN"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/TSHB_MOUSE"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/TSHB_ONCMY"
+                        tail: NonEmptyStringList
+                           head: "http://www.uniprot.org/uniprot/TSHB_HORSE"
+                           tail: NonEmptyStringList
+                              head: "http://www.uniprot.org/uniprot/TSHB_MONDO"
+                              tail: NonEmptyStringList
+                                 head: "http://www.uniprot.org/uniprot/TSHB_RAT"
+                                 tail: NonEmptyStringList
+                                    head: "http://www.uniprot.org/uniprot/TSHB_PIG"
+                                    tail: NonEmptyStringList
+                                       head: "http://www.uniprot.org/uniprot/TSHB_LAMGL"
+                                       tail: NonEmptyStringList
+                                          head: "http://www.uniprot.org/uniprot/TSHB_PHOSU"
+                                          tail: NonEmptyStringList
+                                             head: "http://www.uniprot.org/uniprot/TSHB_ANGJA"
+                                             tail: NonEmptyStringList
+                                                head: "http://www.uniprot.org/uniprot/TSHB_HUMAN"
+                                                tail: EmptyStringList
+
+thyroid lymphoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:10011"
+   tail: EmptyStringList
+
+"Tissue-type plasminogen activator" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4232861"
+   tail: EmptyStringList
+
+"malathion" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4273432"
+   tail: EmptyStringList
+
+"Rhodamine B" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4006512"
+   tail: EmptyStringList
+
+"Aryl Hydrocarbon Receptor Nuclear Translocator" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250490"
+   tail: EmptyStringList
+
+"Thyrotropin releasing hormone chloromethyl ketone" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4176819"
+   tail: EmptyStringList
+
+fibrosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3355"
+   tail: EmptyStringList
+
+Thyroid hormone receptor beta-A | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/THBA_XENLA"
+   tail: EmptyStringList
+
+"trypanothione disulfide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4272302"
+   tail: EmptyStringList
+
+Tissue and Organ Procurement | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009927"
+   tail: EmptyStringList
+
+Odontogenic Tumors | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009808"
+   tail: EmptyStringList
+
+High mobility group nucleosome-binding domain-containing protein 3 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/HMGN3_HUMAN"
+   tail: EmptyStringList
+
+"thyrotropin-releasing hormone, 1-Me-" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4254151"
+   tail: EmptyStringList
+
+Mediator Complex Subunit 1 | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D056913"
+   tail: EmptyStringList
+
+Glycoprotein Hormones, alpha Subunit | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015292"
+   tail: EmptyStringList
+
+thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7166"
+   tail: EmptyStringList
+
+Thyroid receptor-interacting protein 6 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TRIP6_BOVIN"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/TRIP6_MOUSE"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/TRIP6_HUMAN"
+         tail: EmptyStringList
+
+Granulation Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D006097"
+   tail: EmptyStringList
+
+Neoplasms, Vascular Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009383"
+   tail: EmptyStringList
+
+progesterone-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060078"
+   tail: EmptyStringList
+
+Adenocarcinoma, Follicular | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018263"
+   tail: EmptyStringList
+
+soft tissue peripheral neuroepithelioma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4389"
+   tail: EmptyStringList
+
+pelvic inflammatory disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1003"
+   tail: EmptyStringList
+
+thyroid adenoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:2891"
+   tail: EmptyStringList
+
+familial medullary thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050547"
+   tail: EmptyStringList
+
+"tetradifon" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4275694"
+   tail: EmptyStringList
+
+Thyroiditis, Suppurative | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013969"
+   tail: EmptyStringList
+
+Adipose Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D000273"
+   tail: EmptyStringList
+
+Tissue Transplantation | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D016378"
+   tail: EmptyStringList
+
+thyrotropin-releasing hormone receptor binding | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0031531"
+   tail: EmptyStringList
+
+"Kolfocon D" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4002440"
+   tail: EmptyStringList
+
+"oryzalin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4253084"
+   tail: EmptyStringList
+
+teeth hard tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:214"
+   tail: EmptyStringList
+
+"Thromboplastin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250037"
+   tail: EmptyStringList
+
+"methyl ethyl ketone peroxide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4252749"
+   tail: EmptyStringList
+
+"Chlormequat" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4249048"
+   tail: EmptyStringList
+
+"propan-1-ol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4277066"
+   tail: EmptyStringList
+
+Thyrotropin Alfa | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D057073"
+   tail: EmptyStringList
+
+"isopropyl myristate" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4252084"
+   tail: EmptyStringList
+
+Thyrotrophs | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D052684"
+   tail: EmptyStringList
+
+small intestine leiomyosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:5271"
+   tail: EmptyStringList
+
+Neoplasms, Bone Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D018213"
+   tail: EmptyStringList
+
+"Fosetyl-aluminium" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4106590"
+   tail: EmptyStringList
+
+Kinesin-like protein KIF11 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/KIF11_HUMAN"
+   tail: EmptyStringList
+
+Mediator of RNA polymerase II transcription subunit 1 | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/MED1_HUMAN"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/MED1_MOUSE"
+      tail: EmptyStringList
+
+"protirelin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4272308"
+   tail: EmptyStringList
+
+"pro-thyrotropin releasing hormone" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4259205"
+   tail: EmptyStringList
+
+Thyroiditis, Subacute | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013968"
+   tail: EmptyStringList
+
+"geraniol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4271754"
+   tail: EmptyStringList
+
+Neoplasms, Nerve Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009380"
+   tail: EmptyStringList
+
+Tissue Distribution | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014018"
+   tail: EmptyStringList
+
+"C.I. Acid Green 3" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4040350"
+   tail: EmptyStringList
+
+"quinoline yellow" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4254445"
+   tail: EmptyStringList
+
+Pheochromocytoma | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D010673"
+   tail: EmptyStringList
+
+sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1115"
+   tail: EmptyStringList
+
+"phenosafranine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4274741"
+   tail: EmptyStringList
+
+connective tissue benign neoplasm | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060123"
+   tail: EmptyStringList
+
+Extravascular Lung Water | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015633"
+   tail: EmptyStringList
+
+Thyrotropin receptor | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TSHR_PIG"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/TSHR_RAT"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/TSHR_SHEEP"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/TSHR_BOVIN"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/TSHR_CANFA"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/TSHR_MOUSE"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/TSHR_FELCA"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/TSHR_HUMAN"
+                        tail: EmptyStringList
+
+Temperature-sensitive hemagglutinin tsh autotransporter | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/TSH_ECOLX"
+   tail: EmptyStringList
+
+Hashimoto Disease | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D050031"
+   tail: EmptyStringList
+
+Tissue Expansion Devices | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D015625"
+   tail: EmptyStringList
+
+Tissue Extracts | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014020"
+   tail: EmptyStringList
+
+Thyroxine | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013974"
+   tail: EmptyStringList
+
+Tissues | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014024"
+   tail: EmptyStringList
+
+Polymyalgia Rheumatica | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011111"
+   tail: EmptyStringList
+
+Riedel's fibrosing thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:14351"
+   tail: EmptyStringList
+
+"Pyroglutaminyl-seryl-leucinamide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4169920"
+   tail: EmptyStringList
+
+hypothyroidism | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1459"
+   tail: EmptyStringList
+
+"(S)-propane-1,2-diol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4277037"
+   tail: EmptyStringList
+
+Nuclear Receptor Coactivator 3 | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D056921"
+   tail: EmptyStringList
+
+"mecarzole" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4251791"
+   tail: EmptyStringList
+
+Lymphoid Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D008221"
+   tail: EmptyStringList
+
+Tissue Adhesions | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D000267"
+   tail: EmptyStringList
+
+beta-N-Acetylglucosaminylglycopeptide beta-1,4-Galactosyltransferase | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D006022"
+   tail: EmptyStringList
+
+Nerve Tissue Proteins | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009419"
+   tail: EmptyStringList
+
+Histocompatibility Testing | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D006650"
+   tail: EmptyStringList
+
+Receptors, Thyrotropin | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D011989"
+   tail: EmptyStringList
+
+Tissue Polypeptide Antigen | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D019396"
+   tail: EmptyStringList
+
+cerebral folate receptor alpha deficiency | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0050719"
+   tail: EmptyStringList
+
+"C.I. 17755" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4047118"
+   tail: EmptyStringList
+
+hyperthyroidism | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7998"
+   tail: EmptyStringList
+
+Thyroid Cartilage | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013957"
+   tail: EmptyStringList
+
+"3,3',5-triiodo-L-thyronine" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4275389"
+   tail: EmptyStringList
+
+Thyroid hormone receptor beta | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/THB_CAIMO"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/THB_PAROL"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/THB_SHEEP"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/THB_RAT"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/THB_MOUSE"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/THB_DANRE"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/THB_HUMAN"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/THB_LITCT"
+                        tail: NonEmptyStringList
+                           head: "http://www.uniprot.org/uniprot/THB_CHICK"
+                           tail: EmptyStringList
+
+Thyroid Neoplasms | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013964"
+   tail: EmptyStringList
+
+osteosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3347"
+   tail: EmptyStringList
+
+"4-Toluenesulfonyl hydrazide" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4023760"
+   tail: EmptyStringList
+
+Nerve Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009417"
+   tail: EmptyStringList
+
+"sodium hydrogencarbonate" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4277637"
+   tail: EmptyStringList
+
+"tsh protein, Drosophila" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4262576"
+   tail: EmptyStringList
+
+Transplants | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D019737"
+   tail: EmptyStringList
+
+"Tissue Inhibitor of Metalloproteinase-2" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250369"
+   tail: EmptyStringList
+
+cystic echinococcosis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1495"
+   tail: EmptyStringList
+
+Thyroid (USP) | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013962"
+   tail: EmptyStringList
+
+"Fluorescein-thyrotropin-releasing hormone" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4177257"
+   tail: EmptyStringList
+
+Triiodothyronine | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014284"
+   tail: EmptyStringList
+
+"sethoxydim" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4259732"
+   tail: EmptyStringList
+
+"Coe Comfort" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4258756"
+   tail: EmptyStringList
+
+perineurioma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4697"
+   tail: EmptyStringList
+
+Connective Tissue Cells | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D003239"
+   tail: EmptyStringList
+
+Mucous Membrane | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D009092"
+   tail: EmptyStringList
+
+Coloring Agents | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D004396"
+   tail: EmptyStringList
+
+"Acid orange 6" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4013531"
+   tail: EmptyStringList
+
+lipomatous cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3939"
+   tail: EmptyStringList
+
+Histocompatibility | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D006648"
+   tail: EmptyStringList
+
+thyroid hormone resistance syndrome | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:11633"
+   tail: EmptyStringList
+
+Tissue Donors | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014019"
+   tail: EmptyStringList
+
+progesterone-receptor positive breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060077"
+   tail: EmptyStringList
+
+Adventitia | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D063194"
+   tail: EmptyStringList
+
+thyroid crisis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:12837"
+   tail: EmptyStringList
+
+"Thyroglobulin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250043"
+   tail: EmptyStringList
+
+malignant thyroid stimulating hormone producing neoplasm of pituitary gland | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:6274"
+   tail: EmptyStringList
+
+"Long-Acting Thyroid Stimulator" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4249519"
+   tail: EmptyStringList
+
+Mast Cells | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D008407"
+   tail: EmptyStringList
+
+Subcutaneous Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D040521"
+   tail: EmptyStringList
+
+"C.I. Acid Red 14" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4035123"
+   tail: EmptyStringList
+
+RNA polymerase II transcription cofactor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0001104"
+   tail: EmptyStringList
+
+connective tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:65"
+   tail: EmptyStringList
+
+Antithyroid Agents | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013956"
+   tail: EmptyStringList
+
+"Tetrahexosylceramide (d18:1/25:0)" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4244704"
+   tail: EmptyStringList
+
+"Connective Tissue Growth Factor" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250512"
+   tail: EmptyStringList
+
+"C.I. Solvent Orange 7" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4032814"
+   tail: EmptyStringList
+
+"triphenylstannanol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4269254"
+   tail: EmptyStringList
+
+"5alpha-cholest-7-en-3beta-ol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4271721"
+   tail: EmptyStringList
+
+"chloroxylenol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4251857"
+   tail: EmptyStringList
+
+Elastic Tissue | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D004547"
+   tail: EmptyStringList
+
+subacute lymphocytic thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7187"
+   tail: EmptyStringList
+
+"Tenecteplase" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4242090"
+   tail: EmptyStringList
+
+thyroid-stimulating hormone receptor activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0004996"
+   tail: EmptyStringList
+
+"linoleic acid" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4270923"
+   tail: EmptyStringList
+
+"prepro-thyrotropin-releasing hormone" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4262045"
+   tail: EmptyStringList
+
+"Tumor Necrosis Factor-alpha" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4243664"
+   tail: EmptyStringList
+
+Her2-receptor negative breast cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:0060080"
+   tail: EmptyStringList
+
+"biphenyl-2-ol" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4276790"
+   tail: EmptyStringList
+
+regulation of thyroid-stimulating hormone secretion | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:2000612"
+   tail: EmptyStringList
+
+"Pyributicarb" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4195746"
+   tail: EmptyStringList
+
+"CI 24895" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4031383"
+   tail: EmptyStringList
+
+autoimmune thyroiditis | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7188"
+   tail: EmptyStringList
+
+substernal goiter | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:13200"
+   tail: EmptyStringList
+
+Glycoprotein hormones alpha chain | NonEmptyStringList
+   head: "http://www.uniprot.org/uniprot/GLHA_MONDO"
+   tail: NonEmptyStringList
+      head: "http://www.uniprot.org/uniprot/GLHA_MACMU"
+      tail: NonEmptyStringList
+         head: "http://www.uniprot.org/uniprot/GLHA_LITCT"
+         tail: NonEmptyStringList
+            head: "http://www.uniprot.org/uniprot/GLHA_BALAC"
+            tail: NonEmptyStringList
+               head: "http://www.uniprot.org/uniprot/GLHA_AILFU"
+               tail: NonEmptyStringList
+                  head: "http://www.uniprot.org/uniprot/GLHA_MELGA"
+                  tail: NonEmptyStringList
+                     head: "http://www.uniprot.org/uniprot/GLHA_TRIVU"
+                     tail: NonEmptyStringList
+                        head: "http://www.uniprot.org/uniprot/GLHA_BUBBU"
+                        tail: NonEmptyStringList
+                           head: "http://www.uniprot.org/uniprot/GLHA_MACRU"
+                           tail: NonEmptyStringList
+                              head: "http://www.uniprot.org/uniprot/GLHA_SAIBB"
+                              tail: NonEmptyStringList
+                                 head: "http://www.uniprot.org/uniprot/GLHA_BOSMU"
+                                 tail: NonEmptyStringList
+                                    head: "http://www.uniprot.org/uniprot/GLHA_CAPHI"
+                                    tail: NonEmptyStringList
+                                       head: "http://www.uniprot.org/uniprot/GLHA_MACFA"
+                                       tail: NonEmptyStringList
+                                          head: "http://www.uniprot.org/uniprot/GLHA_PHYMC"
+                                          tail: NonEmptyStringList
+                                             head: "http://www.uniprot.org/uniprot/GLHA_CALJA"
+                                             tail: NonEmptyStringList
+                                                head: "http://www.uniprot.org/uniprot/GLHA_STRCA"
+                                                tail: NonEmptyStringList
+                                                   head: "http://www.uniprot.org/uniprot/GLHA_EQUBU"
+                                                   tail: NonEmptyStringList
+                                                      head: "http://www.uniprot.org/uniprot/GLHA_CAVPO"
+                                                      tail: NonEmptyStringList
+                                                         head: "http://www.uniprot.org/uniprot/GLHA_NIPNI"
+                                                         tail: NonEmptyStringList
+                                                            head: "http://www.uniprot.org/uniprot/GLHA_HUMAN"
+                                                            tail: NonEmptyStringList
+                                                               head: "http://www.uniprot.org/uniprot/GLHA_SHEEP"
+                                                               tail: NonEmptyStringList
+                                                                  head: "http://www.uniprot.org/uniprot/GLHA_CANFA"
+                                                                  tail: NonEmptyStringList
+                                                                     head: "http://www.uniprot.org/uniprot/GLHA_MICMO"
+                                                                     tail: EmptyStringList
+
+thyroid cancer | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:1781"
+   tail: EmptyStringList
+
+"Thyrotropin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250044"
+   tail: EmptyStringList
+
+Tissue Banks | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014015"
+   tail: EmptyStringList
+
+papillary thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3969"
+   tail: EmptyStringList
+
+Tissue Kallikreins | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D020840"
+   tail: EmptyStringList
+
+"sulfide(2-)" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4277472"
+   tail: EmptyStringList
+
+Thyroid Hormone Receptors alpha | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D037021"
+   tail: EmptyStringList
+
+thyroid medullary carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3973"
+   tail: EmptyStringList
+
+"chorionic thyrotropin protein, human" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4253209"
+   tail: EmptyStringList
+
+"TNFR-Fc fusion protein" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4267162"
+   tail: EmptyStringList
+
+Iodide Peroxidase | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D007453"
+   tail: EmptyStringList
+
+mixed connective tissue disease | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3492"
+   tail: EmptyStringList
+
+clear cell sarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4233"
+   tail: EmptyStringList
+
+thyroid angiosarcoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:4514"
+   tail: EmptyStringList
+
+Thyrotropin-Releasing Hormone | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013973"
+   tail: EmptyStringList
+
+Tissue Adhesives | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D014014"
+   tail: EmptyStringList
+
+Thyroid Hormones | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013963"
+   tail: EmptyStringList
+
+"Benazolin" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4036611"
+   tail: EmptyStringList
+
+thyroid hormone receptor activator activity | NonEmptyStringList
+   head: "http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=GO:0010861"
+   tail: EmptyStringList
+
+multicentric papillary thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:7086"
+   tail: EmptyStringList
+
+thyroid carcinoma | NonEmptyStringList
+   head: "http://www.disease-ontology.org/api/metadata/DOID:3963"
+   tail: EmptyStringList
+
+"Oxyquinoline sulfate" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4009015"
+   tail: EmptyStringList
+
+"Anistreplase" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4250250"
+   tail: EmptyStringList
+
+"nylon 6" | NonEmptyStringList
+   head: "http://www.biosemantics.org/jochem#4252488"
+   tail: EmptyStringList
+
+Thyroid Function Tests | NonEmptyStringList
+   head: "http://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?field=uid&exact=Find+Exact+Term&term=D013960"
+   tail: EmptyStringList
+

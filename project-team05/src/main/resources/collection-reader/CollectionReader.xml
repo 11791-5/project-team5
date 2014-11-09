@@ -23,7 +23,7 @@
      filesystem.  The Java class for this collection reader is in uima_core.jar. -->
 <collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
     <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-    <implementationName>CollectionReader</implementationName>
+    <implementationName>edu.cmu.lti.oaqa.reader.CollectionReader</implementationName>
     <processingResourceMetaData>
         <name>geneCollectionReader</name>
         <description>Reads the question json file from the file system</description>
