@@ -43,6 +43,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       double conceptF = calcF(conceptPrecision, conceptRecall);
       double conceptAP = calcAP(goldConcepts, conceptItems);
       averageConceptPrecision.add(conceptAP);
+      printQueryStats(conceptPrecision, conceptRecall, conceptF, conceptAP, "concept");
 
       List<String> documentItems = getDocumentURIsAsList(aJCas);
       double documentPrecision = getPrecision(documentItems, goldDocuments);
@@ -50,26 +51,65 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       double documentF = calcF(documentPrecision, documentRecall);
       double documentAP = calcAP(goldDocuments, documentItems);
       averageDocumentPrecision.add(documentAP);
+      printQueryStats(documentPrecision, documentRecall, documentF, documentAP, "document");
     }
   }
 
-  private double calcAP(List<String> goldConcepts, List<String> conceptItems) {
-    int totalRelItemsInList = getNumTruePositives(conceptItems, goldConcepts);
-    double averageConceptPrecision = 0;
-    for (int i = 0; i < conceptItems.size(); i++) {
-      if (goldConcepts.contains(conceptItems.get(i))) {
-        double precisionAtR = getPrecision(conceptItems.subList(0, i), goldConcepts);
-        averageConceptPrecision += precisionAtR;
+  /**
+   * Prints precision, recall, fscore, and average precision for the given type.
+   * 
+   * @param precision
+   * @param recall
+   * @param fScore
+   * @param ap
+   * @param type
+   */
+  private void printQueryStats(double precision, double recall, double fScore, double ap,
+          String type) {
+    System.out.println(String.format("%s precision: %f", type, precision));
+    System.out.println(String.format("%s recall: %f", type, recall));
+    System.out.println(String.format("%s f score: %f", type, fScore));
+    System.out.println(String.format("%s average precision: %f", type, ap));
+  }
+
+  /**
+   * Calculates average precision for the given list of hypothesis items given the list of golden
+   * items.
+   * 
+   * @param goldItems
+   * @param hypothesisItems
+   * @return
+   */
+  private double calcAP(List<String> goldItems, List<String> hypothesisItems) {
+    int totalRelItemsInList = getNumTruePositives(hypothesisItems, goldItems);
+    double averagePrecision = 0;
+    for (int i = 0; i < hypothesisItems.size(); i++) {
+      if (goldItems.contains(hypothesisItems.get(i))) {
+        double precisionAtR = getPrecision(hypothesisItems.subList(0, i), goldItems);
+        averagePrecision += precisionAtR;
       }
     }
-    averageConceptPrecision = averageConceptPrecision / totalRelItemsInList;
-    return averageConceptPrecision;
+    averagePrecision = averagePrecision / totalRelItemsInList;
+    return averagePrecision;
   }
 
+  /**
+   * Calculates f-score given the precision and recall.
+   * 
+   * @param precision
+   * @param recall
+   * @return
+   */
   private double calcF(double precision, double recall) {
     return 2 * (precision * recall) / (precision + recall);
   }
 
+  /**
+   * Returns a list of document URIs given the JCas.
+   * 
+   * @param aJcas
+   * @return
+   */
   private List<String> getDocumentURIsAsList(JCas aJcas) {
     FSIterator<Annotation> documents = aJcas.getAnnotationIndex(DocumentP.type).iterator();
     List<String> documentItems = new ArrayList<String>();
@@ -80,6 +120,12 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return documentItems;
   }
 
+  /**
+   * Returns a list of concept URIs given the JCas.
+   * 
+   * @param aJCas
+   * @return
+   */
   private List<String> getConceptURIsAsList(JCas aJCas) {
     FSIterator<Annotation> concepts = aJCas.getAnnotationIndex(ConceptMention.type).iterator();
     List<String> conceptItems = new ArrayList<String>();
@@ -92,20 +138,48 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return conceptItems;
   }
 
+  /**
+   * Returns the precision given a list of hypotheses and gold standard list.
+   * 
+   * @param hypotheses
+   * @param gold
+   * @return
+   */
   public double getPrecision(List<String> hypotheses, List<String> gold) {
     return getNumTruePositives(gold, hypotheses) / (hypotheses.size());
   }
 
+  /**
+   * Returns the recall given a list of hypotheses and gold standard list.
+   * 
+   * @param hypotheses
+   * @param gold
+   * @return
+   */
   public double getRecall(List<String> hypotheses, List<String> gold) {
     return getNumTruePositives(gold, hypotheses) / (gold.size());
   }
 
+  /**
+   * Returns the true positives by getting intersection between the list of hypotheses and gold
+   * standard list.
+   * 
+   * @param hypothesis
+   * @param gold
+   * @return
+   */
   public int getNumTruePositives(List<String> hypothesis, List<String> gold) {
     return CollectionUtils.intersection(new HashSet<String>(hypothesis), new HashSet<String>(gold))
             .size();
   }
 
-  public double calcAvg(ArrayList<Double> vals) {
+  /**
+   * Convenience method to calculate the arithmetic average of a list of values.
+   * 
+   * @param vals
+   * @return
+   */
+  public double calcArithmeticAvg(ArrayList<Double> vals) {
     double result = 0;
     for (Double val : vals) {
       result += val;
@@ -113,6 +187,12 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return result / vals.size();
   }
 
+  /**
+   * Convenience method to calculate the geometric average of a list of values.
+   * 
+   * @param vals
+   * @return
+   */
   public double calculateGeomAvg(ArrayList<Double> vals) {
     double result = 1;
     double epsilon = 0.01;
@@ -122,11 +202,29 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return Math.sqrt(result);
   }
 
+  /**
+   * Calculate and print the mean average precision and geometric mean average precision for the
+   * queries processed in the collection.
+   */
   public void collectionProcessComplete() {
-    double conceptMap = calcAvg(averageConceptPrecision);
-    double documentMap = calcAvg(averageDocumentPrecision);
+    double conceptMap = calcArithmeticAvg(averageConceptPrecision);
+    double documentMap = calcArithmeticAvg(averageDocumentPrecision);
     double conceptGmap = calculateGeomAvg(averageConceptPrecision);
     double documentGmap = calculateGeomAvg(averageDocumentPrecision);
+    printFinalStats(conceptMap, conceptGmap, "concept");
+    printFinalStats(documentMap, documentGmap, "document");
+
+  }
+
+  /**
+   * Prints final stats for the given type.
+   * @param map
+   * @param gmap
+   * @param type
+   */
+  private void printFinalStats(double map, double gmap, String type) {
+    System.out.println(String.format("%s MAP: %f", type, map));
+    System.out.println(String.format("%s GMAP: %f", type, gmap));
   }
 
 }
