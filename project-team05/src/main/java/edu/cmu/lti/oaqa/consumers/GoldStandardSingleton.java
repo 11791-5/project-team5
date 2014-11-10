@@ -33,11 +33,12 @@ public class GoldStandardSingleton
     Pattern p = Pattern.compile("[0-9]+");
     for(Question answer:stdAnswers)
     {
-      for(String document:answer.getDocuments())
+      for(int i=0;i<answer.getDocuments().size();i++)
       {
+        String document = answer.getDocuments().get(i);
         Matcher matcher = p.matcher(document);
         if(matcher.find())
-          document = matcher.group();
+          answer.getDocuments().set(i,matcher.group());
       }
       this.goldStandardAnswer.put(answer.getId(), answer);
     }
