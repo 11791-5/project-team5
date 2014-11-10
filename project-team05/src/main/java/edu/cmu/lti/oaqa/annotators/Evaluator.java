@@ -15,9 +15,9 @@ import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.component.JCasAnnotator_ImplBase;
 
-import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.input.Question;
+import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.stanford.nlp.util.CollectionUtils;
 
@@ -100,9 +100,12 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   private List<String> getJsonTriplesAsStringList(List<json.gson.Triple> triples) {
     List<String> tripleItems = new ArrayList<String>();
-    for(json.gson.Triple triple: triples) {
-      String tripleString = "o-"+triple.getO()+"-p-"+triple.getP()+"-s-"+triple.getS();
-      tripleItems.add(tripleString);
+    if(triples!=null)
+    {
+      for(json.gson.Triple triple: triples) {
+        String tripleString = "o-"+triple.getO()+"-p-"+triple.getP()+"-s-"+triple.getS();
+        tripleItems.add(tripleString);
+      }
     }
     return tripleItems;
   }
