@@ -82,6 +82,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    */
   private double calcAP(List<String> goldItems, List<String> hypothesisItems) {
     int totalRelItemsInList = getNumTruePositives(hypothesisItems, goldItems);
+    if (totalRelItemsInList == 0) {
+      return 0;
+    }
     double averagePrecision = 0;
     for (int i = 0; i < hypothesisItems.size(); i++) {
       if (goldItems.contains(hypothesisItems.get(i))) {
@@ -89,6 +92,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
         averagePrecision += precisionAtR;
       }
     }
+
     averagePrecision = averagePrecision / totalRelItemsInList;
     return averagePrecision;
   }
@@ -101,6 +105,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @return
    */
   private double calcF(double precision, double recall) {
+    if (precision + recall == 0) {
+      return 0;
+    }
     return 2 * (precision * recall) / (precision + recall);
   }
 
@@ -146,6 +153,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @return
    */
   public double getPrecision(List<String> hypotheses, List<String> gold) {
+    if (hypotheses.size() == 0) {
+      return 0;
+    }
     return getNumTruePositives(gold, hypotheses) / (hypotheses.size());
   }
 
@@ -157,6 +167,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @return
    */
   public double getRecall(List<String> hypotheses, List<String> gold) {
+    if (gold.size() == 0) {
+      return 0;
+    }
     return getNumTruePositives(gold, hypotheses) / (gold.size());
   }
 
@@ -180,7 +193,11 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @return
    */
   public double calcArithmeticAvg(ArrayList<Double> vals) {
+    if (vals.size() == 0) {
+      return 0;
+    }
     double result = 0;
+
     for (Double val : vals) {
       result += val;
     }
@@ -194,6 +211,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @return
    */
   public double calculateGeomAvg(ArrayList<Double> vals) {
+    if(vals.size() == 0) {
+      return 0;
+    }
     double result = 1;
     double epsilon = 0.01;
     for (Double val : vals) {
@@ -218,6 +238,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   /**
    * Prints final stats for the given type.
+   * 
    * @param map
    * @param gmap
    * @param type
