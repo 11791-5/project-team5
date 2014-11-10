@@ -72,7 +72,7 @@ public class GoPubMedServiceSingleton
       e.printStackTrace();
     }*/
 
-   /* OntologyServiceResponse.Result meshResult;
+    OntologyServiceResponse.Result meshResult;
     try {
       meshResult = goPubMedService.findMeshEntitiesPaged(text, 0);
       resutList.add(meshResult);
@@ -90,7 +90,7 @@ public class GoPubMedServiceSingleton
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
-    }*/
+    }
 
     return resutList;
 
