@@ -15,6 +15,7 @@ import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.component.JCasAnnotator_ImplBase;
 
+import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.input.Question;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
@@ -25,6 +26,8 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   private ArrayList<Double> averageConceptPrecision = new ArrayList<Double>();
 
   private ArrayList<Double> averageDocumentPrecision = new ArrayList<Double>();
+
+  private ArrayList<Double> averageTriplePrecision = new ArrayList<Double>();
 
   File evaluation = new File("evaluation.txt");
 
@@ -48,8 +51,11 @@ public class Evaluator extends JCasAnnotator_ImplBase {
               .get(questionid).getConcepts();
       List<String> goldDocuments = GoldStandardSingleton.getInstance().getGoldStandardAnswer()
               .get(questionid).getDocuments();
-      List<String> conceptItems = getConceptURIsAsList(aJCas);
+      List<String> goldTriples = getJsonTriplesAsStringList(GoldStandardSingleton.getInstance()
+              .getGoldStandardAnswer().get(questionid).getTriples());
 
+      // calculate metrics for concepts
+      List<String> conceptItems = getConceptURIsAsList(aJCas);
       double conceptPrecision = getPrecision(conceptItems, goldConcepts);
       double conceptRecall = getRecall(conceptItems, goldConcepts);
       double conceptF = calcF(conceptPrecision, conceptRecall);
@@ -62,6 +68,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
         e1.printStackTrace();
       }
 
+      // calculate metrics for documents
       List<String> documentItems = getDocumentURIsAsList(aJCas);
       double documentPrecision = getPrecision(documentItems, goldDocuments);
       double documentRecall = getRecall(documentItems, goldDocuments);
@@ -75,7 +82,41 @@ public class Evaluator extends JCasAnnotator_ImplBase {
         e.printStackTrace();
       }
 
+      // calcualte metrics for triples
+      List<String> tripleItems = getProcessedTriplesAsList(aJCas);
+      double triplePrecision = getPrecision(tripleItems, goldTriples);
+      double tripleRecall = getRecall(tripleItems, goldTriples);
+      double tripleF = calcF(triplePrecision, tripleRecall);
+      double tripleAP = calcAP(goldTriples, tripleItems);
+      averageTriplePrecision.add(tripleAP);
+      try {
+        printQueryStats(triplePrecision, tripleRecall, tripleF, tripleAP, "triple");
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
     }
+  }
+
+  private List<String> getJsonTriplesAsStringList(List<json.gson.Triple> triples) {
+    List<String> tripleItems = new ArrayList<String>();
+    for(json.gson.Triple triple: triples) {
+      String tripleString = "o-"+triple.getO()+"-p-"+triple.getP()+"-s-"+triple.getS();
+      tripleItems.add(tripleString);
+    }
+    return tripleItems;
+  }
+
+  private List<String> getProcessedTriplesAsList(JCas aJCas) {
+    FSIterator<TOP> triples = aJCas.getJFSIndexRepository().getAllIndexedFS(Triple.type);
+    List<String> tripleItems = new ArrayList<String>();
+    while (triples.hasNext()) {
+      Triple triple = (Triple) triples
+              .next();
+      String tripleString = "o-"+triple.getObject()+"-p-"+triple.getPredicate()+"-s-"+triple.getSubject();
+      tripleItems.add(tripleString);
+    }
+    return tripleItems;
   }
 
   /**
@@ -86,7 +127,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param fScore
    * @param ap
    * @param type
-   * @throws IOException 
+   * @throws IOException
    */
   private void printQueryStats(double precision, double recall, double fScore, double ap,
           String type) throws IOException {
@@ -165,7 +206,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     List<String> conceptItems = new ArrayList<String>();
     while (conceptSearchResults.hasNext()) {
       ConceptSearchResult conceptResult = (ConceptSearchResult) conceptSearchResults.next();
-      conceptItems.add(conceptResult.getUri().replace("GO:", "").replace("2014","2012"));
+      conceptItems.add(conceptResult.getUri().replace("GO:", "").replace("2014", "2012"));
     }
     return conceptItems;
   }
@@ -181,7 +222,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     if (hypotheses.size() == 0) {
       return 0;
     }
-    return (double)getNumTruePositives(gold, hypotheses) / (hypotheses.size());
+    return (double) getNumTruePositives(gold, hypotheses) / (hypotheses.size());
   }
 
   /**
@@ -195,7 +236,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     if (gold.size() == 0) {
       return 0;
     }
-    return (double)getNumTruePositives(gold, hypotheses) / (gold.size());
+    return (double) getNumTruePositives(gold, hypotheses) / (gold.size());
   }
 
   /**
@@ -252,26 +293,24 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * queries processed in the collection.
    */
   public void collectionProcessComplete() {
-    double conceptMap = calcArithmeticAvg(averageConceptPrecision);
-    double documentMap = calcArithmeticAvg(averageDocumentPrecision);
-    double conceptGmap = calculateGeomAvg(averageConceptPrecision);
-    double documentGmap = calculateGeomAvg(averageDocumentPrecision);
-    try {
-      printFinalStats(conceptMap, conceptGmap, "concept");
-    } catch (IOException e1) {
-      // TODO Auto-generated catch block
-      e1.printStackTrace();
-    }
-    try {
-      printFinalStats(documentMap, documentGmap, "document");
-    } catch (IOException e1) {
-      // TODO Auto-generated catch block
-      e1.printStackTrace();
-    }
+    calcAndPrintFinalStatsForType("concept", averageConceptPrecision);
+    calcAndPrintFinalStatsForType("document", averageDocumentPrecision);
+    calcAndPrintFinalStatsForType("triple", averageTriplePrecision);
     try {
       evaluationWriter.close();
     } catch (IOException e) {
       e.printStackTrace();
+    }
+  }
+  
+  private void calcAndPrintFinalStatsForType(String type, ArrayList<Double> typeVals) {
+    double typeMap = calcArithmeticAvg(typeVals);
+    double typeGmap = calculateGeomAvg(typeVals);
+    try {
+      printFinalStats(typeMap, typeGmap, type);
+    } catch (IOException e1) {
+      // TODO Auto-generated catch block
+      e1.printStackTrace();
     }
   }
 
@@ -281,7 +320,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param map
    * @param gmap
    * @param type
-   * @throws IOException 
+   * @throws IOException
    */
   private void printFinalStats(double map, double gmap, String type) throws IOException {
     evaluationWriter.write((String.format("%s MAP: %f\n", type, map)));
