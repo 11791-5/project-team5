@@ -1,22 +1,19 @@
 package edu.cmu.lti.oaqa.annotators;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
-import org.apache.uima.fit.util.FSCollectionFactory;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.StringList;
+import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.component.JCasAnnotator_ImplBase;
 
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.input.Question;
-import edu.cmu.lti.oaqa.type.kb.ConceptMention;
-import edu.cmu.lti.oaqa.type.kb.DocumentP;
+import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.stanford.nlp.util.CollectionUtils;
 
 public class Evaluator extends JCasAnnotator_ImplBase {
@@ -118,11 +115,11 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @return
    */
   private List<String> getDocumentURIsAsList(JCas aJcas) {
-    FSIterator<Annotation> documents = aJcas.getAnnotationIndex(DocumentP.type).iterator();
+    FSIterator<TOP> documents = aJcas.getJFSIndexRepository().getAllIndexedFS(edu.cmu.lti.oaqa.type.retrieval.Document.type);
     List<String> documentItems = new ArrayList<String>();
     while (documents.hasNext()) {
-      DocumentP document = (DocumentP) documents.next();
-      documentItems.add(document.getURI());
+      edu.cmu.lti.oaqa.type.retrieval.Document document = (edu.cmu.lti.oaqa.type.retrieval.Document) documents.next();
+      documentItems.add(document.getUri());
     }
     return documentItems;
   }
@@ -134,13 +131,12 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @return
    */
   private List<String> getConceptURIsAsList(JCas aJCas) {
-    FSIterator<Annotation> concepts = aJCas.getAnnotationIndex(ConceptMention.type).iterator();
+    FSIterator<TOP> conceptSearchResults = aJCas.getJFSIndexRepository().getAllIndexedFS(ConceptSearchResult.type);
     List<String> conceptItems = new ArrayList<String>();
-    while (concepts.hasNext()) {
-      ConceptMention conceptMention = (ConceptMention) concepts.next();
-      StringList l = conceptMention.getConcept().getUris();
-      Collection<String> listForConcept = FSCollectionFactory.create(l);
-      conceptItems.addAll(listForConcept);
+    while(conceptSearchResults.hasNext())
+    {
+      ConceptSearchResult conceptResult = (ConceptSearchResult)conceptSearchResults.next();
+      conceptItems.add(conceptResult.getUri());
     }
     return conceptItems;
   }
