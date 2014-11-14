@@ -9,8 +9,11 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 
+import org.apache.uima.jcas.cas.FSArray;
+
+
 /** 
- * Updated by JCasGen Fri Nov 14 14:20:37 EST 2014
+ * Updated by JCasGen Fri Nov 14 16:41:28 EST 2014
  * XML source: /Users/chaohunc/git/project-team5dd/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class SnippetSearchResult extends AnswerSearchResult {
@@ -64,25 +67,47 @@ public class SnippetSearchResult extends AnswerSearchResult {
  
     
   //*--------------*
-  //* Feature: snippet
+  //* Feature: snippets
 
-  /** getter for snippet - gets 
+  /** getter for snippets - gets 
    * @generated
    * @return value of the feature 
    */
-  public Passage getSnippet() {
-    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_snippet == null)
-      jcasType.jcas.throwFeatMissing("snippet", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
-    return (Passage)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippet)));}
+  public FSArray getSnippets() {
+    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_snippets == null)
+      jcasType.jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippets)));}
     
-  /** setter for snippet - sets  
+  /** setter for snippets - sets  
    * @generated
    * @param v value to set into the feature 
    */
-  public void setSnippet(Passage v) {
-    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_snippet == null)
-      jcasType.jcas.throwFeatMissing("snippet", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
-    jcasType.ll_cas.ll_setRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippet, jcasType.ll_cas.ll_getFSRef(v));}    
+  public void setSnippets(FSArray v) {
+    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_snippets == null)
+      jcasType.jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    jcasType.ll_cas.ll_setRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippets, jcasType.ll_cas.ll_getFSRef(v));}    
+    
+  /** indexed getter for snippets - gets an indexed value - 
+   * @generated
+   * @param i index in the array to get
+   * @return value of the element at index i 
+   */
+  public Passage getSnippets(int i) {
+    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_snippets == null)
+      jcasType.jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippets), i);
+    return (Passage)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippets), i)));}
+
+  /** indexed setter for snippets - sets an indexed value - 
+   * @generated
+   * @param i index in the array to set
+   * @param v value to set into the array 
+   */
+  public void setSnippets(int i, Passage v) { 
+    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_snippets == null)
+      jcasType.jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippets), i);
+    jcasType.ll_cas.ll_setRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippets), i, jcasType.ll_cas.ll_getFSRef(v));}
   }
 
     
