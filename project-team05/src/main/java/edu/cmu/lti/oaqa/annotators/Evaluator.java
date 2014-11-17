@@ -17,7 +17,6 @@ import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.component.JCasAnnotator_ImplBase;
 
-import util.Utils;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.input.Question;
 import edu.cmu.lti.oaqa.type.kb.Triple;
@@ -75,8 +74,8 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   private void calculateSnippetsMetrics(JCas aJCas, List<Snippet> goldSnippets) {
     // calcualte metrics for triples
-    List<SnippetSearchResult> passageItems = getProcessedSnippetsAsList(aJCas);
-    ArrayList<Passage> passageList = Utils.fromFSListToPassageList(p.getSnippets(), Passage.class);
+  /*  List<SnippetSearchResult> passageItems = getProcessedSnippetsAsList(aJCas);
+    ArrayList<Passage> passageList = Utils.fromFSListToPassageList(passageItems.getSnippets(), Passage.class);
     for (Passage p : passageList) {
       for(Passage passage: passageList) {
         double passagePrecision = getPrecisionForSnippets(p, goldSnippets);
@@ -85,14 +84,14 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       }
     }
 
-    double passageAP = calcAP(goldSnippets, passageItems);
+  /*  double passageAP = calcAP(goldSnippets, passageItems);
     averagePassagePrecision.add(passageAP);
     try {
       printQueryStats(passagePrecision, passageRecall, passageF, passageAP, "passage");
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
-    }
+    }*/
   }
 
   private double calcOverlap(int begin1, int end1, int begin2, int end2) {

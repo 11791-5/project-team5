@@ -3,8 +3,14 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="BioQuestionAnnotatorDescriptor">
-      <import name="annotators.BioQuestionAnnotatorDescriptor"/>
+    <delegateAnalysisEngine key="ConceptAnnotatorDescriptor">
+      <import name="annotators.ConceptAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="DocumentAnnotatorDescriptor">
+      <import name="annotators.DocumentAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TriplesAnnotatorDescriptor">
+      <import name="annotators.TriplesAnnotatorDescriptor"/>
     </delegateAnalysisEngine>
      <delegateAnalysisEngine key="Evaluator">
       <import name="annotators.Evaluator"/>
@@ -23,7 +29,9 @@
     <flowConstraints>
       <fixedFlow>
         <node>QueryExpander</node>
-        <node>BioQuestionAnnotatorDescriptor</node>
+        <node>ConceptAnnotatorDescriptor</node>
+        <node>DocumentAnnotatorDescriptor</node>
+        <node>TriplesAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

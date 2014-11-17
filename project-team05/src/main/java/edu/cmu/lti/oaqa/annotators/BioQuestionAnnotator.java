@@ -1,5 +1,6 @@
 package edu.cmu.lti.oaqa.annotators;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
@@ -42,7 +43,9 @@ public class BioQuestionAnnotator extends JCasAnnotator_ImplBase {
       String questionText = StanfordLemmatizer.stemText(question.getText());
       System.out.println(question.getQuestionType() + " "+questionText);
       ConceptSearchResult conceptSearchResult;
-      List<OntologyServiceResponse.Result> resultList = GoPubMedServiceSingleton.getService().getConcepts(questionText);
+      List<Integer> ontologies = new ArrayList<Integer>();
+      ontologies.add(1);
+      List<OntologyServiceResponse.Result> resultList = GoPubMedServiceSingleton.getService().getConcepts(questionText,ontologies);
       int rank = 0;
       for(OntologyServiceResponse.Result resultResponse:resultList)
       {

@@ -18,6 +18,12 @@ public class GoPubMedServiceSingleton
   private static GoPubMedServiceSingleton instance;
   private static final String SERVICE_PROPERTIES = "project.properties";
   private GoPubMedService goPubMedService;
+  public static final Integer GENE_ONTOLOGY = 1;
+  public static final Integer DISEASE_ONTOLOGY = 2;
+  public static final Integer UNIT_PRO_ONTOLOGY = 3;
+  public static final Integer JOCHEM_ONTOLOGY =4;
+  public static final Integer MESH_ONTOLOGY = 5;
+  public static final Integer ALL_ONTOLOGIES = 0;
 
   public GoPubMedService getGoPubMedService() {
     return goPubMedService;
@@ -39,10 +45,10 @@ public class GoPubMedServiceSingleton
     return instance;
   } 
   
-  public List<OntologyServiceResponse.Result> getConcepts(String text) 
- {
+  public List<OntologyServiceResponse.Result> fetchDiseaseEntities(String text)
+  {
     List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
-   try {
+    try {
       OntologyServiceResponse.Result diseaseOntologyResult = goPubMedService
               .findDiseaseOntologyEntitiesPaged(text, 0);
       resutList.add(diseaseOntologyResult);
@@ -51,7 +57,12 @@ public class GoPubMedServiceSingleton
     } catch (IOException e) {
       e.printStackTrace();
     }
-
+    return resutList;
+  }
+  
+  public List<OntologyServiceResponse.Result> fetchGeneEntities(String text)
+  {
+    List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
     OntologyServiceResponse.Result geneOntologyResult;
     try {
       geneOntologyResult = goPubMedService.findGeneOntologyEntitiesPaged(text, 0, 10);
@@ -61,8 +72,13 @@ public class GoPubMedServiceSingleton
     } catch (IOException e) {
       e.printStackTrace();
     }
-
-   /* OntologyServiceResponse.Result jochemResult;
+    return resutList;
+  }
+  
+  public List<OntologyServiceResponse.Result> fetchJoChemEntities(String text)
+  {
+    List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
+    OntologyServiceResponse.Result jochemResult;
     try {
       jochemResult = goPubMedService.findJochemEntitiesPaged(text, 0);
       resutList.add(jochemResult);
@@ -70,8 +86,13 @@ public class GoPubMedServiceSingleton
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
-    }*/
-
+    }
+    return resutList;
+  }
+  
+  public List<OntologyServiceResponse.Result> fetchMeshEntities(String text)
+  {
+    List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
     OntologyServiceResponse.Result meshResult;
     try {
       meshResult = goPubMedService.findMeshEntitiesPaged(text, 0);
@@ -81,7 +102,12 @@ public class GoPubMedServiceSingleton
     } catch (IOException e) {
       e.printStackTrace();
     }
-
+    return resutList;
+  }
+  
+  public List<OntologyServiceResponse.Result> fetchUnitProEntities(String text)
+  {
+    List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
     OntologyServiceResponse.Result uniprotResult;
     try {
       uniprotResult = goPubMedService.findUniprotEntitiesPaged(text, 0);
@@ -91,7 +117,39 @@ public class GoPubMedServiceSingleton
     } catch (IOException e) {
       e.printStackTrace();
     }
-
+    return resutList;
+  }
+  public List<OntologyServiceResponse.Result> getConcepts(String text,List<Integer> ontologies) 
+ {
+    List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
+    for(Integer ontology:ontologies)
+    {
+      switch(ontology)
+      {
+        case 0:
+          resutList.addAll(fetchGeneEntities(text));
+          resutList.addAll(fetchDiseaseEntities(text));
+          resutList.addAll(fetchUnitProEntities(text));
+          resutList.addAll(fetchJoChemEntities(text));
+          resutList.addAll(fetchMeshEntities(text));
+          break;
+        case 1:
+          resutList.addAll(fetchGeneEntities(text));
+          break;
+        case 2:
+          resutList.addAll(fetchDiseaseEntities(text));
+          break;
+        case 3:
+          resutList.addAll(fetchUnitProEntities(text));
+          break;
+        case 4:
+          resutList.addAll(fetchJoChemEntities(text));
+          break;
+        case 5:
+          resutList.addAll(fetchMeshEntities(text));
+          break;
+      }
+    }
     return resutList;
 
   }
