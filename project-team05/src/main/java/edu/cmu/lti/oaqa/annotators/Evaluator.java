@@ -80,7 +80,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     List<SnippetSearchResult> passageItems = getProcessedSnippetsAsList(aJCas);
     List<Object> retrievedArticleOffsetPairs = new ArrayList<Object>();
     for(SnippetSearchResult currentSnippet: passageItems) {
-      ArrayList<Passage> passageList = Utils.fromFSListToPassageList(currentSnippet.getSnippets(), Passage.class);
+      ArrayList<Passage> passageList = util.Utils.fromFSListToPassageList(currentSnippet.getSnippets(), Passage.class);
       for (Passage p : passageList) {
         extractDocumentOffsetPairs(retrievedArticleOffsetPairs, p.getText(), p.getOffsetInBeginSection(), p.getDocId());
       }
