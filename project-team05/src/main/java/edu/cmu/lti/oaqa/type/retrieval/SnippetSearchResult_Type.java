@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** 
- * Updated by JCasGen Fri Nov 14 14:20:37 EST 2014
+ * Updated by JCasGen Fri Nov 14 15:30:40 EST 2014
  * @generated */
 public class SnippetSearchResult_Type extends AnswerSearchResult_Type {
   /** @generated 
