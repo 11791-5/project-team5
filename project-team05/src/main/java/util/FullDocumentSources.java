@@ -44,7 +44,6 @@ public class FullDocumentSources {
 
     String rawText = new String();
     
-    if (doc.isFulltextAvailable()){
       String pmid = doc.getPmid();
       String request = url + pmid;
 
@@ -56,10 +55,12 @@ public class FullDocumentSources {
       
       // The service sends one line response only
       // parse it 
+      if (response ==null)
+          return null;
       InputStream stream = IOUtils.toInputStream(response, "UTF-8");
 
       JsonReader reader = new JsonReader(new InputStreamReader(stream, "UTF-8"));
-    
+      
       GsonBuilder builder = new GsonBuilder();
       Object o = builder.create().fromJson(reader, Object.class);
     
@@ -73,8 +74,7 @@ public class FullDocumentSources {
       }
       rawText = readText.toString();
       
-    }
-    
+      
     return rawText;
     
   }
