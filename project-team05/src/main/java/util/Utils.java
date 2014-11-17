@@ -17,6 +17,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.util.JCasUtil;
 
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
+import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 
 /**
  * Class providing helper methods for information retrieval tasks.
@@ -96,6 +97,14 @@ public class Utils {
      */
 
     return new ArrayList<Passage>(myCollection);
+  }
+
+  public static String getQueryTokens(ArrayList<SynSet> synSets) {
+    StringBuffer queryString = new StringBuffer();
+    for(SynSet synSet:synSets)
+      queryString.append(synSet.getOriginalToken()+" ");
+     // ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(synSet.getSynonyms(),Synonym.class);
+    return queryString.toString();
   }
 
 }

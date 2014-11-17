@@ -1,5 +1,6 @@
 package edu.cmu.lti.oaqa.annotators;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
@@ -9,10 +10,12 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 
 import util.GoPubMedServiceSingleton;
+import util.Utils;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.MeshAnnotation;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
+import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 
 public class DocumentAnnotator extends JCasAnnotator_ImplBase
 {
@@ -24,7 +27,8 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
     while (questions.hasNext()) 
     {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-      String questionText = question.getText();
+      ArrayList<SynSet> synSets = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
+      String questionText = Utils.getQueryTokens(synSets);
       PubMedSearchServiceResponse.Result documents = GoPubMedServiceSingleton.getService().getDocuments(questionText);
       if(documents!=null && documents.getDocuments()!=null && !documents.getDocuments().isEmpty())
       {

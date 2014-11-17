@@ -10,10 +10,12 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 
 import util.GoPubMedServiceSingleton;
+import util.Utils;
 import edu.cmu.lti.oaqa.bio.bioasq.services.OntologyServiceResponse;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.kb.Concept;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
+import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 
 public class ConceptAnnotator extends JCasAnnotator_ImplBase{
 
@@ -23,11 +25,13 @@ public class ConceptAnnotator extends JCasAnnotator_ImplBase{
     while (questions.hasNext()) 
     {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-      String questionText = question.getText();
-      System.out.println(question.getQuestionType() + " "+questionText);
+      ArrayList<SynSet> synSets = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
+      String questionText = Utils.getQueryTokens(synSets);
+      //System.out.println(question.getQuestionType() + " "+questionText);
       ConceptSearchResult conceptSearchResult;
       List<Integer> ontologies = new ArrayList<Integer>();
-      ontologies.add(1);
+      ontologies.add(GoPubMedServiceSingleton.GENE_ONTOLOGY);
+      ontologies.add(GoPubMedServiceSingleton.DISEASE_ONTOLOGY);
       List<OntologyServiceResponse.Result> resultList = GoPubMedServiceSingleton.getService().getConcepts(questionText,ontologies);
       int rank = 0;
       for(OntologyServiceResponse.Result resultResponse:resultList)

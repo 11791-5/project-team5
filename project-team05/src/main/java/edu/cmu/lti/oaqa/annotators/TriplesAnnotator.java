@@ -1,5 +1,7 @@
 package edu.cmu.lti.oaqa.annotators;
 
+import java.util.ArrayList;
+
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
@@ -7,9 +9,11 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 
 import util.GoPubMedServiceSingleton;
+import util.Utils;
 import edu.cmu.lti.oaqa.bio.bioasq.services.LinkedLifeDataServiceResponse;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.kb.Triple;
+import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
 
 public class TriplesAnnotator  extends JCasAnnotator_ImplBase
@@ -23,7 +27,8 @@ public class TriplesAnnotator  extends JCasAnnotator_ImplBase
     while (questions.hasNext()) 
     {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-      String questionText = question.getText();
+      ArrayList<SynSet> synSets = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
+      String questionText = Utils.getQueryTokens(synSets);
       if("YES_NO".equals(question.getQuestionType()))
       {
         LinkedLifeDataServiceResponse.Result linkedLifeDataResult = GoPubMedServiceSingleton.getService().getTriples(questionText);
