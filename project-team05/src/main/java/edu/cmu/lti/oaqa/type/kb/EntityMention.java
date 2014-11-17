@@ -11,8 +11,8 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 /** A named entity mention that identify or define the named
         entity concept.
- * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
- * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Fri Nov 14 15:30:39 EST 2014
+ * XML source: /root/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class EntityMention extends ConceptMention {
   /** @generated

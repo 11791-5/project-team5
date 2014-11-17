@@ -13,8 +13,8 @@ import org.apache.uima.jcas.cas.TOP;
 
 /** An object that holds a query and results for a search
         (text search, fact search, KB search, etc.)
- * Updated by JCasGen Sun Nov 09 14:55:40 EST 2014
- * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Fri Nov 14 15:30:40 EST 2014
+ * XML source: /root/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class Search extends TOP {
   /** @generated

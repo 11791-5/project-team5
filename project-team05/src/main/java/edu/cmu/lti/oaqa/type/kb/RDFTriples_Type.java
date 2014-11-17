@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** Class for storing the RDF Triples for label
- * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
+ * Updated by JCasGen Fri Nov 14 15:30:39 EST 2014
  * @generated */
 public class RDFTriples_Type extends Annotation_Type {
   /** @generated 

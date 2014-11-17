@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import json.gson.Snippet;
+
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
@@ -15,10 +17,13 @@ import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.component.JCasAnnotator_ImplBase;
 
+import util.Utils;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.input.Question;
 import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
+import edu.cmu.lti.oaqa.type.retrieval.Passage;
+import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
 import edu.stanford.nlp.util.CollectionUtils;
 
 public class Evaluator extends JCasAnnotator_ImplBase {
@@ -28,6 +33,8 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   private ArrayList<Double> averageDocumentPrecision = new ArrayList<Double>();
 
   private ArrayList<Double> averageTriplePrecision = new ArrayList<Double>();
+
+  private ArrayList<Double> averagePassagePrecision = new ArrayList<Double>();
 
   File evaluation = new File("evaluation.txt");
 
@@ -53,57 +60,140 @@ public class Evaluator extends JCasAnnotator_ImplBase {
               .get(questionid).getDocuments();
       List<String> goldTriples = getJsonTriplesAsStringList(GoldStandardSingleton.getInstance()
               .getGoldStandardAnswer().get(questionid).getTriples());
+      List<Snippet> goldSnippets = GoldStandardSingleton.getInstance().getGoldStandardAnswer()
+              .get(questionid).getSnippets();
 
-      // calculate metrics for concepts
-      List<String> conceptItems = getConceptURIsAsList(aJCas);
-      double conceptPrecision = getPrecision(conceptItems, goldConcepts);
-      double conceptRecall = getRecall(conceptItems, goldConcepts);
-      double conceptF = calcF(conceptPrecision, conceptRecall);
-      double conceptAP = calcAP(goldConcepts, conceptItems);
-      averageConceptPrecision.add(conceptAP);
-      try {
-        printQueryStats(conceptPrecision, conceptRecall, conceptF, conceptAP, "concept");
-      } catch (IOException e1) {
-        // TODO Auto-generated catch block
-        e1.printStackTrace();
-      }
+      calculateConceptsMetrics(aJCas, goldConcepts);
 
-      // calculate metrics for documents
-      List<String> documentItems = getDocumentURIsAsList(aJCas);
-      double documentPrecision = getPrecision(documentItems, goldDocuments);
-      double documentRecall = getRecall(documentItems, goldDocuments);
-      double documentF = calcF(documentPrecision, documentRecall);
-      double documentAP = calcAP(goldDocuments, documentItems);
-      averageDocumentPrecision.add(documentAP);
-      try {
-        printQueryStats(documentPrecision, documentRecall, documentF, documentAP, "document");
-      } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
+      calculateDocumentMetrics(aJCas, goldDocuments);
 
-      // calcualte metrics for triples
-      List<String> tripleItems = getProcessedTriplesAsList(aJCas);
-      double triplePrecision = getPrecision(tripleItems, goldTriples);
-      double tripleRecall = getRecall(tripleItems, goldTriples);
-      double tripleF = calcF(triplePrecision, tripleRecall);
-      double tripleAP = calcAP(goldTriples, tripleItems);
-      averageTriplePrecision.add(tripleAP);
-      try {
-        printQueryStats(triplePrecision, tripleRecall, tripleF, tripleAP, "triple");
-      } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+      calculateTriplesMetrics(aJCas, goldTriples);
+
+      calculateSnippetsMetrics(aJCas, goldSnippets);
+    }
+  }
+
+  private void calculateSnippetsMetrics(JCas aJCas, List<Snippet> goldSnippets) {
+    // calcualte metrics for triples
+    List<SnippetSearchResult> passageItems = getProcessedSnippetsAsList(aJCas);
+    ArrayList<Passage> passageList = Utils.fromFSListToPassageList(p.getSnippets(), Passage.class);
+    for (Passage p : passageList) {
+      for(Passage passage: passageList) {
+        double passagePrecision = getPrecisionForSnippets(p, goldSnippets);
+        double passageRecall = getRecallForSnippets(p, goldSnippets);
+        double passageF = calcF(passagePrecision, passageRecall);
       }
+    }
+
+    double passageAP = calcAP(goldSnippets, passageItems);
+    averagePassagePrecision.add(passageAP);
+    try {
+      printQueryStats(passagePrecision, passageRecall, passageF, passageAP, "passage");
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+  private double calcOverlap(int begin1, int end1, int begin2, int end2) {
+    double overlap = 0.0;
+    if (begin1 <= end2) {
+      if (begin2 <= begin1) {
+        overlap = end2 - begin1;
+      } else if (end2 <= end1) {
+        overlap = end2 - begin2;
+      } else if (begin2 <= end1) {
+        overlap = end1 - begin2;
+      }
+    }
+    return overlap;
+  }
+
+  private double getRecallForSnippets(Passage p, List<Snippet> goldSnippets) {
+    for (Snippet s : goldSnippets) {
+      if (p.getUri() == s.getDocument()) {
+        double overlap = calcOverlap(s.getOffsetInBeginSection(), s.getOffsetInEndSection(),
+                p.getOffsetInBeginSection(), p.getOffsetInEndSection());
+        return overlap / p.getText().length();
+      }
+    }
+    return 0;
+  }
+
+  private double getPrecisionForSnippets(Passage p, List<Snippet> goldSnippets) {
+    for (Snippet s : goldSnippets) {
+      if (p.getUri() == s.getDocument()) {
+        double overlap = calcOverlap(s.getOffsetInBeginSection(), s.getOffsetInEndSection(),
+                p.getOffsetInBeginSection(), p.getOffsetInEndSection());
+        return overlap / s.getText().length();
+      }
+    }
+    return 0;
+  }
+
+  private List<SnippetSearchResult> getProcessedSnippetsAsList(JCas aJCas) {
+    FSIterator<TOP> snippets = aJCas.getJFSIndexRepository().getAllIndexedFS(SnippetSearchResult.type);
+    List<SnippetSearchResult> snippetItems = new ArrayList<SnippetSearchResult>();
+    while (snippets.hasNext()) {
+      SnippetSearchResult passage = (SnippetSearchResult) snippets.next();
+      snippetItems.add(passage);
+    }
+    return snippetItems;
+  }
+
+  private void calculateTriplesMetrics(JCas aJCas, List<String> goldTriples) {
+    // calcualte metrics for triples
+    List<String> tripleItems = getProcessedTriplesAsList(aJCas);
+    double triplePrecision = getPrecision(tripleItems, goldTriples);
+    double tripleRecall = getRecall(tripleItems, goldTriples);
+    double tripleF = calcF(triplePrecision, tripleRecall);
+    double tripleAP = calcAP(goldTriples, tripleItems);
+    averageTriplePrecision.add(tripleAP);
+    try {
+      printQueryStats(triplePrecision, tripleRecall, tripleF, tripleAP, "triple");
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+  private void calculateDocumentMetrics(JCas aJCas, List<String> goldDocuments) {
+    // calculate metrics for documents
+    List<String> documentItems = getDocumentURIsAsList(aJCas);
+    double documentPrecision = getPrecision(documentItems, goldDocuments);
+    double documentRecall = getRecall(documentItems, goldDocuments);
+    double documentF = calcF(documentPrecision, documentRecall);
+    double documentAP = calcAP(goldDocuments, documentItems);
+    averageDocumentPrecision.add(documentAP);
+    try {
+      printQueryStats(documentPrecision, documentRecall, documentF, documentAP, "document");
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
+  private void calculateConceptsMetrics(JCas aJCas, List<String> goldConcepts) {
+    // calculate metrics for concepts
+    List<String> conceptItems = getConceptURIsAsList(aJCas);
+    double conceptPrecision = getPrecision(conceptItems, goldConcepts);
+    double conceptRecall = getRecall(conceptItems, goldConcepts);
+    double conceptF = calcF(conceptPrecision, conceptRecall);
+    double conceptAP = calcAP(goldConcepts, conceptItems);
+    averageConceptPrecision.add(conceptAP);
+    try {
+      printQueryStats(conceptPrecision, conceptRecall, conceptF, conceptAP, "concept");
+    } catch (IOException e1) {
+      // TODO Auto-generated catch block
+      e1.printStackTrace();
     }
   }
 
   private List<String> getJsonTriplesAsStringList(List<json.gson.Triple> triples) {
     List<String> tripleItems = new ArrayList<String>();
-    if(triples!=null)
-    {
-      for(json.gson.Triple triple: triples) {
-        String tripleString = "o-"+triple.getO()+"-p-"+triple.getP()+"-s-"+triple.getS();
+    if (triples != null) {
+      for (json.gson.Triple triple : triples) {
+        String tripleString = "o-" + triple.getO() + "-p-" + triple.getP() + "-s-" + triple.getS();
         tripleItems.add(tripleString);
       }
     }
@@ -114,9 +204,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     FSIterator<TOP> triples = aJCas.getJFSIndexRepository().getAllIndexedFS(Triple.type);
     List<String> tripleItems = new ArrayList<String>();
     while (triples.hasNext()) {
-      Triple triple = (Triple) triples
-              .next();
-      String tripleString = "o-"+triple.getObject()+"-p-"+triple.getPredicate()+"-s-"+triple.getSubject();
+      Triple triple = (Triple) triples.next();
+      String tripleString = "o-" + triple.getObject() + "-p-" + triple.getPredicate() + "-s-"
+              + triple.getSubject();
       tripleItems.add(tripleString);
     }
     return tripleItems;
@@ -153,6 +243,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     if (totalRelItemsInList == 0) {
       return 0;
     }
+    
     double averagePrecision = 0;
     for (int i = 0; i < hypothesisItems.size(); i++) {
       if (goldItems.contains(hypothesisItems.get(i))) {
@@ -305,7 +396,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       e.printStackTrace();
     }
   }
-  
+
   private void calcAndPrintFinalStatsForType(String type, ArrayList<Double> typeVals) {
     double typeMap = calcArithmeticAvg(typeVals);
     double typeGmap = calculateGeomAvg(typeVals);

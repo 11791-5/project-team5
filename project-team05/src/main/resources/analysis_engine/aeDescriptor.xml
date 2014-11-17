@@ -9,6 +9,9 @@
      <delegateAnalysisEngine key="Evaluator">
       <import name="annotators.Evaluator"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="QueryExpander">
+      <import name="annotators.QueryExpander"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>FeatureExtractorDescriptor</name>
@@ -19,8 +22,8 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
+        <node>QueryExpander</node>
         <node>BioQuestionAnnotatorDescriptor</node>
-        <node>Evaluator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

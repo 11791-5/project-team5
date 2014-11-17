@@ -16,8 +16,8 @@ import org.apache.uima.jcas.cas.StringArray;
         are predicates; useful in transforming text into a "logical form",
         with affordances similar to the ones provided in Extended WordNet
         and the like. --- Source: Murdock
- * Updated by JCasGen Sun Nov 09 14:55:39 EST 2014
- * XML source: /home/niloygupta/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Fri Nov 14 15:30:40 EST 2014
+ * XML source: /root/git/project-team5/project-team05/src/main/resources/type/OAQATypes.xml
  * @generated */
 public class Token extends Annotation {
   /** @generated
