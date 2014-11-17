@@ -14,12 +14,22 @@ public class SimilarityMeasures
   
   public double getSimilarity(List<String> documentSentence, List<String> queryTerms)
   {
-    Map<String,Integer> docVector = convertToTermVector(documentSentence);
+    Map<String,Integer> docVector = convertToTermVector(convertToLowerCase(documentSentence));
     Map<String,Integer> queryVector = convertToTermVector(queryTerms);
     return computeCosineSimilarity(queryVector,docVector);
   }
   
   
+  private List<String> convertToLowerCase(List<String> tokens) {
+    List<String> lowerCaseTokens = new ArrayList<String>();
+    for(String tokenElem:tokens)
+    {
+      lowerCaseTokens.add(tokenElem.toLowerCase());
+    }
+    return lowerCaseTokens;
+  }
+
+
   private Map<String,Integer> convertToTermVector(List<String> tokens)
   {
     Map<String,Integer> tokenMap = new HashMap<String,Integer>();
