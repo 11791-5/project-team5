@@ -25,11 +25,21 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonReader;
 
+/**
+ *  Parse response from  http://metal.lti.cs.cmu.edu:30002/pmc/PMID
+ * @author larbi
+ *
+ */
 public class FullDocumentSources {
 
   static String url = "http://metal.lti.cs.cmu.edu:30002/pmc/";
 
-
+  /**
+   * Return raw text from document
+   * @param doc
+   * @return
+   * @throws IOException
+   */
   public static String getFullText(Document doc) throws IOException{
 
     String rawText = new String();
