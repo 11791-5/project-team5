@@ -1,29 +1,17 @@
 package util;
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
-import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document;
-
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonReader;
+
+import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document;
 
 /**
  *  Parse response from  http://metal.lti.cs.cmu.edu:30002/pmc/PMID
@@ -32,8 +20,13 @@ import com.google.gson.stream.JsonReader;
  */
 public class FullDocumentSources {
 
+<<<<<<< HEAD
   static String url = "http://metal.lti.cs.cmu.edu:30002/pmc/";
 
+=======
+  static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
+  static GsonBuilder builder = new GsonBuilder();
+>>>>>>> refs/remotes/origin/master
   /**
    * Return raw text from document
    * @param doc
@@ -61,7 +54,6 @@ public class FullDocumentSources {
 
       JsonReader reader = new JsonReader(new InputStreamReader(stream, "UTF-8"));
       
-      GsonBuilder builder = new GsonBuilder();
       Object o = builder.create().fromJson(reader, Object.class);
     
       com.google.gson.internal.LinkedTreeMap<String, List<String>> o2 = (com.google.gson.internal.LinkedTreeMap) o; 
