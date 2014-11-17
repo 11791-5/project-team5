@@ -867,5 +867,60 @@
         </featureDescription>
       </features>
     </typeDescription>
+  <typeDescription>
+      <name>edu.cmu.lti.oaqa.type.input.ExpandedQuestion</name>
+      <description>Used to store expanded queries.</description>
+      <supertypeName>edu.cmu.lti.oaqa.type.input.Question</supertypeName>
+    <features>
+        <featureDescription>
+          <name>synSets</name>
+          <description>List of synonyms for each token in the original query.</description>
+          <rangeTypeName>uima.cas.FSList</rangeTypeName>
+          <elementType>edu.cmu.lti.oaqa.type.retrieval.SynSet</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  <typeDescription>
+      <name>edu.cmu.lti.oaqa.type.retrieval.SynSet</name>
+      <description>Holds a word and a list of synonyms, where each synonym contains its source and confidence.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>originalToken</name>
+          <description>The original token from the query.
+</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>synonyms</name>
+          <description>Holds the list of synonyms for the original token.</description>
+          <rangeTypeName>uima.cas.FSList</rangeTypeName>
+          <elementType>edu.cmu.lti.oaqa.type.retrieval.Synonym</elementType>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>edu.cmu.lti.oaqa.type.retrieval.Synonym</name>
+      <description>Contains a synonym, its source, and its confidence.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>synonym</name>
+          <description>Synonym text.
+</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>confidence</name>
+          <description>Synonym confidence.</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>source</name>
+          <description>Synonym source.</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
   </types>
 </typeSystemDescription>
