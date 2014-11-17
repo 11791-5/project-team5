@@ -89,7 +89,7 @@ public class Utils {
     return list;
   }
 
-  public static Object fromFSListToPassageList(FSArray snippets, Class<Passage> class1) {
+  public static ArrayList<Passage> fromFSListToPassageList(FSArray snippets, Class<Passage> class1) {
     Collection<Passage> myCollection = JCasUtil.select(snippets, class1);
     /*
      * for(T element:myCollection){ System.out.println(.getText()); }

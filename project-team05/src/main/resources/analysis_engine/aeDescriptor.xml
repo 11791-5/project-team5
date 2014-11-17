@@ -24,6 +24,7 @@
       <fixedFlow>
         <node>QueryExpander</node>
         <node>BioQuestionAnnotatorDescriptor</node>
+      <node>Evaluator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

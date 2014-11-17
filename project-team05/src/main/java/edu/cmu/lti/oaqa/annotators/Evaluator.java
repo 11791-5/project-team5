@@ -4,11 +4,15 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map.Entry;
 
 import json.gson.Snippet;
 
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
@@ -19,6 +23,7 @@ import org.uimafit.component.JCasAnnotator_ImplBase;
 
 import util.Utils;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
+import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.input.Question;
 import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
@@ -50,16 +55,16 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
-    FSIterator<Annotation> questions = aJCas.getAnnotationIndex(Question.type).iterator();
+    FSIterator<Annotation> questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();
     while (questions.hasNext()) {
-      Question question = (Question) questions.next();
+      ExpandedQuestion question = (ExpandedQuestion) questions.next();
       String questionid = question.getId();
-      List<String> goldConcepts = GoldStandardSingleton.getInstance().getGoldStandardAnswer()
-              .get(questionid).getConcepts();
-      List<String> goldDocuments = GoldStandardSingleton.getInstance().getGoldStandardAnswer()
-              .get(questionid).getDocuments();
-      List<String> goldTriples = getJsonTriplesAsStringList(GoldStandardSingleton.getInstance()
-              .getGoldStandardAnswer().get(questionid).getTriples());
+      List<Object> goldConcepts = new ArrayList<Object>(GoldStandardSingleton.getInstance().getGoldStandardAnswer()
+              .get(questionid).getConcepts());
+      List<Object> goldDocuments = new ArrayList<Object>(GoldStandardSingleton.getInstance().getGoldStandardAnswer()
+              .get(questionid).getDocuments());
+      List<Object> goldTriples = new ArrayList<Object>(getJsonTriplesAsStringList(GoldStandardSingleton.getInstance()
+              .getGoldStandardAnswer().get(questionid).getTriples()));
       List<Snippet> goldSnippets = GoldStandardSingleton.getInstance().getGoldStandardAnswer()
               .get(questionid).getSnippets();
 
@@ -76,22 +81,38 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   private void calculateSnippetsMetrics(JCas aJCas, List<Snippet> goldSnippets) {
     // calcualte metrics for triples
     List<SnippetSearchResult> passageItems = getProcessedSnippetsAsList(aJCas);
-    ArrayList<Passage> passageList = Utils.fromFSListToPassageList(p.getSnippets(), Passage.class);
-    for (Passage p : passageList) {
-      for(Passage passage: passageList) {
-        double passagePrecision = getPrecisionForSnippets(p, goldSnippets);
-        double passageRecall = getRecallForSnippets(p, goldSnippets);
-        double passageF = calcF(passagePrecision, passageRecall);
+    List<Object> retrievedArticleOffsetPairs = new ArrayList<Object>();
+    for(SnippetSearchResult currentSnippet: passageItems) {
+      ArrayList<Passage> passageList = Utils.fromFSListToPassageList(currentSnippet.getSnippets(), Passage.class);
+      for (Passage p : passageList) {
+        extractDocumentOffsetPairs(retrievedArticleOffsetPairs, p.getText(), p.getOffsetInBeginSection(), p.getDocId());
       }
     }
 
-    double passageAP = calcAP(goldSnippets, passageItems);
+    List<Object> goldArticleOffsetPairs = new ArrayList<Object>();
+    for(Snippet s: goldSnippets) {
+      extractDocumentOffsetPairs(goldArticleOffsetPairs, s.getText(), s.getOffsetInBeginSection(), s.getDocument());
+    }
+    
+    double passagePrecision = getPrecision(retrievedArticleOffsetPairs, goldArticleOffsetPairs);
+    double passageRecall = getRecall(retrievedArticleOffsetPairs, goldArticleOffsetPairs);
+    double passageF = calcF(passagePrecision, passageRecall);
+    double passageAP = calcAP(goldArticleOffsetPairs, retrievedArticleOffsetPairs);
     averagePassagePrecision.add(passageAP);
+    
     try {
       printQueryStats(passagePrecision, passageRecall, passageF, passageAP, "passage");
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
+    }
+  }
+
+  private void extractDocumentOffsetPairs(List<Object> goldArticleOffsetPairs, String docText, int offsetBegin, String docId) {
+    char[] passageChars = docText.toCharArray();
+    for(int i = 0; i < passageChars.length; i++) {
+      Pair<String, Integer> pair = new ImmutablePair<String, Integer>(docId, offsetBegin+i);
+      goldArticleOffsetPairs.add(pair);
     }
   }
 
@@ -109,28 +130,6 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return overlap;
   }
 
-  private double getRecallForSnippets(Passage p, List<Snippet> goldSnippets) {
-    for (Snippet s : goldSnippets) {
-      if (p.getUri() == s.getDocument()) {
-        double overlap = calcOverlap(s.getOffsetInBeginSection(), s.getOffsetInEndSection(),
-                p.getOffsetInBeginSection(), p.getOffsetInEndSection());
-        return overlap / p.getText().length();
-      }
-    }
-    return 0;
-  }
-
-  private double getPrecisionForSnippets(Passage p, List<Snippet> goldSnippets) {
-    for (Snippet s : goldSnippets) {
-      if (p.getUri() == s.getDocument()) {
-        double overlap = calcOverlap(s.getOffsetInBeginSection(), s.getOffsetInEndSection(),
-                p.getOffsetInBeginSection(), p.getOffsetInEndSection());
-        return overlap / s.getText().length();
-      }
-    }
-    return 0;
-  }
-
   private List<SnippetSearchResult> getProcessedSnippetsAsList(JCas aJCas) {
     FSIterator<TOP> snippets = aJCas.getJFSIndexRepository().getAllIndexedFS(SnippetSearchResult.type);
     List<SnippetSearchResult> snippetItems = new ArrayList<SnippetSearchResult>();
@@ -141,9 +140,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return snippetItems;
   }
 
-  private void calculateTriplesMetrics(JCas aJCas, List<String> goldTriples) {
+  private void calculateTriplesMetrics(JCas aJCas, List<Object> goldTriples) {
     // calcualte metrics for triples
-    List<String> tripleItems = getProcessedTriplesAsList(aJCas);
+    List<Object> tripleItems = getProcessedTriplesAsList(aJCas);
     double triplePrecision = getPrecision(tripleItems, goldTriples);
     double tripleRecall = getRecall(tripleItems, goldTriples);
     double tripleF = calcF(triplePrecision, tripleRecall);
@@ -157,9 +156,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     }
   }
 
-  private void calculateDocumentMetrics(JCas aJCas, List<String> goldDocuments) {
+  private void calculateDocumentMetrics(JCas aJCas, List<Object> goldDocuments) {
     // calculate metrics for documents
-    List<String> documentItems = getDocumentURIsAsList(aJCas);
+    List<Object> documentItems = getDocumentURIsAsList(aJCas);
     double documentPrecision = getPrecision(documentItems, goldDocuments);
     double documentRecall = getRecall(documentItems, goldDocuments);
     double documentF = calcF(documentPrecision, documentRecall);
@@ -173,9 +172,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     }
   }
 
-  private void calculateConceptsMetrics(JCas aJCas, List<String> goldConcepts) {
+  private void calculateConceptsMetrics(JCas aJCas, List<Object> goldConcepts) {
     // calculate metrics for concepts
-    List<String> conceptItems = getConceptURIsAsList(aJCas);
+    List<Object> conceptItems = getConceptURIsAsList(aJCas);
     double conceptPrecision = getPrecision(conceptItems, goldConcepts);
     double conceptRecall = getRecall(conceptItems, goldConcepts);
     double conceptF = calcF(conceptPrecision, conceptRecall);
@@ -200,9 +199,9 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return tripleItems;
   }
 
-  private List<String> getProcessedTriplesAsList(JCas aJCas) {
+  private List<Object> getProcessedTriplesAsList(JCas aJCas) {
     FSIterator<TOP> triples = aJCas.getJFSIndexRepository().getAllIndexedFS(Triple.type);
-    List<String> tripleItems = new ArrayList<String>();
+    List<Object> tripleItems = new ArrayList<Object>();
     while (triples.hasNext()) {
       Triple triple = (Triple) triples.next();
       String tripleString = "o-" + triple.getObject() + "-p-" + triple.getPredicate() + "-s-"
@@ -238,7 +237,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param hypothesisItems
    * @return
    */
-  private double calcAP(List<String> goldItems, List<String> hypothesisItems) {
+  private double calcAP(List<Object> goldItems, List<Object> hypothesisItems) {
     int totalRelItemsInList = getNumTruePositives(hypothesisItems, goldItems);
     if (totalRelItemsInList == 0) {
       return 0;
@@ -246,7 +245,13 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     
     double averagePrecision = 0;
     for (int i = 0; i < hypothesisItems.size(); i++) {
-      if (goldItems.contains(hypothesisItems.get(i))) {
+      boolean containsRelevantInSublist = false;
+      for(Object item: hypothesisItems) {
+        if (goldItems.contains(hypothesisItems.get(i))) {
+          containsRelevantInSublist = true;
+        }  
+      }
+      if (containsRelevantInSublist) {
         double precisionAtR = getPrecision(hypothesisItems.subList(0, i), goldItems);
         averagePrecision += precisionAtR;
       }
@@ -276,10 +281,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param aJcas
    * @return
    */
-  private List<String> getDocumentURIsAsList(JCas aJcas) {
+  private List<Object> getDocumentURIsAsList(JCas aJcas) {
     FSIterator<TOP> documents = aJcas.getJFSIndexRepository().getAllIndexedFS(
             edu.cmu.lti.oaqa.type.retrieval.Document.type);
-    List<String> documentItems = new ArrayList<String>();
+    List<Object> documentItems = new ArrayList<Object>();
     while (documents.hasNext()) {
       edu.cmu.lti.oaqa.type.retrieval.Document document = (edu.cmu.lti.oaqa.type.retrieval.Document) documents
               .next();
@@ -294,10 +299,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param aJCas
    * @return
    */
-  private List<String> getConceptURIsAsList(JCas aJCas) {
+  private List<Object> getConceptURIsAsList(JCas aJCas) {
     FSIterator<TOP> conceptSearchResults = aJCas.getJFSIndexRepository().getAllIndexedFS(
             ConceptSearchResult.type);
-    List<String> conceptItems = new ArrayList<String>();
+    List<Object> conceptItems = new ArrayList<Object>();
     while (conceptSearchResults.hasNext()) {
       ConceptSearchResult conceptResult = (ConceptSearchResult) conceptSearchResults.next();
       conceptItems.add(conceptResult.getUri().replace("GO:", "").replace("2014", "2012"));
@@ -312,11 +317,11 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param gold
    * @return
    */
-  public double getPrecision(List<String> hypotheses, List<String> gold) {
+  public double getPrecision(List<Object> hypotheses, List<Object> gold) {
     if (hypotheses.size() == 0) {
       return 0;
     }
-    return (double) getNumTruePositives(gold, hypotheses) / (hypotheses.size());
+    return (double) getNumTruePositives(hypotheses, gold) / (hypotheses.size());
   }
 
   /**
@@ -326,11 +331,11 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param gold
    * @return
    */
-  public double getRecall(List<String> hypotheses, List<String> gold) {
+  public double getRecall(List<Object> hypotheses, List<Object> gold) {
     if (gold.size() == 0) {
       return 0;
     }
-    return (double) getNumTruePositives(gold, hypotheses) / (gold.size());
+    return (double) getNumTruePositives(hypotheses, gold) / (gold.size());
   }
 
   /**
@@ -341,8 +346,8 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param gold
    * @return
    */
-  public int getNumTruePositives(List<String> hypothesis, List<String> gold) {
-    return CollectionUtils.intersection(new HashSet<String>(hypothesis), new HashSet<String>(gold))
+  public int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
+    return CollectionUtils.intersection(new HashSet<Object>(hypothesis), new HashSet<Object>(gold))
             .size();
   }
 

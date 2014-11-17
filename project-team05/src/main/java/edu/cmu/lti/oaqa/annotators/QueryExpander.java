@@ -72,6 +72,7 @@ public class QueryExpander extends JCasAnnotator_ImplBase {
       ExpandedQuestion expandedQuestion = new ExpandedQuestion(jcas);
       expandedQuestion.setText(question.getText());
       expandedQuestion.setQuestionType(question.getQuestionType());
+      expandedQuestion.setId(question.getId());
       // System.out.println(question.getQuestionType() + " "+question.getText());
       String questionText = StanfordLemmatizer.stemText(question.getText());
       edu.stanford.nlp.pipeline.Annotation ann = new edu.stanford.nlp.pipeline.Annotation(
