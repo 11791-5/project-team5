@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
-
 import json.gson.Snippet;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -20,8 +19,6 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.component.JCasAnnotator_ImplBase;
-
-import util.Utils;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.input.Question;
@@ -98,6 +95,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     double passageRecall = getRecall(retrievedArticleOffsetPairs, goldArticleOffsetPairs);
     double passageF = calcF(passagePrecision, passageRecall);
     double passageAP = calcAP(goldArticleOffsetPairs, retrievedArticleOffsetPairs);
+
     averagePassagePrecision.add(passageAP);
     
     try {
