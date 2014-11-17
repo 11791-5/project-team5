@@ -32,7 +32,7 @@ import com.google.gson.stream.JsonReader;
  */
 public class FullDocumentSources {
 
-  static String url = "http://metal.lti.cs.cmu.edu:30002/pmc/";
+  static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
 
   /**
    * Return raw text from document
