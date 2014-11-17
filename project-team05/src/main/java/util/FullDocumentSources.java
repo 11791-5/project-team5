@@ -67,15 +67,17 @@ public class FullDocumentSources {
 
       List<String> text = o2.get("sections");
     
+      StringBuffer readText = new StringBuffer();
       for (String s: text){
-        rawText += s;
+        readText.append(s);
       }
+      rawText = readText.toString();
+      
     }
     
     return rawText;
     
   }
-  
 }
 
 
