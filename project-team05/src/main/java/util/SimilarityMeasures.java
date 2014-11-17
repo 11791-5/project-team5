@@ -12,12 +12,29 @@ public class SimilarityMeasures
 {
 
   
-  public static double getSimilarity(List<String> documentSentence, List<String> queryTerms)
+  public double getSimilarity(List<String> documentSentence, List<String> queryTerms)
   {
-    
-    return 0.0;
+    Map<String,Integer> docVector = convertToTermVector(documentSentence);
+    Map<String,Integer> queryVector = convertToTermVector(queryTerms);
+    return computeCosineSimilarity(queryVector,docVector);
   }
   
+  
+  private Map<String,Integer> convertToTermVector(List<String> tokens)
+  {
+    Map<String,Integer> tokenMap = new HashMap<String,Integer>();
+    for(String tokenElem:tokens)
+    {
+      if(tokenMap.containsKey(tokenElem))
+      {
+        int currentFreq = tokenMap.get(tokenElem);
+        tokenMap.put(tokenElem, currentFreq + 1);
+      }
+      else
+        tokenMap.put(tokenElem, 1);
+    }
+    return tokenMap;
+  }
   /**
    * 
    * @return cosine_similarity
