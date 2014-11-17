@@ -9,22 +9,9 @@
     <version>1.0</version>
     <vendor/>
     <configurationParameters searchStrategy="language_fallback">
-      <configurationParameter>
-        <name>StopWordList</name>
-        <description>Path to file containing list of stopwords.</description>
-        <type>String</type>
-        <multiValued>false</multiValued>
-        <mandatory>false</mandatory>
-      </configurationParameter>
-    </configurationParameters>
+      </configurationParameters>
     <configurationParameterSettings>
-      <nameValuePair>
-        <name>StopWordList</name>
-        <value>
-          <string>src/main/resources/StopWordList.txt</string>
-        </value>
-      </nameValuePair>
-    </configurationParameterSettings>
+      </configurationParameterSettings>
     <typeSystemDescription>
       <imports>
         <import location="../type/OAQATypes.xml"/>
