@@ -151,7 +151,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
               }
               SimilarityMeasures sm = new SimilarityMeasures();
               double score = sm.getSimilarity(sentenceTokens, synonymList);
-
+              
               Snippet s = new Snippet(score, document.getPmid(), wholeSentence.toString(),
                       offsetPtr, offsetPtr + sentence.size(), nowSection, nowSection);
               snippetList.add(s);
@@ -168,10 +168,12 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           Passage p = new Passage(jcas);
+          p.setDocId(snippet.getDocument());
           p.setBeginSection(snippet.getBeginSection());
           p.setEndSection(snippet.getEndSection());
           p.setOffsetInBeginSection(snippet.getOffsetInBeginSection());
           p.setOffsetInEndSection(snippet.getOffsetInEndSection());
+          p.setDocId(snippet.getDocument());
           p.setText(snippet.getText());
           System.out.println(snippet.score + " " + snippet.getText());
           i++;
