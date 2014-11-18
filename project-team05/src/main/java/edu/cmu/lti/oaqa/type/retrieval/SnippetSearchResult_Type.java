@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Fri Nov 14 14:19:41 EST 2014 */
+/* First created by JCasGen Tue Nov 18 13:59:08 EST 2014 */
 package edu.cmu.lti.oaqa.type.retrieval;
 
 import org.apache.uima.jcas.JCas;
@@ -13,8 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** 
- * Updated by JCasGen Fri Nov 14 15:30:40 EST 2014
-
+ * Updated by JCasGen Tue Nov 18 13:59:08 EST 2014
  * @generated */
 public class SnippetSearchResult_Type extends AnswerSearchResult_Type {
   /** @generated 
@@ -68,34 +67,7 @@ public class SnippetSearchResult_Type extends AnswerSearchResult_Type {
       jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
     ll_cas.ll_setRefValue(addr, casFeatCode_snippets, v);}
     
-   /** @generated
-   * @param addr low level Feature Structure reference
-   * @param i index of item in the array
-   * @return value at index i in the array 
-   */
-  public int getSnippets(int addr, int i) {
-        if (featOkTst && casFeat_snippets == null)
-      jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
-    if (lowLevelTypeChecks)
-      return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_snippets), i, true);
-    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_snippets), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_snippets), i);
-  }
-   
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @param i index of item in the array
-   * @param v value to set
-   */ 
-  public void setSnippets(int addr, int i, int v) {
-        if (featOkTst && casFeat_snippets == null)
-      jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
-    if (lowLevelTypeChecks)
-      ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_snippets), i, v, true);
-    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_snippets), i);
-    ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_snippets), i, v);
-  }
- 
+  
 
 
 
@@ -109,7 +81,7 @@ public class SnippetSearchResult_Type extends AnswerSearchResult_Type {
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_snippets = jcas.getRequiredFeatureDE(casType, "snippets", "uima.cas.FSArray", featOkTst);
+    casFeat_snippets = jcas.getRequiredFeatureDE(casType, "snippets", "edu.cmu.lti.oaqa.type.retrieval.Passage", featOkTst);
     casFeatCode_snippets  = (null == casFeat_snippets) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_snippets).getCode();
 
   }

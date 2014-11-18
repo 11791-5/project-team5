@@ -863,8 +863,9 @@
         <featureDescription>
           <name>snippets</name>
           <description/>
-          <rangeTypeName>edu.cmu.lti.oaqa.type.retrieval.Passage</rangeTypeName>
-          </featureDescription>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>edu.cmu.lti.oaqa.type.retrieval.Passage</elementType>
+        </featureDescription>
       </features>
     </typeDescription>
   <typeDescription>

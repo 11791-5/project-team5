@@ -31,24 +31,25 @@ import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
-  
-  
+
+  int topRank = 10;
+
   public class ScoreComparator implements Comparator<Snippet> {
     public int compare(Snippet o1, Snippet o2) {
-      
-          if (o2.score>o1.score)
-            return 1;
-          else
-            return 0;     
+
+      if (o2.score > o1.score)
+        return 1;
+      else
+        return -1;
     }
   }
+
   public void process(JCas jcas) throws AnalysisEngineProcessException {
     int rank;
     // String questionText = "PnP";
 
     FSIterator<Annotation> questions = jcas.getAnnotationIndex(ExpandedQuestion.type).iterator();
 
-   
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
 
@@ -95,7 +96,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         for (Document document : documents.getDocuments()) {
           System.out.println(document.getPmid());
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
-          
+
           List<String> text = null;
           String rawText;
           try {
@@ -111,19 +112,15 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             }
             rawText = readText.toString();
 
-            // System.out.println();
-            // System.out.println(document.getDocumentAbstract());
-            // System.out.println(document.isFulltextAvailable());
-
+        
           } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
           }
           ArrayList<Snippet> snippets = new ArrayList<Snippet>();
 
-          // do we need to combined sentences in different section
           // concept matching?
-          // section number?
+        
           for (int i = 0; i < text.size(); i++) {
             int offsetPtr = 0;
             String docText = text.get(i);
@@ -132,16 +129,16 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
             String nowSection = "section.0";
             List<String> sentenceTokens;
-            for (List<HasWord> sentence : dp) 
-            {
-               System.out.println(sentence.toString());
-               sentenceTokens = new ArrayList<String>();
-               for(HasWord word:sentence)
-                 sentenceTokens.add(word.word());
-                
-       
+            for (List<HasWord> sentence : dp) {
+              System.out.println(sentence.toString());
+              sentenceTokens = new ArrayList<String>();
+              StringBuffer wholeSentence = new StringBuffer();
+              for (HasWord word : sentence) {
+                sentenceTokens.add(word.word());
+                wholeSentence.append(word.word());
+              }
+
               // FSIterator<Synonym> synonyms = (FSIterator<Synonym>) question.getSynSets();
-              int numOfConceptMatching = 0;
               ArrayList<String> synonymList = new ArrayList<String>();
               for (SynSet syns : as) {
 
@@ -154,9 +151,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
               }
               SimilarityMeasures sm = new SimilarityMeasures();
               double score = sm.getSimilarity(sentenceTokens, synonymList);
-              
-              Snippet s = new Snippet(score,document.getPmid(), sentence.toString(), offsetPtr, offsetPtr
-                      + sentence.size(), nowSection, nowSection);
+
+              Snippet s = new Snippet(score, document.getPmid(), wholeSentence.toString(),
+                      offsetPtr, offsetPtr + sentence.size(), nowSection, nowSection);
               snippetList.add(s);
 
               System.out.println(document.getPmid() + " " + sentence.toString());
@@ -165,10 +162,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             }
           }
         }
-        // ArrayList<Passage> passages = new ArrayList<Passage>();
-        int i = 0;
-       // ScoreComparator com = new ScoreComparator();
-        Collections.sort(snippetList,new ScoreComparator());
+        int i = 1;
+        Collections.sort(snippetList, new ScoreComparator());
+
         System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           Passage p = new Passage(jcas);
@@ -177,15 +173,20 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
           p.setOffsetInBeginSection(snippet.getOffsetInBeginSection());
           p.setOffsetInEndSection(snippet.getOffsetInEndSection());
           p.setText(snippet.getText());
-          System.out.println(snippet.score+ " "+snippet.getText());
-          snippetSearchResult.setSnippets(i, p);
+          System.out.println(snippet.score + " " + snippet.getText());
           i++;
-          if (i>10)
+          snippetSearchResult.setSnippets(p);
+          try {
+            Thread.sleep(1000);
+          } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+          snippetSearchResult.addToIndexes();
+
+          if (i > topRank)
             break;
         }
-        // snippetSearchResult.setSnippets(Utils.fromCollectionToFSList(jcas,passages ));
-
-        snippetSearchResult.addToIndexes();
       }
     }
   }

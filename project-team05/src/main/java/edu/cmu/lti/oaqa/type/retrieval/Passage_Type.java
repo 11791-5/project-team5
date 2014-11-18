@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** A passage search result.
- * Updated by JCasGen Fri Nov 14 15:30:40 EST 2014
+ * Updated by JCasGen Tue Nov 18 13:59:08 EST 2014
  * @generated */
 public class Passage_Type extends SearchResult_Type {
   /** @generated 
