@@ -66,7 +66,13 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       String query = new String("");
       for (int i = 0; i < as.size(); i++) {
         SynSet s = as.get(i);
-        System.out.println(s.getOriginalToken());
+        ArrayList<Synonym> asSynonym = Utils.fromFSListToCollection(s.getSynonyms(), Synonym.class);
+        
+        System.out.print(s.getOriginalToken()+" Syn:");
+        for (Synonym tempS:asSynonym)        
+          System.out.print(tempS.getSynonym()+" ");
+        
+        System.out.println();
         query += s.getOriginalToken() + " ";
       }
       /*
@@ -94,25 +100,18 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
         SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
         for (Document document : documents.getDocuments()) {
-          System.out.println(document.getPmid());
+         // System.out.println(document.getPmid());
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
 
           List<String> text = null;
           String rawText;
+       
           try {
             text = FullDocumentSources.getFullText(document);
-            System.out.println(document);
-            System.out.println(text);
+            //System.out.println(document);
+            //System.out.println(text);
             if (text == null)
               continue;
-
-            StringBuffer readText = new StringBuffer();
-            for (String s : text) {
-              readText.append(s);
-            }
-            rawText = readText.toString();
-
-        
           } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -130,12 +129,12 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             String nowSection = "section.0";
             List<String> sentenceTokens;
             for (List<HasWord> sentence : dp) {
-              System.out.println(sentence.toString());
+              //System.out.println(sentence.toString());
               sentenceTokens = new ArrayList<String>();
               StringBuffer wholeSentence = new StringBuffer();
               for (HasWord word : sentence) {
                 sentenceTokens.add(word.word());
-                wholeSentence.append(word.word());
+                wholeSentence.append(word.word()+ " ");
               }
 
               // FSIterator<Synonym> synonyms = (FSIterator<Synonym>) question.getSynSets();
@@ -154,9 +153,10 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
               
               Snippet s = new Snippet(score, "http://www.ncbi.nlm.nih.gov/pubmed/"+document.getPmid(), wholeSentence.toString(),
                       offsetPtr, offsetPtr + sentence.size(), nowSection, nowSection);
+              
               snippetList.add(s);
 
-              System.out.println(document.getPmid() + " " + sentence.toString());
+            //  System.out.println(document.getPmid() + " " + sentence.toString());
               offsetPtr = offsetPtr + sentence.size();
 
             }
@@ -177,12 +177,14 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
           System.out.println(snippet.score + " " + snippet.getText());
           i++;
           snippetSearchResult.setSnippets(p);
+          
           try {
             Thread.sleep(1000);
           } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
           }
+          
           snippetSearchResult.addToIndexes();
 
           if (i > topRank)
