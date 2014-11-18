@@ -20,13 +20,9 @@ import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document
  */
 public class FullDocumentSources {
 
-<<<<<<< HEAD
-  static String url = "http://metal.lti.cs.cmu.edu:30002/pmc/";
 
-=======
   static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
   static GsonBuilder builder = new GsonBuilder();
->>>>>>> refs/remotes/origin/master
   /**
    * Return raw text from document
    * @param doc
