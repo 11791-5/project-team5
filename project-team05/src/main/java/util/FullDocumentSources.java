@@ -20,6 +20,7 @@ import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document
  */
 public class FullDocumentSources {
 
+
   static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
   static GsonBuilder builder = new GsonBuilder();
   /**
@@ -28,7 +29,7 @@ public class FullDocumentSources {
    * @return
    * @throws IOException
    */
-  public static String getFullText(Document doc) throws IOException{
+  public static List<String> getFullText(Document doc) throws IOException{
 
     String rawText = new String();
     
@@ -55,14 +56,8 @@ public class FullDocumentSources {
 
       List<String> text = o2.get("sections");
     
-      StringBuffer readText = new StringBuffer();
-      for (String s: text){
-        readText.append(s);
-      }
-      rawText = readText.toString();
-      
-      
-    return rawText;
+      return text;
+
     
   }
 }

@@ -14,9 +14,11 @@ public final class Snippet {
 
   private String endSection;
 
-  public Snippet(String document, String text, int offsetInBeginSection, int offsetInEndSection,
+  public double score;
+  public Snippet(double score,String document, String text, int offsetInBeginSection, int offsetInEndSection,
           String beginSection, String endSection) {
     super();
+    this.score = score;
     this.document = document;
     this.text = text;
     this.offsetInBeginSection = offsetInBeginSection;
