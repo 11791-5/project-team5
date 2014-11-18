@@ -35,7 +35,7 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
 
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
-  int topRank = 10;
+  int topRank = 1000;
 
   public class ScoreComparator implements Comparator<Snippet> {
     public int compare(Snippet o1, Snippet o2) {
@@ -207,13 +207,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
           i++;
           snippetSearchResult.setSnippets(p);
           
-          try {
-            Thread.sleep(1000);
-          } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-          }
-          
+       
           snippetSearchResult.addToIndexes();
 
           if (i > topRank)
