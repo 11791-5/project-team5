@@ -1,5 +1,7 @@
 package edu.cmu.lti.oaqa.annotators;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import json.gson.Snippet;
 
+import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
@@ -43,7 +46,26 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         return -1;
     }
   }
-
+  FileWriter snippetWriter = null;
+  File snippet = new File("snippetResults.txt");
+  
+  public void initialize(UimaContext u) {
+    try {
+      snippetWriter = new FileWriter(snippet);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  public void collectionProcessComplete() {
+    try {
+      snippetWriter.flush();
+      snippetWriter.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
   public void process(JCas jcas) throws AnalysisEngineProcessException {
     int rank;
     // String questionText = "PnP";
@@ -153,7 +175,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
               
               Snippet s = new Snippet(score, "http://www.ncbi.nlm.nih.gov/pubmed/"+document.getPmid(), wholeSentence.toString(),
                       offsetPtr, offsetPtr + sentence.size(), nowSection, nowSection);
-              
+
               snippetList.add(s);
 
             //  System.out.println(document.getPmid() + " " + sentence.toString());
@@ -167,6 +189,13 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
         System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
+          try {
+            snippetWriter.write("Q:"+question.getText()+ " Document:"+ snippet.getDocument()+" offsetBegin: "+ snippet.getOffsetInBeginSection()+" offsetEnd: "+snippet.getOffsetInEndSection()+" A: "+snippet.getText() +"\n");
+          } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+          
           Passage p = new Passage(jcas);
           p.setDocId(snippet.getDocument());
           p.setBeginSection(snippet.getBeginSection());
