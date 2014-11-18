@@ -36,6 +36,7 @@
         <node>ConceptAnnotatorDescriptor</node>
         <node>DocumentAnnotatorDescriptor</node>
         <node>TriplesAnnotatorDescriptor</node>
+      <node>Evaluator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

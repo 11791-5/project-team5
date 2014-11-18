@@ -26,6 +26,8 @@ import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
 import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
+import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
+
 import edu.stanford.nlp.util.CollectionUtils;
 
 public class Evaluator extends JCasAnnotator_ImplBase {
@@ -36,7 +38,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   private ArrayList<Double> averageTriplePrecision = new ArrayList<Double>();
 
-  private ArrayList<Double> averagePassagePrecision = new ArrayList<Double>();
+  private ArrayList<Double> averageSnippetPrecision = new ArrayList<Double>();
 
   File evaluation = new File("evaluation.txt");
 
@@ -65,25 +67,24 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       List<Snippet> goldSnippets = GoldStandardSingleton.getInstance().getGoldStandardAnswer()
               .get(questionid).getSnippets();
 
-      calculateConceptsMetrics(aJCas, goldConcepts);
+      calculateConceptsMetrics(aJCas, goldConcepts, questionid);
 
-      calculateDocumentMetrics(aJCas, goldDocuments);
+      calculateDocumentMetrics(aJCas, goldDocuments, questionid);
 
-      calculateTriplesMetrics(aJCas, goldTriples);
+      calculateTriplesMetrics(aJCas, goldTriples, questionid);
 
-      calculateSnippetsMetrics(aJCas, goldSnippets);
+      calculateSnippetsMetrics(aJCas, goldSnippets, questionid);
     }
   }
 
-  private void calculateSnippetsMetrics(JCas aJCas, List<Snippet> goldSnippets) {
+  private void calculateSnippetsMetrics(JCas aJCas, List<Snippet> goldSnippets, String queryId) {
     // calcualte metrics for triples
     List<SnippetSearchResult> passageItems = getProcessedSnippetsAsList(aJCas);
     List<Object> retrievedArticleOffsetPairs = new ArrayList<Object>();
     for(SnippetSearchResult currentSnippet: passageItems) {
-      ArrayList<Passage> passageList = util.Utils.fromFSListToPassageList(currentSnippet.getSnippets(), Passage.class);
-      for (Passage p : passageList) {
-        extractDocumentOffsetPairs(retrievedArticleOffsetPairs, p.getText(), p.getOffsetInBeginSection(), p.getDocId());
-      }
+      //ArrayList<Passage> passageList = util.Utils.fromFSListToPassageList(currentSnippet.getSnippets(), Passage.class);
+      Passage p = currentSnippet.getSnippets(); 
+      extractDocumentOffsetPairs(retrievedArticleOffsetPairs, p.getText(), p.getOffsetInBeginSection(), p.getDocId());
     }
 
     List<Object> goldArticleOffsetPairs = new ArrayList<Object>();
@@ -96,10 +97,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     double passageF = calcF(passagePrecision, passageRecall);
     double passageAP = calcAP(goldArticleOffsetPairs, retrievedArticleOffsetPairs);
 
-    averagePassagePrecision.add(passageAP);
+    averageSnippetPrecision.add(passageAP);
     
     try {
-      printQueryStats(passagePrecision, passageRecall, passageF, passageAP, "passage");
+      printQueryStats(queryId, passagePrecision, passageRecall, passageF, passageAP, "snippet");
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -138,7 +139,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     return snippetItems;
   }
 
-  private void calculateTriplesMetrics(JCas aJCas, List<Object> goldTriples) {
+  private void calculateTriplesMetrics(JCas aJCas, List<Object> goldTriples, String queryId) {
     // calcualte metrics for triples
     List<Object> tripleItems = getProcessedTriplesAsList(aJCas);
     double triplePrecision = getPrecision(tripleItems, goldTriples);
@@ -147,14 +148,14 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     double tripleAP = calcAP(goldTriples, tripleItems);
     averageTriplePrecision.add(tripleAP);
     try {
-      printQueryStats(triplePrecision, tripleRecall, tripleF, tripleAP, "triple");
+      printQueryStats(queryId, triplePrecision, tripleRecall, tripleF, tripleAP, "triple");
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
 
-  private void calculateDocumentMetrics(JCas aJCas, List<Object> goldDocuments) {
+  private void calculateDocumentMetrics(JCas aJCas, List<Object> goldDocuments, String queryId) {
     // calculate metrics for documents
     List<Object> documentItems = getDocumentURIsAsList(aJCas);
     double documentPrecision = getPrecision(documentItems, goldDocuments);
@@ -163,14 +164,14 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     double documentAP = calcAP(goldDocuments, documentItems);
     averageDocumentPrecision.add(documentAP);
     try {
-      printQueryStats(documentPrecision, documentRecall, documentF, documentAP, "document");
+      printQueryStats(queryId, documentPrecision, documentRecall, documentF, documentAP, "document");
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
 
-  private void calculateConceptsMetrics(JCas aJCas, List<Object> goldConcepts) {
+  private void calculateConceptsMetrics(JCas aJCas, List<Object> goldConcepts, String queryId) {
     // calculate metrics for concepts
     List<Object> conceptItems = getConceptURIsAsList(aJCas);
     double conceptPrecision = getPrecision(conceptItems, goldConcepts);
@@ -179,7 +180,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     double conceptAP = calcAP(goldConcepts, conceptItems);
     averageConceptPrecision.add(conceptAP);
     try {
-      printQueryStats(conceptPrecision, conceptRecall, conceptF, conceptAP, "concept");
+      printQueryStats(queryId, conceptPrecision, conceptRecall, conceptF, conceptAP, "concept");
     } catch (IOException e1) {
       // TODO Auto-generated catch block
       e1.printStackTrace();
@@ -198,10 +199,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   }
 
   private List<Object> getProcessedTriplesAsList(JCas aJCas) {
-    FSIterator<TOP> triples = aJCas.getJFSIndexRepository().getAllIndexedFS(Triple.type);
+    FSIterator<TOP> triples = aJCas.getJFSIndexRepository().getAllIndexedFS(TripleSearchResult.type);
     List<Object> tripleItems = new ArrayList<Object>();
     while (triples.hasNext()) {
-      Triple triple = (Triple) triples.next();
+      Triple triple = ((TripleSearchResult) triples.next()).getTriple();
       String tripleString = "o-" + triple.getObject() + "-p-" + triple.getPredicate() + "-s-"
               + triple.getSubject();
       tripleItems.add(tripleString);
@@ -219,12 +220,13 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param type
    * @throws IOException
    */
-  private void printQueryStats(double precision, double recall, double fScore, double ap,
+  private void printQueryStats(String queryId, double precision, double recall, double fScore, double ap,
           String type) throws IOException {
+    evaluationWriter.write(String.format("Query id: %s\n", queryId));
     evaluationWriter.write(String.format("%s precision: %f\n", type, precision));
     evaluationWriter.write(String.format("%s recall: %f\n", type, recall));
     evaluationWriter.write(String.format("%s f score: %f\n", type, fScore));
-    evaluationWriter.write(String.format("%s average precision: %f\n", type, ap));
+    evaluationWriter.write(String.format("%s average precision: %f\n\n", type, ap));
   }
 
   /**
@@ -243,14 +245,14 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     
     double averagePrecision = 0;
     for (int i = 0; i < hypothesisItems.size(); i++) {
-      boolean containsRelevantInSublist = false;
-      for(Object item: hypothesisItems) {
-        if (goldItems.contains(hypothesisItems.get(i))) {
-          containsRelevantInSublist = true;
-        }  
-      }
-      if (containsRelevantInSublist) {
-        double precisionAtR = getPrecision(hypothesisItems.subList(0, i), goldItems);
+//      boolean containsRelevantInSublist = false;
+//      for(Object item: hypothesisItems.subList(0, i+1)) {
+//        if (goldItems.contains(item)) {
+//          containsRelevantInSublist = true;
+//        }  
+//      }
+      if (goldItems.contains(hypothesisItems.get(i))) {
+        double precisionAtR = getPrecision(hypothesisItems.subList(0, i+1), goldItems);
         averagePrecision += precisionAtR;
       }
     }
@@ -393,6 +395,8 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     calcAndPrintFinalStatsForType("concept", averageConceptPrecision);
     calcAndPrintFinalStatsForType("document", averageDocumentPrecision);
     calcAndPrintFinalStatsForType("triple", averageTriplePrecision);
+    calcAndPrintFinalStatsForType("snippet", averageSnippetPrecision);
+
     try {
       evaluationWriter.close();
     } catch (IOException e) {
