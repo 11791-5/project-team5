@@ -26,6 +26,8 @@ import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
 import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
+import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
+
 import edu.stanford.nlp.util.CollectionUtils;
 
 public class Evaluator extends JCasAnnotator_ImplBase {
@@ -197,10 +199,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   }
 
   private List<Object> getProcessedTriplesAsList(JCas aJCas) {
-    FSIterator<TOP> triples = aJCas.getJFSIndexRepository().getAllIndexedFS(Triple.type);
+    FSIterator<TOP> triples = aJCas.getJFSIndexRepository().getAllIndexedFS(TripleSearchResult.type);
     List<Object> tripleItems = new ArrayList<Object>();
     while (triples.hasNext()) {
-      Triple triple = (Triple) triples.next();
+      Triple triple = ((TripleSearchResult) triples.next()).getTriple();
       String tripleString = "o-" + triple.getObject() + "-p-" + triple.getPredicate() + "-s-"
               + triple.getSubject();
       tripleItems.add(tripleString);
@@ -220,7 +222,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    */
   private void printQueryStats(String queryId, double precision, double recall, double fScore, double ap,
           String type) throws IOException {
-    evaluationWriter.write(String.format("Query id: %s", queryId));
+    evaluationWriter.write(String.format("Query id: %s\n", queryId));
     evaluationWriter.write(String.format("%s precision: %f\n", type, precision));
     evaluationWriter.write(String.format("%s recall: %f\n", type, recall));
     evaluationWriter.write(String.format("%s f score: %f\n", type, fScore));
@@ -249,7 +251,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 //          containsRelevantInSublist = true;
 //        }  
 //      }
-      if (goldItems.get(i).equals(hypothesisItems)) {
+      if (goldItems.contains(hypothesisItems.get(i))) {
         double precisionAtR = getPrecision(hypothesisItems.subList(0, i+1), goldItems);
         averagePrecision += precisionAtR;
       }
