@@ -14,7 +14,6 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
 import util.FullDocumentSources;
@@ -23,14 +22,12 @@ import util.SimilarityMeasures;
 import util.Utils;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document;
-import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.MeshAnnotation;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
-import edu.cmu.lti.oaqa.type.input.Question;
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
-import edu.cmu.lti.oaqa.type.retrieval.SearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 import edu.cmu.lti.oaqa.type.retrieval.Synonym;
+import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
@@ -134,10 +131,15 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             DocumentPreprocessor dp = new DocumentPreprocessor(reader);
 
             String nowSection = "section.0";
-
-            for (List sentence : dp) {
+            List<String> sentenceTokens;
+            for (List<HasWord> sentence : dp) 
+            {
                System.out.println(sentence.toString());
-               
+               sentenceTokens = new ArrayList<String>();
+               for(HasWord word:sentence)
+                 sentenceTokens.add(word.word());
+                
+       
               // FSIterator<Synonym> synonyms = (FSIterator<Synonym>) question.getSynSets();
               int numOfConceptMatching = 0;
               ArrayList<String> synonymList = new ArrayList<String>();
@@ -151,7 +153,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 synonymList.add(syns.getOriginalToken());
               }
               SimilarityMeasures sm = new SimilarityMeasures();
-              double score = sm.getSimilarity(sentence, synonymList);
+              double score = sm.getSimilarity(sentenceTokens, synonymList);
               
               Snippet s = new Snippet(score,document.getPmid(), sentence.toString(), offsetPtr, offsetPtr
                       + sentence.size(), nowSection, nowSection);
@@ -178,7 +180,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
           System.out.println(snippet.score+ " "+snippet.getText());
           snippetSearchResult.setSnippets(i, p);
           i++;
-          if (i<10)
+          if (i>10)
             break;
         }
         // snippetSearchResult.setSnippets(Utils.fromCollectionToFSList(jcas,passages ));

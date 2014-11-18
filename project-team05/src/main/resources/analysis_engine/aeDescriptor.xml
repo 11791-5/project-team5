@@ -6,6 +6,9 @@
     <delegateAnalysisEngine key="ConceptAnnotatorDescriptor">
       <import name="annotators.ConceptAnnotatorDescriptor"/>
     </delegateAnalysisEngine>
+        <delegateAnalysisEngine key="SnippetAE">
+      <import name="annotators.SnippetAE"/>
+    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="DocumentAnnotatorDescriptor">
       <import name="annotators.DocumentAnnotatorDescriptor"/>
     </delegateAnalysisEngine>
@@ -29,6 +32,7 @@
     <flowConstraints>
       <fixedFlow>
         <node>QueryExpander</node>
+        <node>SnippetAE</node>
         <node>ConceptAnnotatorDescriptor</node>
         <node>DocumentAnnotatorDescriptor</node>
         <node>TriplesAnnotatorDescriptor</node>
