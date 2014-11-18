@@ -152,7 +152,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
               SimilarityMeasures sm = new SimilarityMeasures();
               double score = sm.getSimilarity(sentenceTokens, synonymList);
               
-              Snippet s = new Snippet(score, document.getPmid(), wholeSentence.toString(),
+              Snippet s = new Snippet(score, "http://www.ncbi.nlm.nih.gov/pubmed/"+document.getPmid(), wholeSentence.toString(),
                       offsetPtr, offsetPtr + sentence.size(), nowSection, nowSection);
               snippetList.add(s);
 
