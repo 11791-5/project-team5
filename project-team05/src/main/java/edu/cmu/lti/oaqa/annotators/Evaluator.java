@@ -49,10 +49,30 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
       String questionid = question.getId();
-      evaluatedTriple.calculateItemMetrics(aJCas, questionid);
-      evaluatedConcept.calculateItemMetrics(aJCas, questionid);
-      evaluatedDocument.calculateItemMetrics(aJCas, questionid);
-      evaluatedSnippet.calculateItemMetrics(aJCas, questionid);
+      try {
+        evaluatedTriple.calculateItemMetrics(aJCas, questionid);
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      try {
+        evaluatedConcept.calculateItemMetrics(aJCas, questionid);
+      } catch (IOException e1) {
+        // TODO Auto-generated catch block
+        e1.printStackTrace();
+      }
+      try {
+        evaluatedDocument.calculateItemMetrics(aJCas, questionid);
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      try {
+        evaluatedSnippet.calculateItemMetrics(aJCas, questionid);
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
     }
   }
 

@@ -79,7 +79,7 @@ public class EvaluatedSnippet extends EvaluatedItem {
     }
   }
   
-  private static double calcAPForSnippets(List<Object> goldArticleOffsetPairs,
+  private double calcAPForSnippets(List<Object> goldArticleOffsetPairs,
           List<ArrayList<Object>> retrievedArticleOffsetPairs) {
     ArrayList<Object> allList = new ArrayList<Object>();
     for(Object o: retrievedArticleOffsetPairs) {

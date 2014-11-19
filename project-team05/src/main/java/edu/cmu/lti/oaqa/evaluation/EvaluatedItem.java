@@ -19,9 +19,28 @@ public abstract class EvaluatedItem {
   private String itemType;
 
   private int itemTypeId;
+  private List<Object> goldStandard;
+
+  public List<Object> getToBeEvaluated() {
+    return toBeEvaluated;
+  }
+
+  public void setToBeEvaluated(List<Object> toBeEvaluated) {
+    this.toBeEvaluated = toBeEvaluated;
+  }
+
+  public List<Object> getGoldStandard() {
+    return goldStandard;
+  }
+
+  public void setGoldStandard(List<Object> goldStandard) {
+    this.goldStandard = goldStandard;
+  }
+
+  private List<Object> toBeEvaluated;
 
   public EvaluatedItem(FileWriter writer) {
-    this.writer = writer;
+    this.setWriter(writer);
   }
   
   /**
@@ -34,12 +53,12 @@ public abstract class EvaluatedItem {
 
   public abstract List<Object> getGoldStandardItems(String questionId);
   
-  public void calculateItemMetrics(JCas aJCas, String queryId) {
-   List<Object> goldStandard = getGoldStandardItems(queryId);
+  public void calculateItemMetrics(JCas aJCas, String queryId) throws IOException {
+    goldStandard = getGoldStandardItems(queryId);
     // calculate metrics for documents
-    List<Object> documentObjects = Utils.extractUIMATypeAsList(
+    List<Object> itemObjects = Utils.extractUIMATypeAsList(
             this.getItemTypeId(), aJCas);
-    List<Object> toBeEvaluated = getEvaluatedItemsAsList(documentObjects);
+    toBeEvaluated = getEvaluatedItemsAsList(itemObjects);
     double precision = getPrecision(toBeEvaluated, goldStandard);
     double recall = getRecall(toBeEvaluated, goldStandard);
     double fScore = calcF(precision, recall);
@@ -65,14 +84,14 @@ public abstract class EvaluatedItem {
    */
   protected void printQueryStats(String queryId, double precision, double recall, double fScore,
           double ap, String type) throws IOException {
-    writer.write(String.format("Query id: %s\n", queryId));
-    writer.write(String.format("%s precision: %f\n", type, precision));
-    writer.write(String.format("%s recall: %f\n", type, recall));
-    writer.write(String.format("%s f score: %f\n", type, fScore));
-    writer.write(String.format("%s average precision: %f\n\n", type, ap));
+    getWriter().write(String.format("Query id: %s\n", queryId));
+    getWriter().write(String.format("%s precision: %f\n", type, precision));
+    getWriter().write(String.format("%s recall: %f\n", type, recall));
+    getWriter().write(String.format("%s f score: %f\n", type, fScore));
+    getWriter().write(String.format("%s average precision: %f\n\n", type, ap));
   }
 
-  public static double getPrecision(List<Object> hypotheses, List<Object> gold) {
+  public double getPrecision(List<Object> hypotheses, List<Object> gold) {
     if (hypotheses.size() == 0) {
       return 0;
     }
@@ -168,5 +187,13 @@ public abstract class EvaluatedItem {
 
   public int getItemTypeId() {
     return itemTypeId;
+  }
+
+  public FileWriter getWriter() {
+    return writer;
+  }
+
+  public void setWriter(FileWriter writer) {
+    this.writer = writer;
   }
 }
