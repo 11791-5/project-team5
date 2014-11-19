@@ -33,16 +33,15 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
 
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
-  int topRank = 5;
+  private final int  topRank = 5;
   public static final String PUBMED_URL ="http://www.ncbi.nlm.nih.gov/pubmed/";
+  public static final String DEFAULT_SECTION ="section.0";
 
   public class ScoreComparator implements Comparator<Snippet> {
     public int compare(Snippet o1, Snippet o2) {
-
       if (o2.score > o1.score)
         return 1;
-      else
-        return -1;
+      return -1;
     }
   }
   FileWriter snippetWriter = null;
@@ -72,11 +71,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-
-      System.out.println(question.getSynSets());
       ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
-
-
       edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
 
       String query = "";
@@ -100,14 +95,13 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
         SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
-         // System.out.println(document.getPmid());
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
 
           List<String> text = null;
        
           try {
             text = FullDocumentSources.getFullText(document);
-            if (text == null)
+            if (text == null||"".equals(text))
               continue;
           } catch (IOException e) {
             e.printStackTrace();
@@ -116,13 +110,13 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
           // concept matching?
         
-          for (int i = 0; i < text.size(); i++) {
+          for (String docText:text) 
+          {
             int offsetPtr = 0;
-            String docText = text.get(i);
             Reader reader = new StringReader(docText);
             DocumentPreprocessor dp = new DocumentPreprocessor(reader);
 
-            String nowSection = "section.0";
+            String nowSection = DEFAULT_SECTION;
             List<String> sentenceTokens;
             for (List<HasWord> sentence : dp) {
               sentenceTokens = new ArrayList<String>();
@@ -146,10 +140,10 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         int rankThreshold = 1;
         Collections.sort(snippetList, new ScoreComparator());
 
-        System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           try {
-            snippetWriter.write("Q:"+question.getText()+ " Document:"+ snippet.getDocument()+" offsetBegin: "+ snippet.getOffsetInBeginSection()+" offsetEnd: "+snippet.getOffsetInEndSection()+" A: "+snippet.getText() +"\n");
+            snippetWriter.write("Q:"+question.getText()+ " Document:"+ snippet.getDocument()+" offsetBegin: "+ 
+          snippet.getOffsetInBeginSection()+" offsetEnd: "+snippet.getOffsetInEndSection()+" A: "+snippet.getText() +"\n");
           } catch (IOException e) {
             e.printStackTrace();
           }
@@ -158,12 +152,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
           
           snippetSearchResult.setSnippets(createPassage(snippet,jcas));
           rankThreshold++;
-          
-          try {
-            Thread.sleep(1000);
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
           
           snippetSearchResult.addToIndexes();
 
