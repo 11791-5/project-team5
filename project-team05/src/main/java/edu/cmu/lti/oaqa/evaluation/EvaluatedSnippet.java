@@ -85,7 +85,24 @@ public class EvaluatedSnippet extends EvaluatedItem {
     for(Object o: retrievedArticleOffsetPairs) {
       allList.addAll(((ArrayList<Object>)o));
     }
-    int totalRelItemsInList = getNumTruePositives(allList, goldArticleOffsetPairs);
+    int totalRelItemsInList = 0;
+    // look through each snippet
+    for(ArrayList<Object> pair:  retrievedArticleOffsetPairs) {
+      boolean isRelevant = false;
+      // if there is any overlap with the gold standard,
+      // the snippet is relevant
+      for(Object o: pair) {
+        if(goldArticleOffsetPairs.contains(o)) {
+          isRelevant = true;
+          break;
+        }
+      }
+      // if the snippet was relevant, increment number of relevant items
+      if(isRelevant) {
+        totalRelItemsInList++;
+      }
+    }
+    
     if (totalRelItemsInList == 0) {
       return 0;
     }

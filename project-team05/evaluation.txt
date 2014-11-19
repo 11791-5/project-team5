@@ -788,7 +788,7 @@ Query id: 515ffc2b298dcd4e51000035
 snippet precision: 0.001606
 snippet recall: 0.000752
 snippet f score: 0.001025
-snippet average precision: 0.009170
+snippet average precision: 0.003668
 
 Query id: 51602609298dcd4e5100003a
 triple precision: NaN
@@ -956,10 +956,10 @@ snippet f score: 0.000000
 snippet average precision: 0.000000
 
 concept MAP: 0.199001
-concept GMAP: 0.046251
+concept GMAP: 0.000002
 document MAP: 0.089673
-document GMAP: 0.019503
+document GMAP: 0.000000
 triple MAP: 0.000000
-triple GMAP: 0.010000
-snippet MAP: 0.000316
-snippet GMAP: 0.010227
+triple GMAP: 0.000000
+snippet MAP: 0.000126
+snippet GMAP: 0.000000
