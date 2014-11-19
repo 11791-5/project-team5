@@ -956,10 +956,10 @@ snippet f score: 0.000000
 snippet average precision: 0.000000
 
 concept MAP: 0.199001
-concept GMAP: 1.000000
+concept GMAP: 0.046251
 document MAP: 0.089673
-document GMAP: 1.000000
+document GMAP: 0.019503
 triple MAP: 0.000000
-triple GMAP: 1.000000
+triple GMAP: 0.010000
 snippet MAP: 0.000316
-snippet GMAP: 1.000000
+snippet GMAP: 0.010227
