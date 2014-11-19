@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
+
 import json.gson.Snippet;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -19,6 +20,7 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.component.JCasAnnotator_ImplBase;
+
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.input.Question;
@@ -27,7 +29,6 @@ import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
 import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
-
 import edu.stanford.nlp.util.CollectionUtils;
 
 public class Evaluator extends JCasAnnotator_ImplBase {
@@ -44,6 +45,32 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   FileWriter evaluationWriter = null;
 
+  public static void main(String[] args) {
+    List<Object> articleOffsetPairs = new ArrayList<Object>();
+    ArrayList<Object> newList1 = new ArrayList<Object>();
+    extractDocumentOffsetPairs(newList1, "as", 14, "doc1");
+    ArrayList<Object> newList2 = new ArrayList<Object>();
+    extractDocumentOffsetPairs(newList2, "asdf", 12, "doc2");
+    articleOffsetPairs.add(newList1);
+    articleOffsetPairs.add(newList2);
+
+    List<Object> goldArticleOffsetPairs = new ArrayList<Object>();
+
+
+    extractDocumentOffsetPairs(goldArticleOffsetPairs, "t", 15, "doc1");
+
+    extractDocumentOffsetPairs(goldArticleOffsetPairs, "tsdf", 10, "doc2");
+
+
+    //TODO: should they be in a set?
+    ArrayList<Object> allRecalledArticleOffsetPairsList = new ArrayList<Object>();
+    for(Object o: articleOffsetPairs) {
+      allRecalledArticleOffsetPairsList.addAll(((ArrayList<Object>)o));
+    }
+    double passagePrecision = getPrecision(allRecalledArticleOffsetPairsList, goldArticleOffsetPairs);
+    System.out.println(passagePrecision);
+  }
+  
   public void initialize(UimaContext u) {
     try {
       evaluationWriter = new FileWriter(evaluation);
@@ -80,22 +107,29 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   private void calculateSnippetsMetrics(JCas aJCas, List<Snippet> goldSnippets, String queryId) {
     // calcualte metrics for triples
     List<SnippetSearchResult> passageItems = getProcessedSnippetsAsList(aJCas);
-    List<Object> retrievedArticleOffsetPairs = new ArrayList<Object>();
+    List<ArrayList<Object>> retrievedArticleOffsetPairs = new ArrayList<ArrayList<Object>>();
     for(SnippetSearchResult currentSnippet: passageItems) {
       //ArrayList<Passage> passageList = util.Utils.fromFSListToPassageList(currentSnippet.getSnippets(), Passage.class);
       Passage p = currentSnippet.getSnippets(); 
-      extractDocumentOffsetPairs(retrievedArticleOffsetPairs, p.getText(), p.getOffsetInBeginSection(), p.getDocId());
+      ArrayList<Object> articleOffsetPairs = new ArrayList<Object>();
+      extractDocumentOffsetPairs(articleOffsetPairs, p.getText(), p.getOffsetInBeginSection(), p.getDocId());
+      retrievedArticleOffsetPairs.add(articleOffsetPairs);
     }
 
     List<Object> goldArticleOffsetPairs = new ArrayList<Object>();
     for(Snippet s: goldSnippets) {
       extractDocumentOffsetPairs(goldArticleOffsetPairs, s.getText(), s.getOffsetInBeginSection(), s.getDocument());
     }
-    
-    double passagePrecision = getPrecision(retrievedArticleOffsetPairs, goldArticleOffsetPairs);
-    double passageRecall = getRecall(retrievedArticleOffsetPairs, goldArticleOffsetPairs);
+
+    //TODO: should they be in a set?
+    ArrayList<Object> allRecalledArticleOffsetPairsList = new ArrayList<Object>();
+    for(Object o: retrievedArticleOffsetPairs) {
+      allRecalledArticleOffsetPairsList.addAll(((ArrayList<Object>)o));
+    }
+    double passagePrecision = getPrecision(allRecalledArticleOffsetPairsList, goldArticleOffsetPairs);
+    double passageRecall = getRecall(allRecalledArticleOffsetPairsList, goldArticleOffsetPairs);
     double passageF = calcF(passagePrecision, passageRecall);
-    double passageAP = calcAP(goldArticleOffsetPairs, retrievedArticleOffsetPairs);
+    double passageAP = calcAPForSnippets(goldArticleOffsetPairs, retrievedArticleOffsetPairs);
 
     averageSnippetPrecision.add(passageAP);
     
@@ -107,26 +141,40 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     }
   }
 
-  private void extractDocumentOffsetPairs(List<Object> goldArticleOffsetPairs, String docText, int offsetBegin, String docId) {
+  private static double calcAPForSnippets(List<Object> goldArticleOffsetPairs,
+          List<ArrayList<Object>> retrievedArticleOffsetPairs) {
+    ArrayList<Object> allList = new ArrayList<Object>();
+    for(Object o: retrievedArticleOffsetPairs) {
+      allList.addAll(((ArrayList<Object>)o));
+    }
+    int totalRelItemsInList = getNumTruePositives(allList, goldArticleOffsetPairs);
+    if (totalRelItemsInList == 0) {
+      return 0;
+    }
+    
+    double averagePrecision = 0;
+    for (int i = 0; i < retrievedArticleOffsetPairs.size(); i++) {
+      // if nonzero overlap between golden snippets and the snippet at current index
+      if (!CollectionUtils.intersection(new HashSet<Object>(goldArticleOffsetPairs), new HashSet<Object>(retrievedArticleOffsetPairs.get(i))).isEmpty()) {;
+        ArrayList<Object> subList = new ArrayList<Object>();
+        for(Object o: retrievedArticleOffsetPairs.subList(0, i+1)) {
+          subList.addAll(((ArrayList<Object>)o));
+        }
+        double precisionAtR = getPrecision(subList, goldArticleOffsetPairs);
+        averagePrecision += precisionAtR;
+      }
+    }
+
+    averagePrecision = averagePrecision / totalRelItemsInList;
+    return averagePrecision;
+  }
+
+  private static void extractDocumentOffsetPairs(List<Object> goldArticleOffsetPairs, String docText, int offsetBegin, String docId) {
     char[] passageChars = docText.toCharArray();
     for(int i = 0; i < passageChars.length; i++) {
       Pair<String, Integer> pair = new ImmutablePair<String, Integer>(docId, offsetBegin+i);
       goldArticleOffsetPairs.add(pair);
     }
-  }
-
-  private double calcOverlap(int begin1, int end1, int begin2, int end2) {
-    double overlap = 0.0;
-    if (begin1 <= end2) {
-      if (begin2 <= begin1) {
-        overlap = end2 - begin1;
-      } else if (end2 <= end1) {
-        overlap = end2 - begin2;
-      } else if (begin2 <= end1) {
-        overlap = end1 - begin2;
-      }
-    }
-    return overlap;
   }
 
   private List<SnippetSearchResult> getProcessedSnippetsAsList(JCas aJCas) {
@@ -245,12 +293,6 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     
     double averagePrecision = 0;
     for (int i = 0; i < hypothesisItems.size(); i++) {
-//      boolean containsRelevantInSublist = false;
-//      for(Object item: hypothesisItems.subList(0, i+1)) {
-//        if (goldItems.contains(item)) {
-//          containsRelevantInSublist = true;
-//        }  
-//      }
       if (goldItems.contains(hypothesisItems.get(i))) {
         double precisionAtR = getPrecision(hypothesisItems.subList(0, i+1), goldItems);
         averagePrecision += precisionAtR;
@@ -317,7 +359,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param gold
    * @return
    */
-  public double getPrecision(List<Object> hypotheses, List<Object> gold) {
+  public static double getPrecision(List<Object> hypotheses, List<Object> gold) {
     if (hypotheses.size() == 0) {
       return 0;
     }
@@ -346,7 +388,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * @param gold
    * @return
    */
-  public int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
+  public static int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
     return CollectionUtils.intersection(new HashSet<Object>(hypothesis), new HashSet<Object>(gold))
             .size();
   }
