@@ -11,7 +11,7 @@ import org.apache.commons.io.IOUtils;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
-import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document;
+import edu.cmu.lti.oaqa.type.retrieval.Document;
 
 /**
  *  Parse response from  http://metal.lti.cs.cmu.edu:30002/pmc/PMID
@@ -34,7 +34,7 @@ public class FullDocumentSources {
 
     String rawText = new String();
     
-      String pmid = doc.getPmid();
+      String pmid = doc.getDocId();
       String request = url + pmid;
 
       URL serviceURL = new URL(request);

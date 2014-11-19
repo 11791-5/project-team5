@@ -32,9 +32,9 @@
     <flowConstraints>
       <fixedFlow>
         <node>QueryExpander</node>
-        <node>SnippetAE</node>
         <node>ConceptAnnotatorDescriptor</node>
         <node>DocumentAnnotatorDescriptor</node>
+        <node>SnippetAE</node>
         <node>TriplesAnnotatorDescriptor</node>
       <node>Evaluator</node>
       </fixedFlow>
