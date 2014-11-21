@@ -41,6 +41,13 @@
         <multiValued>false</multiValued>
         <mandatory>false</mandatory>
       </configurationParameter>
+    <configurationParameter>
+        <name>StopSynonymList</name>
+        <description>Path to file of stop synonyms.</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
     </configurationParameters>
 		<configurationParameterSettings>
 			<nameValuePair>
@@ -59,6 +66,12 @@
         <name>StopWordList</name>
         <value>
           <string>src/main/resources/StopWordList.txt</string>
+        </value>
+      </nameValuePair>
+    <nameValuePair>
+        <name>StopSynonymList</name>
+        <value>
+          <string>src/main/resources/StopSynonymList.txt</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
