@@ -3,11 +3,16 @@
 /* First created by JCasGen Fri Nov 14 15:30:39 EST 2014 */
 package edu.cmu.lti.oaqa.type.input;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
-
 import org.apache.uima.jcas.cas.FSList;
+
+import edu.cmu.lti.oaqa.type.retrieval.SynSet;
+import util.Utils;
 
 
 /** Used to store expanded queries.
@@ -96,6 +101,30 @@ public class ExpandedQuestion extends Question {
     if (ExpandedQuestion_Type.featOkTst && ((ExpandedQuestion_Type)jcasType).casFeat_synSets == null)
       jcasType.jcas.throwFeatMissing("synSets", "edu.cmu.lti.oaqa.type.input.ExpandedQuestion");
     jcasType.ll_cas.ll_setRefValue(addr, ((ExpandedQuestion_Type)jcasType).casFeatCode_synSets, jcasType.ll_cas.ll_getFSRef(v));}    
+
+  
+  // ----------------
+  // toString
+ 
+  /**
+  * Print the list of synonyms from query expansion.
+  *
+  */
+  @Override public String toString() {
+    StringBuilder result = new StringBuilder();
+
+    FSList synonyms = this.getSynSets();
+    ArrayList<SynSet> synList = Utils.fromFSListToCollection(synonyms, SynSet.class);
+    result.append(this.getClass().getName() + " Synonyms { ");
+  
+    result.append(Utils.getQueryTokens(synList));
+    
+    result.append("}");
+
+    return result.toString();
   }
+
+
+}
 
     
