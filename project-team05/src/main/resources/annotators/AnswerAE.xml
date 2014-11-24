@@ -4,7 +4,7 @@
   <primitive>true</primitive>  
   <annotatorImplementationName>edu.cmu.lti.oaqa.annotators.AnswerAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>SnippetAE</name>
+    <name>AnswerAE</name>
     <description/>
     <version>1.0</version>
     <vendor/>
