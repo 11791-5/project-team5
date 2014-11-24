@@ -63,7 +63,7 @@ public abstract class EvaluatedItem {
     double recall = getRecall(toBeEvaluated, goldStandard);
     double fScore = calcF(precision, recall);
     double itemAveragePrecision = calcAP(goldStandard, toBeEvaluated);
-    getAveragePrecision().add(itemAveragePrecision);
+    if((!goldStandard.isEmpty()) || !itemObjects.isEmpty()) getAveragePrecision().add(itemAveragePrecision);
     try {
       printQueryStats(queryId, precision, recall, fScore, itemAveragePrecision, this.getItemType());
     } catch (IOException e) {
@@ -84,7 +84,6 @@ public abstract class EvaluatedItem {
    */
   protected void printQueryStats(String queryId, double precision, double recall, double fScore,
           double ap, String type) throws IOException {
-    getWriter().write(String.format("Query id: %s\n", queryId));
     getWriter().write(String.format("%s precision: %f\n", type, precision));
     getWriter().write(String.format("%s recall: %f\n", type, recall));
     getWriter().write(String.format("%s f score: %f\n", type, fScore));

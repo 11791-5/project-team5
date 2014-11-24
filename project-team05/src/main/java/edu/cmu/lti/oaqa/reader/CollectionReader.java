@@ -58,7 +58,12 @@ public class CollectionReader extends CollectionReader_ImplBase {
     
     goldStandard = new File(((String) getConfigParameterValue(PARAM_GOLD_STANDARD_FILE)).trim());
     stdAnswers = jsonReader.getQuestionsList("/"+goldStandard.getName());
-    GoldStandardSingleton.getInstance().setGoldStandardAnswer(stdAnswers); 
+    try {
+      GoldStandardSingleton.getInstance().setGoldStandardAnswer(stdAnswers);
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } 
     numberOfQuestions = inputs.size();
     STOP_WORD_FILE_NAME = (String) getConfigParameterValue(PARAM_STOPWORD_LIST);
     STOP_SYNONYM_FILE_NAME = (String) getConfigParameterValue(PARAM_STOPSYNONYM_LIST);
