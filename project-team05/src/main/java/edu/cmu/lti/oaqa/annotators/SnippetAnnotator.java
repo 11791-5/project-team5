@@ -92,6 +92,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         ArrayList<String> tempAL = new ArrayList<String>();
         ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(),
                 Synonym.class);
+        tempAL.add(syns.getOriginalToken());
         for (Synonym synonym : synonyms) {
           synonymList.add(synonym.getSynonym());
           tempAL.add(synonym.getSynonym());
@@ -146,9 +147,11 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
               int conceptMatch = 0;
               String wholeSentenceStr = wholeSentence.toString();
               
-              /*
+              int kk=0;
               for (ArrayList<String> synonymsGroup : synonymListByGroup) {
+                kk++;
                 for (String synonymTempStr : synonymsGroup) {
+                  System.out.println(kk+"||"+synonymTempStr +"||"+wholeSentenceStr );
                   if (wholeSentenceStr.contains(synonymTempStr))
                   {
                     conceptMatch++;
@@ -157,19 +160,19 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 }
               }
               System.out.println( conceptMatch +" "+ wholeSentenceStr);
-              if (conceptMatch<MinConceptMatch)
-                 continue;
-              */
-              SimilarityMeasures sm = new SimilarityMeasures();
-              double score = sm.getSimilarity(sentenceTokens, synonymList);
-
-              Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
-                      wholeSentence.toString(), offsetPtr, offsetPtr + sentence.size(), nowSection,
-                      nowSection);
-
-              snippetList.add(s);
+              if (conceptMatch>=MinConceptMatch)
+              {               
+                SimilarityMeasures sm = new SimilarityMeasures();
+                double score = sm.getSimilarity(sentenceTokens, synonymList);
+  
+                Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
+                        wholeSentence.toString(), offsetPtr, offsetPtr + sentence.size(), nowSection,
+                        nowSection);
+  
+                snippetList.add(s);
+              }
               offsetPtr = offsetPtr + sentence.size();
-
+              
             }
           }
         }
