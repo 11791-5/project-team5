@@ -404,8 +404,6 @@ make
 
 making
 
-man
-
 many
 
 may
