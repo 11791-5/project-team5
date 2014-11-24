@@ -2,6 +2,7 @@ package edu.cmu.lti.oaqa.annotators;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -17,6 +18,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 import util.AnswerExtractor;
 import util.Utils;
+import edu.cmu.lti.oaqa.bio.umls_wrapper.TermRelationship;
+import edu.cmu.lti.oaqa.resources.UmlsSingleton;
 import edu.cmu.lti.oaqa.type.answer.Answer;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
@@ -75,11 +78,28 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
       { 
         Answer ans = new Answer(aJCas);
         ans.setText(entry.getValue());
-        ans.setRank(entry.getKey());        
+        ans.setRank(entry.getKey());   
+        ans.setVariants(getAnswerSynonyms(entry.getValue(),aJCas));
         ans.addToIndexes();
+       
       }
       
     }
+  }
+  
+  public StringList getAnswerSynonyms(String ans,JCas aJCas)
+  {
+    List<String> ansSynonyms = new ArrayList<String>();
+    try {
+      HashSet<TermRelationship> rels = new HashSet<TermRelationship>(UmlsSingleton.getInstance().
+              getUmlsService().getTermSynonyms(ans));
+      for (TermRelationship rel : rels) {
+        ansSynonyms.add(rel.getToTerm().toLowerCase());
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return Utils.createStringList(aJCas,ansSynonyms);
   }
 
 }
