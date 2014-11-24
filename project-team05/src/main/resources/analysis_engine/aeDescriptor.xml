@@ -21,6 +21,9 @@
   <delegateAnalysisEngine key="QueryExpander">
       <import name="annotators.QueryExpander"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="AnswerAE">
+      <import name="annotators.AnswerAE"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>FeatureExtractorDescriptor</name>
@@ -35,7 +38,8 @@
         <node>ConceptAnnotatorDescriptor</node>
         <node>DocumentAnnotatorDescriptor</node>
         <node>SnippetAE</node>
-        <node>TriplesAnnotatorDescriptor</node>
+        <node>AnswerAE</node>
+      <node>TriplesAnnotatorDescriptor</node>
       <node>Evaluator</node>
       </fixedFlow>
     </flowConstraints>
