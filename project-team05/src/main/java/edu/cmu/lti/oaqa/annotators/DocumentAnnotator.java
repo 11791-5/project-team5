@@ -41,6 +41,7 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
             System.out.println(annotation.getUri());
           }*/
           doc.setDocId(document.getPmid());
+          doc.setText(document.getDocumentAbstract());
           doc.setUri(document.getPmid());
           doc.setRank(rank++);
           doc.addToIndexes();
