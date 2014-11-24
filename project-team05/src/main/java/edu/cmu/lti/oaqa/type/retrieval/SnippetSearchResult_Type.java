@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** 
- * Updated by JCasGen Tue Nov 18 13:59:08 EST 2014
+ * Updated by JCasGen Sun Nov 23 23:31:37 EST 2014
  * @generated */
 public class SnippetSearchResult_Type extends AnswerSearchResult_Type {
   /** @generated 
@@ -68,6 +68,30 @@ public class SnippetSearchResult_Type extends AnswerSearchResult_Type {
     ll_cas.ll_setRefValue(addr, casFeatCode_snippets, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_questionsSyn;
+  /** @generated */
+  final int     casFeatCode_questionsSyn;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public int getQuestionsSyn(int addr) {
+        if (featOkTst && casFeat_questionsSyn == null)
+      jcas.throwFeatMissing("questionsSyn", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    return ll_cas.ll_getRefValue(addr, casFeatCode_questionsSyn);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setQuestionsSyn(int addr, int v) {
+        if (featOkTst && casFeat_questionsSyn == null)
+      jcas.throwFeatMissing("questionsSyn", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    ll_cas.ll_setRefValue(addr, casFeatCode_questionsSyn, v);}
+    
+  
 
 
 
@@ -83,6 +107,10 @@ public class SnippetSearchResult_Type extends AnswerSearchResult_Type {
  
     casFeat_snippets = jcas.getRequiredFeatureDE(casType, "snippets", "edu.cmu.lti.oaqa.type.retrieval.Passage", featOkTst);
     casFeatCode_snippets  = (null == casFeat_snippets) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_snippets).getCode();
+
+ 
+    casFeat_questionsSyn = jcas.getRequiredFeatureDE(casType, "questionsSyn", "uima.cas.StringList", featOkTst);
+    casFeatCode_questionsSyn  = (null == casFeat_questionsSyn) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_questionsSyn).getCode();
 
   }
 }
