@@ -17,6 +17,7 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
@@ -107,6 +108,8 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
       edu.cmu.lti.oaqa.type.retrieval.Document doc;
 
+      String nowSection = "section.0";
+
       if (documentItems != null && !documentItems.isEmpty()) {
         rank = 0;
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
@@ -116,25 +119,26 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
 
           List<String> text = null;
-
+          String docText = null;
           try {
             text = FullDocumentSources.getFullText(document);
-            if (text == null)
-              continue;
+            if (text==null)
+              docText = document.getText(); 
+                    
           } catch (IOException e) {
             e.printStackTrace();
           }
           ArrayList<Snippet> snippets = new ArrayList<Snippet>();
 
           // concept matching?
+          for (int i = 0; i < 1; i++) {
+            int offsetPtr = 0;                                                                       
+            if (docText==null)
+              docText = text.get(i);
 
-          for (int i = 0; i < text.size(); i++) {
-            int offsetPtr = 0;
-            String docText = text.get(i);
             Reader reader = new StringReader(docText);
             DocumentPreprocessor dp = new DocumentPreprocessor(reader);
 
-            String nowSection = "section.0";
             List<String> sentenceTokens;
             for (List<HasWord> sentence : dp) {
               sentenceTokens = new ArrayList<String>();
@@ -193,12 +197,14 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
           snippetSearchResult.setSnippets(createPassage(snippet, jcas));
           rankThreshold++;
-
+          
+          snippetSearchResult.setQuestionsSyn(Utils.createStringList(jcas, synonymList));
           snippetSearchResult.addToIndexes();
 
           if (rankThreshold > SnippetRetrievedNum)
             break;
         }
+        
       }
     }
   }
