@@ -14,6 +14,7 @@ import org.uimafit.component.JCasAnnotator_ImplBase;
 
 import edu.cmu.lti.oaqa.evaluation.EvaluatedConcept;
 import edu.cmu.lti.oaqa.evaluation.EvaluatedDocument;
+import edu.cmu.lti.oaqa.evaluation.EvaluatedExactAnswer;
 import edu.cmu.lti.oaqa.evaluation.EvaluatedItem;
 import edu.cmu.lti.oaqa.evaluation.EvaluatedSnippet;
 import edu.cmu.lti.oaqa.evaluation.EvaluatedTriple;
@@ -22,15 +23,19 @@ import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 public class Evaluator extends JCasAnnotator_ImplBase {
 
   private EvaluatedItem evaluatedTriple;
-  private EvaluatedItem evaluatedConcept;
-  private EvaluatedItem evaluatedDocument;
-  private EvaluatedItem evaluatedSnippet;
-  private FileWriter evaluationWriter;
 
+  private EvaluatedItem evaluatedConcept;
+
+  private EvaluatedItem evaluatedDocument;
+
+  private EvaluatedItem evaluatedSnippet;
+
+  private EvaluatedItem evaluatedExactAnswer;
+
+  private FileWriter evaluationWriter;
 
   File evaluation = new File("evaluation.txt");
 
-  
   public void initialize(UimaContext u) {
     try {
       evaluationWriter = new FileWriter(evaluation);
@@ -38,6 +43,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       evaluatedConcept = new EvaluatedConcept(evaluationWriter);
       evaluatedDocument = new EvaluatedDocument(evaluationWriter);
       evaluatedSnippet = new EvaluatedSnippet(evaluationWriter);
+      evaluatedExactAnswer = new EvaluatedExactAnswer(evaluationWriter);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -48,34 +54,48 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     FSIterator<Annotation> questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-      String questionid = question.getId();
-      try {
-        evaluatedTriple.calculateItemMetrics(aJCas, questionid);
-      } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+      if (question.getQuestionType().equals("LIST")) {
+        String questionid = question.getId();
+        try {
+          evaluationWriter.write(String.format("\n\nQuery id: %s\n", questionid));
+        } catch (IOException e2) {
+          // TODO Auto-generated catch block
+          e2.printStackTrace();
+        }
+        try {
+          evaluatedTriple.calculateItemMetrics(aJCas, questionid);
+        } catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+        try {
+          evaluatedConcept.calculateItemMetrics(aJCas, questionid);
+        } catch (IOException e1) {
+          // TODO Auto-generated catch block
+          e1.printStackTrace();
+        }
+        try {
+          evaluatedDocument.calculateItemMetrics(aJCas, questionid);
+        } catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+        try {
+          evaluatedSnippet.calculateItemMetrics(aJCas, questionid);
+        } catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+        try {
+          this.evaluatedExactAnswer.calculateItemMetrics(aJCas, questionid);
+        } catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
       }
-      try {
-        evaluatedConcept.calculateItemMetrics(aJCas, questionid);
-      } catch (IOException e1) {
-        // TODO Auto-generated catch block
-        e1.printStackTrace();
-      }
-      try {
-        evaluatedDocument.calculateItemMetrics(aJCas, questionid);
-      } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
-      try {
-        evaluatedSnippet.calculateItemMetrics(aJCas, questionid);
-      } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
+
     }
   }
-
 
   /**
    * Convenience method to calculate the arithmetic average of a list of values.
@@ -110,7 +130,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     for (Double val : vals) {
       result *= (val + epsilon);
     }
-    return Math.pow(result, 1/(double)vals.size());
+    return Math.pow(result, 1 / (double) vals.size());
   }
 
   /**
@@ -122,6 +142,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     calcAndPrintFinalStatsForType("document", evaluatedDocument.getAveragePrecision());
     calcAndPrintFinalStatsForType("triple", evaluatedTriple.getAveragePrecision());
     calcAndPrintFinalStatsForType("snippet", evaluatedSnippet.getAveragePrecision());
+    calcAndPrintFinalStatsForType("exact answer", evaluatedExactAnswer.getAveragePrecision());
 
     try {
       evaluationWriter.close();

@@ -1,68 +1,4 @@
-Query id: 5118dd1305c10fae75000001
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
 
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 5118dd1305c10fae75000001
-concept precision: 0.031250
-concept recall: 0.200000
-concept f score: 0.054054
-concept average precision: 0.090909
-
-Query id: 5118dd1305c10fae75000001
-document precision: 0.010000
-document recall: 0.083333
-document f score: 0.017857
-document average precision: 0.030303
-
-Query id: 5118dd1305c10fae75000001
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 511a16f9df1ebcce7d000005
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 511a16f9df1ebcce7d000005
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 511a16f9df1ebcce7d000005
-document precision: 0.400000
-document recall: 0.266667
-document f score: 0.320000
-document average precision: 0.433333
-
-Query id: 511a16f9df1ebcce7d000005
-snippet precision: 0.003623
-snippet recall: 0.042759
-snippet f score: 0.006680
-snippet average precision: 0.022462
 
 Query id: 5133b9455274a5fb0700000c
 triple precision: NaN
@@ -79,89 +15,27 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 5133b9455274a5fb0700000c
 concept precision: 0.043478
 concept recall: 0.222222
 concept f score: 0.072727
 concept average precision: 0.392857
 
-Query id: 5133b9455274a5fb0700000c
 document precision: 0.000000
 document recall: 0.000000
 document f score: 0.000000
 document average precision: 0.000000
 
-Query id: 5133b9455274a5fb0700000c
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-Query id: 513832a75274a5fb07000012
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
 
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 513832a75274a5fb07000012
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
 
-Query id: 513832a75274a5fb07000012
-document precision: 0.434783
-document recall: 0.909091
-document f score: 0.588235
-document average precision: 0.388394
-
-Query id: 513832a75274a5fb07000012
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 513cdc38bee46bd34c000007
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 513cdc38bee46bd34c000007
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 513cdc38bee46bd34c000007
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 513cdc38bee46bd34c000007
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
 
 Query id: 513f45abbee46bd34c000013
 triple precision: NaN
@@ -178,89 +52,27 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 513f45abbee46bd34c000013
 concept precision: 0.012500
 concept recall: 0.333333
 concept f score: 0.024096
 concept average precision: 1.000000
 
-Query id: 513f45abbee46bd34c000013
 document precision: 0.000000
 document recall: 0.000000
 document f score: 0.000000
 document average precision: 0.000000
 
-Query id: 513f45abbee46bd34c000013
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-Query id: 51404dd723fec90375000002
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
 
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 51404dd723fec90375000002
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
 
-Query id: 51404dd723fec90375000002
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 51404dd723fec90375000002
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 51430930d24251bc0500000b
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 51430930d24251bc0500000b
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 51430930d24251bc0500000b
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 51430930d24251bc0500000b
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
 
 Query id: 51477de5d24251bc05000020
 triple precision: NaN
@@ -277,89 +89,27 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 51477de5d24251bc05000020
 concept precision: 0.000000
 concept recall: 0.000000
 concept f score: 0.000000
 concept average precision: 0.000000
 
-Query id: 51477de5d24251bc05000020
 document precision: 0.000000
 document recall: 0.000000
 document f score: 0.000000
 document average precision: 0.000000
 
-Query id: 51477de5d24251bc05000020
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-Query id: 51485a4dd24251bc0500002a
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
 
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 51485a4dd24251bc0500002a
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
 
-Query id: 51485a4dd24251bc0500002a
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 51485a4dd24251bc0500002a
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 51487821d24251bc0500002f
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000397
-triple predicate recall: 0.400000
-triple predicate f: 0.000792
-triple subject precision: 0.000217
-triple subject recall: 0.200000
-triple subject f: 0.000434
-Query id: 51487821d24251bc0500002f
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 51487821d24251bc0500002f
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 51487821d24251bc0500002f
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
 
 Query id: 5149199dd24251bc05000040
 triple precision: NaN
@@ -376,287 +126,27 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 5149199dd24251bc05000040
 concept precision: 0.076923
 concept recall: 0.200000
 concept f score: 0.111111
 concept average precision: 0.090909
 
-Query id: 5149199dd24251bc05000040
 document precision: 0.000000
 document recall: 0.000000
 document f score: 0.000000
 document average precision: 0.000000
 
-Query id: 5149199dd24251bc05000040
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-Query id: 5149f494d24251bc0500004c
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
 
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 5149f494d24251bc0500004c
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
 
-Query id: 5149f494d24251bc0500004c
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 5149f494d24251bc0500004c
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 514a0f0ad24251bc05000052
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
-
-triple object precision: 0.008403
-triple object recall: 0.600000
-triple object f: 0.016575
-triple predicate precision: 0.000926
-triple predicate recall: 0.600000
-triple predicate f: 0.001850
-triple subject precision: 0.000347
-triple subject recall: 0.200000
-triple subject f: 0.000693
-Query id: 514a0f0ad24251bc05000052
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 514a0f0ad24251bc05000052
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 514a0f0ad24251bc05000052
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 514cc8dcd24251bc05000066
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 514cc8dcd24251bc05000066
-concept precision: 0.009091
-concept recall: 0.166667
-concept f score: 0.017241
-concept average precision: 0.090909
-
-Query id: 514cc8dcd24251bc05000066
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 514cc8dcd24251bc05000066
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 5150b45ad24251bc0500006f
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 5150b45ad24251bc0500006f
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 5150b45ad24251bc0500006f
-document precision: 0.666667
-document recall: 0.615385
-document f score: 0.640000
-document average precision: 0.759361
-
-Query id: 5150b45ad24251bc0500006f
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 51542eacd24251bc05000084
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
-
-triple object precision: 0.004878
-triple object recall: 0.666667
-triple object f: 0.009685
-triple predicate precision: 0.001142
-triple predicate recall: 0.666667
-triple predicate f: 0.002280
-triple subject precision: 0.000745
-triple subject recall: 0.333333
-triple subject f: 0.001488
-Query id: 51542eacd24251bc05000084
-concept precision: 0.250000
-concept recall: 0.400000
-concept f score: 0.307692
-concept average precision: 0.359848
-
-Query id: 51542eacd24251bc05000084
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 51542eacd24251bc05000084
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 5156beb4d24251bc05000089
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.001259
-triple predicate recall: 0.250000
-triple predicate f: 0.002506
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 5156beb4d24251bc05000089
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 5156beb4d24251bc05000089
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 5156beb4d24251bc05000089
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 51588bb2d24251bc05000091
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 51588bb2d24251bc05000091
-concept precision: 0.031250
-concept recall: 0.500000
-concept f score: 0.058824
-concept average precision: 0.090909
-
-Query id: 51588bb2d24251bc05000091
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 51588bb2d24251bc05000091
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 51596a8ad24251bc0500009e
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 51596a8ad24251bc0500009e
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 51596a8ad24251bc0500009e
-document precision: 0.782609
-document recall: 1.000000
-document f score: 0.878049
-document average precision: 0.641408
-
-Query id: 51596a8ad24251bc0500009e
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
 
 Query id: 515bd543298dcd4e51000001
 triple precision: NaN
@@ -673,23 +163,27 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 515bd543298dcd4e51000001
 concept precision: 0.000000
 concept recall: 0.000000
 concept f score: 0.000000
 concept average precision: 0.000000
 
-Query id: 515bd543298dcd4e51000001
 document precision: 0.000000
 document recall: 0.000000
 document f score: 0.000000
 document average precision: 0.000000
 
-Query id: 515bd543298dcd4e51000001
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
+
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
+
+
 
 Query id: 515bf6d6298dcd4e51000004
 triple precision: NaN
@@ -706,56 +200,27 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 515bf6d6298dcd4e51000004
 concept precision: 0.009091
 concept recall: 0.500000
 concept f score: 0.017857
 concept average precision: 0.076923
 
-Query id: 515bf6d6298dcd4e51000004
 document precision: 0.000000
 document recall: 0.000000
 document f score: 0.000000
 document average precision: 0.000000
 
-Query id: 515bf6d6298dcd4e51000004
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-Query id: 515db54c298dcd4e51000016
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
 
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 515db54c298dcd4e51000016
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
 
-Query id: 515db54c298dcd4e51000016
-document precision: 0.523810
-document recall: 0.687500
-document f score: 0.594595
-document average precision: 0.444573
-
-Query id: 515db54c298dcd4e51000016
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
 
 Query id: 515ffc2b298dcd4e51000035
 triple precision: NaN
@@ -772,56 +237,27 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 515ffc2b298dcd4e51000035
 concept precision: 0.033333
 concept recall: 0.200000
 concept f score: 0.057143
 concept average precision: 1.000000
 
-Query id: 515ffc2b298dcd4e51000035
 document precision: 1.000000
 document recall: 0.076923
 document f score: 0.142857
 document average precision: 1.000000
 
-Query id: 515ffc2b298dcd4e51000035
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-Query id: 51602609298dcd4e5100003a
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
 
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 51602609298dcd4e5100003a
-concept precision: 0.034483
-concept recall: 0.071429
-concept f score: 0.046512
-concept average precision: 0.500000
 
-Query id: 51602609298dcd4e5100003a
-document precision: 0.285714
-document recall: 0.727273
-document f score: 0.410256
-document average precision: 0.267559
-
-Query id: 51602609298dcd4e5100003a
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
 
 Query id: 5160412d298dcd4e5100003c
 triple precision: NaN
@@ -838,128 +274,33 @@ triple predicate f: 0.000000
 triple subject precision: 0.000000
 triple subject recall: 0.000000
 triple subject f: 0.000000
-Query id: 5160412d298dcd4e5100003c
 concept precision: 0.214286
 concept recall: 0.500000
 concept f score: 0.300000
 concept average precision: 0.377778
 
-Query id: 5160412d298dcd4e5100003c
 document precision: 0.000000
 document recall: 0.000000
 document f score: 0.000000
 document average precision: 0.000000
 
-Query id: 5160412d298dcd4e5100003c
 snippet precision: 0.000000
 snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-Query id: 5162e011298dcd4e51000049
-triple precision: 0.000000
-triple recall: 0.000000
-triple f score: 0.000000
-triple average precision: 0.000000
+exact answer precision: 0.000000
+exact answer recall: 0.000000
+exact answer f score: 0.000000
+exact answer average precision: 0.000000
 
-triple object precision: 0.003040
-triple object recall: 1.000000
-triple object f: 0.006061
-triple predicate precision: 0.000100
-triple predicate recall: 1.000000
-triple predicate f: 0.000200
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 5162e011298dcd4e51000049
-concept precision: 0.100000
-concept recall: 0.500000
-concept f score: 0.166667
-concept average precision: 1.000000
-
-Query id: 5162e011298dcd4e51000049
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 5162e011298dcd4e51000049
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 516425ff298dcd4e51000051
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 516425ff298dcd4e51000051
-concept precision: 0.000000
-concept recall: 0.000000
-concept f score: 0.000000
-concept average precision: 0.000000
-
-Query id: 516425ff298dcd4e51000051
-document precision: 0.050000
-document recall: 0.100000
-document f score: 0.066667
-document average precision: 0.052632
-
-Query id: 516425ff298dcd4e51000051
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-Query id: 51659356298dcd4e5100005a
-triple precision: NaN
-triple recall: 0.000000
-triple f score: NaN
-triple average precision: 0.000000
-
-triple object precision: 0.000000
-triple object recall: 0.000000
-triple object f: 0.000000
-triple predicate precision: 0.000000
-triple predicate recall: 0.000000
-triple predicate f: 0.000000
-triple subject precision: 0.000000
-triple subject recall: 0.000000
-triple subject f: 0.000000
-Query id: 51659356298dcd4e5100005a
-concept precision: 0.125000
-concept recall: 0.666667
-concept f score: 0.210526
-concept average precision: 0.700000
-
-Query id: 51659356298dcd4e5100005a
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-Query id: 51659356298dcd4e5100005a
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-concept MAP: 0.199001
-concept GMAP: 0.000002
-document MAP: 0.138537
+concept MAP: 0.367308
+concept GMAP: 0.001340
+document MAP: 0.125000
 document GMAP: 0.000000
 triple MAP: 0.000000
 triple GMAP: 0.000000
-snippet MAP: 0.000775
+snippet MAP: 0.000000
 snippet GMAP: 0.000000
+exact answer MAP: 0.000000
+exact answer GMAP: 0.000000

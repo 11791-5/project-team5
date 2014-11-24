@@ -56,12 +56,21 @@ public class JsonCollectionReaderHelper {
 								.replaceAll("\\s+", " ")));
 		return inputs;
 	}
-
+public static void addGoldAnswersToIndex(Question input, JCas jcas)
+ {
+    List<List<String>> answerVariantsList = ((TrainingListQuestion) input).getExactAnswer();
+    if (answerVariantsList != null) {
+      answerVariantsList.stream()
+              .map(answerVariants -> TypeFactory.createAnswer(jcas, answerVariants))
+              .forEach(Answer::addToIndexes);
+    }
+  }
 	public static void addQuestionToIndex(Question input, String source,
 			JCas jcas) {
 		// question text and type are required
-	 // if(!QuestionType.list.equals(input.getType()))
-	   //       return;
+	  if(!QuestionType.list.equals(input.getType()))
+	          return;
+
 		TypeFactory.createQuestion(jcas, input.getId(), source,
 				convertQuestionType(input.getType()), input.getBody())
 				.addToIndexes();

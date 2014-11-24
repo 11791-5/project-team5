@@ -32,11 +32,15 @@
     <flowConstraints>
       <fixedFlow>
         <node>QueryExpander</node>
-        <node>ConceptAnnotatorDescriptor</node>
+       <!-- <node>ConceptAnnotatorDescriptor</node>
         <node>DocumentAnnotatorDescriptor</node>
         <node>SnippetAE</node>
-        <node>TriplesAnnotatorDescriptor</node>
-      <node>Evaluator</node>
+        <node>TriplesAnnotatorDescriptor</node>-->
+      <node>ConceptAnnotatorDescriptor</node>
+      <node>TriplesAnnotatorDescriptor</node>
+        <node>DocumentAnnotatorDescriptor</node>
+        <node>SnippetAE</node>
+        <node>Evaluator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

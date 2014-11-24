@@ -112,10 +112,10 @@ public class EvaluatedTriple extends EvaluatedItem {
       Triple triple = (Triple) tripleObj;
       for (Object goldTripleObj : goldTriples) {
         json.gson.Triple goldTriple = (json.gson.Triple) goldTripleObj;
-        if (triple.getObject() != null && triple.getObject().equals(goldTriple.getO())
-                && triple.getSubject() != null && triple.getSubject().equals(goldTriple.getS())
+        if (triple.getObject() != null && triple.getObject().equalsIgnoreCase(goldTriple.getO())
+                && triple.getSubject() != null && triple.getSubject().equalsIgnoreCase(goldTriple.getS())
                 && triple.getPredicate() != null
-                && triple.getPredicate().equals(goldTriple.getP())) {
+                && triple.getPredicate().equalsIgnoreCase(goldTriple.getP())) {
           numTruePos++;
         }
       }
