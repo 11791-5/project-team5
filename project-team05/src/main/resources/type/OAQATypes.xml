@@ -865,6 +865,11 @@
           <description/>
           <rangeTypeName>edu.cmu.lti.oaqa.type.retrieval.Passage</rangeTypeName>
           </featureDescription>
+      <featureDescription>
+          <name>questionsSyn</name>
+          <description/>
+          <rangeTypeName>uima.cas.StringList</rangeTypeName>
+        </featureDescription>
       </features>
     </typeDescription>
   <typeDescription>
@@ -894,8 +899,7 @@
           <name>synonyms</name>
           <description>Holds the list of synonyms for the original token.</description>
           <rangeTypeName>uima.cas.FSList</rangeTypeName>
-          <elementType>edu.cmu.lti.oaqa.type.retrieval.Synonym</elementType>
-        </featureDescription>
+          </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>

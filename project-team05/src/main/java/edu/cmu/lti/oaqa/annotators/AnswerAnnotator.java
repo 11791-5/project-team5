@@ -2,6 +2,7 @@ package edu.cmu.lti.oaqa.annotators;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -15,9 +16,13 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.cas.EmptyFSList;
+import org.apache.uima.jcas.cas.EmptyStringList;
+import org.apache.uima.jcas.cas.NonEmptyStringList;
 import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.tcas.Annotation;
 
+import util.AnswerExtractor;
 import util.Utils;
 import edu.cmu.lti.oaqa.type.answer.Answer;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
@@ -38,25 +43,34 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
       
       
       ArrayList<String> snippets = new  ArrayList<String>();
+      Collection<String> stringList = null;
       StringList strlist = null;
       for(Object currentSnippet: passageItems) {
         Passage p = ((SnippetSearchResult)currentSnippet).getSnippets(); 
-        if (strlist!=null)
-          strlist = ((SnippetSearchResult)currentSnippet).getQuestionsSyn();
-
+        strlist = ((SnippetSearchResult)currentSnippet).getQuestionsSyn();
+        
         snippets.add(p.getText());
         
       }
       ArrayList<String> synonym = new ArrayList<String>();
-      int i=0;
-      while (strlist.getNthElement(i) !=null )
-      {
-        synonym.add(strlist.getNthElement(i));
-        System.out.println(strlist.getNthElement(i));
-        i++;
+      if(strlist != null && strlist instanceof NonEmptyStringList) {
+        NonEmptyStringList current = (NonEmptyStringList)strlist;
+        boolean done = false;
+        while (!done)
+        {
+          synonym.add(current.getNthElement(0));
+          System.out.println(current.getNthElement(0));
+          if((current.getTail() instanceof EmptyStringList)) {
+            done = true;
+          } else {
+            current = (NonEmptyStringList) current.getTail();
+          }
+        }
       }
+
+      
 //      getAnswer(snippets,question.);
-      Map<Integer,String> hmap= getAnswer(snippets,synonym);
+      Map<Integer,String> hmap= AnswerExtractor.getAnswers(snippets,synonym);
       
 //      HashMap<String,Integer> map = new HashMap<String,Integer>();
 //      ValueComparator bvc =  new ValueComparator(map);
