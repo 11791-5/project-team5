@@ -28,7 +28,9 @@ public class CollectionReader extends CollectionReader_ImplBase {
   public static final String PARAM_INPUT_FILE = "InputFile";
   public static final String PARAM_GOLD_STANDARD_FILE = "GoldStdFile";
   public static final String PARAM_STOPWORD_LIST = "StopWordList";
+  public static final String PARAM_STOPSYNONYM_LIST = "StopSynonymList";
 
+  
 //  String filePath = "/BioASQ-SampleData1B.json";
   //String filePath = "src/main/resources/question.json";
   private File inputFile;
@@ -40,7 +42,7 @@ public class CollectionReader extends CollectionReader_ImplBase {
   int numberOfQuestions = 0;
 
   public static String STOP_WORD_FILE_NAME;
-  
+  public static String STOP_SYNONYM_FILE_NAME;
   
   public void initialize() throws ResourceInitializationException {
     System.out.println("Initializing CR");
@@ -58,8 +60,8 @@ public class CollectionReader extends CollectionReader_ImplBase {
     stdAnswers = jsonReader.getQuestionsList("/"+goldStandard.getName());
     GoldStandardSingleton.getInstance().setGoldStandardAnswer(stdAnswers); 
     numberOfQuestions = inputs.size();
-    STOP_WORD_FILE_NAME = (String) getConfigParameterValue(PARAM_INPUT_FILE);
-    
+    STOP_WORD_FILE_NAME = (String) getConfigParameterValue(PARAM_STOPWORD_LIST);
+    STOP_SYNONYM_FILE_NAME = (String) getConfigParameterValue(PARAM_STOPSYNONYM_LIST);
   }  
   @Override
   public void getNext(CAS aCAS) throws IOException, CollectionException {

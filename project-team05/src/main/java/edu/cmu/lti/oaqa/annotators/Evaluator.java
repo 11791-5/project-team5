@@ -106,11 +106,11 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       return 0;
     }
     double result = 1;
-    double epsilon = 0.01;
+    double epsilon = 0.0000000001;
     for (Double val : vals) {
       result *= (val + epsilon);
     }
-    return Math.sqrt(result);
+    return Math.pow(result, 1/(double)vals.size());
   }
 
   /**
