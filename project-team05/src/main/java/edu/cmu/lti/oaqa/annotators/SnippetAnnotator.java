@@ -17,6 +17,7 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
@@ -33,21 +34,28 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
 
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
-  int topRank = 5;
-  public static final String PUBMED_URL ="http://www.ncbi.nlm.nih.gov/pubmed/";
+  private static final int  SnippetRetrievedNum = 1000;
+
+  public static final String PUBMED_URL = "http://www.ncbi.nlm.nih.gov/pubmed/";
+
+  private static final int MinConceptMatch = 2;
 
   public class ScoreComparator implements Comparator<Snippet> {
     public int compare(Snippet o1, Snippet o2) {
 
       if (o2.score > o1.score)
         return 1;
-      else
+      else if (o2.score<o1.score)
         return -1;
+      else
+        return 0;
     }
   }
+
   FileWriter snippetWriter = null;
+
   File snippet = new File("snippetResults.txt");
-  
+
   public void initialize(UimaContext u) {
     try {
       snippetWriter = new FileWriter(snippet);
@@ -55,7 +63,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       e.printStackTrace();
     }
   }
-  
+
   public void collectionProcessComplete() {
     try {
       snippetWriter.flush();
@@ -64,7 +72,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       e.printStackTrace();
     }
   }
-  
+
   public void process(JCas jcas) throws AnalysisEngineProcessException {
     int rank;
 
@@ -76,70 +84,99 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       System.out.println(question.getSynSets());
       ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
 
-
       edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
 
       String query = "";
-
+      ArrayList<ArrayList<String>> synonymListByGroup = new ArrayList<ArrayList<String>>();
       ArrayList<String> synonymList = new ArrayList<String>();
-      for (SynSet syns : as) 
-      {
-        ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(),Synonym.class);
-        for (Synonym synonym : synonyms)
+      for (SynSet syns : as) {
+        ArrayList<String> tempAL = new ArrayList<String>();
+        ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(),
+                Synonym.class);
+        tempAL.add(syns.getOriginalToken());
+        for (Synonym synonym : synonyms) {
           synonymList.add(synonym.getSynonym());
+          tempAL.add(synonym.getSynonym());
 
+        }
+        synonymListByGroup.add(tempAL);
         synonymList.add(syns.getOriginalToken());
+
       }
-      
+
       List<edu.cmu.lti.oaqa.type.retrieval.Document> documentItems = getDocumentItems(jcas);
-     
+
       edu.cmu.lti.oaqa.type.retrieval.Document doc;
+
+      String nowSection = "section.0";
 
       if (documentItems != null && !documentItems.isEmpty()) {
         rank = 0;
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
         SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
-         // System.out.println(document.getPmid());
+          // System.out.println(document.getPmid());
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
 
           List<String> text = null;
-       
+          String docText = null;
           try {
             text = FullDocumentSources.getFullText(document);
-            if (text == null)
-              continue;
+            if (text==null)
+              docText = document.getText(); 
+                    
           } catch (IOException e) {
             e.printStackTrace();
           }
           ArrayList<Snippet> snippets = new ArrayList<Snippet>();
 
           // concept matching?
-        
-          for (int i = 0; i < text.size(); i++) {
-            int offsetPtr = 0;
-            String docText = text.get(i);
+          for (int i = 0; i < 1; i++) {
+            int offsetPtr = 0;                                                                       
+            if (docText==null)
+              docText = text.get(i);
+
             Reader reader = new StringReader(docText);
             DocumentPreprocessor dp = new DocumentPreprocessor(reader);
 
-            String nowSection = "section.0";
             List<String> sentenceTokens;
             for (List<HasWord> sentence : dp) {
               sentenceTokens = new ArrayList<String>();
               StringBuffer wholeSentence = new StringBuffer();
               for (HasWord word : sentence) {
                 sentenceTokens.add(word.word());
-                wholeSentence.append(word.word()+ " ");
+                wholeSentence.append(word.word() + " ");
               }
-              SimilarityMeasures sm = new SimilarityMeasures();
-              double score = sm.getSimilarity(sentenceTokens, synonymList);
+
+              int conceptMatch = 0;
+              String wholeSentenceStr = wholeSentence.toString();
               
-              Snippet s = new Snippet(score, PUBMED_URL+document.getDocId(), wholeSentence.toString(),
-                      offsetPtr, offsetPtr + sentence.size(), nowSection, nowSection);
-
-              snippetList.add(s);
+              int kk=0;
+              for (ArrayList<String> synonymsGroup : synonymListByGroup) {
+                kk++;
+                for (String synonymTempStr : synonymsGroup) {
+                  System.out.println(kk+"||"+synonymTempStr +"||"+wholeSentenceStr );
+                  if (wholeSentenceStr.contains(synonymTempStr))
+                  {
+                    conceptMatch++;
+                    break;
+                  }
+                }
+              }
+              System.out.println( conceptMatch +" "+ wholeSentenceStr);
+              if (conceptMatch>=MinConceptMatch)
+              {               
+                SimilarityMeasures sm = new SimilarityMeasures();
+                double score = sm.getSimilarity(sentenceTokens, synonymList);
+  
+                Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
+                        wholeSentence.toString(), offsetPtr, offsetPtr + sentence.size(), nowSection,
+                        nowSection);
+  
+                snippetList.add(s);
+              }
               offsetPtr = offsetPtr + sentence.size();
-
+              
             }
           }
         }
@@ -149,27 +186,25 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           try {
-            snippetWriter.write("Q:"+question.getText()+ " Document:"+ snippet.getDocument()+" offsetBegin: "+ snippet.getOffsetInBeginSection()+" offsetEnd: "+snippet.getOffsetInEndSection()+" A: "+snippet.getText() +"\n");
+            snippetWriter.write("Q:" + question.getText() + " Document:" + snippet.getDocument()
+                    + " offsetBegin: " + snippet.getOffsetInBeginSection() + " offsetEnd: "
+                    + snippet.getOffsetInEndSection() + " A: " + snippet.getText() + "\n");
           } catch (IOException e) {
             e.printStackTrace();
           }
-          
+
           System.out.println(snippet.score + " " + snippet.getText());
-          
-          snippetSearchResult.setSnippets(createPassage(snippet,jcas));
+
+          snippetSearchResult.setSnippets(createPassage(snippet, jcas));
           rankThreshold++;
           
-          try {
-            Thread.sleep(1000);
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
-          
+          snippetSearchResult.setQuestionsSyn(Utils.createStringList(jcas, synonymList));
           snippetSearchResult.addToIndexes();
 
-          if (rankThreshold > topRank)
+          if (rankThreshold > SnippetRetrievedNum)
             break;
         }
+        
       }
     }
   }
@@ -190,7 +225,8 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             edu.cmu.lti.oaqa.type.retrieval.Document.type);
     List<edu.cmu.lti.oaqa.type.retrieval.Document> documentItems = new ArrayList<edu.cmu.lti.oaqa.type.retrieval.Document>();
     while (documentsIter.hasNext()) {
-      edu.cmu.lti.oaqa.type.retrieval.Document document = (edu.cmu.lti.oaqa.type.retrieval.Document) documentsIter.next();
+      edu.cmu.lti.oaqa.type.retrieval.Document document = (edu.cmu.lti.oaqa.type.retrieval.Document) documentsIter
+              .next();
       documentItems.add(document);
     }
     return documentItems;

@@ -3,7 +3,9 @@ package util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
+import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.EmptyFSList;
 import org.apache.uima.jcas.cas.EmptyStringList;
@@ -21,6 +23,7 @@ import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 
 /**
  * Class providing helper methods for information retrieval tasks.
+ * 
  * @author mtydykov
  *
  */
@@ -37,6 +40,7 @@ public class Utils {
 
   /**
    * Create StringList, given a Collection of Strings.
+   * 
    * @param aJCas
    * @param aCollection
    * @return
@@ -64,6 +68,7 @@ public class Utils {
 
   /**
    * Convert collection to FSList.
+   * 
    * @param aJCas
    * @param aCollection
    * @return
@@ -90,21 +95,28 @@ public class Utils {
     return list;
   }
 
-  public static ArrayList<Passage> fromFSListToPassageList(FSArray snippets, Class<Passage> class1) {
-    Collection<Passage> myCollection = JCasUtil.select(snippets, class1);
-    /*
-     * for(T element:myCollection){ System.out.println(.getText()); }
-     */
-
-    return new ArrayList<Passage>(myCollection);
-  }
-
   public static String getQueryTokens(ArrayList<SynSet> synSets) {
     StringBuffer queryString = new StringBuffer();
-    for(SynSet synSet:synSets)
-      queryString.append(synSet.getOriginalToken()+" ");
-     // ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(synSet.getSynonyms(),Synonym.class);
+    for (SynSet synSet : synSets)
+      queryString.append(synSet.getOriginalToken() + " ");
+    // ArrayList<Synonym> synonyms =
+    // Utils.fromFSListToCollection(synSet.getSynonyms(),Synonym.class);
     return queryString.toString();
+  }
+
+  /**
+   * Returns a list of document URIs given the JCas.
+   * 
+   * @param aJcas
+   * @return
+   */
+  public static List<Object> extractUIMATypeAsList(int type, JCas aJcas) {
+    FSIterator<TOP> items = aJcas.getJFSIndexRepository().getAllIndexedFS(type);
+    List<Object> itemList = new ArrayList<Object>();
+    while (items.hasNext()) {
+      itemList.add(items.next());
+    }
+    return itemList;
   }
 
 }

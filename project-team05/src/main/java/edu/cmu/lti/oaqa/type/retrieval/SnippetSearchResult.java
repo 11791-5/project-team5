@@ -9,9 +9,15 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 
+import org.apache.uima.jcas.cas.FSList;
+
+
+import org.apache.uima.jcas.cas.StringList;
+
+
 /** 
- * Updated by JCasGen Tue Nov 18 13:59:08 EST 2014
- * XML source: /Users/chaohunc/git/project-team5dd/project-team05/src/main/resources/type/OAQATypes.xml
+ * Updated by JCasGen Sun Nov 23 23:31:37 EST 2014
+ * XML source: /Users/chaohunc/git/project-team5dd/project-team05/src/main/resources/analysis_engine/aeDescriptor.xml
  * @generated */
 public class SnippetSearchResult extends AnswerSearchResult {
   /** @generated
@@ -83,6 +89,28 @@ public class SnippetSearchResult extends AnswerSearchResult {
     if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_snippets == null)
       jcasType.jcas.throwFeatMissing("snippets", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
     jcasType.ll_cas.ll_setRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_snippets, jcasType.ll_cas.ll_getFSRef(v));}    
+   
+    
+  //*--------------*
+  //* Feature: questionsSyn
+
+  /** getter for questionsSyn - gets 
+   * @generated
+   * @return value of the feature 
+   */
+  public StringList getQuestionsSyn() {
+    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_questionsSyn == null)
+      jcasType.jcas.throwFeatMissing("questionsSyn", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    return (StringList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_questionsSyn)));}
+    
+  /** setter for questionsSyn - sets  
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setQuestionsSyn(StringList v) {
+    if (SnippetSearchResult_Type.featOkTst && ((SnippetSearchResult_Type)jcasType).casFeat_questionsSyn == null)
+      jcasType.jcas.throwFeatMissing("questionsSyn", "edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult");
+    jcasType.ll_cas.ll_setRefValue(addr, ((SnippetSearchResult_Type)jcasType).casFeatCode_questionsSyn, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     

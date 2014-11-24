@@ -22,6 +22,7 @@ import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.input.Question;
 import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 import edu.cmu.lti.oaqa.type.retrieval.Synonym;
+import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
 
@@ -49,16 +50,17 @@ public class QueryExpander extends JCasAnnotator_ImplBase {
         if (!StopWordSingleton.getInstance().isStopWord(term.originalText())) {
           SynSet sSet = new SynSet(jcas);
           sSet.setOriginalToken(term.originalText());
+          String pos = term.get(PartOfSpeechAnnotation.class);
           HashMap<String, Double> synToConfidence = new HashMap<String, Double>();
           try {
             HashSet<TermRelationship> rels = new HashSet<TermRelationship>(UmlsSingleton
                     .getInstance().getUmlsService().getTermSynonyms(term.originalText()));
             for (TermRelationship rel : rels) {
-              if (!synToConfidence.containsKey(rel.getToTerm())) {
-                synToConfidence.put(rel.getToTerm(), rel.getConfidence());
+              if (!synToConfidence.containsKey(rel.getToTerm().toLowerCase())) {
+                synToConfidence.put(rel.getToTerm().toLowerCase(), rel.getConfidence());
               } else {
-                if (rel.getConfidence() > synToConfidence.get(rel.getToTerm())) {
-                  synToConfidence.put(rel.getToTerm(), rel.getConfidence());
+                if (rel.getConfidence() > synToConfidence.get(rel.getToTerm().toLowerCase())) {
+                  synToConfidence.put(rel.getToTerm().toLowerCase(), rel.getConfidence());
                 }
               }
             }
@@ -68,8 +70,8 @@ public class QueryExpander extends JCasAnnotator_ImplBase {
           HashSet<Synonym> synList = new HashSet<Synonym>();
           for (String synonym : synToConfidence.keySet()) {
             Synonym syn = new Synonym(jcas);
-            syn.setSynonym(synonym);
-            syn.setConfidence(synToConfidence.get(synonym));
+            syn.setSynonym(synonym.toLowerCase());
+            syn.setConfidence(synToConfidence.get(synonym.toLowerCase()));
             syn.setSource("UMLS");
             synList.add(syn);
           }
