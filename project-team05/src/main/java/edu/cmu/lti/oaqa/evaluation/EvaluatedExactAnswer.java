@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import util.Utils;
 import json.gson.Question;
 import json.gson.TestListQuestion;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
@@ -26,6 +27,7 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
     for(Object answer: itemObjects) {
       List<String> tokenListForAnswer = new ArrayList<String>();
       tokenListForAnswer.add(((edu.cmu.lti.oaqa.type.answer.Answer) answer).getText());
+      tokenListForAnswer.addAll(Utils.createListFromStringList(((edu.cmu.lti.oaqa.type.answer.Answer) answer).getVariants()));
       answers.add(tokenListForAnswer);
     }
     return answers;
@@ -50,11 +52,14 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
    */
   public static int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
     int numTruePositives = 0;
+    // for each list of synonymous exact answer hypotheses
     for(Object item: hypothesis) {
-      String itemString = (String)item;
+      List<String> synonyms = (List<String>) item;
+      // for each list of synonymous exact gold standard answers
       for(Object goldObj: gold) {
-        List<String> syns = (List<String>)goldObj;
-        if(syns.contains(itemString)) {
+        List<String> synonymsForGold = (List<String>) goldObj;
+
+        if(!CollectionUtils.intersection(new HashSet<Object>(synonyms), new HashSet<Object>(synonymsForGold)).isEmpty()) {
           numTruePositives++;
         }
       }
