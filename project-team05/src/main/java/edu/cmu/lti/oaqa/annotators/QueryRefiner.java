@@ -46,48 +46,48 @@ public class QueryRefiner extends JCasAnnotator_ImplBase {
         SynSet additionalSynSet = new SynSet(aJCas);
         additionalSynSet.setOriginalToken(nextAnswer.getText());
         List<String> variantList = Utils.createListFromStringList(nextAnswer.getVariants());
-        additionalSynSet.setSynonyms(Utils.fromCollectionToFSList(aJCas, (Collection)variantList));
+        additionalSynSet.setSynonyms(Utils.fromCollectionToFSList(aJCas, (Collection) variantList));
         synSetCollection.add(additionalSynSet);
       }
       FSList newSynsets = Utils.fromCollectionToFSList(aJCas, synSetCollection);
       question.setSynSets(newSynsets);
-    }
 
-    FSIterator<TOP> documentIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
-            edu.cmu.lti.oaqa.type.retrieval.Document.type);
-    List<edu.cmu.lti.oaqa.type.retrieval.Document> docsToRemove = new ArrayList<edu.cmu.lti.oaqa.type.retrieval.Document>();
-    while (documentIterator.hasNext()) {
-      edu.cmu.lti.oaqa.type.retrieval.Document currentDoc = (edu.cmu.lti.oaqa.type.retrieval.Document) documentIterator
-              .next();
-      docsToRemove.add(currentDoc);
-    }
-    for (edu.cmu.lti.oaqa.type.retrieval.Document doc : docsToRemove) {
-      doc.removeFromIndexes();
-    }
+      FSIterator<TOP> documentIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
+              edu.cmu.lti.oaqa.type.retrieval.Document.type);
+      List<edu.cmu.lti.oaqa.type.retrieval.Document> docsToRemove = new ArrayList<edu.cmu.lti.oaqa.type.retrieval.Document>();
+      while (documentIterator.hasNext()) {
+        edu.cmu.lti.oaqa.type.retrieval.Document currentDoc = (edu.cmu.lti.oaqa.type.retrieval.Document) documentIterator
+                .next();
+        docsToRemove.add(currentDoc);
+      }
+      for (edu.cmu.lti.oaqa.type.retrieval.Document doc : docsToRemove) {
+        doc.removeFromIndexes();
+      }
 
-    FSIterator<TOP> snippetIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
-            SnippetSearchResult.type);
-    List<SnippetSearchResult> snippetsToRemove = new ArrayList<SnippetSearchResult>();
-    while (snippetIterator.hasNext()) {
-      SnippetSearchResult currentSnippet = (SnippetSearchResult) snippetIterator.next();
-      snippetsToRemove.add(currentSnippet);
-    }
+      FSIterator<TOP> snippetIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
+              SnippetSearchResult.type);
+      List<SnippetSearchResult> snippetsToRemove = new ArrayList<SnippetSearchResult>();
+      while (snippetIterator.hasNext()) {
+        SnippetSearchResult currentSnippet = (SnippetSearchResult) snippetIterator.next();
+        snippetsToRemove.add(currentSnippet);
+      }
 
-    for (SnippetSearchResult snippet : snippetsToRemove) {
-      snippet.removeFromIndexes();
-    }
+      for (SnippetSearchResult snippet : snippetsToRemove) {
+        snippet.removeFromIndexes();
+      }
 
-    FSIterator<TOP> exactAnswerIterator = aJCas.getJFSIndexRepository()
-            .getAllIndexedFS(Answer.type);
+      FSIterator<TOP> exactAnswerIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
+              Answer.type);
 
-    List<Answer> answersToRemove = new ArrayList<Answer>();
-    while (exactAnswerIterator.hasNext()) {
-      Answer currentAnswer = (Answer) exactAnswerIterator.next();
-      answersToRemove.add(currentAnswer);
-    }
+      List<Answer> answersToRemove = new ArrayList<Answer>();
+      while (exactAnswerIterator.hasNext()) {
+        Answer currentAnswer = (Answer) exactAnswerIterator.next();
+        answersToRemove.add(currentAnswer);
+      }
 
-    for (Answer answer : answersToRemove) {
-      answer.removeFromIndexes();
+      for (Answer answer : answersToRemove) {
+        answer.removeFromIndexes();
+      }
     }
   }
 }

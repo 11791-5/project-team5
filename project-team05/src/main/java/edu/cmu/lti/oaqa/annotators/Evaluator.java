@@ -137,6 +137,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * Calculate and print the mean average precision and geometric mean average precision for the
    * queries processed in the collection.
    */
+  @Override
   public void collectionProcessComplete() {
     calcAndPrintFinalStatsForType("concept", evaluatedConcept.getAveragePrecision());
     calcAndPrintFinalStatsForType("document", evaluatedDocument.getAveragePrecision());
