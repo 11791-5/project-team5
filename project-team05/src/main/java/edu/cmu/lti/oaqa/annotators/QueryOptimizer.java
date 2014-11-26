@@ -15,6 +15,8 @@ import edu.stanford.nlp.ling.CoreLabel;
 public class QueryOptimizer {
   public static String optimizeQuery(ExpandedQuestion question) {
 
+    // tried to split the synonyms and original query term and keep only NN and NNP
+    // -> decreases performance
     ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
     edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
 
@@ -40,23 +42,63 @@ public class QueryOptimizer {
           if ((pos.contains("NN") || pos.contains("NNP"))
                   && !StopWordSingleton.getInstance().isStopWord(token) && !query.contains(token)) {
             // filter out 'small' queries
-            if (synonym.getSynonym().length() > 3) {
-              System.out.println("adding " + synonym.getSynonym() + " (length "
-                      + synonym.getSynonym().length() + ") to query");
+            if (synonym.getSynonym().length() > 1) {
               // splitting synonyms
               String[] splited = synonym.getSynonym().split("\\s+");
+              
               for (String s : splited) {
-                if (s.length() > 1) {
-                  query += s + " OR ";
-                }
+                // filter out the non NN or NNP
+                String sText = StanfordLemmatizer.stemText(s);
+                
+                System.out.println("testing synonym " + s);
+                
+                edu.stanford.nlp.pipeline.Annotation annS = new edu.stanford.nlp.pipeline.Annotation(
+                        sText);
+                StanfordAnnotatorSingleton.getInstance().getPipeline().annotate(annS);
 
+                for (CoreLabel termS : annS.get(TokensAnnotation.class)) {
+                  String posS = termS.get(PartOfSpeechAnnotation.class);
+                  String tokenS = termS.originalText().toLowerCase();
+
+                  if ((posS.contains("NN") || pos.contains("NNP"))
+                          && !StopWordSingleton.getInstance().isStopWord(tokenS) && !query.contains(tokenS)) {
+                    if (s.length() > 1) {
+                      System.out.println("adding synonym " + s);
+                      query += s + " OR ";
+                    }
+                  }
+                }
+//                if (s.length() > 1) {
+  //                query += s + " OR ";
+    //            }
               }
               // query += synonym.getSynonym() + " OR ";
             }
           }
         }
       }
+/**
+      // filter out the non NN or NNP
+      String originalText = StanfordLemmatizer.stemText(syns.getOriginalToken());
+      System.out.println("testing original query term " + syns.getOriginalToken());
+      edu.stanford.nlp.pipeline.Annotation annOriginal = new edu.stanford.nlp.pipeline.Annotation(
+              originalText);
+      StanfordAnnotatorSingleton.getInstance().getPipeline().annotate(annOriginal);
+      for (CoreLabel termOriginal : annOriginal.get(TokensAnnotation.class)) {
+        String posOriginal = termOriginal.get(PartOfSpeechAnnotation.class);
+        String tokenOriginal = termOriginal.originalText().toLowerCase();
 
+        if ((posOriginal.contains("NN") || posOriginal.contains("NNP"))
+                && !StopWordSingleton.getInstance().isStopWord(tokenOriginal) && !query.contains(tokenOriginal)) {
+          if (syns.getOriginalToken().length() > 1) {
+            System.out.println("adding original query term " + syns.getOriginalToken());
+            query += syns.getOriginalToken() + " )AND( ";
+          }
+        }
+      }
+   */   
+      
+      
       System.out.println("original token " + syns.getOriginalToken());
       query += syns.getOriginalToken() + " )AND( ";
 
