@@ -45,12 +45,12 @@ public class AnswerExtractor {
     double sum = 0;
     for (Integer freq : rankedPotentialAnswers.values())
       sum += freq;
-    double threhold = sum / 2;
+    double threhold = sum / rankedPotentialAnswers.keySet().size();
     int rank = 1;
     for (Entry<String, Integer> answer : rankedPotentialAnswers.entrySet()) {
       String answerString = answer.getKey();
       Integer value = answer.getValue();
-      if (value > threhold)
+      //if (value > threhold)
         topAnswers.put(rank++, answerString);
     }
     return topAnswers;

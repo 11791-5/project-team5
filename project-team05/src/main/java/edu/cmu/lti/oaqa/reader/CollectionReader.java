@@ -6,6 +6,7 @@ import java.util.List;
 
 import json.JsonCollectionReaderHelper;
 import json.gson.Question;
+import json.gson.QuestionType;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
@@ -71,6 +72,10 @@ public class CollectionReader extends CollectionReader_ImplBase {
   @Override
   public void getNext(CAS aCAS) throws IOException, CollectionException {
 
+    if(hasNext() && !QuestionType.list.equals(inputs.get(currentIndex).getType()))
+      currentIndex ++;
+    if(!hasNext())
+      return;
     JCas jcas;
     try {
       jcas = aCAS.getJCas();
@@ -78,7 +83,7 @@ public class CollectionReader extends CollectionReader_ImplBase {
       throw new CollectionException(e);
     }
     // put question from data file in CAS
-    jsonReader.addQuestionToIndex(inputs.get(currentIndex++), CollectionReader.PARAM_INPUT_FILE, jcas);
+      jsonReader.addQuestionToIndex(inputs.get(currentIndex++), CollectionReader.PARAM_INPUT_FILE, jcas);
   }
 
   @Override
