@@ -10,6 +10,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.resource.ResourceInitializationException;
 import org.uimafit.component.JCasAnnotator_ImplBase;
 
 import edu.cmu.lti.oaqa.evaluation.EvaluatedConcept;
@@ -21,8 +22,6 @@ import edu.cmu.lti.oaqa.evaluation.EvaluatedTriple;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 
 public class Evaluator extends JCasAnnotator_ImplBase {
-
-  private EvaluatedItem evaluatedTriple;
 
   private EvaluatedItem evaluatedConcept;
 
@@ -36,10 +35,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   File evaluation = new File("evaluation.txt");
 
-  public void initialize(UimaContext u) {
+  public void initialize(UimaContext u) throws ResourceInitializationException {
+    super.initialize(u);
     try {
       evaluationWriter = new FileWriter(evaluation);
-      evaluatedTriple = new EvaluatedTriple(evaluationWriter);
       evaluatedConcept = new EvaluatedConcept(evaluationWriter);
       evaluatedDocument = new EvaluatedDocument(evaluationWriter);
       evaluatedSnippet = new EvaluatedSnippet(evaluationWriter);
@@ -61,12 +60,6 @@ public class Evaluator extends JCasAnnotator_ImplBase {
         } catch (IOException e2) {
           // TODO Auto-generated catch block
           e2.printStackTrace();
-        }
-        try {
-          evaluatedTriple.calculateItemMetrics(aJCas, questionid);
-        } catch (IOException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
         }
         try {
           evaluatedConcept.calculateItemMetrics(aJCas, questionid);
@@ -137,10 +130,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * Calculate and print the mean average precision and geometric mean average precision for the
    * queries processed in the collection.
    */
+  @Override
   public void collectionProcessComplete() {
     calcAndPrintFinalStatsForType("concept", evaluatedConcept.getAveragePrecision());
     calcAndPrintFinalStatsForType("document", evaluatedDocument.getAveragePrecision());
-    calcAndPrintFinalStatsForType("triple", evaluatedTriple.getAveragePrecision());
     calcAndPrintFinalStatsForType("snippet", evaluatedSnippet.getAveragePrecision());
     calcAndPrintFinalStatsForType("exact answer", evaluatedExactAnswer.getAveragePrecision());
 
