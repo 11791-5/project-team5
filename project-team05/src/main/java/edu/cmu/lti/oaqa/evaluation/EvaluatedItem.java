@@ -92,6 +92,7 @@ public abstract class EvaluatedItem {
     getWriter().write(String.format("%s recall: %f\n", type, recall));
     getWriter().write(String.format("%s f score: %f\n", type, fScore));
     getWriter().write(String.format("%s average precision: %f\n\n", type, ap));
+    getWriter().flush();
   }
 
   public double getPrecision(List<Object> hypotheses, List<Object> gold) {
