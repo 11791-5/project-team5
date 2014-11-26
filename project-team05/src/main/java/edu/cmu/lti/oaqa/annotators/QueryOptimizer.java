@@ -14,39 +14,57 @@ import edu.stanford.nlp.ling.CoreLabel;
 
 public class QueryOptimizer {
   public static String optimizeQuery(ExpandedQuestion question) {
+
     ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
     edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
+
     ArrayList<String> synonymList = new ArrayList<String>();
+
     String query = "(";
+
     for (SynSet syns : as) {
       ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(), Synonym.class);
-//      System.out.println("syns.getSynonyms() " +  syns.getOriginalToken());
-      
-//      System.out.println("number of synonyms found: " + synonyms.size());
-      for (Synonym synonym : synonyms){
+
+      // Filtering NN and NNP
+      for (Synonym synonym : synonyms) {
         String synonymText = StanfordLemmatizer.stemText(synonym.getSynonym());
-//        System.out.println("lemmatized synonym " + synonymText);
+
         edu.stanford.nlp.pipeline.Annotation ann = new edu.stanford.nlp.pipeline.Annotation(
                 synonymText);
+
         StanfordAnnotatorSingleton.getInstance().getPipeline().annotate(ann);
         for (CoreLabel term : ann.get(TokensAnnotation.class)) {
           String pos = term.get(PartOfSpeechAnnotation.class);
           String token = term.originalText().toLowerCase();
 
-          if ((pos.contains("NN") || pos.contains("NNP")) && !StopWordSingleton.getInstance().isStopWord(token)
-                  && !query.contains(token)) {
-      //      System.out.println("adding " + synonym.getSynonym() + " of pos " + pos + " to query");
-            query += synonym.getSynonym() + " OR ";              
-          }
+          if ((pos.contains("NN") || pos.contains("NNP"))
+                  && !StopWordSingleton.getInstance().isStopWord(token) && !query.contains(token)) {
+            // filter out 'small' queries
+            if (synonym.getSynonym().length() > 3) {
+              System.out.println("adding " + synonym.getSynonym() + " (length "
+                      + synonym.getSynonym().length() + ") to query");
+              // splitting synonyms
+              String[] splited = synonym.getSynonym().split("\\s+");
+              for (String s : splited) {
+                if (s.length() > 1) {
+                  query += s + " OR ";
+                }
 
-//          else{
-  //          System.out.println("didn't add " + synonym.getSynonym() + " of pos " + pos + " to query");
-    //      }
+              }
+              // query += synonym.getSynonym() + " OR ";
+            }
+          }
         }
       }
+
+      System.out.println("original token " + syns.getOriginalToken());
       query += syns.getOriginalToken() + " )AND( ";
+
     }
+
     query = query.substring(0, query.length() - 5);
+    System.out.println("final query sent " + query);
     return query;
+
   }
 }
