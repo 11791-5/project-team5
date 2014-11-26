@@ -2,9 +2,9 @@
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>  
-  <annotatorImplementationName>edu.cmu.lti.oaqa.annotators.SnippetAnnotator</annotatorImplementationName>
+  <annotatorImplementationName>edu.cmu.lti.oaqa.annotators.BasicAnswerAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>SnippetAE</name>
+    <name>BasicAnswerAE</name>
     <description/>
     <version>1.0</version>
     <vendor/>

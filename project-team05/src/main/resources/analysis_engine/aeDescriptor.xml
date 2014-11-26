@@ -6,20 +6,11 @@
 		<delegateAnalysisEngine key="ConceptAnnotatorDescriptor">
 			<import name="annotators.ConceptAnnotatorDescriptor"/>
 		</delegateAnalysisEngine>
-		<delegateAnalysisEngine key="SnippetAE">
-			<import name="annotators.SnippetAE"/>
-		</delegateAnalysisEngine>
-		<delegateAnalysisEngine key="DocumentAnnotatorDescriptor">
-			<import name="annotators.DocumentAnnotatorDescriptor"/>
-		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="TriplesAnnotatorDescriptor">
 			<import name="annotators.TriplesAnnotatorDescriptor"/>
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="QueryExpander">
 			<import name="annotators.QueryExpander"/>
-		</delegateAnalysisEngine>
-		<delegateAnalysisEngine key="AnswerAE">
-			<import name="annotators.AnswerAE"/>
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="QueryRefiner">
 			<import name="annotators.QueryRefiner"/>
@@ -27,14 +18,23 @@
 		<delegateAnalysisEngine key="Evaluator">
 			<import name="annotators.Evaluator"/>
 		</delegateAnalysisEngine>
-	<delegateAnalysisEngine key="RefinedAnswerAE">
-      <import name="annotators.RefinedAnswerAE"/>
+		<delegateAnalysisEngine key="RefinedAnswerAE">
+			<import name="annotators.RefinedAnswerAE"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="RefinedDocumentAnnotatorDescriptor">
-      <import name="annotators.RefinedDocumentAnnotatorDescriptor"/>
+		<delegateAnalysisEngine key="RefinedDocumentAnnotatorDescriptor">
+			<import name="annotators.RefinedDocumentAnnotatorDescriptor"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="RefinedSnippetAE">
-      <import name="annotators.RefinedSnippetAE"/>
+		<delegateAnalysisEngine key="RefinedSnippetAE">
+			<import name="annotators.RefinedSnippetAE"/>
+    </delegateAnalysisEngine>
+	<delegateAnalysisEngine key="BasicAnswerAE">
+      <import name="annotators.BasicAnswerAE"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="BasicDocumentAnnotatorDescriptor">
+      <import name="annotators.BasicDocumentAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="BasicSnippetAE">
+      <import name="annotators.BasicSnippetAE"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
 	<analysisEngineMetaData>
@@ -48,9 +48,9 @@
 			<fixedFlow>
         <node>QueryExpander</node>
         <node>ConceptAnnotatorDescriptor</node>
-        <node>DocumentAnnotatorDescriptor</node>
-        <node>SnippetAE</node>
-        <node>AnswerAE</node>
+        <node>BasicDocumentAnnotatorDescriptor</node>
+        <node>BasicSnippetAE</node>
+        <node>BasicAnswerAE</node>
         <node>QueryRefiner</node>
         <node>RefinedDocumentAnnotatorDescriptor</node>
         <node>RefinedSnippetAE</node>
