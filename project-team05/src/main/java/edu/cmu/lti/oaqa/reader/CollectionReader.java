@@ -46,8 +46,7 @@ public class CollectionReader extends CollectionReader_ImplBase {
   public static String STOP_SYNONYM_FILE_NAME;
   
   public void initialize() throws ResourceInitializationException {
-    System.out.println("Initializing CR");
-    System.out.println("Working Directory = " + System.getProperty("user.dir"));
+ 
     System.out.println(((String) getConfigParameterValue(PARAM_INPUT_FILE)).trim());
     inputFile = new File(((String) getConfigParameterValue(PARAM_INPUT_FILE)).trim());
     if (!inputFile.exists()) {
@@ -60,13 +59,16 @@ public class CollectionReader extends CollectionReader_ImplBase {
     goldStandard = new File(((String) getConfigParameterValue(PARAM_GOLD_STANDARD_FILE)).trim());
     stdAnswers = jsonReader.getQuestionsList("/"+goldStandard.getName());
     try {
+      // set gold standard answers
       GoldStandardSingleton.getInstance().setGoldStandardAnswer(stdAnswers);
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } 
+    // get the number of questions
     numberOfQuestions = inputs.size();
+    // list of stop words
     STOP_WORD_FILE_NAME = (String) getConfigParameterValue(PARAM_STOPWORD_LIST);
+    // list of synonyms
     STOP_SYNONYM_FILE_NAME = (String) getConfigParameterValue(PARAM_STOPSYNONYM_LIST);
   }  
   @Override
