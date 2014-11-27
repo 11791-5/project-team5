@@ -29,8 +29,8 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
 
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
-    // TODO Auto-generated method stub
     FSIterator<Annotation> questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();
+    // read each question
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
       String questionid = question.getId();
