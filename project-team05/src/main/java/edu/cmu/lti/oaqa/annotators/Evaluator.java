@@ -10,6 +10,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.resource.ResourceInitializationException;
 import org.uimafit.component.JCasAnnotator_ImplBase;
 
 import edu.cmu.lti.oaqa.evaluation.EvaluatedConcept;
@@ -17,12 +18,16 @@ import edu.cmu.lti.oaqa.evaluation.EvaluatedDocument;
 import edu.cmu.lti.oaqa.evaluation.EvaluatedExactAnswer;
 import edu.cmu.lti.oaqa.evaluation.EvaluatedItem;
 import edu.cmu.lti.oaqa.evaluation.EvaluatedSnippet;
-import edu.cmu.lti.oaqa.evaluation.EvaluatedTriple;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 
+/**
+ * This annotator is used to evaluate the system's output for each question and to accumulate
+ * results across questions.
+ * 
+ * @author Maya Tydykov
+ *
+ */
 public class Evaluator extends JCasAnnotator_ImplBase {
-
-  private EvaluatedItem evaluatedTriple;
 
   private EvaluatedItem evaluatedConcept;
 
@@ -34,12 +39,19 @@ public class Evaluator extends JCasAnnotator_ImplBase {
 
   private FileWriter evaluationWriter;
 
+  private final static String EVAL_FILE_PARAM = "EvaluationFileName";
+
   File evaluation = new File("evaluation.txt");
 
-  public void initialize(UimaContext u) {
+  /**
+   * Initialize the evaluation file used to store all results
+   * and the individual evaluators used in the pipeline.
+   */
+  public void initialize(UimaContext u) throws ResourceInitializationException {
+    super.initialize(u);
     try {
-      evaluationWriter = new FileWriter(evaluation);
-      evaluatedTriple = new EvaluatedTriple(evaluationWriter);
+      evaluationWriter = new FileWriter(new File(
+              ((String) u.getConfigParameterValue(EVAL_FILE_PARAM))));
       evaluatedConcept = new EvaluatedConcept(evaluationWriter);
       evaluatedDocument = new EvaluatedDocument(evaluationWriter);
       evaluatedSnippet = new EvaluatedSnippet(evaluationWriter);
@@ -49,6 +61,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     }
   }
 
+  /**
+   * For a given question (there should only be 1 at any given 
+   * time), evaluate all system output.
+   */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     FSIterator<Annotation> questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();
@@ -56,17 +72,13 @@ public class Evaluator extends JCasAnnotator_ImplBase {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
       if (question.getQuestionType().equals("LIST")) {
         String questionid = question.getId();
+        // write the query ID and then proceed to calculate
+        // and store results for each type of metric
         try {
           evaluationWriter.write(String.format("\n\nQuery id: %s\n", questionid));
         } catch (IOException e2) {
           // TODO Auto-generated catch block
           e2.printStackTrace();
-        }
-        try {
-          evaluatedTriple.calculateItemMetrics(aJCas, questionid);
-        } catch (IOException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
         }
         try {
           evaluatedConcept.calculateItemMetrics(aJCas, questionid);
@@ -98,7 +110,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   }
 
   /**
-   * Convenience method to calculate the arithmetic average of a list of values.
+   * Calculate the arithmetic average of a list of values.
    * 
    * @param vals
    * @return
@@ -116,7 +128,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   }
 
   /**
-   * Convenience method to calculate the geometric average of a list of values.
+   * Calculate the geometric average of a list of values.
    * 
    * @param vals
    * @return
@@ -137,10 +149,10 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    * Calculate and print the mean average precision and geometric mean average precision for the
    * queries processed in the collection.
    */
+  @Override
   public void collectionProcessComplete() {
     calcAndPrintFinalStatsForType("concept", evaluatedConcept.getAveragePrecision());
     calcAndPrintFinalStatsForType("document", evaluatedDocument.getAveragePrecision());
-    calcAndPrintFinalStatsForType("triple", evaluatedTriple.getAveragePrecision());
     calcAndPrintFinalStatsForType("snippet", evaluatedSnippet.getAveragePrecision());
     calcAndPrintFinalStatsForType("exact answer", evaluatedExactAnswer.getAveragePrecision());
 
@@ -151,6 +163,12 @@ public class Evaluator extends JCasAnnotator_ImplBase {
     }
   }
 
+  /**
+   * Calculate arithmetic and geometric mean for a list of 
+   * values and print the final evaluation results.
+   * @param type
+   * @param typeVals
+   */
   private void calcAndPrintFinalStatsForType(String type, ArrayList<Double> typeVals) {
     double typeMap = calcArithmeticAvg(typeVals);
     double typeGmap = calculateGeomAvg(typeVals);

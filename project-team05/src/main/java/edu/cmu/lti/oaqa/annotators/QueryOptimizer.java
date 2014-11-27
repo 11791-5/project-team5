@@ -14,15 +14,19 @@ import edu.stanford.nlp.ling.CoreLabel;
 
 public class QueryOptimizer {
   public static String optimizeQuery(ExpandedQuestion question) {
+<<<<<<< HEAD
 
     // tried to split the synonyms and original query term and keep only NN and NNP
     // -> decreases performance
+=======
+>>>>>>> master
     ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
     edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
 
     ArrayList<String> synonymList = new ArrayList<String>();
 
     String query = "(";
+<<<<<<< HEAD
 
     for (SynSet syns : as) {
       ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(), Synonym.class);
@@ -34,11 +38,24 @@ public class QueryOptimizer {
         edu.stanford.nlp.pipeline.Annotation ann = new edu.stanford.nlp.pipeline.Annotation(
                 synonymText);
 
+=======
+    for (SynSet syns : as) {
+      ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(), Synonym.class);
+//      System.out.println("syns.getSynonyms() " +  syns.getOriginalToken());
+      
+//      System.out.println("number of synonyms found: " + synonyms.size());
+      for (Synonym synonym : synonyms){
+        String synonymText = StanfordLemmatizer.stemText(synonym.getSynonym());
+//        System.out.println("lemmatized synonym " + synonymText);
+        edu.stanford.nlp.pipeline.Annotation ann = new edu.stanford.nlp.pipeline.Annotation(
+                synonymText);
+>>>>>>> master
         StanfordAnnotatorSingleton.getInstance().getPipeline().annotate(ann);
         for (CoreLabel term : ann.get(TokensAnnotation.class)) {
           String pos = term.get(PartOfSpeechAnnotation.class);
           String token = term.originalText().toLowerCase();
 
+<<<<<<< HEAD
           if ((pos.contains("NN") || pos.contains("NNP"))
                   && !StopWordSingleton.getInstance().isStopWord(token) && !query.contains(token)) {
             // filter out 'small' queries
@@ -100,9 +117,23 @@ public class QueryOptimizer {
       
       
       System.out.println("original token " + syns.getOriginalToken());
+=======
+          if ((pos.contains("NN") || pos.contains("NNP")) && !StopWordSingleton.getInstance().isStopWord(token)
+                  && !query.contains(token)) {
+      //      System.out.println("adding " + synonym.getSynonym() + " of pos " + pos + " to query");
+            query += synonym.getSynonym() + " OR ";              
+          }
+
+//          else{
+  //          System.out.println("didn't add " + synonym.getSynonym() + " of pos " + pos + " to query");
+    //      }
+        }
+      }
+>>>>>>> master
       query += syns.getOriginalToken() + " )AND( ";
 
     }
+<<<<<<< HEAD
 
     query = query.substring(0, query.length() - 5);
     System.out.println("final query sent " + query);
@@ -110,3 +141,9 @@ public class QueryOptimizer {
 
   }
 }
+=======
+    query = query.substring(0, query.length() - 5);
+    return query;
+  }
+}
+>>>>>>> master

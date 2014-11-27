@@ -1,23 +1,35 @@
 package edu.cmu.lti.oaqa.evaluation;
 
+import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import util.Utils;
 import json.gson.Question;
 import json.gson.TestListQuestion;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.stanford.nlp.util.CollectionUtils;
 
+/**
+ * Object for performing evaluation over all exact answers.
+ * @author root
+ *
+ */
+
 public class EvaluatedExactAnswer extends EvaluatedItem {
 
-  public EvaluatedExactAnswer(FileWriter writer) {
+  private FileWriter exactAnswerWriter;
+
+  public EvaluatedExactAnswer(FileWriter writer) throws IOException {
     super(writer);
     super.setItemType("exact answer");
     super.setItemTypeId(edu.cmu.lti.oaqa.type.answer.Answer.type);
+    setExactAnswerWriter(new FileWriter(new File("exactAnswerOutput.txt")));
   }
 
   @Override
@@ -26,6 +38,7 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
     for(Object answer: itemObjects) {
       List<String> tokenListForAnswer = new ArrayList<String>();
       tokenListForAnswer.add(((edu.cmu.lti.oaqa.type.answer.Answer) answer).getText());
+      tokenListForAnswer.addAll(Utils.createListFromStringList(((edu.cmu.lti.oaqa.type.answer.Answer) answer).getVariants()));
       answers.add(tokenListForAnswer);
     }
     return answers;
@@ -50,16 +63,27 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
    */
   public static int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
     int numTruePositives = 0;
+    // for each list of synonymous exact answer hypotheses
     for(Object item: hypothesis) {
-      String itemString = (String)item;
+      List<String> synonyms = (List<String>) item;
+      // for each list of synonymous exact gold standard answers
       for(Object goldObj: gold) {
-        List<String> syns = (List<String>)goldObj;
-        if(syns.contains(itemString)) {
+        List<String> synonymsForGold = (List<String>) goldObj;
+
+        if(!CollectionUtils.intersection(new HashSet<Object>(synonyms), new HashSet<Object>(synonymsForGold)).isEmpty()) {
           numTruePositives++;
         }
       }
     }
     return numTruePositives;
+  }
+
+  public FileWriter getExactAnswerWriter() {
+    return exactAnswerWriter;
+  }
+
+  public void setExactAnswerWriter(FileWriter exactAnswerWriter) {
+    this.exactAnswerWriter = exactAnswerWriter;
   }
 
 }

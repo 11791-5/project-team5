@@ -65,6 +65,33 @@ public class Utils {
 
     return list;
   }
+  
+  /**
+   * Create StringList, given a Collection of Strings.
+   * 
+   * @param aJCas
+   * @param aCollection
+   * @return
+   */
+  public static List<String> createListFromStringList(StringList inputList) {
+    List<String> result = new ArrayList<String>();
+    if (inputList instanceof EmptyStringList) {
+      return result;
+    }
+
+    StringList head =  (NonEmptyStringList)inputList;
+    boolean done = false;
+    while (!done) {
+      result.add(head.getNthElement(0));
+      head = ((NonEmptyStringList) head).getTail();
+      if(head instanceof EmptyStringList) {
+        done = true;
+      }
+    }
+
+    return result;
+  }
+
 
   /**
    * Convert collection to FSList.

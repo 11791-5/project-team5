@@ -7,6 +7,12 @@ import java.util.List;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 
+/**
+ * Object for performing evaluation over all concepts.
+ * @author root
+ *
+ */
+
 public class EvaluatedConcept extends EvaluatedItem {
 
   public EvaluatedConcept(FileWriter writer) {

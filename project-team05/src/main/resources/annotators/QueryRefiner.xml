@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  
-  <annotatorImplementationName>edu.cmu.lti.oaqa.annotators.SnippetAnnotator</annotatorImplementationName>
+  <primitive>true</primitive>
+  <annotatorImplementationName>edu.cmu.lti.oaqa.annotators.QueryRefiner</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>SnippetAE</name>
+    <name>QueryRefiner</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -12,7 +12,7 @@
     <configurationParameterSettings/>
     <typeSystemDescription>
       <imports>
-        <import name="type.OAQATypes"/>
+        <import location="../type/OAQATypes.xml"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>
@@ -24,7 +24,7 @@
         <languagesSupported/>
       </capability>
     </capabilities>
-  <operationalProperties>
+    <operationalProperties>
       <modifiesCas>true</modifiesCas>
       <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
       <outputsNewCASes>false</outputsNewCASes>

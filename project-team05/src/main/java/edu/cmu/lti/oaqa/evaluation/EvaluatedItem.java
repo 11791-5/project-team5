@@ -12,6 +12,14 @@ import org.apache.uima.jcas.JCas;
 import util.Utils;
 import edu.stanford.nlp.util.CollectionUtils;
 
+/**
+ * Abstract class representing a type of retrieved object
+ * being evaluated throughout the pipeline for a series of
+ * questions. Accumulates the average precision over all
+ * questions for the retrieved object type.
+ * @author root
+ *
+ */
 public abstract class EvaluatedItem {
   private ArrayList<Double> averagePrecision = new ArrayList<Double>();
   private FileWriter writer;
@@ -51,21 +59,40 @@ public abstract class EvaluatedItem {
    */
   public abstract List<Object> getEvaluatedItemsAsList(List<Object> itemObjects);
 
+  /**
+   * Method to take in the question ID and return the list of 
+   * gold standard items needed for comparison.
+   * @param questionId
+   * @return
+   */
   public abstract List<Object> getGoldStandardItems(String questionId);
   
+  /**
+   * Given the item currently being processed and the query ID,
+   * retrieve the gold standard and the list of items to be
+   * evaluated and calculate metrics.
+   * @param aJCas
+   * @param queryId
+   * @throws IOException
+   */
   public void calculateItemMetrics(JCas aJCas, String queryId) throws IOException {
     goldStandard = getGoldStandardItems(queryId);
     // calculate metrics for documents
     List<Object> itemObjects = Utils.extractUIMATypeAsList(
             this.getItemTypeId(), aJCas);
     toBeEvaluated = getEvaluatedItemsAsList(itemObjects);
+    if(EvaluatedItem.this instanceof EvaluatedExactAnswer) {
+      ((EvaluatedExactAnswer)this).getExactAnswerWriter().write("Gold standard for question "+queryId + ":"+ goldStandard+"\n");
+      ((EvaluatedExactAnswer)this).getExactAnswerWriter().write("Hypothesis for question "+queryId + ":"+ toBeEvaluated+"\n");
+      ((EvaluatedExactAnswer)this).getExactAnswerWriter().flush();
+    }
     double precision = getPrecision(toBeEvaluated, goldStandard);
     double recall = getRecall(toBeEvaluated, goldStandard);
     double fScore = calcF(precision, recall);
     double itemAveragePrecision = calcAP(goldStandard, toBeEvaluated);
     if((!goldStandard.isEmpty()) || !itemObjects.isEmpty()) getAveragePrecision().add(itemAveragePrecision);
     try {
-      printQueryStats(queryId, precision, recall, fScore, itemAveragePrecision, this.getItemType());
+      printQueryStats(precision, recall, fScore, itemAveragePrecision, this.getItemType());
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -82,12 +109,13 @@ public abstract class EvaluatedItem {
    * @param type
    * @throws IOException
    */
-  protected void printQueryStats(String queryId, double precision, double recall, double fScore,
+  protected void printQueryStats(double precision, double recall, double fScore,
           double ap, String type) throws IOException {
     getWriter().write(String.format("%s precision: %f\n", type, precision));
     getWriter().write(String.format("%s recall: %f\n", type, recall));
     getWriter().write(String.format("%s f score: %f\n", type, fScore));
     getWriter().write(String.format("%s average precision: %f\n\n", type, ap));
+    getWriter().flush();
   }
 
   public double getPrecision(List<Object> hypotheses, List<Object> gold) {
@@ -98,7 +126,7 @@ public abstract class EvaluatedItem {
   }
 
   /**
-   * Returns the recall given a list of hypotheses and gold standard list.
+   * Return the recall given a list of hypotheses and gold standard list.
    * 
    * @param hypotheses
    * @param gold
@@ -112,7 +140,7 @@ public abstract class EvaluatedItem {
   }
 
   /**
-   * Returns the true positives by getting intersection between the list of hypotheses and gold
+   * Return the true positives by getting intersection between the list of hypotheses and gold
    * standard list.
    * 
    * @param hypothesis
@@ -125,7 +153,7 @@ public abstract class EvaluatedItem {
   }
   
   /**
-   * Calculates average precision for the given list of hypothesis items given the list of golden
+   * Calculate average precision for the given list of hypothesis items given the list of golden
    * items.
    * 
    * @param goldItems
