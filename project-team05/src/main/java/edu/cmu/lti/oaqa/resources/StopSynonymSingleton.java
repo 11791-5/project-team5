@@ -8,6 +8,7 @@ import java.util.Scanner;
 import edu.cmu.lti.oaqa.reader.CollectionReader;
 
 public class StopSynonymSingleton {
+  // Singleton for the stop word list
   HashSet<String> stopWordSet = new HashSet<String>();
   private static StopSynonymSingleton singleton;
 
@@ -26,7 +27,6 @@ public class StopSynonymSingleton {
     try {
       reader = new Scanner(stopWordList);
     } catch (FileNotFoundException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     while (reader.hasNext()) {

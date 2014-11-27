@@ -18,6 +18,11 @@ import edu.cmu.lti.oaqa.type.retrieval.Passage;
 import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
 import edu.stanford.nlp.util.CollectionUtils;
 
+/**
+ * Object for performing evaluation over all snippets.
+ * @author root
+ *
+ */
 public class EvaluatedSnippet extends EvaluatedItem {
 
   public EvaluatedSnippet(FileWriter writer) {
@@ -25,27 +30,35 @@ public class EvaluatedSnippet extends EvaluatedItem {
     super.setItemType("snippet");
     super.setItemTypeId(SnippetSearchResult.type);
   }
-
-  @Override
-  public List<Object> getEvaluatedItemsAsList(List<Object> itemObjects) {
-    // TODO Auto-generated method stub
-    return null;
-  }
   
-  private static void extractDocumentOffsetPairs(List<Object> goldArticleOffsetPairs, String docText, int offsetBegin, String docId) {
+  /**
+   * Given the list to populate, the document text, the offset begin for the given text, 
+   * and the document ID, add to the list pairs of document id - character offset.
+   * @param listToPopulate
+   * @param docText
+   * @param offsetBegin
+   * @param docId
+   */
+  private static void extractDocumentOffsetPairs(List<Object> listToPopulate, String docText, int offsetBegin, String docId) {
     char[] passageChars = docText.toCharArray();
     for(int i = 0; i < passageChars.length; i++) {
       Pair<String, Integer> pair = new ImmutablePair<String, Integer>(docId, offsetBegin+i);
-      goldArticleOffsetPairs.add(pair);
+      listToPopulate.add(pair);
     }
   }
   
+  /**
+   * Calculate all metrics for snippets.
+   */
   @Override
   public void calculateItemMetrics(JCas aJCas, String queryId) {
     List<Object> goldItems = getGoldStandardItems(queryId);
-    // calcualte metrics for triples
+    // calculate metrics for triples
     List<Object> passageItems = Utils.extractUIMATypeAsList(SnippetSearchResult.type, aJCas);
     List<ArrayList<Object>> retrievedArticleOffsetPairs = new ArrayList<ArrayList<Object>>();
+    // put all predicted snippets into list,
+    // where the list contains a list of article-offset pairs, one 
+    // such list for each document
     for(Object currentSnippet: passageItems) {
       Passage p = ((SnippetSearchResult)currentSnippet).getSnippets(); 
       ArrayList<Object> articleOffsetPairs = new ArrayList<Object>();
@@ -53,35 +66,46 @@ public class EvaluatedSnippet extends EvaluatedItem {
       retrievedArticleOffsetPairs.add(articleOffsetPairs);
     }
 
+    // put all gold standard snippets into a list
     List<Object> goldArticleOffsetPairs = new ArrayList<Object>();
     for(Object s: goldItems) {
       Snippet snippet = (Snippet)s;
       extractDocumentOffsetPairs(goldArticleOffsetPairs, snippet.getText(), snippet.getOffsetInBeginSection(), snippet.getDocument());
     }
 
-    //TODO: should they be in a set?
+    // put all predicted article-offset pairs into a master list as well
     ArrayList<Object> allRecalledArticleOffsetPairsList = new ArrayList<Object>();
     for(Object o: retrievedArticleOffsetPairs) {
       allRecalledArticleOffsetPairsList.addAll(((ArrayList<Object>)o));
     }
+    
     double passagePrecision = getPrecision(allRecalledArticleOffsetPairsList, goldArticleOffsetPairs);
     double passageRecall = getRecall(allRecalledArticleOffsetPairsList, goldArticleOffsetPairs);
     double passageF = calcF(passagePrecision, passageRecall);
     double passageAP = calcAPForSnippets(goldArticleOffsetPairs, retrievedArticleOffsetPairs);
 
-    super.getAveragePrecision().add(passageAP);
+    if(!allRecalledArticleOffsetPairsList.isEmpty() || !goldArticleOffsetPairs.isEmpty()) super.getAveragePrecision().add(passageAP);
     
     try {
-      super.printQueryStats(queryId, passagePrecision, passageRecall, passageF, passageAP, "snippet");
+      super.printQueryStats(passagePrecision, passageRecall, passageF, passageAP, "snippet");
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
   
+  /**
+   * Given a list of lists of article-offset pairs (one such
+   * list for each article) and a list of gold standard article-offset pairs,
+   * calculate the average precision for snippets.
+   * @param goldArticleOffsetPairs
+   * @param retrievedArticleOffsetPairs
+   * @return
+   */
   private double calcAPForSnippets(List<Object> goldArticleOffsetPairs,
           List<ArrayList<Object>> retrievedArticleOffsetPairs) {
     ArrayList<Object> allList = new ArrayList<Object>();
+    // also create a flat list of all predicted article-offset pairs
+    // (not separated by article)
     for(Object o: retrievedArticleOffsetPairs) {
       allList.addAll(((ArrayList<Object>)o));
     }
@@ -112,6 +136,7 @@ public class EvaluatedSnippet extends EvaluatedItem {
       // if nonzero overlap between golden snippets and the snippet at current index
       if (!CollectionUtils.intersection(new HashSet<Object>(goldArticleOffsetPairs), new HashSet<Object>(retrievedArticleOffsetPairs.get(i))).isEmpty()) {;
         ArrayList<Object> subList = new ArrayList<Object>();
+        // get the precision for the sublist up until snippets of the given rank
         for(Object o: retrievedArticleOffsetPairs.subList(0, i+1)) {
           subList.addAll(((ArrayList<Object>)o));
         }
@@ -128,6 +153,11 @@ public class EvaluatedSnippet extends EvaluatedItem {
   public List<Object> getGoldStandardItems(String questionId) {
     return new ArrayList<Object>(GoldStandardSingleton.getInstance().getGoldStandardAnswer()
             .get(questionId).getSnippets());
+  }
+
+  @Override
+  public List<Object> getEvaluatedItemsAsList(List<Object> itemObjects) {
+    return null;
   }
 
 }

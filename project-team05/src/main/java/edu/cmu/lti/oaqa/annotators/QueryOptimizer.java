@@ -7,8 +7,11 @@ import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.TOP;
 
+import util.Utils;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
+import edu.cmu.lti.oaqa.type.retrieval.SynSet;
+import edu.cmu.lti.oaqa.type.retrieval.Synonym;
 
 public class QueryOptimizer 
 {

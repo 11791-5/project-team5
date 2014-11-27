@@ -11,6 +11,12 @@ import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
 
+/**
+ * Object for performing evaluation over all triples.
+ * @author root
+ *
+ */
+
 public class EvaluatedTriple extends EvaluatedItem {
 
   private ArrayList<Double> objectAP = new ArrayList<Double>();
@@ -27,6 +33,11 @@ public class EvaluatedTriple extends EvaluatedItem {
     super.setItemTypeId(TripleSearchResult.type);
   }
 
+  /**
+   * Calculate all metrics for the given predicted and gold standard triples.
+   * After calculating the usual metrics, also calculate "soft" metrics in terms
+   * of predicates, subjects, and objects.
+   */
   public void calculateItemMetrics(JCas aJCas, String queryId) throws IOException {
     super.calculateItemMetrics(aJCas, queryId);
     isCalculatingSeparatePrecisions = true;
@@ -64,6 +75,14 @@ public class EvaluatedTriple extends EvaluatedItem {
     isCalculatingSeparatePrecisions = false;
   }
 
+  /**
+   * Calculate all metrics for the given component of a triple.
+   * @param hypothesis
+   * @param gold
+   * @param componentName
+   * @return
+   * @throws IOException
+   */
   private double calculateIndividualParts(List<Object> hypothesis, List<Object> gold,
           String componentName) throws IOException {
     double componentPrecision = super.getPrecision(hypothesis, gold);
@@ -102,12 +121,16 @@ public class EvaluatedTriple extends EvaluatedItem {
     return objectAP;
   }
 
+  /**
+   * Calculate precision for triples.
+   */
   @Override
   public double getPrecision(List<Object> tripleItems, List<Object> goldTriples) {
     if (isCalculatingSeparatePrecisions) {
       return super.getPrecision(tripleItems, tripleItems);
     }
     int numTruePos = 0;
+    // in order to increment number of true positives, all parts of the triple must match.
     for (Object tripleObj : tripleItems) {
       Triple triple = (Triple) tripleObj;
       for (Object goldTripleObj : goldTriples) {
@@ -123,22 +146,42 @@ public class EvaluatedTriple extends EvaluatedItem {
     return (double) numTruePos / tripleItems.size();
   }
 
+  /**
+   * Get the predicate average precision
+   * @return
+   */
   public ArrayList<Double> getPredicateAP() {
     return predicateAP;
   }
 
+  /**
+   * Get the subject average precision
+   * @return
+   */
   public ArrayList<Double> getSubjectAP() {
     return subjectAP;
   }
 
+  /**
+   * Set the object average precision
+   * @param objectAP
+   */
   public void setObjectAP(ArrayList<Double> objectAP) {
     this.objectAP = objectAP;
   }
 
+  /**
+   * Set the predicate Average precision
+   * @param predicateAP
+   */
   public void setPredicateAP(ArrayList<Double> predicateAP) {
     this.predicateAP = predicateAP;
   }
 
+  /**
+   * Set subject Average precision
+   * @param subjectAP
+   */
   public void setSubjectAP(ArrayList<Double> subjectAP) {
     this.subjectAP = subjectAP;
   }

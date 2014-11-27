@@ -1,5 +1,3 @@
-
-
 /* First created by JCasGen Sat Oct 18 19:40:19 EDT 2014 */
 package edu.cmu.lti.oaqa.type.answer;
 

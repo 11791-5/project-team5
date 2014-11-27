@@ -1,5 +1,7 @@
 package util;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -145,5 +147,26 @@ public class Utils {
     }
     return itemList;
   }
+
+  public static void removeTypeFromIndeces(FSIterator<TOP> typeIterator) {
+    List<TOP> itemsToRemove = new ArrayList<TOP>();
+    while (typeIterator.hasNext()) {
+      TOP currentItem = (TOP) typeIterator.next();
+      itemsToRemove.add(currentItem);
+    }
+
+    for (TOP item : itemsToRemove) {
+      item.removeFromIndexes();
+    }
+  }
+  
+  public static double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
+
+    BigDecimal bd = new BigDecimal(value);
+    bd = bd.setScale(places, RoundingMode.HALF_UP);
+    return bd.doubleValue();
+} 
+
 
 }

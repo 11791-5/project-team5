@@ -9,7 +9,7 @@ import org.apache.uima.jcas.JCas;
  *
  */
 public class TestCR extends JCasAnnotator_ImplBase {
-
+  // Convenience class for testing the Collection Reader
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     System.out.println("Processing cas");
