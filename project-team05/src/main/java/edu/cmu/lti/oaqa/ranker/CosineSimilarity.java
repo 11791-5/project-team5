@@ -18,7 +18,7 @@ import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
 
 import edu.cmu.lti.oaqa.type.retrieval.Document;
-import edu.cmu.lti.f14.hw3.hw3_hsidahme.typesystems.Token;
+import edu.cmu.lti.oaqa.type.nlp.Token;
 import util.DocumentSimilarity;
 import util.Utils;
 
@@ -66,7 +66,7 @@ public class CosineSimilarity {
         // Convert the document and query tokens from FS list to array list
         ArrayList<Token> tokenList = Utils.fromFSListToCollection(fsTokenList, Token.class);
         ArrayList<Token> queryTokenList = Utils.fromFSListToCollection(queryFSTokenList, Token.class);
-
+        
         int qID = doc.getQueryID();
         int rel = doc.getRelevanceValue();
         String text = doc.getText();
@@ -282,3 +282,4 @@ public class CosineSimilarity {
 
     }
   }
+}
