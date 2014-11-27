@@ -21,7 +21,9 @@ import edu.cmu.lti.oaqa.type.retrieval.Document;
 public class FullDocumentSources {
 
   //static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
-  static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
+  //static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
+  static String url = "http://ur.lti.cs.cmu.edu:30002/pmc/";
+  
   static GsonBuilder builder = new GsonBuilder();
   /**
    * Return raw text from document
@@ -34,6 +36,7 @@ public class FullDocumentSources {
     String rawText = new String();
     
       String pmid = doc.getDocId();
+      // Append pubmed ID
       String request = url + pmid;
 
       URL serviceURL = new URL(request);
@@ -43,22 +46,27 @@ public class FullDocumentSources {
       String response = br.readLine();
       
       // The service sends one line response only
-      // parse it 
+      // Parse it 
       if (response ==null)
+        // if no response received, return null
           return null;
+      
       InputStream stream = IOUtils.toInputStream(response, "UTF-8");
-
+      
+      // Create Json reader
       JsonReader reader = new JsonReader(new InputStreamReader(stream, "UTF-8"));
       
+      // Create object from reader
       Object o = builder.create().fromJson(reader, Object.class);
     
-      com.google.gson.internal.LinkedTreeMap<String, List<String>> o2 = (com.google.gson.internal.LinkedTreeMap) o; 
+      // Cast to a linkedTreeMap
+      com.google.gson.internal.LinkedTreeMap<String, List<String>> o2 = 
+              (com.google.gson.internal.LinkedTreeMap) o; 
 
+      // The full text is in the section "sections"
       List<String> text = o2.get("sections");
     
       return text;
-
-    
   }
 }
 
