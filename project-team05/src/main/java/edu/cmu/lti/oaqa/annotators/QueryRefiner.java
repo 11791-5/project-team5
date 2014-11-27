@@ -31,10 +31,14 @@ import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
 
 public class QueryRefiner extends JCasAnnotator_ImplBase {
 
+  /**
+   * For the given question, add the top exact answer to the
+   * question and remove all previous document/snippet/exact answer
+   * results.
+   */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
 
-    // TODO Auto-generated method stub
     FSIterator questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
@@ -54,40 +58,16 @@ public class QueryRefiner extends JCasAnnotator_ImplBase {
 
       FSIterator<TOP> documentIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
               edu.cmu.lti.oaqa.type.retrieval.Document.type);
-      List<edu.cmu.lti.oaqa.type.retrieval.Document> docsToRemove = new ArrayList<edu.cmu.lti.oaqa.type.retrieval.Document>();
-      while (documentIterator.hasNext()) {
-        edu.cmu.lti.oaqa.type.retrieval.Document currentDoc = (edu.cmu.lti.oaqa.type.retrieval.Document) documentIterator
-                .next();
-        docsToRemove.add(currentDoc);
-      }
-      for (edu.cmu.lti.oaqa.type.retrieval.Document doc : docsToRemove) {
-        doc.removeFromIndexes();
-      }
-
+      util.Utils.removeTypeFromIndeces(documentIterator);
+      
       FSIterator<TOP> snippetIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
               SnippetSearchResult.type);
-      List<SnippetSearchResult> snippetsToRemove = new ArrayList<SnippetSearchResult>();
-      while (snippetIterator.hasNext()) {
-        SnippetSearchResult currentSnippet = (SnippetSearchResult) snippetIterator.next();
-        snippetsToRemove.add(currentSnippet);
-      }
-
-      for (SnippetSearchResult snippet : snippetsToRemove) {
-        snippet.removeFromIndexes();
-      }
+      util.Utils.removeTypeFromIndeces(snippetIterator);
 
       FSIterator<TOP> exactAnswerIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(
               Answer.type);
 
-      List<Answer> answersToRemove = new ArrayList<Answer>();
-      while (exactAnswerIterator.hasNext()) {
-        Answer currentAnswer = (Answer) exactAnswerIterator.next();
-        answersToRemove.add(currentAnswer);
-      }
-
-      for (Answer answer : answersToRemove) {
-        answer.removeFromIndexes();
-      }
+      util.Utils.removeTypeFromIndeces(exactAnswerIterator);
     }
   }
 }
