@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
+/**
+ * Object for performing evaluation over all documents.
+ * @author root
+ *
+ */
 
 public class EvaluatedDocument extends EvaluatedItem{
 
