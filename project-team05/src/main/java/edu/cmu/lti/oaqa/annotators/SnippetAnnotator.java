@@ -8,7 +8,6 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 import json.gson.Snippet;
@@ -18,10 +17,10 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
-import util.BioTermExtractor;
 import util.FullDocumentSources;
 import util.SimilarityMeasures;
 import util.Utils;
@@ -35,18 +34,29 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
 
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
-  private static final int  SnippetRetrievedNum = 20;
+  private static final int SnippetRetrievedNum = 1000;
 
   public static final String PUBMED_URL = "http://www.ncbi.nlm.nih.gov/pubmed/";
 
-  private static final int MinConceptMatch = 2;
+  private static final int MinConceptMatch = 1;
+
+  private static final int SENTENCE_MODE = 1;
+
+  private static final int WINDOWS_MODE = 2;
+
+  private static final int WindowsSize = 6;
+
+  private static final int NumOfShift = 20;
+
+  private static final int NOW_MODE = 2;
+
 
   public class ScoreComparator implements Comparator<Snippet> {
     public int compare(Snippet o1, Snippet o2) {
 
       if (o2.score > o1.score)
         return 1;
-      else if (o2.score<o1.score)
+      else if (o2.score < o1.score)
         return -1;
       else
         return 0;
@@ -81,8 +91,8 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-      HashSet<String> bioQuestionTerms = BioTermExtractor.getBioTerms(question.getText());
-      //System.out.println(question.getSynSets());
+
+      System.out.println(question.getSynSets());
       ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
 
       edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
@@ -110,10 +120,15 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       edu.cmu.lti.oaqa.type.retrieval.Document doc;
 
       String nowSection = "section.0";
+      System.out.println("QuestionItems:  " + question.getText());
+
+      System.out.println("DocumentItems:  " + documentItems.size());
 
       if (documentItems != null && !documentItems.isEmpty()) {
         rank = 0;
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
+        SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
+
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
           // System.out.println(document.getPmid());
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
@@ -122,9 +137,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
           String docText = null;
           try {
             text = FullDocumentSources.getFullText(document);
-            if (text==null)
-              docText = document.getText(); 
-                    
+            if (text == null)
+              docText = document.getText();
+
           } catch (IOException e) {
             e.printStackTrace();
           }
@@ -132,59 +147,100 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
           // concept matching?
           for (int i = 0; i < 1; i++) {
-            int offsetPtr = 0;                                                                       
-            if (docText==null)
+            int offsetPtr = 0;
+            if (docText == null)
               docText = text.get(i);
 
-            Reader reader = new StringReader(docText);
-            DocumentPreprocessor dp = new DocumentPreprocessor(reader);
+            if (NOW_MODE == SENTENCE_MODE) {
+              Reader reader = new StringReader(docText);
+              DocumentPreprocessor dp = new DocumentPreprocessor(reader);
+              List<String> sentenceTokens;
+              for (List<HasWord> sentence : dp) {
+                sentenceTokens = new ArrayList<String>();
+                StringBuffer wholeSentence = new StringBuffer();
+                for (HasWord word : sentence) {
+                  sentenceTokens.add(word.word());
+                  wholeSentence.append(word.word() + " ");
+                }
 
-            List<String> sentenceTokens;
-            for (List<HasWord> sentence : dp) {
-              sentenceTokens = new ArrayList<String>();
-              StringBuffer wholeSentence = new StringBuffer();
-              for (HasWord word : sentence) {
-                sentenceTokens.add(word.word());
-                wholeSentence.append(word.word() + " ");
-              }
+                int conceptMatch = 0;
+                String wholeSentenceStr = wholeSentence.toString();
 
-              int conceptMatch = 0;
-              String wholeSentenceStr = wholeSentence.toString();
-              if(!hasQuestionBioTerm(wholeSentenceStr,bioQuestionTerms))
-                continue;
-              int kk=0;
-              for (ArrayList<String> synonymsGroup : synonymListByGroup) {
-                kk++;
-                for (String synonymTempStr : synonymsGroup) {
-                  //System.out.println(kk+"||"+synonymTempStr +"||"+wholeSentenceStr );
-                  if (wholeSentenceStr.contains(synonymTempStr))
-                  {
-                    conceptMatch++;
-                    break;
+                int kk = 0;
+                for (ArrayList<String> synonymsGroup : synonymListByGroup) {
+                  kk++;
+                  for (String synonymTempStr : synonymsGroup) {
+                    System.out.println(kk + "||" + synonymTempStr + "||" + wholeSentenceStr);
+                    if (wholeSentenceStr.contains(synonymTempStr)) {
+                      conceptMatch++;
+                      break;
+                    }
                   }
                 }
+                System.out.println(conceptMatch + " " + wholeSentenceStr);
+                if (conceptMatch >= MinConceptMatch) {
+                  SimilarityMeasures sm = new SimilarityMeasures();
+                  double score = sm.getSimilarity(sentenceTokens, synonymList);
+
+                  Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
+                          wholeSentence.toString(), offsetPtr, offsetPtr + sentence.size(),
+                          nowSection, nowSection);
+
+                  snippetList.add(s);
+                }
+                offsetPtr = offsetPtr + sentence.size();
+
               }
-              //System.out.println( conceptMatch +" "+ wholeSentenceStr);
-              if (conceptMatch>=MinConceptMatch)
-              {               
-                SimilarityMeasures sm = new SimilarityMeasures();
-                double score = sm.getSimilarity(sentenceTokens, synonymList);
-  
-                Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
-                        wholeSentence.toString(), offsetPtr, offsetPtr + sentence.size(), nowSection,
-                        nowSection);
-  
-                snippetList.add(s);
+            } else {
+              String[] terms = docText.split(" ");
+
+              for (int w = 0; w < terms.length - WindowsSize; w += NumOfShift) {
+
+                StringBuffer sentenceBuf = new StringBuffer();
+                for (int j = 0; j < WindowsSize; j++) {
+                  if (j == WindowsSize - 1)
+                    sentenceBuf.append(terms[w + j]);
+                  else
+                    sentenceBuf.append(terms[w + j] + " ");
+                }
+                String sentence = sentenceBuf.toString();
+                List<String> sentenceTokens;
+                sentenceTokens = new ArrayList<String>();
+                StringBuffer wholeSentence = new StringBuffer();
+                int conceptMatch = 0;
+
+                int kk = 0;
+                
+                for (ArrayList<String> synonymsGroup : synonymListByGroup) {
+                  kk++;
+                  for (String synonymTempStr : synonymsGroup) {
+                    System.out.println(kk + "||" + synonymTempStr + "||" + sentence);
+                    if (sentence.contains(synonymTempStr)) {
+                      conceptMatch++;
+                      break;
+                    }
+                  }
+                }
+                System.out.println(conceptMatch + " " + sentence);
+                if (conceptMatch >= MinConceptMatch) {
+                  SimilarityMeasures sm = new SimilarityMeasures();
+                  double score = sm.getSimilarity(sentenceTokens, synonymList);
+
+                  Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
+                          sentence, offsetPtr, offsetPtr + sentence.length(),
+                          nowSection, nowSection);
+
+                  snippetList.add(s);
+                }
+                offsetPtr = offsetPtr + sentence.length();
               }
-              offsetPtr = offsetPtr + sentence.size();
-              
             }
           }
         }
         int rankThreshold = 1;
         Collections.sort(snippetList, new ScoreComparator());
 
-        //System.out.println(snippetList.size());
+        System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           try {
             snippetWriter.write("Q:" + question.getText() + " Document:" + snippet.getDocument()
@@ -194,31 +250,20 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             e.printStackTrace();
           }
 
-          //System.out.println(snippet.score + " " + snippet.getText());
-          SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
+          System.out.println(snippet.score + " " + snippet.getText());
+
           snippetSearchResult.setSnippets(createPassage(snippet, jcas));
           rankThreshold++;
-          
+
           snippetSearchResult.setQuestionsSyn(Utils.createStringList(jcas, synonymList));
           snippetSearchResult.addToIndexes();
 
           if (rankThreshold > SnippetRetrievedNum)
             break;
         }
-        
+
       }
     }
-  }
-
-  private boolean hasQuestionBioTerm(String wholeSentenceStr, HashSet<String> bioQuestionTerms) {
-    if(bioQuestionTerms==null ||bioQuestionTerms.isEmpty())
-      return true;
-    for(String bioTerm:bioQuestionTerms)
-    {
-      if(wholeSentenceStr.contains(bioTerm))
-        return true;
-    }
-    return false;
   }
 
   private Passage createPassage(Snippet snippet, JCas jcas) {

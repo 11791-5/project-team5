@@ -27,11 +27,14 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
 
   public EvaluatedExactAnswer(FileWriter writer) throws IOException {
     super(writer);
-    super.setItemType("exact answer");
+    super.setItemType("Exact Answer");
     super.setItemTypeId(edu.cmu.lti.oaqa.type.answer.Answer.type);
     setExactAnswerWriter(new FileWriter(new File("exactAnswerOutput.txt")));
   }
 
+  /**
+   * Get list of evaluated items
+   */
   @Override
   public List<Object> getEvaluatedItemsAsList(List<Object> itemObjects) {
     List<Object> answers = new ArrayList<Object>();
@@ -39,16 +42,22 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
       List<String> tokenListForAnswer = new ArrayList<String>();
       tokenListForAnswer.add(((edu.cmu.lti.oaqa.type.answer.Answer) answer).getText());
       tokenListForAnswer.addAll(Utils.createListFromStringList(((edu.cmu.lti.oaqa.type.answer.Answer) answer).getVariants()));
+      // add list to answers
       answers.add(tokenListForAnswer);
     }
     return answers;
   }
 
+  /**
+   * Get list of Gold standard answers
+   */
   @Override
   public List<Object> getGoldStandardItems(String questionId) {
     ArrayList<Object> goldStandardAnswers = new ArrayList<Object>();
+    // get the current question by questionID
     TestListQuestion currentQuestion = GoldStandardSingleton.getInstance().getGoldStandardAnswer()
             .get(questionId);
+    // add it to the gold standard answers
       goldStandardAnswers.addAll((currentQuestion).getExactAnswer());
     return goldStandardAnswers;
   }
@@ -71,6 +80,8 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
       for(Object goldObj: gold) {
         List<String> synonymsForGold = (List<String>) goldObj;
 
+        // if at least one common element between hypothesis and gold standard
+        // then increment the number of true positives
         if(!CollectionUtils.intersection(new HashSet<Object>(synonyms), new HashSet<Object>(synonymsForGold)).isEmpty()) {
           numTruePositives++;
         }
@@ -81,10 +92,18 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
   
   
 
+  /**
+   * Exact answer writer
+   * @return
+   */
   public FileWriter getExactAnswerWriter() {
     return exactAnswerWriter;
   }
 
+  /**
+   * Exact answer setter
+   * @param exactAnswerWriter
+   */
   public void setExactAnswerWriter(FileWriter exactAnswerWriter) {
     this.exactAnswerWriter = exactAnswerWriter;
   }
