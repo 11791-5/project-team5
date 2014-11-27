@@ -21,8 +21,8 @@ import edu.cmu.lti.oaqa.type.retrieval.Document;
 public class FullDocumentSources {
 
   //static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
-  //static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
-  static String url = "http://ur.lti.cs.cmu.edu:30002/pmc/";
+  static String url = "http://gold.lti.cs.cmu.edu:30002/pmc/";
+  //static String url = "http://ur.lti.cs.cmu.edu:30002/pmc/";
   
   static GsonBuilder builder = new GsonBuilder();
   /**
