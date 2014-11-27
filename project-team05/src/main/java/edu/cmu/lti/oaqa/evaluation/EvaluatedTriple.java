@@ -36,7 +36,7 @@ public class EvaluatedTriple extends EvaluatedItem {
   /**
    * Calculate all metrics for the given predicted and gold standard triples.
    * After calculating the usual metrics, also calculate "soft" metrics in terms
-   * of predictes, subjects, and objects.
+   * of predicates, subjects, and objects.
    */
   public void calculateItemMetrics(JCas aJCas, String queryId) throws IOException {
     super.calculateItemMetrics(aJCas, queryId);
@@ -146,22 +146,42 @@ public class EvaluatedTriple extends EvaluatedItem {
     return (double) numTruePos / tripleItems.size();
   }
 
+  /**
+   * Get the predicate average precision
+   * @return
+   */
   public ArrayList<Double> getPredicateAP() {
     return predicateAP;
   }
 
+  /**
+   * Get the subject average precision
+   * @return
+   */
   public ArrayList<Double> getSubjectAP() {
     return subjectAP;
   }
 
+  /**
+   * Set the object average precision
+   * @param objectAP
+   */
   public void setObjectAP(ArrayList<Double> objectAP) {
     this.objectAP = objectAP;
   }
 
+  /**
+   * Set the predicate Average precision
+   * @param predicateAP
+   */
   public void setPredicateAP(ArrayList<Double> predicateAP) {
     this.predicateAP = predicateAP;
   }
 
+  /**
+   * Set subject Average precision
+   * @param subjectAP
+   */
   public void setSubjectAP(ArrayList<Double> subjectAP) {
     this.subjectAP = subjectAP;
   }

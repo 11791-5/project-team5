@@ -53,7 +53,7 @@ public class EvaluatedSnippet extends EvaluatedItem {
   @Override
   public void calculateItemMetrics(JCas aJCas, String queryId) {
     List<Object> goldItems = getGoldStandardItems(queryId);
-    // calcualte metrics for triples
+    // calculate metrics for triples
     List<Object> passageItems = Utils.extractUIMATypeAsList(SnippetSearchResult.type, aJCas);
     List<ArrayList<Object>> retrievedArticleOffsetPairs = new ArrayList<ArrayList<Object>>();
     // put all predicted snippets into list,
@@ -89,7 +89,6 @@ public class EvaluatedSnippet extends EvaluatedItem {
     try {
       super.printQueryStats(passagePrecision, passageRecall, passageF, passageAP, "snippet");
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
@@ -97,7 +96,7 @@ public class EvaluatedSnippet extends EvaluatedItem {
   /**
    * Given a list of lists of article-offset pairs (one such
    * list for each article) and a list of gold standard article-offset pairs,
-   * calcualte the average precision for snippets.
+   * calculate the average precision for snippets.
    * @param goldArticleOffsetPairs
    * @param retrievedArticleOffsetPairs
    * @return
@@ -158,7 +157,6 @@ public class EvaluatedSnippet extends EvaluatedItem {
 
   @Override
   public List<Object> getEvaluatedItemsAsList(List<Object> itemObjects) {
-    // TODO Auto-generated method stub
     return null;
   }
 
