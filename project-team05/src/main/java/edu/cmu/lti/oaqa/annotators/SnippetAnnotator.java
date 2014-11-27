@@ -8,6 +8,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 import json.gson.Snippet;
@@ -17,10 +18,10 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
+import util.BioTermExtractor;
 import util.FullDocumentSources;
 import util.SimilarityMeasures;
 import util.Utils;
@@ -34,7 +35,7 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
 
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
-  private static final int  SnippetRetrievedNum = 1000;
+  private static final int  SnippetRetrievedNum = 20;
 
   public static final String PUBMED_URL = "http://www.ncbi.nlm.nih.gov/pubmed/";
 
@@ -80,8 +81,8 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-
-      System.out.println(question.getSynSets());
+      HashSet<String> bioQuestionTerms = BioTermExtractor.getBioTerms(question.getText());
+      //System.out.println(question.getSynSets());
       ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
 
       edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
@@ -113,7 +114,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       if (documentItems != null && !documentItems.isEmpty()) {
         rank = 0;
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
-        SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
           // System.out.println(document.getPmid());
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
@@ -150,12 +150,13 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
               int conceptMatch = 0;
               String wholeSentenceStr = wholeSentence.toString();
-              
+              if(!hasQuestionBioTerm(wholeSentenceStr,bioQuestionTerms))
+                continue;
               int kk=0;
               for (ArrayList<String> synonymsGroup : synonymListByGroup) {
                 kk++;
                 for (String synonymTempStr : synonymsGroup) {
-                  System.out.println(kk+"||"+synonymTempStr +"||"+wholeSentenceStr );
+                  //System.out.println(kk+"||"+synonymTempStr +"||"+wholeSentenceStr );
                   if (wholeSentenceStr.contains(synonymTempStr))
                   {
                     conceptMatch++;
@@ -163,7 +164,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                   }
                 }
               }
-              System.out.println( conceptMatch +" "+ wholeSentenceStr);
+              //System.out.println( conceptMatch +" "+ wholeSentenceStr);
               if (conceptMatch>=MinConceptMatch)
               {               
                 SimilarityMeasures sm = new SimilarityMeasures();
@@ -183,7 +184,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         int rankThreshold = 1;
         Collections.sort(snippetList, new ScoreComparator());
 
-        System.out.println(snippetList.size());
+        //System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           try {
             snippetWriter.write("Q:" + question.getText() + " Document:" + snippet.getDocument()
@@ -193,8 +194,8 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             e.printStackTrace();
           }
 
-          System.out.println(snippet.score + " " + snippet.getText());
-
+          //System.out.println(snippet.score + " " + snippet.getText());
+          SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
           snippetSearchResult.setSnippets(createPassage(snippet, jcas));
           rankThreshold++;
           
@@ -207,6 +208,17 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         
       }
     }
+  }
+
+  private boolean hasQuestionBioTerm(String wholeSentenceStr, HashSet<String> bioQuestionTerms) {
+    if(bioQuestionTerms==null ||bioQuestionTerms.isEmpty())
+      return true;
+    for(String bioTerm:bioQuestionTerms)
+    {
+      if(wholeSentenceStr.contains(bioTerm))
+        return true;
+    }
+    return false;
   }
 
   private Passage createPassage(Snippet snippet, JCas jcas) {

@@ -55,7 +55,7 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
         while (!done)
         {
           synonym.add(current.getNthElement(0));
-          System.out.println(current.getNthElement(0));
+          //System.out.println(current.getNthElement(0));
           if((current.getTail() instanceof EmptyStringList)) {
             done = true;
           } else {
@@ -79,7 +79,11 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
         Answer ans = new Answer(aJCas);
         ans.setText(entry.getValue());
         ans.setRank(entry.getKey());   
-        ans.setVariants(getAnswerSynonyms(entry.getValue(),aJCas));
+        StringList variants = getAnswerSynonyms(entry.getValue(),aJCas);
+        if(variants != null)
+          ans.setVariants(getAnswerSynonyms(entry.getValue(),aJCas));
+        //System.out.println("Answer: " + ans);
+        //System.out.println("Sysnonyms: "+ );
         ans.addToIndexes();
        
       }
@@ -91,13 +95,17 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
   {
     List<String> ansSynonyms = new ArrayList<String>();
     try {
-      HashSet<TermRelationship> rels = new HashSet<TermRelationship>(UmlsSingleton.getInstance().
-              getUmlsService().getTermSynonyms(ans));
+      ArrayList<TermRelationship> termRels = UmlsSingleton.getInstance().getUmlsService().getTermSynonyms(ans);
+      if(termRels==null)
+        return null;
+      HashSet<TermRelationship> rels = new HashSet<TermRelationship>(termRels);
       for (TermRelationship rel : rels) {
+        
         ansSynonyms.add(rel.getToTerm().toLowerCase());
       }
     } catch (Exception e) {
       e.printStackTrace();
+      return null;
     }
     return Utils.createStringList(aJCas,ansSynonyms);
   }

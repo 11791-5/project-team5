@@ -2,16 +2,11 @@ package util;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
-import edu.cmu.lti.oaqa.resources.StanfordAnnotatorSingleton;
-import edu.cmu.lti.oaqa.resources.StopWordSingleton;
-import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
-import edu.stanford.nlp.ling.CoreLabel;
 
 public class AnswerExtractor {
 
@@ -19,19 +14,15 @@ public class AnswerExtractor {
     Map<String, Integer> potentialAnswers = new HashMap<String, Integer>();
 
     for (String snippet : snippets) {
-      String snippetText = StanfordLemmatizer.stemText(snippet);
-      edu.stanford.nlp.pipeline.Annotation ann = new edu.stanford.nlp.pipeline.Annotation(
-              snippetText);
-      StanfordAnnotatorSingleton.getInstance().getPipeline().annotate(ann);
-      for (CoreLabel term : ann.get(TokensAnnotation.class)) {
-        String pos = term.get(PartOfSpeechAnnotation.class);
-        String token = term.originalText().toLowerCase();
-        if (pos.contains("NN") && !StopWordSingleton.getInstance().isStopWord(token)
-                && !queryTerms.contains(token)) {
-          if (!potentialAnswers.containsKey(token))
-            potentialAnswers.put(token, 0);
-          potentialAnswers.put(token, potentialAnswers.get(token) + 1);
-        }
+
+      HashSet<String> questionTerms = BioTermExtractor.getBioTerms(snippet);
+      for(String token:questionTerms)
+      {
+        if(queryTerms.contains(token))
+          continue;
+        if (!potentialAnswers.containsKey(token))
+          potentialAnswers.put(token, 0);
+        potentialAnswers.put(token, potentialAnswers.get(token) + 1);
       }
     }
 
@@ -50,7 +41,7 @@ public class AnswerExtractor {
     for (Entry<String, Integer> answer : rankedPotentialAnswers.entrySet()) {
       String answerString = answer.getKey();
       Integer value = answer.getValue();
-      //if (value > threhold)
+      if (value > 0.9*threhold)
         topAnswers.put(rank++, answerString);
     }
     return topAnswers;

@@ -30,14 +30,19 @@ public class ConceptAnnotator extends JCasAnnotator_ImplBase{
       //System.out.println(question.getQuestionType() + " "+questionText);
       ConceptSearchResult conceptSearchResult;
       List<Integer> ontologies = new ArrayList<Integer>();
-      ontologies.add(GoPubMedServiceSingleton.GENE_ONTOLOGY);
+      //ontologies.add(GoPubMedServiceSingleton.ALL_ONTOLOGIES);
+     ontologies.add(GoPubMedServiceSingleton.GENE_ONTOLOGY);
       ontologies.add(GoPubMedServiceSingleton.DISEASE_ONTOLOGY);
       List<OntologyServiceResponse.Result> resultList = GoPubMedServiceSingleton.getService().getConcepts(questionText,ontologies);
       int rank = 0;
+      int threshold = 1;
       for(OntologyServiceResponse.Result resultResponse:resultList)
       {
+        int concept_per_ontotlogy = 0;
         for (OntologyServiceResponse.Finding finding : resultResponse.getFindings())
         {
+          if(concept_per_ontotlogy>=threshold)
+            break;
           conceptSearchResult = new ConceptSearchResult(aJCas);
           Concept concept = new Concept(aJCas);
           concept.setName(finding.getConcept().getLabel());
@@ -45,6 +50,7 @@ public class ConceptAnnotator extends JCasAnnotator_ImplBase{
           conceptSearchResult.setUri(finding.getConcept().getUri());
           conceptSearchResult.setRank(rank++);
           conceptSearchResult.addToIndexes();
+          concept_per_ontotlogy++;
         }
       }
 
