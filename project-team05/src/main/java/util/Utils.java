@@ -146,4 +146,16 @@ public class Utils {
     return itemList;
   }
 
+  public static void removeTypeFromIndeces(FSIterator<TOP> typeIterator) {
+    List<TOP> itemsToRemove = new ArrayList<TOP>();
+    while (typeIterator.hasNext()) {
+      TOP currentItem = (TOP) typeIterator.next();
+      itemsToRemove.add(currentItem);
+    }
+
+    for (TOP item : itemsToRemove) {
+      item.removeFromIndexes();
+    }
+  }
+
 }
