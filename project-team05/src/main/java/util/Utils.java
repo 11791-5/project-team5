@@ -77,7 +77,7 @@ public class Utils {
    */
   public static List<String> createListFromStringList(StringList inputList) {
     List<String> result = new ArrayList<String>();
-    if (inputList instanceof EmptyStringList) {
+    if (inputList == null || inputList instanceof EmptyStringList) {
       return result;
     }
 

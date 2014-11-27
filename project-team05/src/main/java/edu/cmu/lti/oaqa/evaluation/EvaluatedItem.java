@@ -147,7 +147,7 @@ public abstract class EvaluatedItem {
    * @param gold
    * @return
    */
-  public static int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
+  public int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
     return CollectionUtils.intersection(new HashSet<Object>(hypothesis), new HashSet<Object>(gold))
             .size();
   }

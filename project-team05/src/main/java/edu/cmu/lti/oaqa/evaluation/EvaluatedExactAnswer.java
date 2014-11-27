@@ -61,7 +61,8 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
    * @param gold
    * @return
    */
-  public static int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
+  @Override
+  public int getNumTruePositives(Collection<?> hypothesis, Collection<?> gold) {
     int numTruePositives = 0;
     // for each list of synonymous exact answer hypotheses
     for(Object item: hypothesis) {
@@ -77,6 +78,8 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
     }
     return numTruePositives;
   }
+  
+  
 
   public FileWriter getExactAnswerWriter() {
     return exactAnswerWriter;

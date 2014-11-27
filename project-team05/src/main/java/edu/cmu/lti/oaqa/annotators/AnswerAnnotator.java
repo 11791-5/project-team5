@@ -48,22 +48,7 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
         snippets.add(p.getText());
         
       }
-      ArrayList<String> synonym = new ArrayList<String>();
-      if(strlist != null && strlist instanceof NonEmptyStringList) {
-        NonEmptyStringList current = (NonEmptyStringList)strlist;
-        boolean done = false;
-        while (!done)
-        {
-          synonym.add(current.getNthElement(0));
-          //System.out.println(current.getNthElement(0));
-          if((current.getTail() instanceof EmptyStringList)) {
-            done = true;
-          } else {
-            current = (NonEmptyStringList) current.getTail();
-          }
-        }
-      }
-
+      List<String> synonym = Utils.createListFromStringList(strlist);
       
 //      getAnswer(snippets,question.);
       Map<Integer,String> hmap= AnswerExtractor.getAnswers(snippets,synonym);
@@ -72,16 +57,18 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
 //      ValueComparator bvc =  new ValueComparator(map);
 //      TreeMap<String,Integer> sorted_map = new TreeMap<String,Integer>(bvc);
 
-//      sorted_map.putAll(map);
+//      sorted_map.putAlwl(map);
       int rank=1;
       for (Entry<Integer, String> entry : hmap.entrySet())
       { 
         Answer ans = new Answer(aJCas);
-        ans.setText(entry.getValue());
+        ans.setText(entry.getValue().toLowerCase());
         ans.setRank(entry.getKey());   
         StringList variants = getAnswerSynonyms(entry.getValue(),aJCas);
-        if(variants != null)
-          ans.setVariants(getAnswerSynonyms(entry.getValue(),aJCas));
+        if(variants != null) {
+          ans.setVariants(variants);
+        }
+        
         //System.out.println("Answer: " + ans);
         //System.out.println("Sysnonyms: "+ );
         ans.addToIndexes();
@@ -93,14 +80,13 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase{
   
   public StringList getAnswerSynonyms(String ans,JCas aJCas)
   {
-    List<String> ansSynonyms = new ArrayList<String>();
+    HashSet<String> ansSynonyms = new HashSet<String>();
     try {
       ArrayList<TermRelationship> termRels = UmlsSingleton.getInstance().getUmlsService().getTermSynonyms(ans);
       if(termRels==null)
         return null;
       HashSet<TermRelationship> rels = new HashSet<TermRelationship>(termRels);
       for (TermRelationship rel : rels) {
-        
         ansSynonyms.add(rel.getToTerm().toLowerCase());
       }
     } catch (Exception e) {

@@ -119,8 +119,9 @@ public class GoPubMedServiceSingleton
     }
     return resutList;
   }
-  public List<OntologyServiceResponse.Result> getConcepts(String text,List<Integer> ontologies) 
+  public List<OntologyServiceResponse.Result> getConcepts(String text, List<Integer> ontologies) 
  {
+
     List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
     for(Integer ontology:ontologies)
     {

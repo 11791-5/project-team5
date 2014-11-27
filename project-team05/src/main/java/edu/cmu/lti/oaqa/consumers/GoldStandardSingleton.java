@@ -63,14 +63,16 @@ public class GoldStandardSingleton {
           List<List<String>> replacementAnswerList = new ArrayList<List<String>>();
           for (List<String> synList : answer.getExactAnswer()) {
             ArrayList<String> replacementTermList = new ArrayList<String>();
-            replacementTermList.addAll(synList);
+            HashSet<String> finalSet = new HashSet<String>();
             for (String term : synList) {
+              // add the original term, lower-cased
+              finalSet.add(term.toLowerCase());
               HashSet<TermRelationship> rels = new HashSet<TermRelationship>(UmlsSingleton
                       .getInstance().getUmlsService().getTermSynonyms(term));
-              HashSet<String> finalSet = new HashSet<String>();
               for (TermRelationship tr : rels) {
                 finalSet.add(tr.getToTerm().toLowerCase());
               }
+              // add all synonyms, lower-cased
               replacementTermList.addAll(finalSet);
             }
             replacementAnswerList.add(replacementTermList);
