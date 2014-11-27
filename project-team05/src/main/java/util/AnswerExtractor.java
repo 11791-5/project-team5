@@ -41,7 +41,7 @@ public class AnswerExtractor {
     for (Entry<String, Integer> answer : rankedPotentialAnswers.entrySet()) {
       String answerString = answer.getKey();
       Integer value = answer.getValue();
-     // if (value > 0.5*threhold)
+      if (value > 0.9*threhold || value < threhold)
         topAnswers.put(rank++, answerString);
     }
     return topAnswers;
