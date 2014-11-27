@@ -12,25 +12,47 @@ import edu.cmu.lti.oaqa.bio.umls_wrapper.TermRelationship;
 import edu.cmu.lti.oaqa.resources.UmlsSingleton;
 import json.gson.Question;
 
+/**
+ * Gold Standard Singleton
+ * 
+ */
 public class GoldStandardSingleton {
   private static GoldStandardSingleton goldStandardSingleton;
 
+  // Create a Map for the Gold Standard answers
   private Map<String, json.gson.TestListQuestion> goldStandardAnswer;
 
+  /**
+   * Constructor for gold standard singleton
+   */
   private GoldStandardSingleton() {
     goldStandardAnswer = new HashMap<String, json.gson.TestListQuestion>();
   }
 
+  /**
+   * Get instance of gold standard singleton
+   * @return
+   */
   public static synchronized GoldStandardSingleton getInstance() {
+    // if singleton doesn't exist, create it
     if (goldStandardSingleton == null)
       goldStandardSingleton = new GoldStandardSingleton();
     return goldStandardSingleton;
   }
 
+  /**
+   * Get gold standard answer
+   * @return
+   */
   public Map<String, json.gson.TestListQuestion> getGoldStandardAnswer() {
     return goldStandardAnswer;
   }
 
+  /**
+   * Set Gold standard answer
+   * @param stdAnswers
+   * @throws Exception
+   */
   public void setGoldStandardAnswer(List<Question> stdAnswers) throws Exception {
     Pattern p = Pattern.compile("[0-9]+");
     for (Question stdAnswer : stdAnswers) {
@@ -61,6 +83,12 @@ public class GoldStandardSingleton {
     }
   }
 
+  /**
+   * Add answer to gold standard
+   * 
+   * @param p
+   * @param answer
+   */
   private void addAnswerToGoldStandard(Pattern p, json.gson.TestListQuestion answer) {
     for (int i = 0; i < answer.getDocuments().size(); i++) {
       String document = answer.getDocuments().get(i);
