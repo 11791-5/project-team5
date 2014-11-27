@@ -157,7 +157,7 @@ public class GoPubMedServiceSingleton
   {
     PubMedSearchServiceResponse.Result pubmedResult = null;
     try {
-      pubmedResult = goPubMedService.findPubMedCitations(text, 0, 5);
+      pubmedResult = goPubMedService.findPubMedCitations(text, 0);
     } catch (IOException e) {
       e.printStackTrace();
     }
