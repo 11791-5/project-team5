@@ -84,6 +84,12 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
     return true;
   }
 
+  /**
+   * return query terms with n-grams and combined them with AND operators 
+   * @param questionTerms
+   * @param nGrams
+   * @return
+   */
   private List<String> getQueryGrams(List<String> questionTerms, int nGrams) {
     List<String> queryGrams = new ArrayList<String>();
     int minIndex = 0;
@@ -104,6 +110,11 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
     return queryGrams;
   }
 
+ /**
+  * Retrieved all synsets and synonyms from the question 
+  * @param question
+  * @return
+  */
   private List<String> getQuestionTerms(ExpandedQuestion question) 
   {
     ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);

@@ -83,8 +83,12 @@ public class EvaluatedSnippet extends EvaluatedItem {
     double passageF = calcF(passagePrecision, passageRecall);
     double passageAP = calcAPForSnippets(goldArticleOffsetPairs, retrievedArticleOffsetPairs);
 
-    if(!allRecalledArticleOffsetPairsList.isEmpty() || !goldArticleOffsetPairs.isEmpty()) super.getAveragePrecision().add(passageAP);
-    
+    if((!allRecalledArticleOffsetPairsList.isEmpty()) || !goldArticleOffsetPairs.isEmpty()) {
+      getAveragePrecision().add(passageAP);
+      this.getAllPrecisions().add(passagePrecision);
+      this.getAllRecalls().add(passageRecall);
+      this.getAllFScores().add(passageF);
+    }
     try {
       super.printQueryStats(passagePrecision, passageRecall, passageF, passageAP, "snippet");
     } catch (IOException e) {

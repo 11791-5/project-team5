@@ -1,5 +1,6 @@
 package edu.cmu.lti.oaqa.evaluation;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,11 @@ import edu.stanford.nlp.util.CollectionUtils;
  */
 public abstract class EvaluatedItem {
   private ArrayList<Double> averagePrecision = new ArrayList<Double>();
+  private ArrayList<Double> allPrecisions = new ArrayList<Double>();
+  private ArrayList<Double> allRecalls = new ArrayList<Double>();
+  private ArrayList<Double> allFScores = new ArrayList<Double>();
   private FileWriter writer;
+  private FileWriter exactAnswerWriter = null;
 
   private String itemType;
 
@@ -68,6 +73,12 @@ public abstract class EvaluatedItem {
    * @param writer
    */
   public EvaluatedItem(FileWriter writer) {
+    try {
+      this.setExactAnswerWriter(new FileWriter(new File("exactAnswerResults.txt")));
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
     this.setWriter(writer);
   }
   
@@ -101,11 +112,21 @@ public abstract class EvaluatedItem {
     List<Object> itemObjects = Utils.extractUIMATypeAsList(
             this.getItemTypeId(), aJCas);
     toBeEvaluated = getEvaluatedItemsAsList(itemObjects);
+    if(EvaluatedItem.this instanceof EvaluatedExactAnswer) {
+      ((EvaluatedExactAnswer)this).getExactAnswerWriter().write("Gold standard for question "+queryId + ":"+ goldStandard+"\n");
+      ((EvaluatedExactAnswer)this).getExactAnswerWriter().write("Hypothesis for question "+queryId + ":"+ toBeEvaluated+"\n");
+      ((EvaluatedExactAnswer)this).getExactAnswerWriter().flush();
+    }
     double precision = getPrecision(toBeEvaluated, goldStandard);
     double recall = getRecall(toBeEvaluated, goldStandard);
     double fScore = calcF(precision, recall);
     double itemAveragePrecision = calcAP(goldStandard, toBeEvaluated);
-    if((!goldStandard.isEmpty()) || !itemObjects.isEmpty()) getAveragePrecision().add(itemAveragePrecision);
+    if((!goldStandard.isEmpty()) || !itemObjects.isEmpty()) {
+      getAveragePrecision().add(itemAveragePrecision);
+      this.getAllPrecisions().add(precision);
+      this.getAllRecalls().add(recall);
+      this.getAllFScores().add(fScore);
+    }
     try {
       printQueryStats(precision, recall, fScore, itemAveragePrecision, this.getItemType());
     } catch (IOException e) {
@@ -237,5 +258,37 @@ public abstract class EvaluatedItem {
 
   public void setWriter(FileWriter writer) {
     this.writer = writer;
+  }
+
+  public ArrayList<Double> getAllPrecisions() {
+    return allPrecisions;
+  }
+
+  public void setAllPrecisions(ArrayList<Double> allPrecisions) {
+    this.allPrecisions = allPrecisions;
+  }
+
+  public ArrayList<Double> getAllRecalls() {
+    return allRecalls;
+  }
+
+  public void setAllRecalls(ArrayList<Double> allRecalls) {
+    this.allRecalls = allRecalls;
+  }
+
+  public ArrayList<Double> getAllFScores() {
+    return allFScores;
+  }
+
+  public void setAllFScores(ArrayList<Double> allFScores) {
+    this.allFScores = allFScores;
+  }
+
+  public FileWriter getExactAnswerWriter() {
+    return exactAnswerWriter;
+  }
+
+  public void setExactAnswerWriter(FileWriter exactAnswerWriter) {
+    this.exactAnswerWriter = exactAnswerWriter;
   }
 }

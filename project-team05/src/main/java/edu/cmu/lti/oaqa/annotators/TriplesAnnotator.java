@@ -16,13 +16,14 @@ import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
 
+/** 
+ *  Annotate the triples (subject, predicate,object) from the LinkedLifeDataService
+ */
+
 public class TriplesAnnotator  extends JCasAnnotator_ImplBase
 {
 
   @Override
-  /**
-   * 
-   */
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
 
     FSIterator<Annotation> questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();

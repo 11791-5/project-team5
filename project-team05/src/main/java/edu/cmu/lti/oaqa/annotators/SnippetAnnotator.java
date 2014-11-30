@@ -1,5 +1,7 @@
 package edu.cmu.lti.oaqa.annotators;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import json.gson.Snippet;
 
+import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
@@ -28,6 +31,15 @@ import edu.cmu.lti.oaqa.type.retrieval.Synonym;
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 
+/**
+ * SnippetAnntator was used to extract the snippets from documents annotators
+ * Two types of methods are being used 
+ * 1. Windows-based
+ * 2. Sentence-based
+ * 
+ * @author chaohunc
+ *
+ */
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
   private static final int SnippetRetrievedNum = 1000;
@@ -57,7 +69,27 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
     }
   }
 
-  @Override
+  FileWriter snippetWriter = null;
+
+  File snippet = new File("snippetResults.txt");
+
+  public void initialize(UimaContext u) {
+    try {
+      snippetWriter = new FileWriter(snippet);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void collectionProcessComplete() {
+    try {
+      snippetWriter.flush();
+      snippetWriter.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   public void process(JCas jcas) throws AnalysisEngineProcessException {
     FSIterator<Annotation> questions = jcas.getAnnotationIndex(ExpandedQuestion.type).iterator();
 
@@ -93,6 +125,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       if (documentItems != null && !documentItems.isEmpty()) {
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
 
+        //iterate for each document to get the snippet from the document 
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
 
           List<String> text = null;
@@ -106,7 +139,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             e.printStackTrace();
           }
 
-          // concept matching?
           for (int i = 0; i < 1; i++) {
             int offsetPtr = 0;
             if (docText == null)
@@ -181,11 +213,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 }
                 if (conceptMatch >= MinConceptMatch) {
                   SimilarityMeasures sm = new SimilarityMeasures();
-
                   double score = sm.getSimilarity(sentenceTokens, synonymList);
                   Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(), sentence,
                           offsetPtr, offsetPtr + sentence.length(), nowSection, nowSection);
-
                   snippetList.add(s);
                 }
                 offsetPtr = offsetPtr + sentence.length();
@@ -198,13 +228,19 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
         for (Snippet snippet : snippetList) {
           SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
+         try {
+            snippetWriter.write("Q:" + question.getText() + " Document:" + snippet.getDocument()
+                    + " offsetBegin: " + snippet.getOffsetInBeginSection() + " offsetEnd: "
+                    + snippet.getOffsetInEndSection() + " A: " + snippet.getText() + "\n");
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+
 
           snippetSearchResult.setSnippets(createPassage(snippet, jcas));
           rankThreshold++;
-
           snippetSearchResult.setQuestionsSyn(Utils.createStringList(jcas, synonymList));
           snippetSearchResult.addToIndexes();
-
           if (rankThreshold > SnippetRetrievedNum)
             break;
         }
