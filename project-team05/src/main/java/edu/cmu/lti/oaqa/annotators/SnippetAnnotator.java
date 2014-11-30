@@ -44,9 +44,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
   private static final int WINDOWS_MODE = 2;
 
-  private static final int WindowsSize = 6;
+  private static final int WindowsSize = 20;
 
-  private static final int NumOfShift = 20;
+  private static final int NumOfShift = 6;
 
   int NOW_MODE = 2;
 
