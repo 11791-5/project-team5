@@ -42,6 +42,7 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
  */
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
+
   private static final int SnippetRetrievedNum = 200;
 
   public static final String PUBMED_URL = "http://www.ncbi.nlm.nih.gov/pubmed/";

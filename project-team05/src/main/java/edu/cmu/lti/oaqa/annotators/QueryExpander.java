@@ -25,6 +25,14 @@ import edu.cmu.lti.oaqa.type.retrieval.Synonym;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
 
+
+/**
+ * Expand the query from UMLS and remove the stopwords
+ * 
+ * 
+ * @author chaohunc
+ *
+ */
 public class QueryExpander extends JCasAnnotator_ImplBase {
 
   @Override
