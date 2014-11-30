@@ -20,6 +20,9 @@ public class TriplesAnnotator  extends JCasAnnotator_ImplBase
 {
 
   @Override
+  /**
+   * 
+   */
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
 
     FSIterator<Annotation> questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();
@@ -28,6 +31,9 @@ public class TriplesAnnotator  extends JCasAnnotator_ImplBase
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
       ArrayList<SynSet> synSets = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
       String questionText = Utils.getQueryTokens(synSets);
+
+      // if the type of question is yes/no,  query the LinkedLifeDataService
+      
       if("YES_NO".equals(question.getQuestionType()))
       {
         LinkedLifeDataServiceResponse.Result linkedLifeDataResult = GoPubMedServiceSingleton.getService().getTriples(questionText);
