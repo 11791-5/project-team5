@@ -204,6 +204,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 String sentence = sentenceBuf.toString();
                 List<String> sentenceTokens;
                 sentenceTokens = new ArrayList<String>();
+                for (String str: sentence.split(" "))
+                  sentenceTokens.add(str);
+                
                 StringBuffer wholeSentence = new StringBuffer();
                 int conceptMatch = 0;
 
@@ -219,11 +222,12 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                     }
                   }
                 }
-                System.out.println(conceptMatch + " " + sentence);
+                System.out.println(conceptMatch + " X " + sentence);
                 if (conceptMatch >= MinConceptMatch) {
                   SimilarityMeasures sm = new SimilarityMeasures();
+                  
                   double score = sm.getSimilarity(sentenceTokens, synonymList);
-
+                  System.out.println(score+" !!!");
                   Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
                           sentence, offsetPtr, offsetPtr + sentence.length(),
                           nowSection, nowSection);
