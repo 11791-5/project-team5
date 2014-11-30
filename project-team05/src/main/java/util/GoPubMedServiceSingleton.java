@@ -33,6 +33,10 @@ public class GoPubMedServiceSingleton
     this.goPubMedService = goPubMedService;
   }
 
+  /**
+   * Get service
+   * @return
+   */
   public static GoPubMedServiceSingleton getService() 
   {
     if (instance == null)
@@ -45,6 +49,9 @@ public class GoPubMedServiceSingleton
     return instance;
   } 
   
+  /*
+   * 
+   */
   public List<OntologyServiceResponse.Result> fetchDiseaseEntities(String text)
   {
     List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
@@ -60,6 +67,11 @@ public class GoPubMedServiceSingleton
     return resutList;
   }
   
+  /**
+   * Fetch Gene entities
+   * @param text
+   * @return
+   */
   public List<OntologyServiceResponse.Result> fetchGeneEntities(String text)
   {
     List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
@@ -75,6 +87,11 @@ public class GoPubMedServiceSingleton
     return resutList;
   }
   
+  /**
+   * Fetch JoChem entities
+   * @param text
+   * @return
+   */
   public List<OntologyServiceResponse.Result> fetchJoChemEntities(String text)
   {
     List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
@@ -90,6 +107,11 @@ public class GoPubMedServiceSingleton
     return resutList;
   }
   
+  /**
+   * Fetch Mesh entities
+   * @param text
+   * @return
+   */
   public List<OntologyServiceResponse.Result> fetchMeshEntities(String text)
   {
     List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
@@ -105,6 +127,11 @@ public class GoPubMedServiceSingleton
     return resutList;
   }
   
+  /**
+   * Fetch Unit Pro Entities
+   * @param text
+   * @return
+   */
   public List<OntologyServiceResponse.Result> fetchUnitProEntities(String text)
   {
     List<OntologyServiceResponse.Result> resutList = new ArrayList<OntologyServiceResponse.Result>();
@@ -119,6 +146,13 @@ public class GoPubMedServiceSingleton
     }
     return resutList;
   }
+  
+  /**
+   * Get concepts
+   * @param text
+   * @param ontologies
+   * @return
+   */
   public List<OntologyServiceResponse.Result> getConcepts(String text, List<Integer> ontologies) 
  {
 
@@ -154,6 +188,12 @@ public class GoPubMedServiceSingleton
     return resutList;
 
   }
+  
+  /**
+   * Get Documents
+   * @param text
+   * @return
+   */
   public PubMedSearchServiceResponse.Result getDocuments(String text) 
   {
     PubMedSearchServiceResponse.Result pubmedResult = null;
@@ -165,6 +205,11 @@ public class GoPubMedServiceSingleton
     return pubmedResult;
   }
 
+  /**
+   * Get triples
+   * @param questionText
+   * @return
+   */
   public LinkedLifeDataServiceResponse.Result getTriples(String questionText) {
     LinkedLifeDataServiceResponse.Result linkedLifeDataResult = null;
     try {

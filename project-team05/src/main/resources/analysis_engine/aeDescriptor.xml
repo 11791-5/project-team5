@@ -37,8 +37,8 @@
 				<node>QueryExpander</node>
 				<node>TriplesAnnotatorDescriptor</node>
 				<node>ConceptAnnotatorDescriptor</node>
-				<node>SnippetAE</node>
 				<node>DocumentAE</node>
+				<node>SnippetAE</node>
 				<node>AnswerAE</node>
 				<node>Evaluator</node>
 			</fixedFlow>
