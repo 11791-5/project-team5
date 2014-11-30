@@ -16,7 +16,6 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.Progress;
 
-import edu.cmu.lti.oaqa.annotators.GeneChunker;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 
 public class CollectionReader extends CollectionReader_ImplBase {
@@ -53,8 +52,7 @@ public class CollectionReader extends CollectionReader_ImplBase {
       throw new ResourceInitializationException("File Not Found",
               new Object[] { PARAM_INPUT_FILE, this.getMetaData().getName(), inputFile.getPath() });
     }
-    // NBestGeneChunker.getInstance().setTrainedGeneERModel((ConfidenceChunker) AbstractExternalizable.readResourceObject(CollectionReader.class, (String) getConfigParameterValue(PARAM_MODEL_FILE)));
-    GeneChunker.getInstance().setModelFile((String) getConfigParameterValue(PARAM_MODEL_FILE));
+
     jsonReader = new JsonCollectionReaderHelper();
     inputs = jsonReader.getQuestionsList("/"+inputFile.getName());
     

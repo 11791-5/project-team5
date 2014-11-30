@@ -1,5 +1,6 @@
 package util;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 public class AnswerExtractor {
 
@@ -33,15 +36,12 @@ public class AnswerExtractor {
 
   private static Map<Integer, String> getTopAnswers(TreeMap<String, Integer> rankedPotentialAnswers) {
     Map<Integer, String> topAnswers = new HashMap<Integer, String>();
-    double sum = 0;
-    for (Integer freq : rankedPotentialAnswers.values())
-      sum += freq;
-    double threhold = sum / rankedPotentialAnswers.keySet().size();
+
     int rank = 1;
     for (Entry<String, Integer> answer : rankedPotentialAnswers.entrySet()) {
       String answerString = answer.getKey();
       Integer value = answer.getValue();
-      if (value > 0.9*threhold || value < threhold)
+      if (value > 1)
         topAnswers.put(rank++, answerString);
     }
     return topAnswers;
