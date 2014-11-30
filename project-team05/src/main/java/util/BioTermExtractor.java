@@ -54,34 +54,11 @@ public class BioTermExtractor {
       String token = term.originalText();// pos.contains("NN") &&
 
       if (pos.contains("NN") && !StopWordSingleton.getInstance().isStopWord(token)) {
-        if (checkIsBiological(token)) {
-          bioTerms.add(token.toLowerCase());
-        } else {
-          System.out.println("not biological : " + token);
-        }
+        bioTerms.add(token.toLowerCase());
       }
     }
 
     return bioTerms;
-  }
-
-  private static boolean checkIsBiological(String token) {
-    boolean isBiological = false;
-    List<Integer> ontologies = new ArrayList<Integer>();
-    ontologies.add(GoPubMedServiceSingleton.DISEASE_ONTOLOGY);
-    ontologies.add(GoPubMedServiceSingleton.UNIT_PRO_ONTOLOGY);
-    ontologies.add(GoPubMedServiceSingleton.JOCHEM_ONTOLOGY);
-    ontologies.add(GoPubMedServiceSingleton.MESH_ONTOLOGY);
-    List<OntologyServiceResponse.Result> resultList = GoPubMedServiceSingleton.getService()
-            .getConcepts(token, ontologies);
-    for (OntologyServiceResponse.Result resultResponse : resultList) {
-      // if any of the responses come back with a concept
-      // based on the given term, assume it's biologicals
-      if (!resultResponse.getFindings().isEmpty()) {
-        isBiological = true;
-      }
-    }
-    return isBiological;
   }
 
   private static HashSet<String> populateMap(List<String> questionTerms) {
