@@ -120,12 +120,15 @@ public class Utils {
     return list;
   }
 
+  /**
+   * Get the Query tokens
+   * @param synSets
+   * @return
+   */
   public static String getQueryTokens(ArrayList<SynSet> synSets) {
     StringBuffer queryString = new StringBuffer();
     for (SynSet synSet : synSets)
       queryString.append(synSet.getOriginalToken() + " ");
-    // ArrayList<Synonym> synonyms =
-    // Utils.fromFSListToCollection(synSet.getSynonyms(),Synonym.class);
     return queryString.toString();
   }
 
@@ -144,6 +147,10 @@ public class Utils {
     return itemList;
   }
 
+  /**
+   * Remove type from indeces
+   * @param typeIterator
+   */
   public static void removeTypeFromIndeces(FSIterator<TOP> typeIterator) {
     List<TOP> itemsToRemove = new ArrayList<TOP>();
     while (typeIterator.hasNext()) {
@@ -156,6 +163,12 @@ public class Utils {
     }
   }
   
+  /**
+   * Round value
+   * @param value
+   * @param places
+   * @return
+   */
   public static double round(double value, int places) {
     if (places < 0) throw new IllegalArgumentException();
 
