@@ -4,25 +4,25 @@
 	<primitive>false</primitive>
 	<delegateAnalysisEngineSpecifiers>
 		<delegateAnalysisEngine key="ConceptAnnotatorDescriptor">
-			<import name="annotators.ConceptAnnotatorDescriptor" />
+			<import name="bioasq.annotators.ConceptAnnotatorDescriptor" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="TriplesAnnotatorDescriptor">
-			<import name="annotators.TriplesAnnotatorDescriptor" />
+			<import name="bioasq.annotators.TriplesAnnotatorDescriptor" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="QueryExpander">
-			<import name="annotators.QueryExpander" />
+			<import name="bioasq.annotators.QueryExpander" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="Evaluator">
-			<import name="annotators.Evaluator" />
+			<import name="bioasq.annotators.Evaluator" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="AnswerAE">
-			<import name="annotators.AnswerAE" />
+			<import name="bioasq.annotators.AnswerAE" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="DocumentAE">
-			<import name="annotators.DocumentAE" />
+			<import name="bioasq.annotators.DocumentAE" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="SnippetAE">
-			<import name="annotators.SnippetAE" />
+			<import name="bioasq.annotators.SnippetAE" />
 		</delegateAnalysisEngine>
 	</delegateAnalysisEngineSpecifiers>
 	<analysisEngineMetaData>

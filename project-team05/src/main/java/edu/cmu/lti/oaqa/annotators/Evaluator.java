@@ -44,8 +44,8 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   File evaluation = new File("evaluation.txt");
 
   /**
-   * Initialize the evaluation file used to store all results
-   * and the individual evaluators used in the pipeline.
+   * Initialize the evaluation file used to store all results and the individual evaluators used in
+   * the pipeline.
    */
   public void initialize(UimaContext u) throws ResourceInitializationException {
     super.initialize(u);
@@ -62,8 +62,7 @@ public class Evaluator extends JCasAnnotator_ImplBase {
   }
 
   /**
-   * For a given question (there should only be 1 at any given 
-   * time), evaluate all system output.
+   * For a given question (there should only be 1 at any given time), evaluate all system output.
    */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
@@ -151,45 +150,40 @@ public class Evaluator extends JCasAnnotator_ImplBase {
    */
   @Override
   public void collectionProcessComplete() {
-    calcAndPrintFinalStatsForType("concept", evaluatedConcept.getAveragePrecision());
-    calcAndPrintFinalStatsForType("document", evaluatedDocument.getAveragePrecision());
-    calcAndPrintFinalStatsForType("snippet", evaluatedSnippet.getAveragePrecision());
-    calcAndPrintFinalStatsForType("exact answer", evaluatedExactAnswer.getAveragePrecision());
-
     try {
+      calcAndPrintAverages("concept", evaluatedConcept.getAllPrecisions(),
+              evaluatedConcept.getAllRecalls(), evaluatedConcept.getAllFScores(),
+              evaluatedConcept.getAveragePrecision());
+      calcAndPrintAverages("document", evaluatedDocument.getAllPrecisions(),
+              evaluatedDocument.getAllRecalls(), evaluatedDocument.getAllFScores(),
+              evaluatedDocument.getAveragePrecision());
+      calcAndPrintAverages("snippet", evaluatedSnippet.getAllPrecisions(),
+              evaluatedSnippet.getAllRecalls(), evaluatedSnippet.getAllFScores(),
+              evaluatedSnippet.getAveragePrecision());
+      calcAndPrintAverages("exact answer", evaluatedExactAnswer.getAllPrecisions(),
+              evaluatedExactAnswer.getAllRecalls(), evaluatedExactAnswer.getAllFScores(),
+              evaluatedExactAnswer.getAveragePrecision());
       evaluationWriter.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  /**
-   * Calculate arithmetic and geometric mean for a list of 
-   * values and print the final evaluation results.
-   * @param type
-   * @param typeVals
-   */
-  private void calcAndPrintFinalStatsForType(String type, ArrayList<Double> typeVals) {
-    double typeMap = calcArithmeticAvg(typeVals);
-    double typeGmap = calculateGeomAvg(typeVals);
-    try {
-      printFinalStats(typeMap, typeGmap, type);
     } catch (IOException e1) {
+      // TODO Auto-generated catch block
       e1.printStackTrace();
     }
   }
 
-  /**
-   * Prints final stats for the given type.
-   * 
-   * @param map
-   * @param gmap
-   * @param type
-   * @throws IOException
-   */
-  private void printFinalStats(double map, double gmap, String type) throws IOException {
-    evaluationWriter.write((String.format("%s MAP: %f\n", type, map)));
-    evaluationWriter.write((String.format("%s GMAP: %f\n", type, gmap)));
+  private void calcAndPrintAverages(String type, ArrayList<Double> averagePrecisions,
+          ArrayList<Double> averageRecalls, ArrayList<Double> averageFScores, ArrayList<Double> aPs)
+          throws IOException {
+    double meanOfPrecisions = calcArithmeticAvg(averagePrecisions);
+    evaluationWriter.write((String.format("%s Mean of Precisions: %f\n", type, meanOfPrecisions)));
+    double meanOfRecalls = calcArithmeticAvg(averageRecalls);
+    evaluationWriter.write((String.format("%s Mean of Recalls: %f\n", type, meanOfRecalls)));
+    double meanOfFScores = calcArithmeticAvg(averageFScores);
+    evaluationWriter.write((String.format("%s Mean of FScores: %f\n", type, meanOfFScores)));
+
+    double typeMap = calcArithmeticAvg(aPs);
+    double typeGmap = calculateGeomAvg(aPs);
+    evaluationWriter.write((String.format("%s MAP: %f\n", type, typeMap)));
+    evaluationWriter.write((String.format("%s GMAP: %f\n", type, typeGmap)));
   }
 
 }

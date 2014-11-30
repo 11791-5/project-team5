@@ -3,14 +3,14 @@
 	<collectionReader>
 		<collectionIterator>
 			<descriptor>
-				<import location="src/main/resources/collection-reader/CollectionReader.xml" />
+				<import location="bioasq/collection-reader/CollectionReader.xml" />
 			</descriptor>
 		</collectionIterator>
 	</collectionReader>
 	<casProcessors casPoolSize="3" processingUnitThreadCount="1">
 		<casProcessor deployment="integrated" name="FeatureExtractorDescriptor">
 			<descriptor>
-				<import location="src/main/resources/analysis_engine/aeDescriptor.xml" />
+				<import location="bioasq/analysis_engine/aeDescriptor.xml" />
 			</descriptor>
 			<deploymentParameters />
 			<errorHandling>
@@ -23,7 +23,7 @@
 		</casProcessor>
 		<casProcessor deployment="integrated" name="Xmi Writer CAS Consumer">
 			<descriptor>
-				<import location="src/main/resources/cas_consumer/CasConsumer.xml" />
+				<import location="bioasq/cas_consumer/CasConsumer.xml" />
 			</descriptor>
 			<deploymentParameters />
 			<errorHandling>

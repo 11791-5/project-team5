@@ -22,6 +22,9 @@ import edu.stanford.nlp.util.CollectionUtils;
  */
 public abstract class EvaluatedItem {
   private ArrayList<Double> averagePrecision = new ArrayList<Double>();
+  private ArrayList<Double> allPrecisions = new ArrayList<Double>();
+  private ArrayList<Double> allRecalls = new ArrayList<Double>();
+  private ArrayList<Double> allFScores = new ArrayList<Double>();
   private FileWriter writer;
 
   private String itemType;
@@ -105,7 +108,12 @@ public abstract class EvaluatedItem {
     double recall = getRecall(toBeEvaluated, goldStandard);
     double fScore = calcF(precision, recall);
     double itemAveragePrecision = calcAP(goldStandard, toBeEvaluated);
-    if((!goldStandard.isEmpty()) || !itemObjects.isEmpty()) getAveragePrecision().add(itemAveragePrecision);
+    if((!goldStandard.isEmpty()) || !itemObjects.isEmpty()) {
+      getAveragePrecision().add(itemAveragePrecision);
+      this.getAllPrecisions().add(precision);
+      this.getAllRecalls().add(recall);
+      this.getAllFScores().add(fScore);
+    }
     try {
       printQueryStats(precision, recall, fScore, itemAveragePrecision, this.getItemType());
     } catch (IOException e) {
@@ -237,5 +245,29 @@ public abstract class EvaluatedItem {
 
   public void setWriter(FileWriter writer) {
     this.writer = writer;
+  }
+
+  public ArrayList<Double> getAllPrecisions() {
+    return allPrecisions;
+  }
+
+  public void setAllPrecisions(ArrayList<Double> allPrecisions) {
+    this.allPrecisions = allPrecisions;
+  }
+
+  public ArrayList<Double> getAllRecalls() {
+    return allRecalls;
+  }
+
+  public void setAllRecalls(ArrayList<Double> allRecalls) {
+    this.allRecalls = allRecalls;
+  }
+
+  public ArrayList<Double> getAllFScores() {
+    return allFScores;
+  }
+
+  public void setAllFScores(ArrayList<Double> allFScores) {
+    this.allFScores = allFScores;
   }
 }
