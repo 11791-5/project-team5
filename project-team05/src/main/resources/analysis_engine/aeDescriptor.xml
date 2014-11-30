@@ -4,67 +4,52 @@
 	<primitive>false</primitive>
 	<delegateAnalysisEngineSpecifiers>
 		<delegateAnalysisEngine key="ConceptAnnotatorDescriptor">
-			<import name="annotators.ConceptAnnotatorDescriptor"/>
+			<import name="annotators.ConceptAnnotatorDescriptor" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="TriplesAnnotatorDescriptor">
-			<import name="annotators.TriplesAnnotatorDescriptor"/>
+			<import name="annotators.TriplesAnnotatorDescriptor" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="QueryExpander">
-			<import name="annotators.QueryExpander"/>
-		</delegateAnalysisEngine>
-		<delegateAnalysisEngine key="QueryRefiner">
-			<import name="annotators.QueryRefiner"/>
+			<import name="annotators.QueryExpander" />
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="Evaluator">
-			<import name="annotators.Evaluator"/>
+			<import name="annotators.Evaluator" />
 		</delegateAnalysisEngine>
-		<delegateAnalysisEngine key="RefinedAnswerAE">
-			<import name="annotators.RefinedAnswerAE"/>
-    </delegateAnalysisEngine>
-		<delegateAnalysisEngine key="RefinedDocumentAnnotatorDescriptor">
-			<import name="annotators.RefinedDocumentAnnotatorDescriptor"/>
-    </delegateAnalysisEngine>
-		<delegateAnalysisEngine key="RefinedSnippetAE">
-			<import name="annotators.RefinedSnippetAE"/>
-    </delegateAnalysisEngine>
-	<delegateAnalysisEngine key="BasicAnswerAE">
-      <import name="annotators.BasicAnswerAE"/>
-    </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="BasicDocumentAnnotatorDescriptor">
-      <import name="annotators.BasicDocumentAnnotatorDescriptor"/>
-    </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="BasicSnippetAE">
-      <import name="annotators.BasicSnippetAE"/>
-    </delegateAnalysisEngine>
-  </delegateAnalysisEngineSpecifiers>
+		<delegateAnalysisEngine key="AnswerAE">
+			<import name="annotators.AnswerAE" />
+		</delegateAnalysisEngine>
+		<delegateAnalysisEngine key="DocumentAE">
+			<import name="annotators.DocumentAE" />
+		</delegateAnalysisEngine>
+		<delegateAnalysisEngine key="SnippetAE">
+			<import name="annotators.SnippetAE" />
+		</delegateAnalysisEngine>
+	</delegateAnalysisEngineSpecifiers>
 	<analysisEngineMetaData>
 		<name>FeatureExtractorDescriptor</name>
-		<description/>
+		<description />
 		<version>1.0</version>
-		<vendor/>
-		<configurationParameters searchStrategy="language_fallback"/>
-		<configurationParameterSettings/>
+		<vendor />
+		<configurationParameters searchStrategy="language_fallback" />
+		<configurationParameterSettings />
 		<flowConstraints>
 			<fixedFlow>
-        <node>QueryExpander</node>
-        <node>ConceptAnnotatorDescriptor</node>
-        <node>BasicDocumentAnnotatorDescriptor</node>
-        <node>BasicSnippetAE</node>
-        <node>BasicAnswerAE</node>
-        <node>QueryRefiner</node>
-        <node>RefinedDocumentAnnotatorDescriptor</node>
-        <node>RefinedSnippetAE</node>
-        <node>RefinedAnswerAE</node>
-        <node>Evaluator</node>
-        </fixedFlow>
-    </flowConstraints>
-		<typePriorities/>
-    <fsIndexCollection/>
+				<node>QueryExpander</node>
+				<node>TriplesAnnotatorDescriptor</node>
+				<node>ConceptAnnotatorDescriptor</node>
+				<node>SnippetAE</node>
+				<node>DocumentAE</node>
+				<node>AnswerAE</node>
+				<node>Evaluator</node>
+			</fixedFlow>
+		</flowConstraints>
+		<typePriorities />
+		<fsIndexCollection />
 		<capabilities>
 			<capability>
-				<inputs/>
-				<outputs/>
-				<languagesSupported/>
+				<inputs />
+				<outputs />
+				<languagesSupported />
 			</capability>
 		</capabilities>
 		<operationalProperties>
@@ -73,5 +58,5 @@
 			<outputsNewCASes>false</outputsNewCASes>
 		</operationalProperties>
 	</analysisEngineMetaData>
-	<resourceManagerConfiguration/>
+	<resourceManagerConfiguration />
 </analysisEngineDescription>
