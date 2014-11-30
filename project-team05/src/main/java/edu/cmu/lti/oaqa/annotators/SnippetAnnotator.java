@@ -93,6 +93,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       if (documentItems != null && !documentItems.isEmpty()) {
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
 
+        //iterate for each document to get the snippet from the document 
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
 
           List<String> text = null;
@@ -106,7 +107,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             e.printStackTrace();
           }
 
-          // concept matching?
           for (int i = 0; i < 1; i++) {
             int offsetPtr = 0;
             if (docText == null)
@@ -181,11 +181,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 }
                 if (conceptMatch >= MinConceptMatch) {
                   SimilarityMeasures sm = new SimilarityMeasures();
-
                   double score = sm.getSimilarity(sentenceTokens, synonymList);
                   Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(), sentence,
                           offsetPtr, offsetPtr + sentence.length(), nowSection, nowSection);
-
                   snippetList.add(s);
                 }
                 offsetPtr = offsetPtr + sentence.length();
@@ -198,13 +196,10 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
         for (Snippet snippet : snippetList) {
           SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
-
           snippetSearchResult.setSnippets(createPassage(snippet, jcas));
           rankThreshold++;
-
           snippetSearchResult.setQuestionsSyn(Utils.createStringList(jcas, synonymList));
           snippetSearchResult.addToIndexes();
-
           if (rankThreshold > SnippetRetrievedNum)
             break;
         }
