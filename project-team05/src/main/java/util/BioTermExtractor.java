@@ -12,8 +12,17 @@ import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
 
+/**
+ * BioTerm Extractor
+ *
+ */
 public class BioTermExtractor {
 
+  /**
+   * Get BioTerms
+   * @param text
+   * @return
+   */
   public static HashSet<String> getBioTerms(String text) {
 
     String[][] result = AbnerTagger.getInstance().getTagger().getEntities(text);
@@ -36,6 +45,11 @@ public class BioTermExtractor {
     return bioTerms;
   }
 
+  /**
+   * Populate MAP
+   * @param questionTerms
+   * @return
+   */
   private static HashSet<String> populateMap(List<String> questionTerms) {
     HashSet<String> bioTerms = new HashSet<String>();
     for (String term : questionTerms)

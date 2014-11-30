@@ -1,10 +1,10 @@
 
 
 Query id: 5133b9455274a5fb0700000c
-concept precision: 0.043478
-concept recall: 0.222222
-concept f score: 0.072727
-concept average precision: 0.392857
+concept precision: 0.000000
+concept recall: 0.000000
+concept f score: 0.000000
+concept average precision: 0.000000
 
 document precision: 0.000000
 document recall: 0.000000
@@ -16,18 +16,18 @@ snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
+Exact Answer precision: 0.001838
+Exact Answer recall: 1.000000
+Exact Answer f score: 0.003670
+Exact Answer average precision: 0.001589
 
 
 
 Query id: 513f45abbee46bd34c000013
-concept precision: 0.012500
-concept recall: 0.333333
-concept f score: 0.024096
-concept average precision: 1.000000
+concept precision: 0.000000
+concept recall: 0.000000
+concept f score: 0.000000
+concept average precision: 0.000000
 
 document precision: 0.000000
 document recall: 0.000000
@@ -39,10 +39,10 @@ snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
+Exact Answer precision: 0.000000
+Exact Answer recall: 0.000000
+Exact Answer f score: 0.000000
+Exact Answer average precision: 0.000000
 
 
 
@@ -62,37 +62,106 @@ snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
+Exact Answer precision: 0.001359
+Exact Answer recall: 0.333333
+Exact Answer f score: 0.002706
+Exact Answer average precision: 0.000000
 
 
 
 Query id: 5149199dd24251bc05000040
-concept precision: 0.076923
-concept recall: 0.200000
-concept f score: 0.111111
-concept average precision: 0.090909
+concept precision: 0.000000
+concept recall: 0.000000
+concept f score: 0.000000
+concept average precision: 0.000000
 
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
+document precision: 0.030000
+document recall: 0.500000
+document f score: 0.056604
+document average precision: 0.037637
 
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
+snippet precision: 0.010904
+snippet recall: 0.513382
+snippet f score: 0.021355
+snippet average precision: 0.016496
 
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
+Exact Answer precision: 0.002732
+Exact Answer recall: 1.000000
+Exact Answer f score: 0.005450
+Exact Answer average precision: 0.002197
 
 
 
 Query id: 515bd543298dcd4e51000001
+concept precision: 0.000000
+concept recall: 0.000000
+concept f score: 0.000000
+concept average precision: 0.000000
+
+document precision: 0.285714
+document recall: 0.500000
+document f score: 0.363636
+document average precision: 0.264484
+
+snippet precision: 0.010742
+snippet recall: 0.136884
+snippet f score: 0.019920
+snippet average precision: 0.011343
+
+Exact Answer precision: 0.009662
+Exact Answer recall: 1.000000
+Exact Answer f score: 0.019139
+Exact Answer average precision: 0.000000
+
+
+
+Query id: 515bf6d6298dcd4e51000004
+concept precision: 0.000000
+concept recall: 0.000000
+concept f score: 0.000000
+concept average precision: 0.000000
+
+document precision: 0.017391
+document recall: 0.333333
+document f score: 0.033058
+document average precision: 0.016311
+
+snippet precision: 0.002039
+snippet recall: 0.149049
+snippet f score: 0.004024
+snippet average precision: 0.089884
+
+Exact Answer precision: 0.000000
+Exact Answer recall: 0.000000
+Exact Answer f score: 0.000000
+Exact Answer average precision: 0.000000
+
+
+
+Query id: 515ffc2b298dcd4e51000035
+concept precision: 0.000000
+concept recall: 0.000000
+concept f score: 0.000000
+concept average precision: 0.000000
+
+document precision: 0.087719
+document recall: 0.384615
+document f score: 0.142857
+document average precision: 0.218243
+
+snippet precision: 0.007236
+snippet recall: 0.327191
+snippet f score: 0.014160
+snippet average precision: 0.006624
+
+Exact Answer precision: 0.000000
+Exact Answer recall: 0.000000
+Exact Answer f score: 0.000000
+Exact Answer average precision: 0.000000
+
+
+
+Query id: 5160412d298dcd4e5100003c
 concept precision: 0.000000
 concept recall: 0.000000
 concept f score: 0.000000
@@ -108,85 +177,16 @@ snippet recall: 0.000000
 snippet f score: 0.000000
 snippet average precision: 0.000000
 
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
+Exact Answer precision: 0.000000
+Exact Answer recall: 0.000000
+Exact Answer f score: 0.000000
+Exact Answer average precision: 0.000000
 
-
-
-Query id: 515bf6d6298dcd4e51000004
-concept precision: 0.009091
-concept recall: 0.500000
-concept f score: 0.017857
-concept average precision: 0.076923
-
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
-
-
-
-Query id: 515ffc2b298dcd4e51000035
-concept precision: 0.033333
-concept recall: 0.200000
-concept f score: 0.057143
-concept average precision: 1.000000
-
-document precision: 1.000000
-document recall: 0.076923
-document f score: 0.142857
-document average precision: 1.000000
-
-snippet precision: 0.056034
-snippet recall: 0.024445
-snippet f score: 0.034040
-snippet average precision: 0.127945
-
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
-
-
-
-Query id: 5160412d298dcd4e5100003c
-concept precision: 0.214286
-concept recall: 0.500000
-concept f score: 0.300000
-concept average precision: 0.377778
-
-document precision: 0.000000
-document recall: 0.000000
-document f score: 0.000000
-document average precision: 0.000000
-
-snippet precision: 0.000000
-snippet recall: 0.000000
-snippet f score: 0.000000
-snippet average precision: 0.000000
-
-exact answer precision: 0.000000
-exact answer recall: 0.000000
-exact answer f score: 0.000000
-exact answer average precision: 0.000000
-
-concept MAP: 0.367308
-concept GMAP: 0.001340
-document MAP: 0.125000
-document GMAP: 0.000000
-snippet MAP: 0.015993
-snippet GMAP: 0.000000
-exact answer MAP: 0.000000
+concept MAP: 0.000000
+concept GMAP: 0.000000
+document MAP: 0.067085
+document GMAP: 0.000003
+snippet MAP: 0.015543
+snippet GMAP: 0.000001
+exact answer MAP: 0.000473
 exact answer GMAP: 0.000000

@@ -99,6 +99,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       String query = "";
       ArrayList<ArrayList<String>> synonymListByGroup = new ArrayList<ArrayList<String>>();
       ArrayList<String> synonymList = new ArrayList<String>();
+      
+      
+      //get the string list from synsets
       for (SynSet syns : as) {
         ArrayList<String> tempAL = new ArrayList<String>();
         ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(),
@@ -145,6 +148,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             if (docText == null)
               docText = text.get(i);
 
+             // using sentence-based snippet annotator
             if (NOW_MODE == SENTENCE_MODE) {
               Reader reader = new StringReader(docText);
               DocumentPreprocessor dp = new DocumentPreprocessor(reader);
@@ -183,7 +187,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 offsetPtr = offsetPtr + sentence.size();
 
               }
-            } else {
+            } 
+            // using windows-based snippet annotator
+            else {
               String[] terms = docText.split(" ");
 
               for (int w = 0; w < terms.length - WindowsSize; w += NumOfShift) {
