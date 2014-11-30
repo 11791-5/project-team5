@@ -11,6 +11,12 @@ import edu.cmu.lti.oaqa.type.retrieval.Document;
 
 public class CosineSimilarity {
 
+  /**
+   * Given queries and docs, measure the relevant rank of documents with cosine similarity
+   * @param queryTokens
+   * @param docs
+   * @return
+   */
   public List<Document> rankDocuments(List<String> queryTokens, List<Document> docs) {
     int corpusSize = docs.size();
     Map<String, Double> query = getFreq(queryTokens);
@@ -55,6 +61,7 @@ public class CosineSimilarity {
     return cosSim;
   }
 
+  
   private Map<String, Double> getFreq(List<String> tokens) {
     HashMap<String, Double> freq = new HashMap<>();
 
@@ -65,6 +72,13 @@ public class CosineSimilarity {
     return freq;
   }
   
+  
+  /**
+   * 
+   * Get the normalization number (used for compute cosine similarity) from queryVector
+   * @param queryVector
+   * @return
+   */
   private double norm(Iterable<Double> queryVector){
     double result = 0;
     for (double d: queryVector){
