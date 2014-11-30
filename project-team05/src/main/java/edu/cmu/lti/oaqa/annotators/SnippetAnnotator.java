@@ -17,7 +17,6 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
@@ -127,7 +126,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       if (documentItems != null && !documentItems.isEmpty()) {
         rank = 0;
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
-        SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
 
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
           // System.out.println(document.getPmid());
@@ -242,6 +240,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
         System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
+          SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
           try {
             snippetWriter.write("Q:" + question.getText() + " Document:" + snippet.getDocument()
                     + " offsetBegin: " + snippet.getOffsetInBeginSection() + " offsetEnd: "
