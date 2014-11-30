@@ -6,7 +6,9 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 import edu.cmu.lti.oaqa.reader.CollectionReader;
-
+/**
+ * Singleton for the Stop Word 
+*/
 public class StopWordSingleton {
   HashSet<String> stopWordSet = new HashSet<String>();
   private static StopWordSingleton singleton;

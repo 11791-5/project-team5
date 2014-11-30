@@ -17,6 +17,11 @@ import edu.cmu.lti.oaqa.type.kb.Concept;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 
+/**
+ * Annotating concepts from PubMedSearchServiceResponse with Ontologies
+ * @author chaohunc
+ *
+ */
 public class ConceptAnnotator extends JCasAnnotator_ImplBase {
 
   @Override

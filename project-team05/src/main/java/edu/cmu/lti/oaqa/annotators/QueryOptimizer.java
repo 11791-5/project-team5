@@ -9,6 +9,11 @@ import org.apache.uima.jcas.cas.TOP;
 
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 
+/**
+ * Optimize query from concept 
+ * @author chaohunc
+ *
+ */
 public class QueryOptimizer 
 {
   
