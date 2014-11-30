@@ -40,6 +40,8 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase {
       ArrayList<String> snippets = new ArrayList<String>();
       Collection<String> stringList = null;
       StringList strlist = null;
+      
+      
       for (Object currentSnippet : passageItems) {
         Passage p = ((SnippetSearchResult) currentSnippet).getSnippets();
         strlist = ((SnippetSearchResult) currentSnippet).getQuestionsSyn();
@@ -49,6 +51,7 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase {
       }
       List<String> synonym = Utils.createListFromStringList(strlist);
 
+      //get the rank and candidate string of the answer
       Map<Integer, String> hmap = AnswerExtractor.getAnswers(snippets, synonym);
 
       int rank = 1;
@@ -68,6 +71,14 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase {
     }
   }
 
+  /**
+   * 
+   * Given a string, retrieving the stringlist of synonyms
+   * 
+   * @param ans
+   * @param aJCas
+   * @return
+   */
   public StringList getAnswerSynonyms(String ans, JCas aJCas) {
     HashSet<String> ansSynonyms = new HashSet<String>();
     try {
