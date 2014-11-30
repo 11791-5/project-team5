@@ -31,6 +31,15 @@ import edu.cmu.lti.oaqa.type.retrieval.Synonym;
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.process.DocumentPreprocessor;
 
+/**
+ * SnippetAnntator was used to extract the snippets from documents annotators
+ * Two types of methods are being used 
+ * 1. Windows-based
+ * 2. Sentence-based
+ * 
+ * @author chaohunc
+ *
+ */
 public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
   private static final int SnippetRetrievedNum = 50;
