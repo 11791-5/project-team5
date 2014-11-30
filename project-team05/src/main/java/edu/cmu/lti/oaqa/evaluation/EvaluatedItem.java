@@ -29,24 +29,44 @@ public abstract class EvaluatedItem {
   private int itemTypeId;
   private List<Object> goldStandard;
 
+  /**
+   * Get objects to be evaluated
+   * @return
+   */
   public List<Object> getToBeEvaluated() {
     return toBeEvaluated;
   }
 
+  /**
+   * Set object to be evaluated
+   * @param toBeEvaluated
+   */
   public void setToBeEvaluated(List<Object> toBeEvaluated) {
     this.toBeEvaluated = toBeEvaluated;
   }
 
+  /**
+   * Getter for gold standard
+   * @return
+   */
   public List<Object> getGoldStandard() {
     return goldStandard;
   }
 
+  /**
+   * Setter for gold standard
+   * @param goldStandard
+   */
   public void setGoldStandard(List<Object> goldStandard) {
     this.goldStandard = goldStandard;
   }
 
   private List<Object> toBeEvaluated;
 
+  /**
+   * 
+   * @param writer
+   */
   public EvaluatedItem(FileWriter writer) {
     this.setWriter(writer);
   }

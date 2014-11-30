@@ -15,12 +15,19 @@ import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 
 public class EvaluatedConcept extends EvaluatedItem {
 
+  /**
+   * Evaluate concept
+   * @param writer
+   */
   public EvaluatedConcept(FileWriter writer) {
     super(writer);
     super.setItemType("concept");
     super.setItemTypeId(ConceptSearchResult.type);
   }
 
+  /**
+   * Get evaluated items as a list
+   */
   @Override
   public List<Object> getEvaluatedItemsAsList(List<Object> itemObjects) {
     List<Object> conceptURIs = new ArrayList<Object>();
@@ -30,6 +37,9 @@ public class EvaluatedConcept extends EvaluatedItem {
     return conceptURIs;
   }
 
+  /**
+   * Get gold standard items for question defined by question ID
+   */
   @Override
   public List<Object> getGoldStandardItems(String questionId) {
     return new ArrayList<Object>(GoldStandardSingleton.getInstance().getGoldStandardAnswer()

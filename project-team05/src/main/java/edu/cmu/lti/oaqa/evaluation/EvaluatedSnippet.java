@@ -53,7 +53,6 @@ public class EvaluatedSnippet extends EvaluatedItem {
   @Override
   public void calculateItemMetrics(JCas aJCas, String queryId) {
     List<Object> goldItems = getGoldStandardItems(queryId);
-    // calculate metrics for triples
     List<Object> passageItems = Utils.extractUIMATypeAsList(SnippetSearchResult.type, aJCas);
     List<ArrayList<Object>> retrievedArticleOffsetPairs = new ArrayList<ArrayList<Object>>();
     // put all predicted snippets into list,
@@ -149,6 +148,9 @@ public class EvaluatedSnippet extends EvaluatedItem {
     return averagePrecision;
   }
 
+  /**
+   * Get gold standard items for question defined by question id
+   */
   @Override
   public List<Object> getGoldStandardItems(String questionId) {
     return new ArrayList<Object>(GoldStandardSingleton.getInstance().getGoldStandardAnswer()

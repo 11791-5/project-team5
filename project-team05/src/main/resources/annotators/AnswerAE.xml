@@ -2,9 +2,9 @@
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>
-  <annotatorImplementationName>edu.cmu.lti.oaqa.annotators.QueryRefiner</annotatorImplementationName>
+  <annotatorImplementationName>edu.cmu.lti.oaqa.annotators.AnswerAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>QueryRefiner</name>
+    <name>AnswerAE</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -25,7 +25,7 @@
       </capability>
     </capabilities>
     <operationalProperties>
-      <modifiesCas>true</modifiesCas>
+      <modifiesCas>false</modifiesCas>
       <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
       <outputsNewCASes>false</outputsNewCASes>
     </operationalProperties>

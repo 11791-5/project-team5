@@ -43,11 +43,11 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
   private static final int WINDOWS_MODE = 2;
 
-  private static final int WindowsSize = 6;
+  private static final int WindowsSize = 20;
 
-  private static final int NumOfShift = 20;
+  private static final int NumOfShift = 6;
 
-  private static final int NOW_MODE = 2;
+  int NOW_MODE = 2;
 
 
   public class ScoreComparator implements Comparator<Snippet> {
@@ -91,7 +91,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
 
-      System.out.println(question.getSynSets());
+       // get synset from
       ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
 
       edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
@@ -120,7 +120,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
       String nowSection = "section.0";
       System.out.println("QuestionItems:  " + question.getText());
-
       System.out.println("DocumentItems:  " + documentItems.size());
 
       if (documentItems != null && !documentItems.isEmpty()) {
@@ -128,7 +127,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
 
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
-          // System.out.println(document.getPmid());
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
 
           List<String> text = null;
@@ -204,11 +202,14 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 String sentence = sentenceBuf.toString();
                 List<String> sentenceTokens;
                 sentenceTokens = new ArrayList<String>();
+                for (String str: sentence.split(" "))
+                  sentenceTokens.add(str);
+                
                 StringBuffer wholeSentence = new StringBuffer();
                 int conceptMatch = 0;
 
                 int kk = 0;
-                
+              
                 for (ArrayList<String> synonymsGroup : synonymListByGroup) {
                   kk++;
                   for (String synonymTempStr : synonymsGroup) {
@@ -219,11 +220,12 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                     }
                   }
                 }
-                System.out.println(conceptMatch + " " + sentence);
+                System.out.println(conceptMatch + " X " + sentence);
                 if (conceptMatch >= MinConceptMatch) {
                   SimilarityMeasures sm = new SimilarityMeasures();
+                  
                   double score = sm.getSimilarity(sentenceTokens, synonymList);
-
+                  System.out.println(score+" !!!");
                   Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
                           sentence, offsetPtr, offsetPtr + sentence.length(),
                           nowSection, nowSection);
@@ -241,7 +243,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
-          try {
+
+         try {
+           
             snippetWriter.write("Q:" + question.getText() + " Document:" + snippet.getDocument()
                     + " offsetBegin: " + snippet.getOffsetInBeginSection() + " offsetEnd: "
                     + snippet.getOffsetInEndSection() + " A: " + snippet.getText() + "\n");
