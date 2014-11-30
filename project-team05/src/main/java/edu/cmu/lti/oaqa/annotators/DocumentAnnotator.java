@@ -32,10 +32,7 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
     {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
       
-      //String[][] result = AbnerTagger.getInstance().getTagger().getEntities(question.getText());
-      //List<String> questionTerms = new ArrayList<String>(Arrays.asList(result[0]));
       List<String> questionTerms = getQuestionTerms(question);
-      //questionTerms.add(getConceptTerms(aJCas));
       Map<String,Integer> documentIds = new HashMap<String,Integer>();
       Map<String,Document> documentMap = new HashMap<String,Document>();
       int nGrams = 0;
@@ -73,42 +70,6 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
           doc.addToIndexes();
         }
       }
-      
-      
-      
-      
-      //ArrayList<SynSet> synSets = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
-      /*List<String> questionQueries = QueryOptimizer.optimizeQuery(aJCas,question);
-      HashSet<String> documentIds = new HashSet<String>();
-      List<PubMedSearchServiceResponse.Result> queryResults = new ArrayList<PubMedSearchServiceResponse.Result>();
-      for(String query:questionQueries)
-      {
-        PubMedSearchServiceResponse.Result documents = GoPubMedServiceSingleton.getService().getDocuments(query);
-        queryResults.add(documents);
-      }
-      for(PubMedSearchServiceResponse.Result documents:queryResults)
-      {
-        int rank = 0;
-        int threshold = 2;
-        if(documents!=null && documents.getDocuments()!=null && !documents.getDocuments().isEmpty())
-        {
-          int document_limit = 0;
-          for(Document document:documents.getDocuments())
-          {
-            if(documentIds.contains(document.getPmid()))
-              continue;
-            if(document_limit>=threshold)
-              break;
-            documentIds.add(document.getPmid());
-            doc = new edu.cmu.lti.oaqa.type.retrieval.Document(aJCas);
-            doc.setDocId(document.getPmid());
-            doc.setText(document.getDocumentAbstract());
-            doc.setUri(document.getPmid());
-            doc.setRank(rank++);
-            doc.addToIndexes();
-          }
-        }
-      }*/
     }
   }
 
@@ -174,6 +135,4 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
     }
     return queryTokens;
   }
-
-
 }

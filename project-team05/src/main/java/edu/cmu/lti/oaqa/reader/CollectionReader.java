@@ -48,7 +48,6 @@ public class CollectionReader extends CollectionReader_ImplBase {
   
   public void initialize() throws ResourceInitializationException {
  
-    System.out.println(((String) getConfigParameterValue(PARAM_INPUT_FILE)).trim());
     inputFile = new File(((String) getConfigParameterValue(PARAM_INPUT_FILE)).trim());
     if (!inputFile.exists()) {
       throw new ResourceInitializationException("File Not Found",

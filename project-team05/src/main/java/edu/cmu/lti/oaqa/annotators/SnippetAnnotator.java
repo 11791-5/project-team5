@@ -120,13 +120,10 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
       edu.cmu.lti.oaqa.type.retrieval.Document doc;
 
       String nowSection = "section.0";
-      System.out.println("QuestionItems:  " + question.getText());
-      System.out.println("DocumentItems:  " + documentItems.size());
 
       if (documentItems != null && !documentItems.isEmpty()) {
         rank = 0;
         ArrayList<Snippet> snippetList = new ArrayList<Snippet>();
-    //    SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
 
         for (edu.cmu.lti.oaqa.type.retrieval.Document document : documentItems) {
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
@@ -168,14 +165,12 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 for (ArrayList<String> synonymsGroup : synonymListByGroup) {
                   kk++;
                   for (String synonymTempStr : synonymsGroup) {
-                    System.out.println(kk + "||" + synonymTempStr + "||" + wholeSentenceStr);
                     if (wholeSentenceStr.contains(synonymTempStr)) {
                       conceptMatch++;
                       break;
                     }
                   }
                 }
-                System.out.println(conceptMatch + " " + wholeSentenceStr);
                 if (conceptMatch >= MinConceptMatch) {
                   SimilarityMeasures sm = new SimilarityMeasures();
                   double score = sm.getSimilarity(sentenceTokens, synonymList);
@@ -215,19 +210,16 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
                 for (ArrayList<String> synonymsGroup : synonymListByGroup) {
                   kk++;
                   for (String synonymTempStr : synonymsGroup) {
-                    System.out.println(kk + "||" + synonymTempStr + "||" + sentence);
                     if (sentence.contains(synonymTempStr)) {
                       conceptMatch++;
                       break;
                     }
                   }
                 }
-                System.out.println(conceptMatch + " X " + sentence);
                 if (conceptMatch >= MinConceptMatch) {
                   SimilarityMeasures sm = new SimilarityMeasures();
                   
                   double score = sm.getSimilarity(sentenceTokens, synonymList);
-                  System.out.println(score+" !!!");
                   Snippet s = new Snippet(score, PUBMED_URL + document.getDocId(),
                           sentence, offsetPtr, offsetPtr + sentence.length(),
                           nowSection, nowSection);
@@ -242,7 +234,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
         int rankThreshold = 1;
         Collections.sort(snippetList, new ScoreComparator());
 
-        System.out.println(snippetList.size());
         for (Snippet snippet : snippetList) {
           SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
          try {
@@ -253,7 +244,6 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
             e.printStackTrace();
           }
 
-          System.out.println(snippet.score + " " + snippet.getText());
 
           snippetSearchResult.setSnippets(createPassage(snippet, jcas));
           rankThreshold++;

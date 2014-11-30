@@ -22,35 +22,29 @@ import edu.cmu.lti.oaqa.type.kb.Triple;
 import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
 
-
-
 /**
  * @author niloyg
  *
- *Makes a call to the Entrez Gene database to check whether the entity 
- *is present in the gene database. Increases the confidence of the entity if it is present in the gene DB.
+ *         Makes a call to the Entrez Gene database to check whether the entity is present in the
+ *         gene database. Increases the confidence of the entity if it is present in the gene DB.
  */
 
 public class BioQuestionAnnotator extends JCasAnnotator_ImplBase {
-  
+
   @Override
-  public void process( JCas jcas ) throws AnalysisEngineProcessException {  
+  public void process(JCas jcas) throws AnalysisEngineProcessException {
     FSIterator<Annotation> questions = jcas.getAnnotationIndex(Question.type).iterator();
-    while (questions.hasNext()) 
-    {
+    while (questions.hasNext()) {
       Question question = (Question) questions.next();
-      //System.out.println(question.getQuestionType() + " "+question.getText());
       String questionText = StanfordLemmatizer.stemText(question.getText());
-      System.out.println(question.getQuestionType() + " "+questionText);
       ConceptSearchResult conceptSearchResult;
       List<Integer> ontologies = new ArrayList<Integer>();
       ontologies.add(1);
-      List<OntologyServiceResponse.Result> resultList = GoPubMedServiceSingleton.getService().getConcepts(questionText,ontologies);
+      List<OntologyServiceResponse.Result> resultList = GoPubMedServiceSingleton.getService()
+              .getConcepts(questionText, ontologies);
       int rank = 0;
-      for(OntologyServiceResponse.Result resultResponse:resultList)
-      {
-        for (OntologyServiceResponse.Finding finding : resultResponse.getFindings())
-        {
+      for (OntologyServiceResponse.Result resultResponse : resultList) {
+        for (OntologyServiceResponse.Finding finding : resultResponse.getFindings()) {
           conceptSearchResult = new ConceptSearchResult(jcas);
           Concept concept = new Concept(jcas);
           concept.setName(finding.getConcept().getLabel());
@@ -60,56 +54,41 @@ public class BioQuestionAnnotator extends JCasAnnotator_ImplBase {
           conceptSearchResult.addToIndexes();
         }
       }
-      edu.cmu.lti.oaqa.type.retrieval.Document doc; 
-      PubMedSearchServiceResponse.Result documents = GoPubMedServiceSingleton.getService().getDocuments(questionText);
-      if(documents!=null && documents.getDocuments()!=null && !documents.getDocuments().isEmpty())
-      {
+      edu.cmu.lti.oaqa.type.retrieval.Document doc;
+      PubMedSearchServiceResponse.Result documents = GoPubMedServiceSingleton.getService()
+              .getDocuments(questionText);
+      if (documents != null && documents.getDocuments() != null
+              && !documents.getDocuments().isEmpty()) {
         rank = 0;
-        for(Document document:documents.getDocuments())
-        {
+        for (Document document : documents.getDocuments()) {
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
           List<MeshAnnotation> meshAnnotations = document.getMeshAnnotations();
-          System.out.println(document.getTitle());
-          for(MeshAnnotation annotation:meshAnnotations)
-          {
-            System.out.println(annotation.getTermLabel());
-            System.out.println(annotation.getUri());
-          }
           doc.setDocId(document.getPmid());
           doc.setUri(document.getPmid());
           doc.setRank(rank++);
           doc.addToIndexes();
         }
       }
-      if("YES_NO".equals(question.getQuestionType()))
-      {
-        LinkedLifeDataServiceResponse.Result linkedLifeDataResult = GoPubMedServiceSingleton.getService().getTriples(questionText);
-        if(linkedLifeDataResult != null)
-        {
+      if ("YES_NO".equals(question.getQuestionType())) {
+        LinkedLifeDataServiceResponse.Result linkedLifeDataResult = GoPubMedServiceSingleton
+                .getService().getTriples(questionText);
+        if (linkedLifeDataResult != null) {
           TripleSearchResult tripleSearchResult;
           rank = 0;
           for (LinkedLifeDataServiceResponse.Entity entity : linkedLifeDataResult.getEntities()) {
             for (LinkedLifeDataServiceResponse.Relation relation : entity.getRelations()) {
               tripleSearchResult = new TripleSearchResult(jcas);
               tripleSearchResult.setRank(rank++);
-              Triple triple = new Triple(jcas);              
+              Triple triple = new Triple(jcas);
               triple.setObject(relation.getObj());
               triple.setSubject(relation.getSubj());
               triple.setPredicate(relation.getPred());
               tripleSearchResult.setTriple(triple);
               tripleSearchResult.addToIndexes();
-              /*System.out.println("   - pred: " + relation.getPred());
-              System.out.println("   - sub: " + relation.getSubj());
-              System.out.println("   - obj: " + relation.getObj());
-              jcas.addFsToIndexes(triple);*/
             }
           }
         }
-
       }
-      
     }
-    
   }
-
 }

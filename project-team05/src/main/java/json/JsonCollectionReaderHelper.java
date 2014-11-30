@@ -35,8 +35,6 @@ public class JsonCollectionReaderHelper {
 	}
 
 	public List<Question> getQuestionsList(String filePath) {
-		//String filePath = "/BioASQ-SampleData1B.json";
-	  System.out.println(filePath);
 		List<Question> inputs;
 		inputs = Lists.newArrayList();
 		Object value = filePath;

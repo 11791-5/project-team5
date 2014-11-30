@@ -18,23 +18,6 @@ public class QueryOptimizer
   
   public static List<String> optimizeQuery(JCas aJCas, ExpandedQuestion question)
   {
-    
-   /* ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
-    edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
-    ArrayList<String> queryTokens = new ArrayList<String>();
-    List<String> conceptQuery = new ArrayList<String>()
-    String query = "(";
-    String optimizedQuery = ""; 
-    for (SynSet syns : as) 
-    {
-      ArrayList<Synonym> synonyms = Utils.fromFSListToCollection(syns.getSynonyms(),Synonym.class);
-      /*for (Synonym synonym : synonyms)
-        query+= synonym.getSynonym() + " OR ";
-      query += syns.getOriginalToken() + " )AND( ";
-      queryTokens.add(syns.getOriginalToken());
-    }*/
-    //query = query.substring(0, query.length()-5);    
-   // return optimizedQuery;
     List<String> conceptQuery = new ArrayList<String>();
     FSIterator<TOP> conceptIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(ConceptSearchResult.type);
     int threshold = 0;
@@ -44,7 +27,6 @@ public class QueryOptimizer
       threshold++;
     }
     return conceptQuery;
-    //return null;
   }
 
 }
