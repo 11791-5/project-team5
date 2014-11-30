@@ -25,6 +25,11 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
 
   private FileWriter exactAnswerWriter;
 
+  /**
+   * Set evaluated exact answer
+   * @param writer
+   * @throws IOException
+   */
   public EvaluatedExactAnswer(FileWriter writer) throws IOException {
     super(writer);
     super.setItemType("Exact Answer");

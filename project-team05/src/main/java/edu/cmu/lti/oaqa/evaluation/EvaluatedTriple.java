@@ -19,14 +19,21 @@ import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
 
 public class EvaluatedTriple extends EvaluatedItem {
 
+  // Object average precision
   private ArrayList<Double> objectAP = new ArrayList<Double>();
 
+  // Predicate average precision
   private ArrayList<Double> predicateAP = new ArrayList<Double>();
 
+  // Subject average precision
   private ArrayList<Double> subjectAP = new ArrayList<Double>();
 
   private boolean isCalculatingSeparatePrecisions;
 
+  /**
+   * Write evaluated triple
+   * @param writer
+   */
   public EvaluatedTriple(FileWriter writer) {
     super(writer);
     super.setItemType("triple");
@@ -139,6 +146,8 @@ public class EvaluatedTriple extends EvaluatedItem {
                 && triple.getSubject() != null && triple.getSubject().equalsIgnoreCase(goldTriple.getS())
                 && triple.getPredicate() != null
                 && triple.getPredicate().equalsIgnoreCase(goldTriple.getP())) {
+          // If triple object, subject and predicate match, then increment the
+          // number of true positive
           numTruePos++;
         }
       }
