@@ -22,7 +22,6 @@ public class TriplesAnnotator  extends JCasAnnotator_ImplBase
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
 
-    edu.cmu.lti.oaqa.type.retrieval.Document doc; 
     FSIterator<Annotation> questions = aJCas.getAnnotationIndex(ExpandedQuestion.type).iterator();
     while (questions.hasNext()) 
     {

@@ -20,9 +20,6 @@ import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
 
 public class CollectionReader extends CollectionReader_ImplBase {
 
-  private ArrayList<File> mFiles;
-
-  private int mCurrentIndex = 0;
   /**
    * Name of configuration parameter that must be set to the path of the input file.
    */

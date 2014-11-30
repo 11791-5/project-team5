@@ -15,12 +15,10 @@
 	the filesystem. The Java class for this collection reader is in uima_core.jar. -->
 <collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
 	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-	<implementationName>edu.cmu.lti.oaqa.reader.CollectionReader
-	</implementationName>
+	<implementationName>edu.cmu.lti.oaqa.reader.CollectionReader</implementationName>
 	<processingResourceMetaData>
 		<name>geneCollectionReader</name>
-		<description>Reads the question json file from the file system
-		</description>
+		<description>Reads the question json file from the file system</description>
 		<version>1.0</version>
 		<vendor>The Apache Software Foundation</vendor>
 		<configurationParameters>
@@ -37,16 +35,8 @@
 				<mandatory>true</mandatory>
 			</configurationParameter>
 			<configurationParameter>
-				<name>LingpipeModelFile</name>
-				<description>File path to the HMM Trained Model</description>
-				<type>String</type>
-				<multiValued>false</multiValued>
-				<mandatory>true</mandatory>
-			</configurationParameter>
-			<configurationParameter>
 				<name>StopWordList</name>
-				<description>Path to file containing list of stop words.
-				</description>
+				<description>Path to file containing list of stop words.</description>
 				<type>String</type>
 				<multiValued>false</multiValued>
 				<mandatory>false</mandatory>
@@ -84,29 +74,23 @@
 					<string>src/main/resources/StopSynonymList.txt</string>
 				</value>
 			</nameValuePair>
-			<nameValuePair>
-				<name>LingpipeModelFile</name>
-				<value>
-					<string>src/main/resources/model.hmm</string>
-				</value>
-			</nameValuePair>
-		</configurationParameterSettings>
+			</configurationParameterSettings>
 
 		<!-- Type System of CASes returned by this Collection Reader -->
 
 		<typeSystemDescription>
 			<imports>
-				<import name="type.OAQATypes" />
+				<import name="type.OAQATypes"/>
 			</imports>
 		</typeSystemDescription>
 
-		<typePriorities />
-		<fsIndexCollection />
+		<typePriorities/>
+		<fsIndexCollection/>
 		<capabilities>
 			<capability>
-				<inputs />
-				<outputs />
-				<languagesSupported />
+				<inputs/>
+				<outputs/>
+				<languagesSupported/>
 			</capability>
 		</capabilities>
 		<operationalProperties>
@@ -115,5 +99,5 @@
 			<outputsNewCASes>true</outputsNewCASes>
 		</operationalProperties>
 	</processingResourceMetaData>
-	<resourceManagerConfiguration />
+	<resourceManagerConfiguration/>
 </collectionReaderDescription>

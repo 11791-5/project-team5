@@ -62,7 +62,6 @@ public class BioQuestionAnnotator extends JCasAnnotator_ImplBase {
         rank = 0;
         for (Document document : documents.getDocuments()) {
           doc = new edu.cmu.lti.oaqa.type.retrieval.Document(jcas);
-          List<MeshAnnotation> meshAnnotations = document.getMeshAnnotations();
           doc.setDocId(document.getPmid());
           doc.setUri(document.getPmid());
           doc.setRank(rank++);
