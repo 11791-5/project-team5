@@ -48,7 +48,7 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
   private static final int NumOfShift = 20;
 
-  private static final int NOW_MODE = 2;
+  int NOW_MODE = 2;
 
 
   public class ScoreComparator implements Comparator<Snippet> {
