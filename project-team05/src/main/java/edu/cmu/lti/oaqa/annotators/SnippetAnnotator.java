@@ -17,7 +17,6 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
@@ -236,7 +235,9 @@ public class SnippetAnnotator extends JCasAnnotator_ImplBase {
 
         for (Snippet snippet : snippetList) {
           SnippetSearchResult snippetSearchResult = new SnippetSearchResult(jcas);
+
          try {
+           
             snippetWriter.write("Q:" + question.getText() + " Document:" + snippet.getDocument()
                     + " offsetBegin: " + snippet.getOffsetInBeginSection() + " offsetEnd: "
                     + snippet.getOffsetInEndSection() + " A: " + snippet.getText() + "\n");
