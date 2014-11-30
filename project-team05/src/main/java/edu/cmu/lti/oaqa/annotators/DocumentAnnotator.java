@@ -9,7 +9,6 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.jcas.tcas.Annotation;
 
 import util.GoPubMedServiceSingleton;
@@ -17,7 +16,6 @@ import util.Utils;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse;
 import edu.cmu.lti.oaqa.bio.bioasq.services.PubMedSearchServiceResponse.Document;
 import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
-import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 import edu.cmu.lti.oaqa.type.retrieval.Synonym;
 
@@ -73,19 +71,6 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
     }
   }
 
-  private String  getConceptTerms(JCas aJCas) {
-    FSIterator<TOP> conceptIterator = aJCas.getJFSIndexRepository().getAllIndexedFS(ConceptSearchResult.type);
-    String conceptQuery = "(";
-    int threshold = 0;
-    while (conceptIterator.hasNext() && threshold<5) {
-      ConceptSearchResult concept = (ConceptSearchResult) conceptIterator.next(); 
-      conceptQuery += concept.getConcept().getName() +" OR ";
-      threshold++;
-    }
-    conceptQuery += ")";
-    return conceptQuery;
-  }
-
   private boolean hasDocThreshold(Map<String, Integer> documentIds, int threshold) {
     
     int relDocs = 0;
@@ -122,7 +107,6 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
   private List<String> getQuestionTerms(ExpandedQuestion question) 
   {
     ArrayList<SynSet> as = Utils.fromFSListToCollection(question.getSynSets(), SynSet.class);
-    edu.cmu.lti.oaqa.type.retrieval.SynSet synset;
     List<String> queryTokens = new ArrayList<String>();
     for (SynSet syns : as) 
     {

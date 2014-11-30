@@ -1,6 +1,5 @@
 package util;
 
-import java.util.Comparator;
 
 /**
  * A class used in the RetrievalEvaluator to save information about 

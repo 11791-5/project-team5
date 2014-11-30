@@ -1,7 +1,6 @@
 package edu.cmu.lti.oaqa.annotators;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -11,8 +10,6 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.EmptyStringList;
-import org.apache.uima.jcas.cas.NonEmptyStringList;
 import org.apache.uima.jcas.cas.StringList;
 import org.apache.uima.jcas.tcas.Annotation;
 
@@ -33,13 +30,13 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase {
     // read each question
     while (questions.hasNext()) {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-      String questionid = question.getId();
+      question.getId();
       List<Object> passageItems = Utils.extractUIMATypeAsList(SnippetSearchResult.type, aJCas);
-      List<ArrayList<Object>> retrievedArticleOffsetPairs = new ArrayList<ArrayList<Object>>();
 
       ArrayList<String> snippets = new ArrayList<String>();
-      Collection<String> stringList = null;
       StringList strlist = null;
+      
+      
       for (Object currentSnippet : passageItems) {
         Passage p = ((SnippetSearchResult) currentSnippet).getSnippets();
         strlist = ((SnippetSearchResult) currentSnippet).getQuestionsSyn();
@@ -49,9 +46,9 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase {
       }
       List<String> synonym = Utils.createListFromStringList(strlist);
 
+      //get the rank and candidate string of the answer
       Map<Integer, String> hmap = AnswerExtractor.getAnswers(snippets, synonym);
 
-      int rank = 1;
       for (Entry<Integer, String> entry : hmap.entrySet()) {
         Answer ans = new Answer(aJCas);
         ans.setText(entry.getValue().toLowerCase());
@@ -62,12 +59,18 @@ public class AnswerAnnotator extends JCasAnnotator_ImplBase {
         }
 
         ans.addToIndexes();
-
       }
-
     }
   }
 
+  /**
+   * 
+   * Given a string, retrieving the stringlist of synonyms
+   * 
+   * @param ans
+   * @param aJCas
+   * @return
+   */
   public StringList getAnswerSynonyms(String ans, JCas aJCas) {
     HashSet<String> ansSynonyms = new HashSet<String>();
     try {

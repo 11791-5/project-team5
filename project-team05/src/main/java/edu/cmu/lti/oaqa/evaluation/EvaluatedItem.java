@@ -101,11 +101,6 @@ public abstract class EvaluatedItem {
     List<Object> itemObjects = Utils.extractUIMATypeAsList(
             this.getItemTypeId(), aJCas);
     toBeEvaluated = getEvaluatedItemsAsList(itemObjects);
-    if(EvaluatedItem.this instanceof EvaluatedExactAnswer) {
-      ((EvaluatedExactAnswer)this).getExactAnswerWriter().write("Gold standard for question "+queryId + ":"+ goldStandard+"\n");
-      ((EvaluatedExactAnswer)this).getExactAnswerWriter().write("Hypothesis for question "+queryId + ":"+ toBeEvaluated+"\n");
-      ((EvaluatedExactAnswer)this).getExactAnswerWriter().flush();
-    }
     double precision = getPrecision(toBeEvaluated, goldStandard);
     double recall = getRecall(toBeEvaluated, goldStandard);
     double fScore = calcF(precision, recall);

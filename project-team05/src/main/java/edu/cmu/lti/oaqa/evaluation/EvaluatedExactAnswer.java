@@ -1,6 +1,5 @@
 package edu.cmu.lti.oaqa.evaluation;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,11 +7,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-import util.Utils;
-import json.gson.Question;
 import json.gson.TestListQuestion;
+import util.Utils;
 import edu.cmu.lti.oaqa.consumers.GoldStandardSingleton;
-import edu.cmu.lti.oaqa.type.retrieval.ConceptSearchResult;
 import edu.stanford.nlp.util.CollectionUtils;
 
 /**
@@ -23,8 +20,6 @@ import edu.stanford.nlp.util.CollectionUtils;
 
 public class EvaluatedExactAnswer extends EvaluatedItem {
 
-  private FileWriter exactAnswerWriter;
-
   /**
    * Set evaluated exact answer
    * @param writer
@@ -34,7 +29,6 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
     super(writer);
     super.setItemType("Exact Answer");
     super.setItemTypeId(edu.cmu.lti.oaqa.type.answer.Answer.type);
-    setExactAnswerWriter(new FileWriter(new File("exactAnswerOutput.txt")));
   }
 
   /**
@@ -93,24 +87,6 @@ public class EvaluatedExactAnswer extends EvaluatedItem {
       }
     }
     return numTruePositives;
-  }
-  
-  
-
-  /**
-   * Exact answer writer
-   * @return
-   */
-  public FileWriter getExactAnswerWriter() {
-    return exactAnswerWriter;
-  }
-
-  /**
-   * Exact answer setter
-   * @param exactAnswerWriter
-   */
-  public void setExactAnswerWriter(FileWriter exactAnswerWriter) {
-    this.exactAnswerWriter = exactAnswerWriter;
   }
 
 }
