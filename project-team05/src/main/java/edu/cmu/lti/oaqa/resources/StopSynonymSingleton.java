@@ -6,7 +6,10 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 import edu.cmu.lti.oaqa.reader.CollectionReader;
-
+/**
+ * Singleton for the Stop Synonym 
+ *
+ */
 public class StopSynonymSingleton {
   // Singleton for the stop word list
   HashSet<String> stopWordSet = new HashSet<String>();

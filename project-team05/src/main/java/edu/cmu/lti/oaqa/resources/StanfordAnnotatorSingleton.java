@@ -2,6 +2,10 @@ package edu.cmu.lti.oaqa.resources;
 import java.util.Properties;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
+/**
+ * Singleton for the StanfordAnnotator 
+ *
+ */
 public class StanfordAnnotatorSingleton {
   StanfordCoreNLP pipeline;
 

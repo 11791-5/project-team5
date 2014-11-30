@@ -19,6 +19,11 @@ import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.retrieval.SynSet;
 import edu.cmu.lti.oaqa.type.retrieval.Synonym;
 
+/**
+ * Annotating documents from PubMedSearchServiceResponse
+ * @author chaohunc
+ *
+ */
 public class DocumentAnnotator extends JCasAnnotator_ImplBase
 {
 

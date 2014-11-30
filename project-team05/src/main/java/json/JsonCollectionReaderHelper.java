@@ -27,6 +27,12 @@ import edu.cmu.lti.oaqa.type.retrieval.Document;
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
 import edu.cmu.lti.oaqa.type.retrieval.TripleSearchResult;
 
+/**
+ * Helper for Collection Reader
+ * 
+ * @author chaohunc
+ *
+ */
 public class JsonCollectionReaderHelper {
 
 	public static void main(String[] args) {

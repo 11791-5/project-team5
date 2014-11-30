@@ -22,6 +22,11 @@ import edu.cmu.lti.oaqa.type.input.ExpandedQuestion;
 import edu.cmu.lti.oaqa.type.retrieval.Passage;
 import edu.cmu.lti.oaqa.type.retrieval.SnippetSearchResult;
 
+/**
+ * Annotating answers from Snippets
+ * @author chaohunc
+ *
+ */
 public class AnswerAnnotator extends JCasAnnotator_ImplBase {
 
   @Override
