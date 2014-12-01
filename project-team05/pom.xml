@@ -28,7 +28,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.8</source>
+					<source>1.8</source>	
 					<target>1.8</target>
 				</configuration>
 			</plugin>
@@ -50,6 +50,15 @@
 			</plugin>
 		</plugins>
 	</build>
+	 <dependencyManagement>
+      <dependencies>
+         <dependency>
+             <groupId>com.google.code.gson</groupId>
+             <artifactId>gson</artifactId>
+             <version>2.2.4</version>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.uima</groupId>
@@ -109,19 +118,9 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.3</version>
-		</dependency>
-		<dependency>
 			<groupId>com.github.julman99</groupId>
 			<artifactId>gson-fire</artifactId>
 			<version>0.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.julman99</groupId>
