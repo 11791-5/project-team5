@@ -35,8 +35,8 @@
 		<flowConstraints>
 			<fixedFlow>
 				<node>QueryExpander</node>
-				<node>TriplesAnnotatorDescriptor</node>
-				<node>ConceptAnnotatorDescriptor</node>
+				<!--  <node>TriplesAnnotatorDescriptor</node>
+				<node>ConceptAnnotatorDescriptor</node>-->
 				<node>DocumentAE</node>
 				<node>SnippetAE</node>
 				<node>AnswerAE</node>

@@ -34,7 +34,10 @@ public class DocumentAnnotator extends JCasAnnotator_ImplBase
     while (questions.hasNext()) 
     {
       ExpandedQuestion question = (ExpandedQuestion) questions.next();
-      
+      /*
+       * Uses the brute force technique of querying the PubMed database
+       * 
+       */
       List<String> questionTerms = getQuestionTerms(question);
       Map<String,Integer> documentIds = new HashMap<String,Integer>();
       Map<String,Document> documentMap = new HashMap<String,Document>();
