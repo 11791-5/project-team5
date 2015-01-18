@@ -11,3 +11,5 @@ The pipeline accepts a biomedical question, queries various biological ontologie
 Example:
 Q: "What is the most prominent sequence consensus for the polyadenylation site?"
 A: "AATAAA","AAUAAA"
+
+Check out our presentation: http://goo.gl/PihBxz
